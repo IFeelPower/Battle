@@ -8,3 +8,15 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false
 })
 
+local Section = Tab:AddSection({
+	Name = "Shadow V2 Danger"
+})
+
+Tab:AddButton({
+ Name = "NUKE 10000 ATOMIC",
+ Callback = function()
+        for i = 1, 10000 do
+game:GetService("ReplicatedStorage").CidKageeno.Atomicc:FireServer()
+end
+   end    
+})
