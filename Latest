@@ -1,7 +1,7 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
-   Name = "Rayfield Example Window",
+   Name = "LOL",
    LoadingTitle = "Rayfield Interface Suite",
    LoadingSubtitle = "by Sirius",
    ConfigurationSaving = {
@@ -115,14 +115,14 @@ game:GetService("Players").LocalPlayer.Backpack["Supreme Art: Maximum Uzumaki"].
 local Section = Tab:CreateSection("Shadow V2")
 
 local Button = Tab:CreateButton({
- Name = "Atomic",
+ Name = "Atomic - You Need hold",
  Callback = function()
 game:GetService("ReplicatedStorage").AtomicFolder.gaydog:FireServer()
    end    
 })
 
 local Button = Tab:CreateButton({
- Name = "All Range Atomic",
+ Name = "All Range Atomic - You need hold",
  Callback = function()
 game:GetService("ReplicatedStorage").CidKageeno.Atomicc:FireServer()
    end    
@@ -335,7 +335,7 @@ game:GetService("Players").LocalPlayer.Backpack.Furnace.LocalScript.Event:FireSe
 local Section = Tab:CreateSection("SHADOW V2")
 
 local Button = Tab:CreateButton({
- Name = "NUKE 10000 ATOMIC",
+ Name = "NUKE 10000 ATOMIC You need hold",
  Callback = function()
         for i = 1, 10000 do
 game:GetService("ReplicatedStorage").CidKageeno.Atomicc:FireServer()
