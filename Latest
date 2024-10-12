@@ -332,17 +332,6 @@ game:GetService("Players").LocalPlayer.Backpack.Furnace.LocalScript.Event:FireSe
    end    
 })
 
-local Section = Tab:CreateSection("SHADOW V2 Dangerous")
-
-local Button = Tab:CreateButton({
- Name = "NUKE 10000 ATOMIC You need hold",
- Callback = function()
-        for i = 1, 10000 do
-game:GetService("ReplicatedStorage").CidKageeno.Atomicc:FireServer()
-end
-   end    
-})
-
 local Section = Tab:CreateSection("Gojo Unleashed")
 
 local Button = Tab:CreateButton({
@@ -434,3 +423,38 @@ local Toggle = Tab:CreateToggle({
         game.Players.LocalPlayer.Character.Humanoid.JumpPower = v
     end,
  })
+
+local Tab = Window:CreateTab("Nuke Server", 4483362458) -- Title, Image
+
+local Section = Tab:CreateSection("SHADOW V2 You need to hold All range atomic")
+
+local Button = Tab:CreateButton({
+ Name = "REAL ATOMIC",
+ Callback = function()
+        for i = 1, 10000 do
+game:GetService("ReplicatedStorage").CidKageeno.Atomicc:FireServer()
+end
+   end    
+})
+
+local Section = Tab:CreateSection("Sukuna No need item")
+
+local Button = Tab:CreateButton({
+ Name = "INFINITE Malevolent Kitchen",
+ Callback = function()
+        for i = 1, 10000 do
+game:GetService("ReplicatedStorage").RyomenSukuna.MalevolentShrine.Gaymalev:FireServer()
+end
+   end    
+})
+
+local Section = Tab:CreateSection("Gojo No need item")
+
+local Button = Tab:CreateButton({
+ Name = "ATOMIC PURPLE",
+ Callback = function()
+        for i = 1, 10000 do
+game:GetService("ReplicatedStorage").GojoV3.nuke:FireServer()
+end
+   end    
+})
