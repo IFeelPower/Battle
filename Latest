@@ -462,7 +462,7 @@ end
 local Section = Tab:CreateSection("Byakuya")
 
 local Button = Tab:CreateButton({
- Name = "TRUE DONUTS",
+ Name = "KILL FPS",
  Callback = function()
         for i = 1, 10000 do
 game:GetService("Players").LocalPlayer.Backpack.Bankai.LocalScript.Event:FireServer()
