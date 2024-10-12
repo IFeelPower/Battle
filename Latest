@@ -469,3 +469,26 @@ game:GetService("Players").LocalPlayer.Backpack.Bankai.LocalScript.Event:FireSer
 end
    end    
 })
+
+local Tab = Window:CreateTab("Kill aura", 4483362458) -- Title, Image
+
+local Section = Tab:CreateSection("God mode")
+
+local Button = Tab:CreateButton({
+ Name = "The Honored One use item",
+ Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Wee/refs/heads/main/ehe?token=GHSAT0AAAAAACYXUOAGTIULGXW2ZHUCJ4IWZYKWLHQ"))()
+   end    
+})
+
+local Section = Tab:CreateSection("Need Awaken Toji")
+
+local Button = Tab:CreateButton({
+ Name = "Auto Kill",
+ Callback = function()
+        while true do
+  wait(1)
+game:GetService("Players").LocalPlayer.Backpack["Wrong Way"].Main.Event:FireServer()
+end
+   end    
+})
