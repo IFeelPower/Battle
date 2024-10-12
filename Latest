@@ -425,7 +425,7 @@ local Toggle = Tab:CreateToggle({
  
  local Slider = Tab:CreateSlider({
     Name = "JumpPower",
-    Range = {50, 500},
+    Range = {30, 500},
     Increment = 1,
     Suffix = "JumpPower",
     CurrentValue = 50,
