@@ -458,3 +458,14 @@ game:GetService("ReplicatedStorage").GojoV3.nuke:FireServer()
 end
    end    
 })
+
+local Section = Tab:CreateSection("Byakuya")
+
+local Button = Tab:CreateButton({
+ Name = "TRUE DONUTS",
+ Callback = function()
+        for i = 1, 10000 do
+game:GetService("Players").LocalPlayer.Backpack.Bankai.LocalScript.Event:FireServer()
+end
+   end    
+})
