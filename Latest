@@ -509,7 +509,7 @@ local Button = Tab:CreateButton({
 })
 
 local Button = Tab:CreateButton({
- Name = "Delete Items",
+ Name = "Delete Items activate this after Meow",
  Callback = function()
         local Player = game:GetService("Players").LocalPlayer
 local Backpack = Player.Backpack
