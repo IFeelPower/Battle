@@ -383,7 +383,7 @@ game:GetService("ReplicatedStorage").Picked:FireServer(unpack(args))
     end
 })
 
-local Tab = Window:CreateTab("Movement", 4483362458) -- Title, Image
+local Tab = Window:CreateTab("Move", 4483362458) -- Title, Image
 
 local Toggle = Tab:CreateToggle({
     Name = "Infinite Jump",
@@ -424,7 +424,7 @@ local Toggle = Tab:CreateToggle({
     end,
  })
 
-local Tab = Window:CreateTab("Nuke Server", 4483362458) -- Title, Image
+local Tab = Window:CreateTab("Nuker", 4483362458) -- Title, Image
 
 local Section = Tab:CreateSection("SHADOW V2 You need to hold All range atomic")
 
@@ -470,7 +470,25 @@ end
    end    
 })
 
-local Tab = Window:CreateTab("Kill aura", 4483362458) -- Title, Image
+local Tab = Window:CreateTab("Kill", 4483362458) -- Title, Image
+
+local Button = Tab:CreateButton({
+ Name = "Always show Characters",
+ Default = false,
+ Callback = function(Value)
+        local player = game.Players.LocalPlayer
+local playerGui = player.PlayerGui
+jkiol = Value
+while jkiol do
+  task.wait()
+local selectionGui = playerGui:FindFirstChild("SelectionGui")
+if selectionGui and selectionGui.Enabled == false then
+  selectionGui.Enabled = true
+  print("Test Function")
+ end
+end
+   end    
+})
 
 local Section = Tab:CreateSection("Invincible")
 
@@ -481,10 +499,31 @@ local Button = Tab:CreateButton({
    end    
 })
 
+local Button = Tab:CreateButton({
+ Name = "Delete all item",
+ Callback = function()
+        local Player = game:GetService("Players").LocalPlayer
+local Backpack = Player.Backpack
+local Character = Player.Character
+
+for _,v in pairs(Backpack:GetChildren()) do
+   if v:IsA("Tool") or v:IsA("HopperBin") then
+       v:Destroy()
+   end
+end
+
+for _,v in pairs(Character:GetChildren()) do
+   if v:IsA("Tool") or v:IsA("HopperBin") then
+       v:Destroy()
+   end 
+end
+   end    
+})
+
 local Section = Tab:CreateSection("Need Awaken Toji")
 
 local Button = Tab:CreateButton({
- Name = "Auto Kill",
+ Name = "Kill Aura",
  Callback = function()
         while true do
   wait(1)
@@ -493,7 +532,7 @@ end
    end    
 })
 
-local Tab = Window:CreateTab("You are my Special", 4483362458) -- Title, Image
+local Tab = Window:CreateTab("Special", 4483362458) -- Title, Image
 
 local Section = Tab:CreateSection("Megumin")
 
@@ -501,5 +540,14 @@ local Button = Tab:CreateButton({
  Name = "Strongest Magic",
  Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/Explo"))()
+   end    
+})
+
+local Section = Tab:CreateSection("KJ")
+
+local Button = Tab:CreateButton({
+ Name = "KJ DropKick",
+ Callback = function()
+game:GetService("ReplicatedStorage").Remotes.Skill.KJ.Dropkick:FireServer()
    end    
 })
