@@ -499,7 +499,7 @@ local Button = Tab:CreateButton({
    end    
 })
 
-local Button = Tab:CreateButton({
+local Toggle = Tab:CreateToggle({
  Name = "Delete all item",
  Callback = function()
         local Player = game:GetService("Players").LocalPlayer
