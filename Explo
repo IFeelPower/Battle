@@ -1,5 +1,5 @@
 local tool = Instance.new("Tool")
-tool.Name = "Managed Megumin"
+tool.Name = "Explosion!"
 tool.RequiresHandle = false
 
 local lastPressTime = 0
