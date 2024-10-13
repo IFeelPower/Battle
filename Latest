@@ -573,7 +573,7 @@ game:GetService("ReplicatedStorage").Events.Malclash:FireServer()
 local Section = Tab:CreateSection("Invincible for like 1 minutes")
 
 local Button = Tab:CreateButton({
- Name = "Pay to win Malevolent Shrine",
+ Name = "Old Hakari",
  Callback = function()
 game:GetService("ReplicatedStorage").Domainthing:FireServer()
    end    
