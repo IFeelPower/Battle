@@ -518,7 +518,7 @@ for _,v in pairs(Character:GetChildren()) do
    end 
 end
    end    
-})
+)
 
 local Section = Tab:CreateSection("Need Awaken Toji")
 
