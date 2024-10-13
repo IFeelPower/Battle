@@ -475,9 +475,9 @@ local Tab = Window:CreateTab("Kill aura", 4483362458) -- Title, Image
 local Section = Tab:CreateSection("Invincible")
 
 local Button = Tab:CreateButton({
- Name = "The Honored One - use this item",
+ Name = "Meow - use this item",
  Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Wee/refs/heads/main/ehe?token=GHSAT0AAAAAACYXUOAHQSL3OMZFFDKBT4JSZYKYGFQ"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/Meow"))()
    end    
 })
 
@@ -490,5 +490,16 @@ local Button = Tab:CreateButton({
   wait(1)
 game:GetService("Players").LocalPlayer.Backpack["Wrong Way"].Main.Event:FireServer()
 end
+   end    
+})
+
+local Tab = Window:CreateTab("You are my Special", 4483362458) -- Title, Image
+
+local Section = Tab:CreateSection("Megumin")
+
+local Button = Tab:CreateButton({
+ Name = "Strongest Magic",
+ Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/Explo"))()
    end    
 })
