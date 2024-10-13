@@ -560,3 +560,21 @@ local Button = Tab:CreateButton({
 game:GetService("ReplicatedStorage").Remotes.Skill.KJ.Dropkick:FireServer()
    end    
 })
+
+local Section = Tab:CreateSection("Sukuna doesnt work in old server")
+
+local Button = Tab:CreateButton({
+ Name = "Pay to win Malevolent Shrine",
+ Callback = function()
+        game:GetService("ReplicatedStorage").Events.Malclash:FireServer()
+   end    
+})
+
+local Section = Tab:CreateSection("Invincible for like 1 minutes")
+
+local Button = Tab:CreateButton({
+ Name = "Old Hakari Domain",
+ Callback = function()
+        game:GetService("ReplicatedStorage").Domainthing:FireServer(
+   end    
+})
