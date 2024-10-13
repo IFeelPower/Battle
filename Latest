@@ -440,7 +440,7 @@ end
 local Section = Tab:CreateSection("Sukuna No need item")
 
 local Button = Tab:CreateButton({
- Name = "Big Malevolent Shrine",)
+ Name = "Big Malevolent Shrine",
  Callback = function()
         for i = 1, 30 do
 game:GetService("ReplicatedStorage").Events.shrine:FireServer()
