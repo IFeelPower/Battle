@@ -440,9 +440,18 @@ end
 local Section = Tab:CreateSection("Sukuna No need item")
 
 local Button = Tab:CreateButton({
- Name = "INFINITE Malevolent Kitchen",
+ Name = "Big Malevolent Shrine",)
  Callback = function()
-        for i = 1, 10000 do
+        for i = 1, 30 do
+game:GetService("ReplicatedStorage").Events.shrine:FireServer()
+end
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "30x Small Malevolent Kitchen",
+ Callback = function()
+        for i = 1, 30 do
 game:GetService("ReplicatedStorage").RyomenSukuna.MalevolentShrine.Gaymalev:FireServer()
 end
    end    
