@@ -529,7 +529,7 @@ end
    end    
 })
 
-local Section = Tab:CreateSection("Need Awaken Toji")
+local Section = Tab:CreateSection("Need Awaken Toji - you can awake toji in Main tab")
 
 local Button = Tab:CreateButton({
  Name = "Kill Aura",
