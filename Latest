@@ -499,6 +499,27 @@ local Button = Tab:CreateButton({
    end    
 })
 
+local Button = Tab:CreateButton({
+ Name = "Delete Items",
+ Callback = function()
+        local Player = game:GetService("Players").LocalPlayer
+local Backpack = Player.Backpack
+local Character = Player.Character
+
+for _,v in pairs(Backpack:GetChildren()) do
+   if v:IsA("Tool") or v:IsA("HopperBin") then
+       v:Destroy()
+   end
+end
+
+for _,v in pairs(Character:GetChildren()) do
+   if v:IsA("Tool") or v:IsA("HopperBin") then
+       v:Destroy()
+   end 
+end
+   end    
+})
+
 local Section = Tab:CreateSection("Need Awaken Toji")
 
 local Button = Tab:CreateButton({
