@@ -281,7 +281,7 @@ game.Players:Chat("heal")
 })
 
 local Button = Tab:CreateButton({
- Name = "40x Heal",
+ Name = "Troll Heal - use this to boss",
  Callback = function()
         for i = 1, 240 do
 game.Players:Chat("heal")
