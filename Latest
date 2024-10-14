@@ -280,6 +280,15 @@ game.Players:Chat("heal")
    end    
 })
 
+local Button = Tab:CreateButton({
+ Name = "40x Heal",
+ Callback = function()
+        for i = 1, 240 do
+game.Players:Chat("heal")
+end
+   end    
+})
+
 local Section = Tab:CreateSection("Ayanokouji")
 
 local Button = Tab:CreateButton({
