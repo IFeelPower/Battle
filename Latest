@@ -579,16 +579,6 @@ end
 })
 
 local Button = Tab:CreateButton({
- Name = "Infinite punch",
- Callback = function()
-        while true do
-  wait(0.1)
-game:GetService("ReplicatedStorage").CombatSystem.Punching:FireServer()
-end
-   end    
-})
-
-local Button = Tab:CreateButton({
  Name = "Ayanokouji Head attack",
  Callback = function()
         while true do
