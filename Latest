@@ -342,9 +342,11 @@ game:GetService("ReplicatedStorage").GojoSatoru.rush:FireServer()
 local Section = Tab:CreateSection("Sukuna")
 
 local Button = Tab:CreateButton({
- Name = "Rush Beatdown",
+ Name = "Death Rush Beatdown",
  Callback = function()
+        for i = 1, 5 do
 game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Rush Beatdown").LocalScript.RemoteEvent:FireServer()
+end
    end    
 })
 
