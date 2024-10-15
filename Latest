@@ -580,11 +580,13 @@ end
    end    
 })
 
+local Section = Tab:CreateSection("Need Ayanokouji - you can awake toji in Main tab")
+
 local Button = Tab:CreateButton({
- Name = "Ayanokouji Head attack",
+ Name = "Head Power",
  Callback = function()
         while true do
-  wait(0.1)
+  wait(1)
 game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Head Beatdown").LocalScript.Event:FireServer()
 end
    end    
