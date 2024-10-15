@@ -112,7 +112,7 @@ game:GetService("Players").LocalPlayer.Backpack["Supreme Art: Maximum Uzumaki"].
    end    
 })
 
-local Section = Tab:CreateSection("Shadow V2")
+local Section = Tab:CreateSection("Shadow")
 
 local Button = Tab:CreateButton({
  Name = "Atomic - You Need hold",
@@ -122,7 +122,14 @@ game:GetService("ReplicatedStorage").AtomicFolder.gaydog:FireServer()
 })
 
 local Button = Tab:CreateButton({
- Name = "All Range Atomic - You need hold",
+ Name = "V1 All Range Atomic - You need hold",
+ Callback = function()
+game:GetService("ReplicatedStorage").AtomicFolder.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "V2 All Range Atomic - You need hold",
  Callback = function()
 game:GetService("ReplicatedStorage").CidKageeno.Atomicc:FireServer()
    end    
@@ -326,13 +333,34 @@ game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Eye Pop").Rush.E
 local Section = Tab:CreateSection("Gojo rush")
 
 local Button = Tab:CreateButton({
- Name = "Gojo Rush OP",
+ Name = "Gojo Rush",
  Callback = function()
 game:GetService("ReplicatedStorage").GojoSatoru.rush:FireServer()
    end    
 })
 
 local Section = Tab:CreateSection("Sukuna")
+
+local Button = Tab:CreateButton({
+ Name = "Rush Beatdown",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Rush Beatdown").LocalScript.RemoteEvent:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "World Slash for sukuna unleashed",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("World Slash").LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "World slash Net for sukuna unleashed",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Dismantle: Net").LocalScript.Event:FireServer()
+   end    
+})
 
 local Button = Tab:CreateButton({
  Name = "True Fuga",
@@ -546,6 +574,26 @@ local Button = Tab:CreateButton({
         while true do
   wait(1)
 game:GetService("Players").LocalPlayer.Backpack["Wrong Way"].Main.Event:FireServer()
+end
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Infinite punch",
+ Callback = function()
+        while true do
+  wait(0.1)
+game:GetService("ReplicatedStorage").CombatSystem.Punching:FireServer()
+end
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Ayanokouji Head attack",
+ Callback = function()
+        while true do
+  wait(0.1)
+game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Head Beatdown").LocalScript.Event:FireServer()
 end
    end    
 })
