@@ -580,6 +580,19 @@ end
    end    
 })
 
+local Section = Tab:CreateSection("Kill Aura V2 - No need item")
+
+local Button = Tab:CreateButton({
+ Name = "Auto Slash",
+ Callback = function()
+        while true do
+  wait(1)
+game:GetService("ReplicatedStorage").Remotes.colovo:FireServer()
+end
+   end    
+})
+
+
 local Section = Tab:CreateSection("Need Ayanokouji - you can awake toji in Main tab")
 
 local Button = Tab:CreateButton({
