@@ -592,6 +592,15 @@ end
    end    
 })
 
+local Button = Tab:CreateButton({
+ Name = "Strong Auto Slash",
+ Callback = function()
+        while true do
+  wait(0.2)
+game:GetService("ReplicatedStorage").Remotes.colovo:FireServer()
+end
+   end    
+})
 
 local Section = Tab:CreateSection("Need Ayanokouji - you can awake toji in Main tab")
 
