@@ -671,3 +671,19 @@ local Button = Tab:CreateButton({
 game:GetService("ReplicatedStorage").Yuta.love:FireServer()
    end    
 })
+
+local Button = Tab:CreateButton({
+ Name = "Purple",
+ Callback = function()
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Purple"):FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Purple",
+ Callback = function()
+        local ohString1 = "FinalHollowPurple"
+
+game:GetService("ReplicatedStorage").Events.Abilitys.Gojo:FireServer(ohString1) 
+   end    
+})
