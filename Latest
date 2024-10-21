@@ -638,6 +638,20 @@ game:GetService("ReplicatedStorage").KJ.Remote.DropKick2:FireServer()
 })
 
 local Button = Tab:CreateButton({
+ Name = "Small Malevolent Shrine",
+ Callback = function()
+game:GetService("ReplicatedStorage").RyomenSukuna.MalevolentShrine.Gaymalev:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Big Malevolent Shrine",
+ Callback = function()
+game:GetService("ReplicatedStorage").Events.shrine:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
  Name = "Pay to win Malevolent Shrine",
  Callback = function()
 game:GetService("ReplicatedStorage").Events.Malclash:FireServer()
@@ -680,10 +694,24 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Purpl
 })
 
 local Button = Tab:CreateButton({
- Name = "Purple",
+ Name = "Nuke Purple",
  Callback = function()
         local ohString1 = "FinalHollowPurple"
 
 game:GetService("ReplicatedStorage").Events.Abilitys.Gojo:FireServer(ohString1) 
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "200% Purple",
+ Callback = function()
+game:GetService("ReplicatedStorage").GojoV3.haitram:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Unleashed Gojo Nuke",
+ Callback = function()
+game:GetService("ReplicatedStorage").GojoV3.nuke:FireServer() 
    end    
 })
