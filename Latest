@@ -659,16 +659,16 @@ game:GetService("ReplicatedStorage").Events.Malclash:FireServer()
 })
 
 local Button = Tab:CreateButton({
- Name = "Old Hakari",
+ Name = "Heian Sukuna Domain",
  Callback = function()
-game:GetService("ReplicatedStorage").Domainthing:FireServer()
+game:GetService("ReplicatedStorage").HeianSukuna["Incomplete Shrine"].heia:FireServer()
    end    
 })
 
 local Button = Tab:CreateButton({
- Name = "Heian Sukuna Domain",
+ Name = "Old Hakari",
  Callback = function()
-game:GetService("ReplicatedStorage").HeianSukuna["Incomplete Shrine"].heia:FireServer()
+game:GetService("ReplicatedStorage").Domainthing:FireServer()
    end    
 })
 
