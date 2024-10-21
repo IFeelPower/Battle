@@ -400,12 +400,12 @@ end
    end    
 })
 
+local Section = Tab:CreateSection("Fushiguro Megumi")
+
 local Button = Tab:CreateButton({
- Name = "5x Die",
+ Name = "Become Mahoraga",
  Callback = function()
-        for i = 1, 5 do
-game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Cursed Technique Speech").LocalScript.Event:FireServer()
-end
+game:GetService("Players").LocalPlayer.Backpack.Mahoraga.Mahoraga.RemoteEvent:FireServer()
    end    
 })
 
