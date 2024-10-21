@@ -650,11 +650,23 @@ game:GetService("ReplicatedStorage").Events.Malclash:FireServer()
    end    
 })
 
-local Section = Tab:CreateSection("Invincible for like 1 minutes")
-
 local Button = Tab:CreateButton({
  Name = "Old Hakari",
  Callback = function()
 game:GetService("ReplicatedStorage").Domainthing:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Heian Sukuna Domain",
+ Callback = function()
+game:GetService("ReplicatedStorage").HeianSukuna["Incomplete Shrine"].heia:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Okkotsu Domain",
+ Callback = function()
+game:GetService("ReplicatedStorage").Yuta.ytd:FireServer()
    end    
 })
