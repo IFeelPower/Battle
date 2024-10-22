@@ -757,7 +757,7 @@ loadstring(_G.boomboxb.Server.Source)()
 })
 
 local Button = Tab:CreateButton({
- Name = "Kick Player",
+ Name = "Kick Player - Admin Command",
  Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/Kick"))()
    end    
