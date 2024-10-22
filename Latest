@@ -496,6 +496,15 @@ end
    end    
 })
 
+local Button = Tab:CreateButton({
+ Name = "Nuke Kitchen",
+ Callback = function()
+        for i = 1, 10000 do
+game:GetService("ReplicatedStorage").HeianSukuna["Incomplete Shrine"].heia:FireServer()
+end
+   end    
+})
+
 local Section = Tab:CreateSection("Gojo No need item")
 
 local Button = Tab:CreateButton({
