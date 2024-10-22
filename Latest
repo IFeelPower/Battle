@@ -744,7 +744,7 @@ local Button = Tab:CreateButton({
    end    
 })
 
-local Section = Tab:CreateSection("Music")
+local Section = Tab:CreateSection("Admin Command")
 
 local Button = Tab:CreateButton({
  Name = "Music",
@@ -757,7 +757,7 @@ loadstring(_G.boomboxb.Server.Source)()
 })
 
 local Button = Tab:CreateButton({
- Name = "Kick Player - Admin Command",
+ Name = "Kick Player",
  Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/Kick"))()
    end    
