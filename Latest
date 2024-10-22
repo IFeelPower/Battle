@@ -732,7 +732,7 @@ local Button = Tab:CreateButton({
  Callback = function()
         local ohString1 = "Kurosaki Ichigo"
 game:GetService("ReplicatedStorage").Picked:FireServer(ohString1)
-wait(0.2)
+wait(1)
 game:GetService("Players").LocalPlayer.Backpack["Final Getsuga Tensho"].LocalScript.Event:FireServer()
    end    
 })
