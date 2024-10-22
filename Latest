@@ -703,6 +703,13 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Purpl
 })
 
 local Button = Tab:CreateButton({
+ Name = "200% Purple",
+ Callback = function()
+game:GetService("ReplicatedStorage").GojoV3.haitram:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
  Name = "Nuke Purple",
  Callback = function()
         local ohString1 = "FinalHollowPurple"
@@ -712,15 +719,39 @@ game:GetService("ReplicatedStorage").Events.Abilitys.Gojo:FireServer(ohString1)
 })
 
 local Button = Tab:CreateButton({
- Name = "200% Purple",
+ Name = "Unleashed Gojo Nuke",
  Callback = function()
-game:GetService("ReplicatedStorage").GojoV3.haitram:FireServer()
+game:GetService("ReplicatedStorage").GojoV3.nuke:FireServer() 
+   end    
+})
+
+local Section = Tab:CreateSection("Mugetsu")
+
+local Button = Tab:CreateButton({
+ Name = "Add Mugetsu to inventory",
+ Callback = function()
+        local ohString1 = "Kurosaki Ichigo"
+game:GetService("ReplicatedStorage").Picked:FireServer(ohString1)
+wait(0.2)
+game:GetService("Players").LocalPlayer.Backpack["Final Getsuga Tensho"].LocalScript.Event:FireServer()
    end    
 })
 
 local Button = Tab:CreateButton({
- Name = "Unleashed Gojo Nuke",
+ Name = "Use Mugetsu",
  Callback = function()
-game:GetService("ReplicatedStorage").GojoV3.nuke:FireServer() 
+        game:GetService("Players").LocalPlayer.Backpack.Mugetsu.LocalScript.Event:FireServer()
+   end    
+})
+
+local Section = Tab:CreateSection("Music")
+
+local Button = Tab:CreateButton({
+ Name = "Music",
+Callback = function()
+_G.boomboxb = game:GetObjects('rbxassetid://740618400')[1]
+_G.boomboxb.Parent = game:GetService'Players'.LocalPlayer.Backpack
+loadstring(_G.boomboxb.Client.Source)() 
+loadstring(_G.boomboxb.Server.Source)()
    end    
 })
