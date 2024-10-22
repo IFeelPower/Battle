@@ -770,10 +770,10 @@ game:GetService("ReplicatedStorage").Events.UnlimitedVoid:FireServer()
 })
 
 local Button = Tab:CreateButton({
- Name = "Super Punch Not working rn i will fix later",
+ Name = "Super Punch",
  Callback = function()
         for i = 1, 3 do
-game:GetService("ReplicatedStorage").jetbarrage:FireServer()
+game:GetService("ReplicatedStorage").barrage.jetbarrage:FireServer()
 end
    end    
 })
