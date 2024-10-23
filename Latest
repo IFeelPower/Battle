@@ -722,9 +722,11 @@ game:GetService("ReplicatedStorage").Yuta.love:FireServer()
 })
 
 local Button = Tab:CreateButton({
- Name = "Gojo - Hora Hora",
+ Name = "Hora Hora - Counter skill",
  Callback = function()
+        for i = 1, 6 do
 game:GetService("ReplicatedStorage").Remotes.HoraHora:FireServer()
+end
    end    
 })
 
