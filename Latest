@@ -731,6 +731,20 @@ end
 })
 
 local Button = Tab:CreateButton({
+ Name = "Max Blue",
+ Callback = function()
+game:GetService("ReplicatedStorage").GojoV3.maxblue:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Max Red",
+ Callback = function()
+game:GetService("ReplicatedStorage").GojoV3.maxred:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
  Name = "Purple Shot",
  Callback = function()
 game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Purple"):FireServer()
