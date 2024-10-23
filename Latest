@@ -497,7 +497,7 @@ end
 })
 
 local Button = Tab:CreateButton({
- Name = "Nuke Kitchen",
+ Name = "ATOMIC Kitchen",
  Callback = function()
         for i = 1, 10000 do
 game:GetService("ReplicatedStorage").HeianSukuna["Incomplete Shrine"].heia:FireServer()
@@ -512,17 +512,6 @@ local Button = Tab:CreateButton({
  Callback = function()
         for i = 1, 10000 do
 game:GetService("ReplicatedStorage").GojoV3.nuke:FireServer()
-end
-   end    
-})
-
-local Section = Tab:CreateSection("Byakuya")
-
-local Button = Tab:CreateButton({
- Name = "KILL FPS",
- Callback = function()
-        for i = 1, 10000 do
-game:GetService("Players").LocalPlayer.Backpack.Bankai.LocalScript.Event:FireServer()
 end
    end    
 })
@@ -557,7 +546,7 @@ local Button = Tab:CreateButton({
 })
 
 local Button = Tab:CreateButton({
- Name = "Delete Items activate this after Meow",
+ Name = "Delete Items - activate this after Meow",
  Callback = function()
         local Player = game:GetService("Players").LocalPlayer
 local Backpack = Player.Backpack
@@ -592,7 +581,7 @@ end
 local Section = Tab:CreateSection("Kill Aura V2 - No need item")
 
 local Button = Tab:CreateButton({
- Name = "Auto Slash",
+ Name = "Kill Aura Slash",
  Callback = function()
         while true do
   wait(1)
@@ -602,7 +591,7 @@ end
 })
 
 local Button = Tab:CreateButton({
- Name = "Strong Auto Slash",
+ Name = "Strong Kill aura Auto Slash",
  Callback = function()
         while true do
   wait(0.2)
