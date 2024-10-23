@@ -859,3 +859,10 @@ end)
 tool.Parent = game.Players.LocalPlayer.Backpack
    end    
 })
+
+local Button = Tab:CreateButton({
+ Name = "Ultimate Spin - don't spam lol",
+ Callback = function()
+        loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-FE-R15-spin-fling-1716"))()
+   end    
+})
