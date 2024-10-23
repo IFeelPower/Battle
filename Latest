@@ -581,7 +581,7 @@ end
 local Section = Tab:CreateSection("Kill Aura V2 - No need item")
 
 local Button = Tab:CreateButton({
- Name = "Kill Aura Slash",
+ Name = "Kill Aura V2 Slash",
  Callback = function()
         while true do
   wait(1)
@@ -591,11 +591,23 @@ end
 })
 
 local Button = Tab:CreateButton({
- Name = "Strong Kill aura Auto Slash",
+ Name = "Strong Kill aura V2 Auto Slash",
  Callback = function()
         while true do
   wait(0.2)
 game:GetService("ReplicatedStorage").Remotes.colovo:FireServer()
+end
+   end    
+})
+
+local Section = Tab:CreateSection("Need Gyutaro")
+
+local Button = Tab:CreateButton({
+ Name = "Kill Aura V3 - Hold Rampant Arc",
+ Callback = function()
+        while true do
+  wait(0.15)
+game:GetService("Players").LocalPlayer.Character:FindFirstChild("Rampant Arc").Keybind.Fire:FireServer()
 end
    end    
 })
