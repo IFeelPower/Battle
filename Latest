@@ -712,6 +712,13 @@ game:GetService("ReplicatedStorage").Domainthing:FireServer()
 })
 
 local Button = Tab:CreateButton({
+ Name = "100% Win Hakari Domain",
+ Callback = function()
+game:GetService("ReplicatedStorage").Remotes.IdleDeathGamble:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
  Name = "Okkotsu Domain",
  Callback = function()
 game:GetService("ReplicatedStorage").Yuta.ytd:FireServer()
