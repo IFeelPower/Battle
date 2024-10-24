@@ -526,6 +526,17 @@ end
 local Tab = Window:CreateTab("Kill", 4483362458) -- Title, Image
 
 local Toggle = Tab:CreateToggle({
+ Name = "Equip all items - useless function",
+ Callback = function()
+        for _, tool in ipairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+     if tool:IsA("Tool") then
+          tool.Parent = game:GetService("Players").LocalPlayer.Character
+     end
+ end
+   end    
+})
+
+local Toggle = Tab:CreateToggle({
  Name = "Always show Characters",
  Default = false,
  Callback = function(Value)
