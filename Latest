@@ -613,7 +613,7 @@ local Button = Tab:CreateButton({
  Name = "Kill Aura V3 - Hold Rampant Arc",
  Callback = function()
         while true do
-  wait(0.15)
+  wait(0.1)
 game:GetService("Players").LocalPlayer.Character:FindFirstChild("Rampant Arc").Keybind.Fire:FireServer()
 end
    end    
