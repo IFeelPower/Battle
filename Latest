@@ -463,6 +463,13 @@ local Toggle = Tab:CreateToggle({
     end,
  })
 
+local Button = Tab:CreateButton({
+ Name = "Fly GUI",
+ Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/CraxelOnTablet/fly-gui-v3/refs/heads/main/Fly%20Gui%20v3"))()
+   end    
+})
+
 local Tab = Window:CreateTab("Nuker", 4483362458) -- Title, Image
 
 local Section = Tab:CreateSection("SHADOW V2 You need to hold All range atomic")
