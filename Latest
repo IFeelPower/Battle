@@ -466,7 +466,7 @@ local Toggle = Tab:CreateToggle({
 local Button = Tab:CreateButton({
  Name = "Fly GUI",
  Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/CraxelOnTablet/fly-gui-v3/refs/heads/main/Fly%20Gui%20v3"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/yoo"))()
    end    
 })
 
