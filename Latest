@@ -896,3 +896,10 @@ local Button = Tab:CreateButton({
         loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-FE-R15-spin-fling-1716"))()
    end    
 })
+
+local Button = Tab:CreateButton({
+ Name = "SUS????",
+ Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/Cursed%20attack"))()
+   end    
+})
