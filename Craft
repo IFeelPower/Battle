@@ -315,3 +315,74 @@ while true do
 end
   end    
 })
+
+local gameremotes = game:GetService("ReplicatedStorage").GameRemotes
+local moveitems = gameremotes:FindFirstChild("MoveItem") or gameremotes:FindFirstChild("MoveItems")
+local sortitems = gameremotes:FindFirstChild("SortItem") or gameremotes:FindFirstChild("SortItems")
+local usetables = false
+
+local Button = Tab:CreateButton({
+ Name = "Click dup",
+   Callback = function()
+	local b = game:GetService("Players").LocalPlayer.PlayerGui.HUDGui.Inventory.Slots["Slot-1"].SlotNA.Count
+		if b.Text == "0" then
+			notify("❗Select/click on the item in your inventory first❗ [PATCHED IN NEWER VERSIONS OF MINERSCAVE]")
+			return
+		end
+		if b.Text == "64" then
+			notify("❗Reached the item limit❗ [PATCHED IN NEWER VERSIONS OF MINERSCAVE]")
+			return
+		end
+		if b.Text == "1" then
+
+			te = nil
+			for HAHA, HAHAHA in pairs(b.Parent.Parent.Parent:GetChildren()) do
+				if HAHAHA.Name ~= "Slot-1" and HAHAHA:FindFirstChild("Slot") and b.Parent.Display:GetChildren()[1] and HAHAHA.Slot.Display:GetChildren()[1] then
+					if b.Parent.Display:GetChildren()[1].Name ~= "SlotB" and b.Parent.Display:GetChildren()[1].Name == HAHAHA.Slot.Display:GetChildren()[1].Name then
+						te = HAHAHA.Name
+						break
+					elseif b.Parent.Display:GetChildren()[1].Name == "SlotB" and HAHAHA.Slot.Display:GetChildren()[1]:GetChildren()[1] and b.Parent.Display:GetChildren()[1]:GetChildren()[1].Name == HAHAHA.Slot.Display:GetChildren()[1]:GetChildren()[1].Name then
+						te = HAHAHA.Name
+						break
+					end
+				end
+			end
+			if not te then
+				notify("❗Not Enough Items! Get atleast 2 of these❗ [PATCHED IN NEWER VERSIONS OF MINERSCAVE]")
+				return
+			else
+				local howmuch = 64 - tonumber(b.Text)
+				local succc, errr = pcall(function()
+                if usetables then
+                    moveitems:InvokeServer({ [1] = -1, [2] = conv(te), [3] = true, [4] = -howmuch})
+                else
+                    moveitems:InvokeServer(-1, conv(te), true, -howmuch)
+                end
+				end)
+				if not suc then
+				   notify("❌Something went wrong.. Maybe try Enabling Remote Tables Method❌")
+				   return 
+				end
+				--moveitems:InvokeServer(-1, conv(te), true, -howmuch)
+				notify("❗WARNING❗ : PATCHED IN NEWER VERSIONS OF MINERSCAVE❗")
+			end
+		end
+		if not te then
+			local howmuch = 64 - tonumber(b.Text)
+			local succc, errr = pcall(function()
+			    
+			if usetables then
+			    moveitems:InvokeServer({[1] = -1, [2] = 82, [3] = true, [4] = -howmuch})
+			else
+			    moveitems:InvokeServer(-1, 82, true, -howmuch)
+			end
+			
+			end)
+				if not suc then
+				   notify("❌Something went wrong.. Maybe try Enabling Remote Tables Method❌")
+				   return 
+				end
+			
+		end
+		te = nil
+end})
