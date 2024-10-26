@@ -1,0 +1,146 @@
+local gameremotes = game:GetService("ReplicatedStorage").GameRemotes
+local moveitems = gameremotes:FindFirstChild("MoveItem") or gameremotes:FindFirstChild("MoveItems")
+local sortitems = gameremotes:FindFirstChild("SortItem") or gameremotes:FindFirstChild("SortItems")
+local usetables = false
+
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+   Name = "LOL",
+   LoadingTitle = "Rayfield Interface Suite",
+   LoadingSubtitle = "by Sirius",
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "Big Hub"
+   },
+   Discord = {
+      Enabled = false,
+      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+   KeySystem = false, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "Untitled",
+      Subtitle = "Key System",
+      Note = "No method of obtaining the key is provided",
+      FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
+
+local Tab = Window:CreateTab("Main", 4483362458) -- Title, Image
+
+local Section = Tab:CreateSection("Dup")
+ 
+local Button = Tab:CreateButton({
+ Name = "Click dup",
+   Callback = function()
+	local b = game:GetService("Players").LocalPlayer.PlayerGui.HUDGui.Inventory.Slots["Slot-1"].SlotNA.Count
+		if b.Text == "0" then
+			notify("❗Select/click on the item in your inventory first❗ [PATCHED IN NEWER VERSIONS OF MINERSCAVE]")
+			return
+		end
+		if b.Text == "64" then
+			notify("❗Reached the item limit❗ [PATCHED IN NEWER VERSIONS OF MINERSCAVE]")
+			return
+		end
+		if b.Text == "1" then
+
+			te = nil
+			for HAHA, HAHAHA in pairs(b.Parent.Parent.Parent:GetChildren()) do
+				if HAHAHA.Name ~= "Slot-1" and HAHAHA:FindFirstChild("Slot") and b.Parent.Display:GetChildren()[1] and HAHAHA.Slot.Display:GetChildren()[1] then
+					if b.Parent.Display:GetChildren()[1].Name ~= "SlotB" and b.Parent.Display:GetChildren()[1].Name == HAHAHA.Slot.Display:GetChildren()[1].Name then
+						te = HAHAHA.Name
+						break
+					elseif b.Parent.Display:GetChildren()[1].Name == "SlotB" and HAHAHA.Slot.Display:GetChildren()[1]:GetChildren()[1] and b.Parent.Display:GetChildren()[1]:GetChildren()[1].Name == HAHAHA.Slot.Display:GetChildren()[1]:GetChildren()[1].Name then
+						te = HAHAHA.Name
+						break
+					end
+				end
+			end
+			if not te then
+				notify("❗Not Enough Items! Get atleast 2 of these❗ [PATCHED IN NEWER VERSIONS OF MINERSCAVE]")
+				return
+			else
+				local howmuch = 64 - tonumber(b.Text)
+				local succc, errr = pcall(function()
+                if usetables then
+                    moveitems:InvokeServer({ [1] = -1, [2] = conv(te), [3] = true, [4] = -howmuch})
+                else
+                    moveitems:InvokeServer(-1, conv(te), true, -howmuch)
+                end
+				end)
+				if not suc then
+				   notify("❌Something went wrong.. Maybe try Enabling Remote Tables Method❌")
+				   return 
+				end
+				--moveitems:InvokeServer(-1, conv(te), true, -howmuch)
+				notify("❗WARNING❗ : PATCHED IN NEWER VERSIONS OF MINERSCAVE❗")
+			end
+		end
+		if not te then
+			local howmuch = 64 - tonumber(b.Text)
+			local succc, errr = pcall(function()
+			    
+			if usetables then
+			    moveitems:InvokeServer({[1] = -1, [2] = 82, [3] = true, [4] = -howmuch})
+			else
+			    moveitems:InvokeServer(-1, 82, true, -howmuch)
+			end
+			
+			end)
+				if not suc then
+				   notify("❌Something went wrong.. Maybe try Enabling Remote Tables Method❌")
+				   return 
+				end
+			
+		end
+		te = nil
+end})
+
+local Button = Tab:CreateButton({
+ Name = "Click dup + make First slot free",
+   Callback = function()
+    
+    	local b = game:GetService("Players").LocalPlayer.PlayerGui.HUDGui.Inventory.Slots["Slot-1"].SlotNA.Count
+		if b.Text == "0" then
+			notify("❗Select/Click any item in your inventory first❗")
+			return
+		end
+		if game:GetService("Players").LocalPlayer.PlayerGui.HUDGui.Inventory.Slots["Slot0"].Slot.Count.Text ~= "0" then
+		    notify("❗Free the first slot in your inventory❗")
+			return
+		end
+		if b.Text ~= "2" then
+			notify("❗You need to have exactly 2 items selected❗")
+			return
+		end
+		if b.Text == "64" then
+			notify("❗Reached the item limit❗")
+			return
+		end
+		
+		if b.Text == "2" then
+			local args = {
+            [1] = -1,
+            [2] = 0,
+            [3] = true,
+            [4] = 0.01
+            }
+            local args2 = {[1] = {}}
+            if usetables then
+                args2[1][1] = args[1]
+                args2[1][2] = args[2]
+                args2[1][3] = args[3]
+                args2[1][4] = args[4]
+                moveitems:InvokeServer(unpack(args2))
+            else
+                moveitems:InvokeServer(unpack(args))
+            end
+		    notify("✅Duped! Now place/drop both items and break/pick up them!✅")
+		end
+		
+end})
