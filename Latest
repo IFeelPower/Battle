@@ -504,7 +504,7 @@ end
 })
 
 local Button = Tab:CreateButton({
- Name = "ATOMIC Kitchen",
+ Name = "ATOMIC Kitchen !FIXED!",
  Callback = function()
         for i = 1, 10000 do
 game:GetService("ReplicatedStorage").HeianSukuna["Incomplete Shrine"].heia:FireServer()
@@ -717,7 +717,7 @@ game:GetService("ReplicatedStorage").Events.Malclash:FireServer()
 })
 
 local Button = Tab:CreateButton({
- Name = "Heian Sukuna Domain",
+ Name = "Heian Sukuna Domain !FIXED!",
  Callback = function()
 game:GetService("ReplicatedStorage").HeianSukuna["Incomplete Shrine"].heia:FireServer()
    end    
