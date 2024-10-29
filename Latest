@@ -855,6 +855,13 @@ local Button = Tab:CreateButton({
    end    
 })
 
+local Button = Tab:CreateButton({
+ Name = "Imminet Blink",
+ Callback = function()
+        game:GetService("ReplicatedStorage").CidKageeno.Blinkk:FireServer()
+   end    
+})
+
 local Section = Tab:CreateSection("Admin Command")
 
 local Button = Tab:CreateButton({
