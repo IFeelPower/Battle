@@ -1,0 +1,618 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+   Name = "LOL",
+   LoadingTitle = "Rayfield Interface Suite",
+   LoadingSubtitle = "by Sirius",
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "Big Hub"
+   },
+   Discord = {
+      Enabled = false,
+      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+   KeySystem = false, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "Untitled",
+      Subtitle = "Key System",
+      Note = "No method of obtaining the key is provided",
+      FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
+
+local Tab = Window:CreateTab("Main", 4483362458) -- Title, Image
+
+local Section = Tab:CreateSection("Gojo")
+ 
+local Button = Tab:CreateButton({
+ Name = "Honored One",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["Honored One"]["Awakening : Serious Mode"].Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Black Flash",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["Black Flash"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Six Eyes",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["Six Eyes"]["Awakening : Serious Mode"].Event:FireServer()
+   end    
+})
+
+local Section = Tab:CreateSection("Gojo Shibuya Version")
+
+local Button = Tab:CreateButton({
+ Name = "200% Purple",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["200% Purple"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Rush",
+    Callback = function()
+    game:GetService("ReplicatedStorage").KJ.Remote.Rushh:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Unlimited Void 0.2",
+    Callback = function()
+    game:GetService("ReplicatedStorage").Events["UnlimitedVoid0.2"]:FireServer()
+   end    
+})
+
+local Section = Tab:CreateSection("Gojo vs Sukuna Version")
+
+local Button = Tab:CreateButton({
+ Name = "Maximum Blue",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack.MaximumBlue.LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Maximum Red",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack.MaximumRed.LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Purple Nuke",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["Purple Nuke"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Section = Tab:CreateSection("Toji")
+
+local Button = Tab:CreateButton({
+ Name = "Rapid Shot",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["Rapid Shot"]["Rapid Shot"].Shot:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Shadow Step",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["Shadow Step"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Throughout Earth",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["Throughout Earth"]["Throughout Earth"].Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Will I Lose? - Awakening",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["Will I Lose?"]["Awakening : Serious Mode"].Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Little Hand",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["Little Hand"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Wrong Way",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["Wrong Way"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Section = Tab:CreateSection("Itadori Sukuna")
+
+local Button = Tab:CreateButton({
+ Name = "Wrong Way",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["Wrong Way"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Divergent Barrage",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["Divergent Barrage"].barrage.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Divergent Fist",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["Divergent Fist"].BlackFlash.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Divergent Smash",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["Divergent Smash"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "King Of Curses - Awakening",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["King Of Curses"]["Awakening : Serious Mode"].Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "World Slash",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["World Slash"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Section = Tab:CreateSection("Hakari Real Gamble")
+
+local Button = Tab:CreateButton({
+ Name = "Real Gamble",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["Idle Death Gamble"]["Awakening : Serious Mode"].Event:FireServer()
+   end    
+})
+
+local Section = Tab:CreateSection("Yuta")
+
+local Button = Tab:CreateButton({
+ Name = "Cursed Slashes",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["Cursed Slashes"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Cursed Speech",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["Cursed Speech"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Love - Awakening",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack.Love["Awakening : Serious Mode"].Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "BlackFlash",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack.BlackFlash.LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Rika Slash",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["Rika Slash"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Pure Love",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["Pure Love"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Section = Tab:CreateSection("Megumi")
+
+local Button = Tab:CreateButton({
+ Name = "Dark Surge",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["Dark Surge"].LocalScript.Ds:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Divine Dog",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["Divine Dog"].LocalScript.RemoteEvent:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Frog",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack.Frog.LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Insanity - Awakening",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack.Insanity["Awakening : Serious Mode"].Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Mahoraga",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack.Mahoraga.Skill.Furube:FireServer()
+   end    
+})
+
+local Section = Tab:CreateSection("Mahito")
+
+local Button = Tab:CreateButton({
+ Name = "Soul Bend",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["Soul Bend"].Move.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Soul Fire",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["Soul Fire"]["Rapid Shot"].Shot:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Soul Impale",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["Soul Impale"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Inspiration - Awakening",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack.Inspiration["Awakening : Serious Mode"].Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Idle Transfiguration",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["Idle Transfiguration"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Widespread Strikes",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["Widespread Strikes"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Section = Tab:CreateSection("KJ")
+
+local Button = Tab:CreateButton({
+ Name = "Ravage",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack.Ravage.LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Swift Sweep",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["Swift Sweep"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "20 Series awake V1",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["20 Series"].Rush.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "20 Series awake V2",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["20 Series"].Rush.Event2:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Stoic Bomb",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["Stoic Bomb"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Unlimited Flex Works",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["Unlimited Flex Works"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Tab = Window:CreateTab("Move", 4483362458) -- Title, Image
+
+local Toggle = Tab:CreateToggle({
+    Name = "Infinite Jump",
+    CurrentValue = false,
+    Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+    Callback = function(InfiniteJumpEnabled)
+        local InfiniteJumpEnabled = true
+        game:GetService("UserInputService").JumpRequest:connect(function()
+            if InfiniteJumpEnabled then
+                game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+            end
+        end)
+    end,
+ })
+
+  local Slider = Tab:CreateSlider({
+    Name = "Walkspeed",
+    Range = {16, 250},
+    Increment = 1,
+    Suffix = "Walkspeed",
+    CurrentValue = 16,
+    Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+    Callback = function(v)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = v
+    end,
+ })
+
+ 
+ local Slider = Tab:CreateSlider({
+    Name = "JumpPower",
+    Range = {30, 500},
+    Increment = 1,
+    Suffix = "JumpPower",
+    CurrentValue = 30,
+    Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+    Callback = function(v)
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = v
+    end,
+ })
+
+local Button = Tab:CreateButton({
+ Name = "Fly GUI",
+ Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/yoo"))()
+   end    
+})
+
+local Tab = Window:CreateTab("Speacial", 4483362458) -- Title, Image
+
+local Section = Tab:CreateSection("No Need to choose character")
+ 
+local Button = Tab:CreateButton({
+ Name = "100% Win Gamble",
+    Callback = function()
+    game:GetService("ReplicatedStorage").Events.IdleDeathGamble:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "MalevolentShrine - Sukuna Domain",
+    Callback = function()
+    game:GetService("ReplicatedStorage").Events.MalevolentShrine:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "SelfEmbodiment Of Perfection - Mahito Domain",
+    Callback = function()
+    game:GetService("ReplicatedStorage").Events.SelfEmbodimentOfPerfection:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Unlimited Void - Gojo Domain",
+    Callback = function()
+    game:GetService("ReplicatedStorage").Events.UnlimitedVoid:FireServer():FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Unlimited Void 0.2",
+    Callback = function()
+    game:GetService("ReplicatedStorage").Events["UnlimitedVoid0.2"]:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "KJ DropKick",
+    Callback = function()
+    game:GetService("ReplicatedStorage").KJ.Remote.DropKick:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "KJ DropKick 2",
+    Callback = function()
+    game:GetService("ReplicatedStorage").KJ.Remote.DropKick2:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "KJ Freeze Bomb lol",
+    Callback = function()
+    game:GetService("ReplicatedStorage").KJ.Remote.Stoic:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "KJ Kick",
+    Callback = function()
+    game:GetService("ReplicatedStorage").Remotes.BanishPath:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Beatdown",
+    Callback = function()
+    game:GetService("ReplicatedStorage").Remotes.Beatdown:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Blue",
+    Callback = function()
+    game:GetService("ReplicatedStorage").Remotes.Blue:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Blue2",
+    Callback = function()
+    game:GetService("ReplicatedStorage").Remotes.Blue2:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Red",
+    Callback = function()
+    game:GetService("ReplicatedStorage").Remotes.Red:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Red 2",
+    Callback = function()
+    game:GetService("ReplicatedStorage").Remotes.Red2:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Container",
+    Callback = function()
+    game:GetService("ReplicatedStorage").Remotes.Container:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Container Kick",
+    Callback = function()
+    game:GetService("ReplicatedStorage").Remotes.ContainerKick:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Toji Slash",
+    Callback = function()
+    game:GetService("ReplicatedStorage").Remotes.DomainSlashes:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Toji Slash 2",
+    Callback = function()
+    game:GetService("ReplicatedStorage").Remotes.PlayfulCloud:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "HoraHora",
+    Callback = function()
+    game:GetService("ReplicatedStorage").Remotes.HoraHora:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Gomen Amanai Imaginary Purple",
+    Callback = function()
+    game:GetService("ReplicatedStorage").Remotes.ImaginaryPurple:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Lucky Beatdown",
+    Callback = function()
+    game:GetService("ReplicatedStorage").Remotes.LuckyBeatdown:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Pachinko",
+    Callback = function()
+    game:GetService("ReplicatedStorage").Remotes.Pachinko:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Pachinko Ball",
+    Callback = function()
+    game:GetService("ReplicatedStorage").Remotes.PachinkoBall:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Purple",
+    Callback = function()
+    game:GetService("ReplicatedStorage").Remotes.Purple:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Shutter Doors",
+    Callback = function()
+    game:GetService("ReplicatedStorage").Remotes.ShutterDoors:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Vanish",
+    Callback = function()
+    game:GetService("ReplicatedStorage").Remotes.Vanish:FireServer()
+   end    
+})
+
+local Tab = Window:CreateTab("??", 4483362458) -- Title, Image
+
+local Button = Tab:CreateButton({
+ Name = "Go/jo",
+ Callback = function()
+        for i = 1, 5 do
+game:GetService("ReplicatedStorage").Remotes.ShutterDoors:FireServer()
+end
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Sukuna Domain Nuke",
+ Callback = function()
+        for i = 1, 5000 do
+game:GetService("ReplicatedStorage").Events.MalevolentShrine:FireServer()
+end
+   end    
+})
