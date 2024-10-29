@@ -144,13 +144,6 @@ local Button = Tab:CreateButton({
 local Section = Tab:CreateSection("Itadori Sukuna")
 
 local Button = Tab:CreateButton({
- Name = "Wrong Way",
-    Callback = function()
-    game:GetService("Players").LocalPlayer.Backpack["Wrong Way"].LocalScript.Event:FireServer()
-   end    
-})
-
-local Button = Tab:CreateButton({
  Name = "Divergent Barrage",
     Callback = function()
     game:GetService("Players").LocalPlayer.Backpack["Divergent Barrage"].barrage.Event:FireServer()
