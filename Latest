@@ -475,9 +475,9 @@ local Tab = Window:CreateTab("Nuker", 4483362458) -- Title, Image
 local Section = Tab:CreateSection("SHADOW V2 You need to hold All range atomic")
 
 local Button = Tab:CreateButton({
- Name = "REAL ATOMIC",
+ Name = "REAL ATOMIC!",
  Callback = function()
-        for i = 1, 20000 do
+        for i = 1, 10000 do
 game:GetService("ReplicatedStorage").CidKageeno.Atomicc:FireServer()
 end
    end    
