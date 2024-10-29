@@ -477,7 +477,7 @@ local Section = Tab:CreateSection("SHADOW V2 You need to hold All range atomic")
 local Button = Tab:CreateButton({
  Name = "REAL ATOMIC",
  Callback = function()
-        for i = 1, 50000 do
+        for i = 1, 20000 do
 game:GetService("ReplicatedStorage").CidKageeno.Atomicc:FireServer()
 end
    end    
