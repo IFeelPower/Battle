@@ -504,7 +504,7 @@ end
 })
 
 local Button = Tab:CreateButton({
- Name = "ATOMIC Kitchen !FIXED!",
+ Name = "ATOMIC Kitchen - Patched RIP",
  Callback = function()
         for i = 1, 10000 do
 game:GetService("ReplicatedStorage").HeianSukuna["Incomplete Shrine"].heia:FireServer()
@@ -717,7 +717,7 @@ game:GetService("ReplicatedStorage").Events.Malclash:FireServer()
 })
 
 local Button = Tab:CreateButton({
- Name = "Heian Sukuna Domain !FIXED!",
+ Name = "Heian Sukuna Domain - Patched RIP",
  Callback = function()
 game:GetService("ReplicatedStorage").HeianSukuna["Incomplete Shrine"].heia:FireServer()
    end    
@@ -815,6 +815,13 @@ local Button = Tab:CreateButton({
  Name = "Gojo Long Domain",
  Callback = function()
 game:GetService("ReplicatedStorage").Events.UnlimitedVoid:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Mahito Domain",
+ Callback = function()
+        game:GetService("ReplicatedStorage").MahitoDomainExpansion.MahitoDomainEvent:FireServer()
    end    
 })
 
