@@ -423,7 +423,7 @@ local Button = Tab:CreateButton({
 end})
 
 local Button = Tab:CreateButton({
- Name = "SUS????",
+ Name = "Cursed Emotes",
  Callback = function()
         loadstring(game:HttpGet(('https://pastebin.com/raw/1p6xnBNf'),true))()
    end    
