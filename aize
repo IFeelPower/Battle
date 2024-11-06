@@ -1,5 +1,5 @@
 local tool = Instance.new("Tool")
-tool.Name = "Hado 99 Goryutenmetsu!"
+tool.Name = "Hacked HADO 99 Goryutenmetsu"
 tool.RequiresHandle = false
 
 local lastPressTime = 0
