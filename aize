@@ -1,0 +1,17 @@
+local tool = Instance.new("Tool")
+tool.Name = "Hado 99 Goryutenmetsu!"
+tool.RequiresHandle = false
+
+local lastPressTime = 0
+tool.Activated:Connect(function()
+  local currentTime = tick()
+            if currentTime - lastPressTime >= 0.1 then
+                lastPressTime = currentTime
+                local mouse = game.Players.LocalPlayer:GetMouse()
+local hit = mouse.Hit.Position
+                local oht = Vector3.new(hit.X, hit.Y, hit.Z)
+game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Had\197\141 99: Goryutenmetsu").LocalScript.Event:FireServer(oht)
+            end
+end)
+
+tool.Parent = game.Players.LocalPlayer.Backpack
