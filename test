@@ -47,20 +47,20 @@ game:GetService("Players").deku_12356Ietug.Backpack["Ausw\195\164hlen"].LocalScr
 local Button = Tab:CreateButton({
    Name = "Blut Vene Aufheben",
    Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Blut Vene Aufheben"].LocalScript.Event:FireServer()
+game:GetService("Players").deku_12356Ietug.Backpack["Blut Vene Aufheben"].LocalScript.Event:FireServer()
    end    
 })
 
 local Button = Tab:CreateButton({
    Name = "Sankt  Zwinger",
    Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Sankt  Zwinger"].LocalScript.Event:FireServer()
+game:GetService("Players").deku_12356Ietug.Backpack["Sankt  Zwinger"].LocalScript.Event:FireServer()
    end    
 })
 
 local Button = Tab:CreateButton({
    Name = "Yamamoto Slash",
    Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Yamamoto Slash"].LocalScript.Event:FireServer()
+game:GetService("Players").deku_12356Ietug.Backpack["Yamamoto Slash"].LocalScript.Event:FireServer()
    end    
 })
