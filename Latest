@@ -502,7 +502,7 @@ end
 })
 
 local Button = Tab:CreateButton({
- Name = "20x Small Malevolent Kitchen",
+ Name = "20x Small Malevolent KitcheN",
  Callback = function()
         for i = 1, 20 do
 game:GetService("ReplicatedStorage").RyomenSukuna.MalevolentShrine.Gaymalev:FireServer()
@@ -513,7 +513,8 @@ end
 local Button = Tab:CreateButton({
  Name = "ATOMIC KJ",
  Callback = function()
-        for i = 1, 10000 do
+        while true do
+  wait(0.001)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/KoJ"))()
 end
    end    
