@@ -724,6 +724,13 @@ end
 })
 
 local Button = Tab:CreateButton({
+ Name = "Colovo - Sukuna domain slash",
+ Callback = function()
+game:GetService("ReplicatedStorage").Remotes.colovo:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
  Name = "Small Malevolent Shrine",
  Callback = function()
 game:GetService("ReplicatedStorage").RyomenSukuna.MalevolentShrine.Gaymalev:FireServer()
