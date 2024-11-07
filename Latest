@@ -511,10 +511,10 @@ end
 })
 
 local Button = Tab:CreateButton({
- Name = "ATOMIC Kitchen - Patched RIP",
+ Name = "ATOMIC KJ",
  Callback = function()
         for i = 1, 10000 do
-game:GetService("ReplicatedStorage").HeianSukuna["Incomplete Shrine"].heia:FireServer()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/KoJ"))()
 end
    end    
 })
