@@ -1,0 +1,12 @@
+local args = {
+    [1] = "Ability",
+    [2] = "Season",
+    [3] = {
+        ["char"] = game:GetService("Players").LocalPlayer.Character,
+        ["player"] = game:GetService("Players").LocalPlayer,
+        ["root"] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,
+        ["hum"] = game:GetService("Players").LocalPlayer.Character.Humanoid
+    }
+}
+
+game:GetService("ReplicatedStorage").Server2:InvokeServer(unpack(args))
