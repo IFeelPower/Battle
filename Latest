@@ -115,6 +115,27 @@ game:GetService("Players").LocalPlayer.Backpack["Supreme Art: Maximum Uzumaki"].
 local Section = Tab:CreateSection("Shadow")
 
 local Button = Tab:CreateButton({
+ Name = "V2 Speed Blitz",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Speed Blitz"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "V2 OverDrive",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Overdrive["Local Script"].Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "V2 Recovery Atomic",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Recovery Atomic"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
  Name = "Atomic - You Need hold",
  Callback = function()
 game:GetService("ReplicatedStorage").AtomicFolder.gaydog:FireServer()
