@@ -370,7 +370,35 @@ game:GetService("ReplicatedStorage").GojoSatoru.rush:FireServer()
 local Section = Tab:CreateSection("Sukuna")
 
 local Button = Tab:CreateButton({
- Name = "Death Rush Beatdown",
+ Name = "V1 Dismantle",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Dismantle.Dismantle.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "V1 World Slash",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["World Slash"].LocalScript.RemoteEvent:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "V1 World Slash Net",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Dismantle: Net"].LocalScript.RemoteEvent:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "V1 World Slash Dismantle",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["World Slash: Dismantle"].Punch.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "V2 Death Rush Beatdown",
  Callback = function()
         for i = 1, 5 do
 game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Rush Beatdown").LocalScript.RemoteEvent:FireServer()
@@ -379,14 +407,14 @@ end
 })
 
 local Button = Tab:CreateButton({
- Name = "World Slash for sukuna unleashed",
+ Name = "V2 World Slash for sukuna unleashed",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("World Slash").LocalScript.Event:FireServer()
    end    
 })
 
 local Button = Tab:CreateButton({
- Name = "World slash Net for sukuna unleashed",
+ Name = "V2 World slash Net for sukuna unleashed",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Dismantle: Net").LocalScript.Event:FireServer()
    end    
