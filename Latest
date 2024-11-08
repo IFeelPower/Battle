@@ -766,6 +766,13 @@ game:GetService("ReplicatedStorage").HeianSukuna["Incomplete Shrine"].heia:FireS
 })
 
 local Button = Tab:CreateButton({
+ Name = "Reverse Cursed Technique - You need this item",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Reverse Cursed Technique"].Script.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
  Name = "Old Hakari",
  Callback = function()
 game:GetService("ReplicatedStorage").Domainthing:FireServer()
