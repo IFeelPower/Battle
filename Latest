@@ -482,7 +482,7 @@ game:GetService("Players").LocalPlayer.Backpack.Cero.LocalScript.Event:FireServe
 })
 
 local Button = Tab:CreateButton({
- Name = "Cero",
+ Name = "Grab Cero",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack["Grab Cero"].LocalScript.Event:FireServer()
     end
