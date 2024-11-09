@@ -700,7 +700,7 @@ end
    end    
 })
 
-local Section = Tab:CreateSection("Need Ayanokouji - you can awake toji in Main tab")
+local Section = Tab:CreateSection("Need Ayanokouji")
 
 local Button = Tab:CreateButton({
  Name = "Head Power",
