@@ -586,6 +586,13 @@ end
    end    
 })
 
+local Button = Tab:CreateButton({
+ Name = "ATOMIC PURPLE - with chat",
+ Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/Purple"))()
+   end    
+})
+
 local Tab = Window:CreateTab("Kill", 4483362458) -- Title, Image
 
 local Button = Tab:CreateButton({
