@@ -531,7 +531,16 @@ local Tab = Window:CreateTab("Nuker", 4483362458) -- Title, Image
 local Section = Tab:CreateSection("SHADOW V2 You need to hold All range atomic")
 
 local Button = Tab:CreateButton({
- Name = "REAL ATOMIC! - Rework lol",
+ Name = "REAL ATOMIC!",
+ Callback = function()
+        for i = 1, 10000 do
+game:GetService("ReplicatedStorage").CidKageeno.Atomicc:FireServer()
+end
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "REAL ATOMIC! with chat",
  Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/Atomic"))()
    end    
@@ -560,7 +569,7 @@ end
 local Button = Tab:CreateButton({
  Name = "Brightness Hado - You need Hado 99 Goryutenmetsu",
  Callback = function()
-        for i = 1, 150 do
+        for i = 1, 50 do
 game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Had\197\141 99: Goryutenmetsu").LocalScript.Event:FireServer()
 end
    end    
