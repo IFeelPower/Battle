@@ -398,6 +398,22 @@ game:GetService("Players").LocalPlayer.Backpack["World Slash: Dismantle"].Punch.
 })
 
 local Button = Tab:CreateButton({
+ Name = "V2 Cleave",
+ Callback = function()  
+        for i = 1, 5 do
+game:GetService("Players").LocalPlayer.Backpack.Cleave.LocalScript.Event:FireServer()
+end
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "V2 Dismantle",
+ Callback = function()      
+game:GetService("Players").LocalPlayer.Backpack.Dismantle.LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
  Name = "V2 Death Rush Beatdown",
  Callback = function()
         for i = 1, 5 do
@@ -417,6 +433,13 @@ local Button = Tab:CreateButton({
  Name = "V2 World slash Net for sukuna unleashed",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Dismantle: Net").LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Normal Fuga",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Furnace.LocalScript.event:FireServer()
    end    
 })
 
@@ -543,7 +566,7 @@ local Button = Tab:CreateButton({
    end    
 })
 
-local Tab = Window:CreateTab("Nuker", 4483362458) -- Title, Image
+local Tab = Window:CreateTab("Nuke", 4483362458) -- Title, Image
 
 local Section = Tab:CreateSection("SHADOW V2 You need to hold All range atomic")
 
@@ -613,7 +636,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/ref
 local Tab = Window:CreateTab("Kill", 4483362458) -- Title, Image
 
 local Button = Tab:CreateButton({
- Name = "Equip all items - useless function",
+ Name = "Hold all items",
  Callback = function()
         for _, tool in ipairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
      if tool:IsA("Tool") then
@@ -641,7 +664,7 @@ end
    end    
 })
 
-local Section = Tab:CreateSection("Invincible")
+local Section = Tab:CreateSection("GOD MODE")
 
 local Button = Tab:CreateButton({
  Name = "Meow - use this item",
@@ -651,7 +674,7 @@ local Button = Tab:CreateButton({
 })
 
 local Button = Tab:CreateButton({
- Name = "Delete Items - activate this after Meow",
+ Name = "Delete all Items - use this after Meow",
  Callback = function()
         local Player = game:GetService("Players").LocalPlayer
 local Backpack = Player.Backpack
@@ -735,6 +758,15 @@ local Button = Tab:CreateButton({
  Name = "Strongest Magic - Megumin Item",
  Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/Explo"))()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Go/jo Cut",
+ Callback = function()
+        for i = 1, 10 do
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("ShutterDoors"):FireServer()
+end
    end    
 })
 
