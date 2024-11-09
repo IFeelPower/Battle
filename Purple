@@ -1,0 +1,23 @@
+local args = {
+    [1] = "I........",
+    [2] = "All"
+}
+
+game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))
+wait(3)
+local args = {
+    [1] = "AM.......",
+    [2] = "All"
+}
+
+game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))
+wait(3)
+local args = {
+    [1] = "PURPLE!!!!",
+    [2] = "All"
+}
+
+game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))
+        for i = 1, 10000 do
+game:GetService("ReplicatedStorage").GojoV3.nuke:FireServer()
+end
