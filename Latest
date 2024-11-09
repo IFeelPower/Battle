@@ -465,16 +465,33 @@ game:GetService("Players").LocalPlayer.Backpack.Mahoraga.Mahoraga.RemoteEvent:Fi
    end    
 })
 
-local Section = Tab:CreateSection("Muichiro")
+local Section = Tab:CreateSection("Ichigo Vasto Lorde")
 
 local Button = Tab:CreateButton({
- Name = "Add Skill",
+ Name = "Scream",
  Callback = function()
-local args = {
-    [1] = "Muichiro Tokito"
-}
+game:GetService("Players").LocalPlayer.Backpack.Scream.LocalScript.Event:FireServer()
+    end
+})
 
-game:GetService("ReplicatedStorage").Picked:FireServer(unpack(args))
+local Button = Tab:CreateButton({
+ Name = "Cero",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Cero.LocalScript.Event:FireServer()
+    end
+})
+
+local Button = Tab:CreateButton({
+ Name = "Cero",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Grab Cero"].LocalScript.Event:FireServer()
+    end
+})
+
+local Button = Tab:CreateButton({
+ Name = "Hollow Mask",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Hollow Mask"].HollowMask.Remote:FireServer()
     end
 })
 
