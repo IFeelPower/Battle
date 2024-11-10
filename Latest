@@ -923,10 +923,10 @@ end
 local Section = Tab:CreateSection("Need Asta")
 
 local Button = Tab:CreateButton({
- Name = "Kill Aura V4",
+ Name = "Kill Aura V4 - you can disable this by holding black slash item",
  Callback = function()
         while true do
-  wait(0.1)
+  wait(0.2)
 game:GetService("Players").LocalPlayer.Backpack["Black Slash"]["Triple Surge"].Fire2:FireServer()
 end
    end    
