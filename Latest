@@ -377,6 +377,15 @@ game:GetService("Players").LocalPlayer.Backpack.Dismantle.Dismantle.Event:FireSe
 })
 
 local Button = Tab:CreateButton({
+ Name = "V1 Go/jo Dismantle",
+ Callback = function()  
+        for i = 1, 10 do
+game:GetService("Players").LocalPlayer.Backpack.Dismantle.Dismantle.Event:FireServer()
+end
+   end    
+})
+
+local Button = Tab:CreateButton({
  Name = "V1 World Slash",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack["World Slash"].LocalScript.RemoteEvent:FireServer()
@@ -493,8 +502,10 @@ end
 local Button = Tab:CreateButton({
  Name = "Triple Elephant",
  Callback = function()
+        for i = 1, 7 do
 game:GetService("Players").LocalPlayer.Backpack["Max Elephant"]["Max Elephant Strike"].RemoteEvent:FireServer()
-   end    
+end
+   end
 })
 
 local Button = Tab:CreateButton({
