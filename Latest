@@ -923,10 +923,10 @@ end
 local Section = Tab:CreateSection("Need Asta")
 
 local Button = Tab:CreateButton({
- Name = "Kill Aura V4 - you can disable this by holding black slash item",
+ Name = "Lag Aura V1 - Lagging Server LOL",
  Callback = function()
         while true do
-  wait(0.2)
+  wait(0.02)
 game:GetService("Players").LocalPlayer.Backpack["Black Slash"]["Triple Surge"].Fire2:FireServer()
 end
    end    
