@@ -911,7 +911,7 @@ end
    end    
 })
 
-ocal Section = Tab:CreateSection("Need Asta")
+local Section = Tab:CreateSection("Need Asta")
 
 local Button = Tab:CreateButton({
  Name = "Kill Aura V4",
