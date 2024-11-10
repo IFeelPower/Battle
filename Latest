@@ -652,13 +652,6 @@ game:GetService("ReplicatedStorage").Remotes.Vanishaizen:FireServer()
 })
 
 local Button = Tab:CreateButton({
- Name = "Vanishing",
- Callback = function()
-game:GetService("ReplicatedStorage").Remotes.Vanishing:FireServer()
-   end    
-})
-
-local Button = Tab:CreateButton({
  Name = "Sonido",
  Callback = function()
 game:GetService("ReplicatedStorage").Remotes.sonido:FireServer()
