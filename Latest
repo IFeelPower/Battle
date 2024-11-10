@@ -265,6 +265,27 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/ref
 local Section = Tab:CreateSection("Starrk")
 
 local Button = Tab:CreateButton({
+ Name = "Awake Starrk",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Resurrecci\195\179n:  Los Lobos").LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Colmilo",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Colmilo.LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Divine Dogs",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Wolves["Divine Dogs"].RemoteEvent:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
  Name = "Spinning Shots",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Spinning Shots").LocalScript.Event:FireServer()
@@ -282,13 +303,6 @@ local Button = Tab:CreateButton({
  Name = "Right Gun",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Right Gun").LocalScript.Event:FireServer()
-   end    
-})
-
-local Button = Tab:CreateButton({
- Name = "Awake Starrk",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Resurrecci\195\179n:  Los Lobos").LocalScript.Event:FireServer()
    end    
 })
 
