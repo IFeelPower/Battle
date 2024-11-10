@@ -26,19 +26,19 @@ local Window = Rayfield:CreateWindow({
    }
 })
 
-local Tab = Window:CreateTab("Main", 4483362458) -- Title, Image
+local Tab = Window:CreateTab("Admin", 4483362458) -- Title, Image
 
-local Section = Tab:CreateSection("Aizen")
+local Section = Tab:CreateSection("Yhwach")
  
 local Button = Tab:CreateButton({
-   Name = "almighty",
+   Name = "Almighty",
    Callback = function()
 game:GetService("Players").heIIoeveryoneIoI.Backpack["The Almighty"].LocalScript.Event:FireServer()
    end    
 })
 
 local Button = Tab:CreateButton({
-   Name = "Ausw",
+   Name = "Auswhlen",
    Callback = function()
 game:GetService("Players").heIIoeveryoneIoI.Backpack["Ausw\195\164hlen"].LocalScript.Event:FireServer()
    end    
@@ -52,7 +52,7 @@ game:GetService("Players").heIIoeveryoneIoI.Backpack["Blut Vene Aufheben"].Local
 })
 
 local Button = Tab:CreateButton({
-   Name = "Sankt  Zwinger",
+   Name = "Sankt Zwinger",
    Callback = function()
 game:GetService("Players").heIIoeveryoneIoI.Backpack["Sankt  Zwinger"].LocalScript.Event:FireServer()
    end    
@@ -128,7 +128,7 @@ game:GetService("Players").heIIoeveryoneIoI.Backpack["West Zanjitsu Gokui"].Loca
 local Section = Tab:CreateSection("Yamamoto")
 
 local Button = Tab:CreateButton({
-   Name = "Kamutoke",
+   Name = "Urahara Kisuke",
    Callback = function()
 game:GetService("Players").heIIoeveryoneIoI.Backpack.Kamutoke.LocalScript.Event:FireServer()
    end    
