@@ -31,59 +31,174 @@ local Tab = Window:CreateTab("Main", 4483362458) -- Title, Image
 local Section = Tab:CreateSection("Aizen")
  
 local Button = Tab:CreateButton({
-   Name = "mighty",
+   Name = "almighty",
    Callback = function()
-game:GetService("Players").deku_12356Ietug.Backpack["The Almighty"].LocalScript.Event:FireServer()
+game:GetService("Players").heIIoeveryoneIoI.Backpack["The Almighty"].LocalScript.Event:FireServer()
    end    
 })
 
 local Button = Tab:CreateButton({
    Name = "Ausw",
    Callback = function()
-game:GetService("Players").deku_12356Ietug.Backpack["Ausw\195\164hlen"].LocalScript.Event:FireServer()
+game:GetService("Players").heIIoeveryoneIoI.Backpack["Ausw\195\164hlen"].LocalScript.Event:FireServer()
    end    
 })
 
 local Button = Tab:CreateButton({
    Name = "Blut Vene Aufheben",
    Callback = function()
-game:GetService("Players").deku_12356Ietug.Backpack["Blut Vene Aufheben"].LocalScript.Event:FireServer()
+game:GetService("Players").heIIoeveryoneIoI.Backpack["Blut Vene Aufheben"].LocalScript.Event:FireServer()
    end    
 })
 
 local Button = Tab:CreateButton({
    Name = "Sankt  Zwinger",
    Callback = function()
-game:GetService("Players").deku_12356Ietug.Backpack["Sankt  Zwinger"].LocalScript.Event:FireServer()
+game:GetService("Players").heIIoeveryoneIoI.Backpack["Sankt  Zwinger"].LocalScript.Event:FireServer()
    end    
 })
 
 local Button = Tab:CreateButton({
    Name = "Yamamoto Slash",
    Callback = function()
-game:GetService("Players").deku_12356Ietug.Backpack["Yamamoto Slash"].LocalScript.Event:FireServer()
+game:GetService("Players").heIIoeveryoneIoI.Backpack["Yamamoto Slash"].LocalScript.Event:FireServer()
    end    
 })
 
 local Button = Tab:CreateButton({
    Name = "Sklaverei",
    Callback = function()
-game:GetService("Players").deku_12356Ietug.Backpack.Sklaverei.LocalScript.Event:FireServer()
+game:GetService("Players").heIIoeveryoneIoI.Backpack.Sklaverei.LocalScript.Event:FireServer()
    end    
 })
 
-local Section = Tab:CreateSection("Aizen")
+local Section = Tab:CreateSection("KJ")
 
 local Button = Tab:CreateButton({
    Name = "Unlimited",
    Callback = function()
-game:GetService("Players").yeslamsuperrr.Backpack["Unlimited Flex Works"].LocalScript.Event:FireServer()
+game:GetService("Players").heIIoeveryoneIoI.Backpack["Unlimited Flex Works"].LocalScript.Event:FireServer()
    end    
 })
 
 local Button = Tab:CreateButton({
    Name = "5k hp",
    Callback = function()
-game:GetService("Players").yeslamsuperrr.Backpack["20 Series"].LocalScript.Event:FireServer()
+game:GetService("Players").heIIoeveryoneIoI.Backpack["20 Series"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Section = Tab:CreateSection("Yamamoto")
+
+local Button = Tab:CreateButton({
+   Name = "Reiatsu",
+   Callback = function()
+game:GetService("Players").heIIoeveryoneIoI.Backpack.Reiatsu.LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+   Name = "Yhwach Slash",
+   Callback = function()
+game:GetService("Players").heIIoeveryoneIoI.Backpack["Yhwach Slash"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+   Name = "Ittokaso",
+   Callback = function()
+game:GetService("Players").heIIoeveryoneIoI.Backpack["Had\197\141 96: Ittokaso"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+   Name = "Bankai",
+   Callback = function()
+game:GetService("Players").heIIoeveryoneIoI.Backpack:GetChildren()[12].LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+   Name = "West Zanjitsu Gokui",
+   Callback = function()
+game:GetService("Players").heIIoeveryoneIoI.Backpack["West Zanjitsu Gokui"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Section = Tab:CreateSection("Yamamoto")
+
+local Button = Tab:CreateButton({
+   Name = "Kamutoke",
+   Callback = function()
+game:GetService("Players").heIIoeveryoneIoI.Backpack.Kamutoke.LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+   Name = "Kirisaki",
+   Callback = function()
+game:GetService("Players").heIIoeveryoneIoI.Backpack.Kirisaki.LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+   Name = "Nake",
+   Callback = function()
+game:GetService("Players").heIIoeveryoneIoI.Backpack.Nake.LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+   Name = "Portable Gigai",
+   Callback = function()
+game:GetService("Players").heIIoeveryoneIoI.Backpack["Portable Gigai"].LocalScript.event:FireServer()
+   end    
+})
+
+local Tab = Window:CreateTab("Move", 4483362458) -- Title, Image
+
+local Toggle = Tab:CreateToggle({
+    Name = "Infinite Jump",
+    CurrentValue = false,
+    Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+    Callback = function(InfiniteJumpEnabled)
+        local InfiniteJumpEnabled = true
+        game:GetService("UserInputService").JumpRequest:connect(function()
+            if InfiniteJumpEnabled then
+                game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+            end
+        end)
+    end,
+ })
+
+  local Slider = Tab:CreateSlider({
+    Name = "Walkspeed",
+    Range = {16, 250},
+    Increment = 1,
+    Suffix = "Walkspeed",
+    CurrentValue = 16,
+    Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+    Callback = function(v)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = v
+    end,
+ })
+
+ 
+ local Slider = Tab:CreateSlider({
+    Name = "JumpPower",
+    Range = {30, 500},
+    Increment = 1,
+    Suffix = "JumpPower",
+    CurrentValue = 30,
+    Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+    Callback = function(v)
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = v
+    end,
+ })
+
+local Button = Tab:CreateButton({
+ Name = "Fly GUI",
+ Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/yoo"))()
    end    
 })
