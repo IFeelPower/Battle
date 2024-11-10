@@ -573,6 +573,15 @@ game:GetService("Players").LocalPlayer.Backpack["Hollow Mask"].HollowMask.Remote
     end
 })
 
+local Section = Tab:CreateSection("100% Sukuna Unleashed - No fail")
+
+local Button = Tab:CreateButton({
+ Name = "Use this after you get Sukuna finger",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Sukuna Finger"].Script.Event:FireServer()
+    end
+})
+
 local Tab = Window:CreateTab("Move", 4483362458) -- Title, Image
 
 local Toggle = Tab:CreateToggle({
