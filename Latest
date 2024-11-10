@@ -567,6 +567,15 @@ game:GetService("Players").LocalPlayer.Backpack["Unlimited Void"].Skill.Infinity
    end    
 })
 
+local Section = Tab:CreateSection("Itadori Yuji")
+
+local Button = Tab:CreateButton({
+ Name = "Boxing Arena",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Boxing Arena"].Skill.RingOfDeath:FireServer()
+   end    
+})
+
 local Section = Tab:CreateSection("Fushiguro Megumi")
 
 local Button = Tab:CreateButton({
