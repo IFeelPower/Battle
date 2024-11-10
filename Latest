@@ -652,7 +652,7 @@ game:GetService("ReplicatedStorage").Remotes.Vanishaizen:FireServer()
 })
 
 local Button = Tab:CreateButton({
- Name = "Vanish aizen",
+ Name = "Vanishing",
  Callback = function()
 game:GetService("ReplicatedStorage").Remotes.Vanishing:FireServer()
    end    
