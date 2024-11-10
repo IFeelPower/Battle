@@ -514,12 +514,47 @@ game:GetService("Players").LocalPlayer.Backpack["Black Flash"].LocalScript.Event
    end    
 })
 
+local Section = Tab:CreateSection("Okkotsu Gojo")
+
 local Button = Tab:CreateButton({
- Name = "Die",
+ Name = "Fury Barrage",
  Callback = function()
-        for i = 1, 1 do
-game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Cursed Technique Speech").LocalScript.Event:FireServer()
-end
+game:GetService("Players").LocalPlayer.Backpack["Fury Barrage"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Lapse Blue",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Lapse Blue"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Reversal Red",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Reversal Red"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Hollow Purple",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Hollow Purple"].LocalScript.event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Imaginary Technique Purple",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Imaginary Technique Purple"].murasaki.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Unlimited Void",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Unlimited Void"].Skill.InfinityVoid:FireServer()
    end    
 })
 
