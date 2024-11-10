@@ -214,6 +214,13 @@ end
 })
 
 local Button = Tab:CreateButton({
+ Name = "Normal Hado 90",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Had\197\141 90"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
  Name = "Hado 90 Unstealed",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack.Unstealed.LocalScript.Event:FireServer()
@@ -627,6 +634,41 @@ local Button = Tab:CreateButton({
  Name = "Fly GUI",
  Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/yoo"))()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Vanish",
+ Callback = function()
+game:GetService("ReplicatedStorage").Remotes.Vanish:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Vanish aizen",
+ Callback = function()
+game:GetService("ReplicatedStorage").Remotes.Vanishaizen:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Vanish aizen",
+ Callback = function()
+game:GetService("ReplicatedStorage").Remotes.Vanishing:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Sonido",
+ Callback = function()
+game:GetService("ReplicatedStorage").Remotes.sonido:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Sonido 2",
+ Callback = function()
+game:GetService("ReplicatedStorage").Remotes.sonido2:FireServer()
    end    
 })
 
