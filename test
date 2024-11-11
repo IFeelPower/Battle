@@ -72,6 +72,13 @@ game:GetService("Players").heIIoeveryoneIoI.Backpack.Sklaverei.LocalScript.Event
    end    
 })
 
+local Button = Tab:CreateButton({
+   Name = "Splash Almighty",
+   Callback = function()
+game:GetService("Players").heIIoeveryoneIoI.Backpack["Splash Almighty"].LocalScript.Event:FireServer()
+   end    
+})
+
 local Section = Tab:CreateSection("KJ")
 
 local Button = Tab:CreateButton({
