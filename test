@@ -186,14 +186,14 @@ game:GetService("Players").LocalPlayer.Backpack["I'm So Depressed"].LocalScript.
 })
 
 local Button = Tab:CreateButton({
-   Name = "I'm So Depressed",
+   Name = "20 Blow",
    Callback = function()
 game:GetService("Players").LocalPlayer.Backpack["20 Blow"].Handler.Connector:FireServer()
    end    
 })
 
 local Button = Tab:CreateButton({
-   Name = "I'm So Depressed",
+   Name = "Hurricane Dropkick",
    Callback = function()
 game:GetService("Players").LocalPlayer.Backpack["Hurricane Dropkick"].Run.Connect:FireServer()
    end    
