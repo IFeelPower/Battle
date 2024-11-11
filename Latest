@@ -540,6 +540,16 @@ game:GetService("Players").LocalPlayer.Backpack["Lapse Blue"].LocalScript.Event:
 })
 
 local Button = Tab:CreateButton({
+ Name = "Blue Laser",
+ Callback = function()
+        while true do
+  wait(0.1)
+game:GetService("Players").LocalPlayer.Backpack["Lapse Blue"].LocalScript.Event:FireServer()
+end
+   end    
+})
+
+local Button = Tab:CreateButton({
  Name = "Reversal Red",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack["Reversal Red"].LocalScript.Event:FireServer()
