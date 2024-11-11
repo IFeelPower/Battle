@@ -162,6 +162,22 @@ game:GetService("Players").heIIoeveryoneIoI.Backpack.Bankai.LocalScript.Event:Fi
    end    
 })
 
+local Section = Tab:CreateSection("Jun")
+
+local Button = Tab:CreateButton({
+   Name = "Swirl Kick",
+   Callback = function()
+game:GetService("Players").heIIoeveryoneIoI.Backpack["Swirl Kick"].Client.SwirlKickEvent:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+   Name = "I'm So Depressed",
+   Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["I'm So Depressed"].LocalScript.Event:FireServer()
+   end    
+})
+
 local Tab = Window:CreateTab("Move", 4483362458) -- Title, Image
 
 local Toggle = Tab:CreateToggle({
