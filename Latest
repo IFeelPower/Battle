@@ -505,6 +505,50 @@ end
    end    
 })
 
+local Section = Tab:CreateSection("Gojo V2")
+
+local Button = Tab:CreateButton({
+ Name = "Awake 1 - One Six Eyes",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["One Six Eyes"].Script.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Awake 2 - Six Eyes",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Six Eyes"].Script.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Black Flash",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Black Flash"].BlackFlash:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Grab Divergent",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Grab Divergent"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Maximum Hollow Purple",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Maximum Hollow Purple"].Skill.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Unlimited Void",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Unlimited Void"].Skill.InfinityVoid:FireServer()
+   end    
+})
+
 local Section = Tab:CreateSection("Okkotsu")
 
 local Button = Tab:CreateButton({
