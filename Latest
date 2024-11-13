@@ -249,13 +249,6 @@ game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Had\197\141 90: 
 })
 
 local Button = Tab:CreateButton({
- Name = "Freezing Hado 99 lol",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Had\197\141 99: Goryutenmetsu").LocalScript.Event:FireServer()
-   end    
-})
-
-local Button = Tab:CreateButton({
  Name = "Real Hado 99 Goryu Tenmetsu Tool",
  Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/aize"))()
