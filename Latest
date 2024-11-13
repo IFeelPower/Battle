@@ -235,7 +235,7 @@ game:GetService("Players").LocalPlayer.Backpack.Unstealed.LocalScript.Event:Fire
 })
 
 local Button = Tab:CreateButton({
- Name = "30 Hado 90 Unstealed - test",
+ Name = "30 Hado 90 Unstealed - use this after reset",
  Callback = function()
         for i = 1, 30 do
 game:GetService("Players").LocalPlayer.Backpack.Unstealed.LocalScript.Event:FireServer()
