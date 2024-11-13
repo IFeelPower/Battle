@@ -235,6 +235,15 @@ game:GetService("Players").LocalPlayer.Backpack.Unstealed.LocalScript.Event:Fire
 })
 
 local Button = Tab:CreateButton({
+ Name = "30 Hado 90 Unstealed - test",
+ Callback = function()
+        for i = 1, 30 do
+game:GetService("Players").LocalPlayer.Backpack.Unstealed.LocalScript.Event:FireServer()
+end   
+   end    
+})
+
+local Button = Tab:CreateButton({
  Name = "Dominate No Need Aizen v2",
  Callback = function()
 game:GetService("ReplicatedStorage").Aizen.RemoteEvent:FireServer()
