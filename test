@@ -95,6 +95,13 @@ game:GetService("Players").LocalPlayer.Backpack["20 Series"].LocalScript.Event:F
    end    
 })
 
+local Button = Tab:CreateButton({
+   Name = "Stoic Bomb",
+   Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Stoic Bomb"].LocalScript.Event:FireServer()
+   end    
+})
+
 local Section = Tab:CreateSection("Yamamoto")
 
 local Button = Tab:CreateButton({
