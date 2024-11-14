@@ -84,14 +84,14 @@ local Section = Tab:CreateSection("KJ")
 local Button = Tab:CreateButton({
    Name = "Unlimited",
    Callback = function()
-game:GetService("Players").heIIoeveryoneIoI.Backpack["Unlimited Flex Works"].LocalScript.Event:FireServer()
+game:GetService("Players").LocalPlayerI.Backpack["Unlimited Flex Works"].LocalScript.Event:FireServer()
    end    
 })
 
 local Button = Tab:CreateButton({
-   Name = "5k hp",
+   Name = "5k hp lol",
    Callback = function()
-game:GetService("Players").heIIoeveryoneIoI.Backpack["20 Series"].LocalScript.Event:FireServer()
+game:GetService("Players").LocalPlayer.Backpack["20 Series"].LocalScript.Event:FireServer()
    end    
 })
 
