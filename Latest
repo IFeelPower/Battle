@@ -191,7 +191,7 @@ local Button = Tab:CreateButton({
  Callback = function()
         while true do
   wait(2)
-game:GetService("Players").LocalPlayer.Backpack.Gokei.LocalScript.Event:FireServer()
+game:GetService("Players").LocalPlayer.Backpack.Seamless.LocalScript.Event:FireServer()
 end
    end    
 })
