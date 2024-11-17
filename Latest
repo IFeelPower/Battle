@@ -180,9 +180,28 @@ game:GetService("Players").LocalPlayer.Backpack.Bankai.LocalScript.Event:FireSer
 })
 
 local Button = Tab:CreateButton({
- Name = "Senkai",
+ Name = "Senkei",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack.Senkai.LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Sakura Aura",
+ Callback = function()
+        while true do
+  wait(2)
+game:GetService("Players").LocalPlayer.Backpack.Gokei.LocalScript.Event:FireServer()
+end
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Hado 99 SOKATSUI",
+ Callback = function()
+        for i = 1, 6 do
+game:GetService("Players").LocalPlayer.Backpack.Sokatsui.LocalScript.Event:FireServer()
+end
    end    
 })
 
@@ -433,6 +452,13 @@ local Button = Tab:CreateButton({
  Name = "V1 World Slash Dismantle",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack["World Slash: Dismantle"].Punch.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Become V2 Sukuna - No world slash",
+ Callback = function()
+game:GetService("ReplicatedStorage").Remotes.KingofCurses:FireServer()
    end    
 })
 
@@ -1057,6 +1083,15 @@ local Button = Tab:CreateButton({
  Name = "KJ 5 Season - New",
  Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/KoJ"))()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Death Sukuna Rush",
+ Callback = function()
+        for i = 1, 7 do
+game:GetService("ReplicatedStorage").sukuna.remotes.rush:FireServer()
+end
    end    
 })
 
