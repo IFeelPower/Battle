@@ -181,9 +181,23 @@ local Button = Tab:CreateButton({
 local Section = Tab:CreateSection("Hakari Real Gamble")
 
 local Button = Tab:CreateButton({
- Name = "Real Gamble",
+ Name = "Fortune Flare",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["Fortune Flare"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Idle Death Gamble - No animation lol",
     Callback = function()
     game:GetService("Players").LocalPlayer.Backpack["Idle Death Gamble"]["Awakening : Serious Mode"].Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Rhythm",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack.Rhythm.LocalScript.Event:FireServer()
    end    
 })
 
