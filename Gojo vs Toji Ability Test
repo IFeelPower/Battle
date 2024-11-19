@@ -303,9 +303,11 @@ local Button = Tab:CreateButton({
  Callback = function()
         while true do
   wait(0.2)
+for i = 1, 4 do
 game:GetService("Players").LocalPlayer.Backpack["Soul Fire"]["Rapid Shot"].Shot:FireServer()
 end
-   end    
+   end 
+end
 })
 
 local Button = Tab:CreateButton({
