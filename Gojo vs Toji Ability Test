@@ -356,6 +356,57 @@ local Button = Tab:CreateButton({
    end    
 })
 
+local Section = Tab:CreateSection("JUN")
+
+local Button = Tab:CreateButton({
+ Name = "Fang Dance",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["Fang Dance"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Glimpse Of Power Variant",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["Glimpse Of Power Variant"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Virgule Cascade",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["Virgule Cascade"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Finished Already?",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["Finished Already?"]["Awakening : Serious Mode"].Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "One Inch Killer Punch",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["One Inch Killer Punch"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "One Inch",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["One Inch"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "No More Games",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["No More Games"].LocalScript.Event:FireServer()
+   end    
+})
+
 local Tab = Window:CreateTab("Move", 4483362458) -- Title, Image
 
 local Toggle = Tab:CreateToggle({
