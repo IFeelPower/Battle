@@ -28,23 +28,121 @@ local Window = Rayfield:CreateWindow({
 
 local Tab = Window:CreateTab("Main", 4483362458) -- Title, Image
 
+local Section = Tab:CreateSection("Yhwach")
+
+local Button = Tab:CreateButton({
+ Name = "Blut Vene Aufheben",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Blut Vene Aufheben"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Sklaverei",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Sklaverei.LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Sankt Zwinger",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Sankt  Zwinger"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Auswhlen",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Ausw\195\164hlen"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "The Almighty - Awake",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["The Almighty"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Yamamoto Slash",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Yamamoto Slash"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Splash Almighty",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Splash Almighty"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Section = Tab:CreateSection("Yamamoto")
+
+local Button = Tab:CreateButton({
+ Name = "Reiatsu",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Reiatsu.LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Ryujin Jakka",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Ry\197\171jin Jakka"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Hado 96 Ittokaso",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Had\197\141 96: Ittokaso"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Bankai",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Bankai.LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "World Breaker",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["World Breaker"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "North Tenchi Kaijin",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["North Tenchi Kaijin"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "West Zanjitsu Gokui",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["West Zanjitsu Gokui"].LocalScript.Event:FireServer()
+   end    
+})
+
 local Section = Tab:CreateSection("Aizen")
  
 local Button = Tab:CreateButton({
    Name = "Sonido Clones",
    Callback = function()
-        for i = 1, 1 do
 game:GetService("Players").LocalPlayer.Backpack["Sonido Clones"].LocalScript.Event:FireServer()
-end
    end    
 })
 
 local Button = Tab:CreateButton({
  Name = "Hado 90",
  Callback = function()
-        for i = 1, 1 do
 game:GetService("Players").LocalPlayer.Backpack["Hado 90"].LocalScript.Event:FireServer()
-end
    end    
 })
 
@@ -58,9 +156,7 @@ local Button = Tab:CreateButton({
 local Button = Tab:CreateButton({
  Name = "Hadō 90: Kurohitsugi!",
  Callback = function()
-        for i = 1, 1 do
 game:GetService("Players").LocalPlayer.Backpack[utf8.char(72, 97, 100, 333, 32, 57, 48, 58, 32, 75, 117, 114, 111, 104, 105, 116, 115, 117, 103, 105)].LocalScript.Event:FireServer()
-        end
    end    
 })
 
@@ -76,9 +172,7 @@ game:GetService("Players").LocalPlayer.Backpack["Inverted Spear Of Heaven"].Scri
 local Button = Tab:CreateButton({
  Name = "Little Hand",
  Callback = function()
-        for i = 1, 1 do
 game:GetService("Players").LocalPlayer.Backpack["Little Hand"].Combo.Event:FireServer()
-end
    end    
 })
 
@@ -994,16 +1088,6 @@ end
    end    
 })
 
-local Button = Tab:CreateButton({
- Name = "Strong Kill aura V2 Auto Slash",
- Callback = function()
-        while true do
-  wait(0.2)
-game:GetService("ReplicatedStorage").Remotes.colovo:FireServer()
-end
-   end    
-})
-
 local Section = Tab:CreateSection("Need Gyutaro")
 
 local Button = Tab:CreateButton({
@@ -1012,30 +1096,6 @@ local Button = Tab:CreateButton({
         while true do
   wait(0.1)
 game:GetService("Players").LocalPlayer.Character:FindFirstChild("Rampant Arc").Keybind.Fire:FireServer()
-end
-   end    
-})
-
-local Section = Tab:CreateSection("Need Asta")
-
-local Button = Tab:CreateButton({
- Name = "Lag Aura V1 - Lagging Server LOL",
- Callback = function()
-        while true do
-  wait(0.02)
-game:GetService("Players").LocalPlayer.Backpack["Black Slash"]["Triple Surge"].Fire2:FireServer()
-end
-   end    
-})
-
-local Section = Tab:CreateSection("Need Ayanokouji")
-
-local Button = Tab:CreateButton({
- Name = "Head Power",
- Callback = function()
-        while true do
-  wait(1)
-game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Head Beatdown").LocalScript.Event:FireServer()
 end
    end    
 })
@@ -1147,13 +1207,6 @@ game:GetService("ReplicatedStorage").Events.Malclash:FireServer()
 })
 
 local Button = Tab:CreateButton({
- Name = "Heian Sukuna Domain - Patched RIP",
- Callback = function()
-game:GetService("ReplicatedStorage").HeianSukuna["Incomplete Shrine"].heia:FireServer()
-   end    
-})
-
-local Button = Tab:CreateButton({
  Name = "Reverse Cursed Technique - You need this item",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack["Reverse Cursed Technique"].Script.Event:FireServer()
@@ -1191,9 +1244,7 @@ game:GetService("ReplicatedStorage").Yuta.love:FireServer()
 local Button = Tab:CreateButton({
  Name = "Hora Hora - Counter skill",
  Callback = function()
-        for i = 1, 6 do
 game:GetService("ReplicatedStorage").Remotes.HoraHora:FireServer()
-end
    end    
 })
 
@@ -1229,7 +1280,6 @@ local Button = Tab:CreateButton({
  Name = "Nuke Purple",
  Callback = function()
         local ohString1 = "FinalHollowPurple"
-
 game:GetService("ReplicatedStorage").Events.Abilitys.Gojo:FireServer(ohString1) 
    end    
 })
@@ -1263,94 +1313,10 @@ local Button = Tab:CreateButton({
 })
 
 local Button = Tab:CreateButton({
- Name = "Fastest Punch",
- Callback = function()
-        for i = 1, 3 do
-game:GetService("ReplicatedStorage").barrage.jetbarrage:FireServer()
-end
-   end    
-})
-
-local Button = Tab:CreateButton({
  Name = "Admin Punch",
  Callback = function()
         for i = 1, 5 do
 game:GetService("ReplicatedStorage").Deku:FireServer()
 end
-   end    
-})
-
-local Section = Tab:CreateSection("Mugetsu")
-
-local Button = Tab:CreateButton({
- Name = "Add Mugetsu to inventory",
- Callback = function()
-        local ohString1 = "Kurosaki Ichigo"
-game:GetService("ReplicatedStorage").Picked:FireServer(ohString1)
-wait(1)
-game:GetService("Players").LocalPlayer.Backpack["Final Getsuga Tensho"].LocalScript.Event:FireServer()
-   end    
-})
-
-local Button = Tab:CreateButton({
- Name = "Use Mugetsu",
- Callback = function()
-        game:GetService("Players").LocalPlayer.Backpack.Mugetsu.LocalScript.Event:FireServer()
-   end    
-})
-
-local Button = Tab:CreateButton({
- Name = "Imminet Blink",
- Callback = function()
-        game:GetService("ReplicatedStorage").CidKageeno.Blinkk:FireServer()
-   end    
-})
-
-local Section = Tab:CreateSection("Admin Command")
-
-local Button = Tab:CreateButton({
- Name = "Music",
-Callback = function()
-_G.boomboxb = game:GetObjects('rbxassetid://740618400')[1]
-_G.boomboxb.Parent = game:GetService'Players'.LocalPlayer.Backpack
-loadstring(_G.boomboxb.Client.Source)() 
-loadstring(_G.boomboxb.Server.Source)()
-   end    
-})
-
-local Button = Tab:CreateButton({
- Name = "Kick Player",
- Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/Kick"))()
-   end    
-})
-
-local Button = Tab:CreateButton({
- Name = "Teleport Item",
- Callback = function()
-        mouse = game.Players.LocalPlayer:GetMouse()
-tool = Instance.new("Tool")
-tool.RequiresHandle = false
-tool.Name = "Click TP"
-tool.Activated:connect(function()
-local pos = mouse.Hit+Vector3.new(0,2.5,0)
-pos = CFrame.new(pos.X,pos.Y,pos.Z)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos
-end)
-tool.Parent = game.Players.LocalPlayer.Backpack
-   end    
-})
-
-local Button = Tab:CreateButton({
- Name = "Ultimate Spin - don't spam lol",
- Callback = function()
-        loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-FE-R15-spin-fling-1716"))()
-   end    
-})
-
-local Button = Tab:CreateButton({
- Name = "SUS????",
- Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/Cursed%20attack"))()
    end    
 })
