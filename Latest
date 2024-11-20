@@ -976,15 +976,6 @@ end
    end    
 })
 
-local Button = Tab:CreateButton({
- Name = "Brightness Hado - You need Hado 99 Goryutenmetsu",
- Callback = function()
-        for i = 1, 50 do
-game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Had\197\141 99: Goryutenmetsu").LocalScript.Event:FireServer()
-end
-   end    
-})
-
 local Section = Tab:CreateSection("Gojo No need item")
 
 local Button = Tab:CreateButton({
