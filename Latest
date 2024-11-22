@@ -79,6 +79,22 @@ game:GetService("Players").LocalPlayer.Backpack["Splash Almighty"].LocalScript.E
    end    
 })
 
+local Button = Tab:CreateButton({
+ Name = "8x Sankt  Zwinger",
+ Callback = function()
+        for i = 1, 8 do
+game:GetService("Players").LocalPlayer.Backpack["Sankt  Zwinger"].LocalScript.Event:FireServer()
+end
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Building Castle",
+ Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/yhwach%20tp"))()
+   end    
+})
+
 local Section = Tab:CreateSection("Yamamoto")
 
 local Button = Tab:CreateButton({
@@ -936,65 +952,7 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-40479.5
    end    
 })
 
-local Tab = Window:CreateTab("Nuke", 4483362458) -- Title, Image
-
-local Section = Tab:CreateSection("Cid V2")
-
-local Button = Tab:CreateButton({
- Name = "REAL ATOMIC! - You need to hold V2 All range atomic",
- Callback = function()
-        for i = 1, 10000 do
-game:GetService("ReplicatedStorage").CidKageeno.Atomicc:FireServer()
-end
-   end    
-})
-
-local Button = Tab:CreateButton({
- Name = "REAL ATOMIC! with chat",
- Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/Atomic"))()
-   end    
-})
-
-local Section = Tab:CreateSection("Sukuna No need item")
-
-local Button = Tab:CreateButton({
- Name = "20x Big Malevolent Kitchen",
- Callback = function()
-        for i = 1, 20 do
-game:GetService("ReplicatedStorage").Events.shrine:FireServer()
-end
-   end    
-})
-
-local Button = Tab:CreateButton({
- Name = "20x Small Malevolent Kitchen",
- Callback = function()
-        for i = 1, 20 do
-game:GetService("ReplicatedStorage").RyomenSukuna.MalevolentShrine.Gaymalev:FireServer()
-end
-   end    
-})
-
-local Section = Tab:CreateSection("Gojo No need item")
-
-local Button = Tab:CreateButton({
- Name = "ATOMIC PURPLE",
- Callback = function()
-        for i = 1, 10000 do
-game:GetService("ReplicatedStorage").GojoV3.nuke:FireServer()
-end
-   end    
-})
-
-local Button = Tab:CreateButton({
- Name = "ATOMIC PURPLE - with chat",
- Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/Purple"))()
-   end    
-})
-
-local Tab = Window:CreateTab("Kill", 4483362458) -- Title, Image
+local Tab = Window:CreateTab("Option Nuke", 4483362458) -- Title, Image
 
 local Button = Tab:CreateButton({
  Name = "Hold all items",
@@ -1055,39 +1013,10 @@ end
    end    
 })
 
-local Section = Tab:CreateSection("Need Awaken Toji - you can awake toji in Main tab")
-
 local Button = Tab:CreateButton({
- Name = "Kill Aura",
+ Name = "Nuke and kill aura script",
  Callback = function()
-        while true do
-  wait(1)
-game:GetService("Players").LocalPlayer.Backpack["Wrong Way"].Main.Event:FireServer()
-end
-   end    
-})
-
-local Section = Tab:CreateSection("Kill Aura V2 - No need item")
-
-local Button = Tab:CreateButton({
- Name = "Kill Aura V2 Slash",
- Callback = function()
-        while true do
-  wait(1)
-game:GetService("ReplicatedStorage").Remotes.colovo:FireServer()
-end
-   end    
-})
-
-local Section = Tab:CreateSection("Need Gyutaro")
-
-local Button = Tab:CreateButton({
- Name = "Kill Aura V3 - Hold Rampant Arc",
- Callback = function()
-        while true do
-  wait(0.1)
-game:GetService("Players").LocalPlayer.Character:FindFirstChild("Rampant Arc").Keybind.Fire:FireServer()
-end
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/2nd%20Latest"))()
    end    
 })
 
@@ -1309,5 +1238,31 @@ local Button = Tab:CreateButton({
         for i = 1, 5 do
 game:GetService("ReplicatedStorage").Deku:FireServer()
 end
+   end    
+})
+
+local Section = Tab:CreateSection("Mugetsu")
+
+local Button = Tab:CreateButton({
+ Name = "Add Mugetsu to inventory",
+ Callback = function()
+        local ohString1 = "Kurosaki Ichigo"
+game:GetService("ReplicatedStorage").Picked:FireServer(ohString1)
+wait(1)
+game:GetService("Players").LocalPlayer.Backpack["Final Getsuga Tensho"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Use Mugetsu",
+ Callback = function()
+        game:GetService("Players").LocalPlayer.Backpack.Mugetsu.LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Imminet Blink",
+ Callback = function()
+        game:GetService("ReplicatedStorage").CidKageeno.Blinkk:FireServer()
    end    
 })
