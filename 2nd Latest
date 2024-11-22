@@ -121,3 +121,12 @@ game:GetService("Players").LocalPlayer.Character:FindFirstChild("Rampant Arc").K
 end
    end    
 })
+
+local Tab = Window:CreateTab("Option", 4483362458) -- Title, Image
+
+local Button = Tab:CreateButton({
+ Name = "Back to Lazy script",
+ Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/Latest"))()
+   end    
+})
