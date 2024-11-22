@@ -1013,8 +1013,10 @@ end
    end    
 })
 
+local Section = Tab:CreateSection("NUKE")
+
 local Button = Tab:CreateButton({
- Name = "Nuke and kill aura script",
+ Name = "NUKE script",
  Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/2nd%20Latest"))()
    end    
