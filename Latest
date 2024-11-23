@@ -95,6 +95,15 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/ref
    end    
 })
 
+local Button = Tab:CreateButton({
+ Name = "1 Shot slash",
+ Callback = function()
+        for i = 1, 8 do
+game:GetService("Players").LocalPlayer.Backpack["Yamamoto Slash"].LocalScript.Event:FireServer()
+end
+   end    
+})
+
 local Section = Tab:CreateSection("Yamamoto")
 
 local Button = Tab:CreateButton({
