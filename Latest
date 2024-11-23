@@ -45,13 +45,6 @@ game:GetService("Players").LocalPlayer.Backpack.Sklaverei.LocalScript.Event:Fire
 })
 
 local Button = Tab:CreateButton({
- Name = "Sankt Zwinger",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Sankt  Zwinger"].LocalScript.Event:FireServer()
-   end    
-})
-
-local Button = Tab:CreateButton({
  Name = "Auswhlen",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack["Ausw\195\164hlen"].LocalScript.Event:FireServer()
@@ -62,13 +55,6 @@ local Button = Tab:CreateButton({
  Name = "The Almighty - Awake",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack["The Almighty"].LocalScript.Event:FireServer()
-   end    
-})
-
-local Button = Tab:CreateButton({
- Name = "Yamamoto Slash",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Yamamoto Slash"].LocalScript.Event:FireServer()
    end    
 })
 
@@ -135,17 +121,21 @@ game:GetService("Players").LocalPlayer.Backpack.Bankai.LocalScript.Event:FireSer
 })
 
 local Button = Tab:CreateButton({
- Name = "World Breaker",
+ Name = "World Destroyer",
  Callback = function()
+        for i = 1, 8 do
 game:GetService("Players").LocalPlayer.Backpack["World Breaker"].LocalScript.Event:FireServer()
+end
    end    
 })
 
 local Button = Tab:CreateButton({
- Name = "North Tenchi Kaijin",
+ Name = "1 Shot Flame Slash",
  Callback = function()
+        for i = 1, 8 do
 game:GetService("Players").LocalPlayer.Backpack["North Tenchi Kaijin"].LocalScript.Event:FireServer()
-   end    
+end
+   end  
 })
 
 local Button = Tab:CreateButton({
