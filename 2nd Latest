@@ -87,9 +87,9 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/ref
 local Section = Tab:CreateSection("Yamamoto")
 
 local Button = Tab:CreateButton({
- Name = "FLAME ATOMIC - need West Zanjitsu Gokui",
+ Name = "FLAME Hell - need West Zanjitsu Gokui",
  Callback = function()
-        for i = 1, 10000 do
+        for i = 1, 100 do
 game:GetService("Players").LocalPlayer.Backpack["West Zanjitsu Gokui"].LocalScript.Event:FireServer()
 end
    end    
