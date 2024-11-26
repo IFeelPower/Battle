@@ -970,13 +970,13 @@ local Toggle = Tab:CreateToggle({
  Callback = function(Value)
         local player = game.Players.LocalPlayer
 local playerGui = player.PlayerGui
-jkiol = Value
-while jkiol do
+neko = Value
+while neko do
   task.wait()
 local selectionGui = playerGui:FindFirstChild("SelectionGui")
 if selectionGui and selectionGui.Enabled == false then
   selectionGui.Enabled = true
-  print("Test Function")
+  print("I am lazy")
  end
 end
    end    
