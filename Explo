@@ -9,8 +9,8 @@ tool.Activated:Connect(function()
                 lastPressTime = currentTime
                 local mouse = game.Players.LocalPlayer:GetMouse()
 local hit = mouse.Hit.Position
-                local oht = Vector3.new(hit.X, hit.Y, hit.Z)
-game:GetService("ReplicatedStorage").Megumin.Remote:FireServer(oht)
+                local brothe = Vector3.new(hit.X, hit.Y, hit.Z)
+game:GetService("ReplicatedStorage").Megumin.Remote:FireServer(brothe)
             end
 end)
 
