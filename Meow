@@ -261,7 +261,17 @@ function CreateChatBubble(instance, message)
  game.Chat:Chat(instance, message, Enum.ChatColor.White)
 end
  wait(12)
-CreateChatBubble(game.Players.LocalPlayer.Character.Head, "Throughout the battlegrounds, I alone am the strongest")
+CreateChatBubble(game.Players.LocalPlayer.Character.Head, "Gomen, Amanai")
+end
+
+local function meow2()
+    local args = {
+    [1] = "Cid Kagenou"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Picked"):FireServer(unpack(args))
+wait(0.7)
+game:GetService("Players").LocalPlayer.Backpack.Overdrive["Full Cowl"].Event:FireServer()
 end
 
 tool.Activated:Connect(function()
@@ -276,6 +286,8 @@ tool.Activated:Connect(function()
   game.Players.LocalPlayer.Character.Animate.walk.WalkAnim.AnimationId = "rbxassetid://14737197004"
   task.wait(0.4)
   coroutine.wrap(regen2)()
+  task.wait(15)
+  coroutine.wrap(meow2)()
 end)
 
 tool.Parent = game.Players.LocalPlayer.Backpack
