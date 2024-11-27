@@ -1,7 +1,7 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
-   Name = "Nuke Script",
+   Name = "Nuke Script - too dangerous",
    LoadingTitle = "Rayfield Interface Suite",
    LoadingSubtitle = "by Sirius",
    ConfigurationSaving = {
@@ -31,7 +31,7 @@ local Tab = Window:CreateTab("Nuke", 4483362458) -- Title, Image
 local Section = Tab:CreateSection("Cid V2")
 
 local Button = Tab:CreateButton({
- Name = "REAL ATOMIC! - You need to hold V2 All range atomic",
+ Name = "REAL ATOMIC! - You need to hold V2 All range atomic item",
  Callback = function()
         for i = 1, 10000 do
 game:GetService("ReplicatedStorage").CidKageeno.Atomicc:FireServer()
