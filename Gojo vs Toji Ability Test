@@ -33,7 +33,7 @@ local Section = Tab:CreateSection("Gojo")
 local Button = Tab:CreateButton({
  Name = "Honored One",
     Callback = function()
-    game:GetService("Players").LocalPlayer.Backpack["Honored One"]["Awakening : Serious Mode"].Event:FireServer()
+    game:GetService("Players").LocalPlayer.Backpack["Honored One"].LocalScript.EventVariant:FireServer()
    end    
 })
 
