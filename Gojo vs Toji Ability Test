@@ -29,9 +29,16 @@ local Window = Rayfield:CreateWindow({
 local Tab = Window:CreateTab("Main", 4483362458) -- Title, Image
 
 local Section = Tab:CreateSection("Gojo")
- 
+
 local Button = Tab:CreateButton({
  Name = "Honored One",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["Honored One"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Honored One 2",
     Callback = function()
     game:GetService("Players").LocalPlayer.Backpack["Honored One"].LocalScript.EventVariant:FireServer()
    end    
@@ -54,9 +61,9 @@ local Button = Tab:CreateButton({
 local Section = Tab:CreateSection("Gojo Shibuya Version")
 
 local Button = Tab:CreateButton({
- Name = "200% Purple",
+ Name = "Infinity Wall Crash",
     Callback = function()
-    game:GetService("Players").LocalPlayer.Backpack["200% Purple"].LocalScript.Event:FireServer()
+    game:GetService("Players").LocalPlayer.Backpack.Infinity.LocalScript.Event:FireServer()
    end    
 })
 
