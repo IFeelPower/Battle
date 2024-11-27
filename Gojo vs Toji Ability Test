@@ -186,9 +186,9 @@ local Button = Tab:CreateButton({
 })
 
 local Button = Tab:CreateButton({
- Name = "World Slash",
+ Name = "World Cutting Slash",
     Callback = function()
-    game:GetService("Players").LocalPlayer.Backpack["World Slash"].LocalScript.Event:FireServer()
+    game:GetService("Players").LocalPlayer.Backpack["World Cutting Slash"].LocalScript.Event:FireServer()
    end    
 })
 
