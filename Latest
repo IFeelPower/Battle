@@ -392,7 +392,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/ref
    end    
 })
 
-local Section = Tab:CreateSection("Starrk")
+local Section = Tab:CreateSection("Starrk - boss drop")
 
 local Button = Tab:CreateButton({
  Name = "Awake Starrk",
@@ -1135,7 +1135,7 @@ game:GetService("Players").LocalPlayer.Backpack["Reverse Cursed Technique"].Scri
 })
 
 local Button = Tab:CreateButton({
- Name = "Old Hakari",
+ Name = "Old Hakari Domain",
  Callback = function()
 game:GetService("ReplicatedStorage").Domainthing:FireServer()
    end    
