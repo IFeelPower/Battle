@@ -79,7 +79,7 @@ local Section = Tab:CreateSection("Gojo vs Sukuna Version")
 local Button = Tab:CreateButton({
  Name = "Maximum Blue",
     Callback = function()
-    game:GetService("Players").LocalPlayer.Backpack.MaximumBlue.LocalScript.Event:FireServer()
+    game:GetService("Players").LocalPlayer.Backpack["Maximum: Blue"].LocalScript.Event:FireServer()
    end    
 })
 
@@ -91,9 +91,16 @@ local Button = Tab:CreateButton({
 })
 
 local Button = Tab:CreateButton({
- Name = "Purple Nuke",
+ Name = "Hollow Purple Shot",
     Callback = function()
-    game:GetService("Players").LocalPlayer.Backpack["Purple Nuke"].LocalScript.Event:FireServer()
+    game:GetService("Players").LocalPlayer.Backpack["Hollow Purple"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Hollow Purple Nuke",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["Hollow Purple"].LocalScript.EventVariant:FireServer()
    end    
 })
 
