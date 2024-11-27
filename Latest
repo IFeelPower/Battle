@@ -711,7 +711,7 @@ end
    end    
 })
 
-local Section = Tab:CreateSection("Okkotsu Gojo")
+local Section = Tab:CreateSection("Okkotsu Gojo - You can get this from Okkotsu mimicry skill")
 
 local Button = Tab:CreateButton({
  Name = "Fury Barrage",
