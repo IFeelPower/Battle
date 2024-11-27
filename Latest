@@ -1015,7 +1015,7 @@ end
 local Section = Tab:CreateSection("NUKE")
 
 local Button = Tab:CreateButton({
- Name = "NUKE adn Kill Aura script",
+ Name = "NUKE and Kill Aura script",
  Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/2nd%20Latest"))()
    end    
@@ -1024,7 +1024,7 @@ local Button = Tab:CreateButton({
 local Tab = Window:CreateTab("Special", 4483362458) -- Title, Image
 
 local Button = Tab:CreateButton({
- Name = "Strongest Magic - Megumin Item",
+ Name = "Strongest Magic - Megumin Item - Pay to win",
  Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/Explo"))()
    end    
@@ -1054,21 +1054,21 @@ game:GetService("ReplicatedStorage").Kj.Remotes["Collaretal Ruin"]:FireServer()
 })
 
 local Button = Tab:CreateButton({
- Name = "KJ DropKick",
+ Name = "Grab KJ DropKick - Admin Move",
  Callback = function()
 game:GetService("ReplicatedStorage").Remotes.Skill.KJ.Dropkick:FireServer()
    end    
 })
 
 local Button = Tab:CreateButton({
- Name = "KJ DropKick 2",
+ Name = "Dash KJ DropKick - Admin Move",
  Callback = function()
 game:GetService("ReplicatedStorage").KJ.Remote.DropKick2:FireServer()
    end    
 })
 
 local Button = Tab:CreateButton({
- Name = "KJ 5 Season - New",
+ Name = "KJ 5 Season - Admin move",
  Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/KoJ"))()
    end    
@@ -1234,7 +1234,7 @@ local Button = Tab:CreateButton({
 })
 
 local Button = Tab:CreateButton({
- Name = "Admin Punch",
+ Name = "Hacker Rush Punch",
  Callback = function()
         for i = 1, 5 do
 game:GetService("ReplicatedStorage").Deku:FireServer()
