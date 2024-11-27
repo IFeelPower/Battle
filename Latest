@@ -1047,7 +1047,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Conta
 })
 
 local Button = Tab:CreateButton({
- Name = "KJ Collaretal Ruin",
+ Name = "KJ Collaretal Ruin - Admin Move",
  Callback = function()
 game:GetService("ReplicatedStorage").Kj.Remotes["Collaretal Ruin"]:FireServer()
    end    
