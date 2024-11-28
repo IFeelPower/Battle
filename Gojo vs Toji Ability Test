@@ -297,9 +297,23 @@ local Button = Tab:CreateButton({
 })
 
 local Button = Tab:CreateButton({
- Name = "Divine General - Mahoraga",
+ Name = "Takedown - Mahoraga Skill",
     Callback = function()
-    game:GetService("Players").LocalPlayer.Backpack["Divine General"].Skill.Furube:FireServer()
+    game:GetService("Players").LocalPlayer.Backpack.Takedown.LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Earthquake - Mahoraga Skill",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack.Earthquake.LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "World Cutting Slash - Mahoraga Skill",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["World Cutting Slash"].LocalScript.Event:FireServer()
    end    
 })
 
