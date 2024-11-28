@@ -93,7 +93,7 @@ local Button = Tab:CreateButton({
 local Button = Tab:CreateButton({
  Name = "Maximum Red",
     Callback = function()
-    game:GetService("Players").LocalPlayer.Backpack.MaximumRed.LocalScript.Event:FireServer()
+    game:GetService("Players").LocalPlayer.Backpack["Maximum: Red"].LocalScript.Event:FireServer()
    end    
 })
 
