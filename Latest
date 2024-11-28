@@ -75,9 +75,9 @@ end
 })
 
 local Button = Tab:CreateButton({
- Name = "Building Castle",
+ Name = "Kill All",
  Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/yhwach%20tp"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/Yhwach%20all"))()
    end    
 })
 
