@@ -1,0 +1,20 @@
+        local Players = game:GetService("Players")
+                local TeleportInterval = 1
+
+                local function teleportToPlayers(player)
+                    for _, targetPlayer in pairs(Players:GetPlayers()) do
+                        if targetPlayer ~= player then
+                            player.Character:MoveTo(targetPlayer.Character.PrimaryPart.Position)
+                            game:GetService("Players").LocalPlayer.Backpack["Sankt  Zwinger"].LocalScript.Event:FireServer()
+                            game:GetService("Players").LocalPlayer.Backpack["Sankt  Zwinger"].LocalScript.Event:FireServer()
+                            game:GetService("Players").LocalPlayer.Backpack["Sankt  Zwinger"].LocalScript.Event:FireServer()
+                            game:GetService("Players").LocalPlayer.Backpack["Sankt  Zwinger"].LocalScript.Event:FireServer()
+                            game:GetService("Players").LocalPlayer.Backpack["Sankt  Zwinger"].LocalScript.Event:FireServer()
+                            game:GetService("Players").LocalPlayer.Backpack["Sankt  Zwinger"].LocalScript.Event:FireServer()
+                            wait(TeleportInterval)
+                        end
+                    end
+                end
+
+                local localPlayer = Players.LocalPlayer
+                teleportToPlayers(localPlayer)
