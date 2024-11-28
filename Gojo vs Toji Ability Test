@@ -717,7 +717,7 @@ local Tab = Window:CreateTab("??", 4483362458) -- Title, Image
 local Button = Tab:CreateButton({
  Name = "Go/jo",
  Callback = function()
-        for i = 1, 5 do
+        for i = 1, 8 do
 game:GetService("ReplicatedStorage").Remotes.ShutterDoors:FireServer()
 end
    end    
