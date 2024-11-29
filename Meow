@@ -155,6 +155,22 @@ local function meow2()
 game:GetService("ReplicatedStorage"):WaitForChild("Picked"):FireServer(unpack(args))
 wait(0.7)
 game:GetService("Players").LocalPlayer.Backpack.Overdrive["Full Cowl"].Event:FireServer()
+wait(0.7)
+  local Player = game:GetService("Players").LocalPlayer
+local Backpack = Player.Backpack
+local Character = Player.Character
+
+for _,v in pairs(Backpack:GetChildren()) do
+   if v:IsA("Tool") or v:IsA("HopperBin") then
+       v:Destroy()
+   end
+end
+
+for _,v in pairs(Character:GetChildren()) do
+   if v:IsA("Tool") or v:IsA("HopperBin") then
+       v:Destroy()
+   end 
+end
 end
 
 tool.Activated:Connect(function()
@@ -165,12 +181,13 @@ tool.Activated:Connect(function()
  coroutine.wrap(bubmes)()
    task.wait(0.4)
  coroutine.wrap(regen)()
-  coroutine.wrap(tools)()
   game.Players.LocalPlayer.Character.Animate.walk.WalkAnim.AnimationId = "rbxassetid://14737197004"
   task.wait(0.4)
   coroutine.wrap(regen2)()
   task.wait(15)
   coroutine.wrap(meow2)()
+  task.wait(2)
+  coroutine.wrap(tools)()
 end)
 
 tool.Parent = game.Players.LocalPlayer.Backpack
