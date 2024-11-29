@@ -87,7 +87,7 @@ end
 
 local function tools()
 local tool = Instance.new("Tool")
-tool.Name = "Beatdown"
+tool.Name = "Hacker Aura"
 tool.RequiresHandle = false
 
 local lastPressTime = 0
@@ -95,11 +95,9 @@ tool.Activated:Connect(function()
   local currentTime = tick()
             if currentTime - lastPressTime >= 5 then
                 lastPressTime = currentTime 
-for i = 1, 8 do
-game:GetService("ReplicatedStorage").Remotes.Beatdown:FireServer()
+for i = 1, 3 do
+game:GetService("ReplicatedStorage").Aizen.RemoteEvent:FireServer()
 end
-  task.wait(0.1)
-  game:GetService("ReplicatedStorage"):FindFirstChild("AfterImageEvent"):FireServer()
             end
 end)
 
@@ -110,7 +108,7 @@ end)
 tool.Parent = game.Players.LocalPlayer.Backpack
 
 local tool = Instance.new("Tool")
-tool.Name = "Energy splash"
+tool.Name = "Death Rush"
 tool.RequiresHandle = false
 
 local lastPressTime = 0
@@ -118,124 +116,9 @@ tool.Activated:Connect(function()
   local currentTime = tick()
             if currentTime - lastPressTime >= 5 then
                 lastPressTime = currentTime 
-          for i = 1, 5 do
-game:GetService("ReplicatedStorage").GojoV3.maxred:FireServer()
+          for i = 1, 25 do
+game:GetService("ReplicatedStorage").GojoSatoru.rush:FireServer()
 end
-            end
-end)
-
-tool.Equipped:Connect(function()
- tool:Activate()
-end)
-
-tool.Parent = game.Players.LocalPlayer.Backpack
-
-local tool = Instance.new("Tool")
-tool.Name = "Ultimate Possessive Red"
-tool.RequiresHandle = false
-
-local lastPressTime = 0
-tool.Activated:Connect(function()
-  local currentTime = tick()
-            if currentTime - lastPressTime >= 5 then
-                lastPressTime = currentTime 
-                for i = 1, 10 do
-game:GetService("Players").LocalPlayer.Backpack.Red.Script.Event:FireServer()
-end
-            end
-end)
-
-tool.Equipped:Connect(function()
- tool:Activate()
-end)
-
-tool.Parent = game.Players.LocalPlayer.Backpack
-
-local tool = Instance.new("Tool")
-tool.Name = "Confusion"
-tool.RequiresHandle = false
-
-local lastPressTime = 0
-tool.Activated:Connect(function()
-  local currentTime = tick()
-            if currentTime - lastPressTime >= 10 then
-                lastPressTime = currentTime 
-                for i = 1, 40 do
-game:GetService("Players").LocalPlayer.Backpack.Rushed.LocalScript.Event:FireServer()
-end
-  wait(2.7)
- game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 200
-   wait(2.5)
-   game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
-            end
-end)
-
-tool.Equipped:Connect(function()
- tool:Activate()
-end)
-
-tool.Parent = game.Players.LocalPlayer.Backpack
-
-local tool = Instance.new("Tool")
-tool.Name = "Blue Hole"
-tool.RequiresHandle = false
-
-local lastPressTime = 0
-tool.Activated:Connect(function()
-  local currentTime = tick()
-            if currentTime - lastPressTime >= 10 then
-                lastPressTime = currentTime 
-                game.Players:Chat("/e point")
-                for i = 1, 20 do
-           game:GetService("RunService").Heartbeat:Wait()
-             coroutine.wrap(function()
-            local ohTable1 = {
-    ["Function"] = "Fire",
-    ["Name"] = "BlueMo",
-    ["rootpos"] = CFrame.new(39.0846443, 19.8230076, -162.294754, -0.0822739899, 3.01816527e-08, 0.996609747, -4.96030914e-08, 1, -3.43792514e-08, -0.996609747, -5.22634416e-08, -0.0822739899)
-}
-
-game:GetService("ReplicatedStorage").Server:InvokeServer(ohTable1)
-  end)()
-end
-            end
-end)
-
-tool.Equipped:Connect(function()
- tool:Activate()
-end)
-
-tool.Parent = game.Players.LocalPlayer.Backpack
-
-local tool = Instance.new("Tool")
-tool.Name = "Domain 0.2"
-tool.RequiresHandle = false
-
-local lastPressTime = 0
-tool.Activated:Connect(function()
-  local currentTime = tick()
-            if currentTime - lastPressTime >= 11 then
-                lastPressTime = currentTime 
-                game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Domain0.2"):FireServer()
-            end
-end)
-
-tool.Equipped:Connect(function()
- tool:Activate()
-end)
-
-tool.Parent = game.Players.LocalPlayer.Backpack
-
-local tool = Instance.new("Tool")
-tool.Name = "Infinity Void"
-tool.RequiresHandle = false
-
-local lastPressTime = 0
-tool.Activated:Connect(function()
-  local currentTime = tick()
-            if currentTime - lastPressTime >= 15 then
-                lastPressTime = currentTime 
-                game:GetService("ReplicatedStorage").Gogay:FireServer()
             end
 end)
 
