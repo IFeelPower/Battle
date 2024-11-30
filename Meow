@@ -142,13 +142,9 @@ tool.Activated:Connect(function()
                 lastPressTime = currentTime 
 game:GetService("ReplicatedStorage").MahitoDomainExpansion.MahitoDomainEvent:FireServer()
 wait(10)
+for i = 1, 8 do
 game:GetService("ReplicatedStorage").Remotes.colovo:FireServer()
-game:GetService("ReplicatedStorage").Remotes.colovo:FireServer()
-game:GetService("ReplicatedStorage").Remotes.colovo:FireServer()
-game:GetService("ReplicatedStorage").Remotes.colovo:FireServer()
-game:GetService("ReplicatedStorage").Remotes.colovo:FireServer()
-game:GetService("ReplicatedStorage").Remotes.colovo:FireServer()
-game:GetService("ReplicatedStorage").Remotes.colovo:FireServer()
+end
             end
 end)
 
@@ -182,6 +178,31 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Red2"
 wait(0.2)
 game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Red2"):FireServer()
 wait(0.2)
+            end
+end)
+
+tool.Equipped:Connect(function()
+ tool:Activate()
+end)
+
+tool.Parent = game.Players.LocalPlayer.Backpack
+
+local tool = Instance.new("Tool")
+tool.Name = "Hacker Combo"
+tool.RequiresHandle = false
+tool.ToolTip = "I Love Peaceful"
+
+local lastPressTime = 0
+tool.Activated:Connect(function()
+  local currentTime = tick()
+            if currentTime - lastPressTime >= 5 then
+                lastPressTime = currentTime 
+          for i = 1, 8 do
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Beatdown"):FireServer()
+end
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("LuckyBeatdown"):FireServer()
+wait(1.3)
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("LuckyBeatdown"):FireServer()
             end
 end)
 
