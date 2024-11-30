@@ -89,6 +89,7 @@ local function tools()
 local tool = Instance.new("Tool")
 tool.Name = "Hacker Aura"
 tool.RequiresHandle = false
+tool.ToolTip = "I will crush you with my aura hehe"
 
 local lastPressTime = 0
 tool.Activated:Connect(function()
@@ -110,6 +111,7 @@ tool.Parent = game.Players.LocalPlayer.Backpack
 local tool = Instance.new("Tool")
 tool.Name = "Death Rush"
 tool.RequiresHandle = false
+tool.ToolTip = "GET OUT!! It's my way"
 
 local lastPressTime = 0
 tool.Activated:Connect(function()
