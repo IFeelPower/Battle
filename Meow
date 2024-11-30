@@ -9,7 +9,7 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("Picked"):FireServer(unpack(args))
-   wait(0.3)
+   wait(1)
 repeat
    task.wait()
    local LP = game.Players.LocalPlayer
@@ -77,7 +77,7 @@ local function regen()
 local player = game.Players.LocalPlayer
 local args = { "Gojo Young" }
             game:GetService("ReplicatedStorage").Picked:FireServer(unpack(args))
-   wait(0.3)
+   wait(1)
      if player.Backpack:FindFirstChild("The Honored One") then
  game:GetService("Players").LocalPlayer.Backpack["The Honored One"].Script.Event:FireServer()
          wait(0.1)
@@ -243,10 +243,10 @@ tool.Activated:Connect(function()
  coroutine.wrap(defense)()
  coroutine.wrap(defense2)()
  coroutine.wrap(bubmes)()
-   task.wait(0.4)
+   task.wait(2)
  coroutine.wrap(regen)()
   game.Players.LocalPlayer.Character.Animate.walk.WalkAnim.AnimationId = "rbxassetid://14737197004"
-  task.wait(0.4)
+  task.wait(1)
   coroutine.wrap(regen2)()
   task.wait(15)
   coroutine.wrap(meow2)()
