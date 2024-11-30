@@ -181,7 +181,9 @@ tool.Activated:Connect(function()
   local currentTime = tick()
             if currentTime - lastPressTime >= 5 then
                 lastPressTime = currentTime 
-          for i = 1, 8 do
+game:GetService("ReplicatedStorage"):FindFirstChild("AfterImageEvent"):FireServer()
+task.wait()
+           for i = 1, 8 do
 game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Beatdown"):FireServer()
 end
 game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("LuckyBeatdown"):FireServer()
