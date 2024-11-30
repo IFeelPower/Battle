@@ -157,6 +157,39 @@ tool.Equipped:Connect(function()
 end)
 
 tool.Parent = game.Players.LocalPlayer.Backpack
+
+local tool = Instance.new("Tool")
+tool.Name = "Red Beam"
+tool.RequiresHandle = false
+tool.ToolTip = "Pew"
+
+local lastPressTime = 0
+tool.Activated:Connect(function()
+  local currentTime = tick()
+            if currentTime - lastPressTime >= 8 then
+                lastPressTime = currentTime 
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Red2"):FireServer()
+wait(0.2)
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Red2"):FireServer()
+wait(0.2)
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Red2"):FireServer()
+wait(0.2)
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Red2"):FireServer()
+wait(0.2)
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Red2"):FireServer()
+wait(0.2)
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Red2"):FireServer()
+wait(0.2)
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Red2"):FireServer()
+wait(0.2)
+            end
+end)
+
+tool.Equipped:Connect(function()
+ tool:Activate()
+end)
+
+tool.Parent = game.Players.LocalPlayer.Backpack
 end
 
 local function regen2()
