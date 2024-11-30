@@ -383,7 +383,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/ref
    end    
 })
 
-local Section = Tab:CreateSection("Starrk - boss drop")
+local Section = Tab:CreateSection("Unleashed Starrk - boss drop")
 
 local Button = Tab:CreateButton({
  Name = "Awake Starrk - You need to wear any shirts and pants in roblox avator",
