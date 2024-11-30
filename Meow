@@ -127,6 +127,34 @@ tool.Equipped:Connect(function()
 end)
 
 tool.Parent = game.Players.LocalPlayer.Backpack
+
+local tool = Instance.new("Tool")
+tool.Name = "Hacker Domain"
+tool.RequiresHandle = false
+tool.ToolTip = "100% Die"
+
+local lastPressTime = 0
+tool.Activated:Connect(function()
+  local currentTime = tick()
+            if currentTime - lastPressTime >= 20 then
+                lastPressTime = currentTime 
+game:GetService("ReplicatedStorage").MahitoDomainExpansion.MahitoDomainEvent:FireServer()
+wait(10)
+game:GetService("ReplicatedStorage").Remotes.colovo:FireServer()
+game:GetService("ReplicatedStorage").Remotes.colovo:FireServer()
+game:GetService("ReplicatedStorage").Remotes.colovo:FireServer()
+game:GetService("ReplicatedStorage").Remotes.colovo:FireServer()
+game:GetService("ReplicatedStorage").Remotes.colovo:FireServer()
+game:GetService("ReplicatedStorage").Remotes.colovo:FireServer()
+game:GetService("ReplicatedStorage").Remotes.colovo:FireServer()
+            end
+end)
+
+tool.Equipped:Connect(function()
+ tool:Activate()
+end)
+
+tool.Parent = game.Players.LocalPlayer.Backpack
 end
 
 local function regen2()
