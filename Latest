@@ -1005,19 +1005,21 @@ local Button = Tab:CreateButton({
 
 local Tab = Window:CreateTab("Special", 4483362458) -- Title, Image
 
+local Section = Tab:CreateSection("GOD MODE")
+
+local Button = Tab:CreateButton({
+ Name = "GOD MODE - Use Meow",
+ Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/Meow"))()
+   end    
+})
+
+local Section = Tab:CreateSection("OP Ability")
+
 local Button = Tab:CreateButton({
  Name = "Strongest Magic - Megumin Item - Pay to win",
  Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/Explo"))()
-   end    
-})
-
-local Section = Tab:CreateSection("GOD MODE")
-
-local Button = Tab:CreateButton({
- Name = "Meow - use this item",
- Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/Meow"))()
    end    
 })
 
