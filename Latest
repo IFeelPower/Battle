@@ -973,15 +973,6 @@ end
    end    
 })
 
-local Section = Tab:CreateSection("GOD MODE")
-
-local Button = Tab:CreateButton({
- Name = "Meow - use this item",
- Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/Meow"))()
-   end    
-})
-
 local Button = Tab:CreateButton({
  Name = "Delete all Items",
  Callback = function()
@@ -1018,6 +1009,15 @@ local Button = Tab:CreateButton({
  Name = "Strongest Magic - Megumin Item - Pay to win",
  Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/Explo"))()
+   end    
+})
+
+local Section = Tab:CreateSection("GOD MODE")
+
+local Button = Tab:CreateButton({
+ Name = "Meow - use this item",
+ Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/Meow"))()
    end    
 })
 
