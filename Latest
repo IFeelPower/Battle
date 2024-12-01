@@ -28,6 +28,24 @@ local Window = Rayfield:CreateWindow({
 
 local Tab = Window:CreateTab("Main", 4483362458) -- Title, Image
 
+local Section = Tab:CreateSection("Vergil V2 - Free Vergil in 'Move'")
+
+local Button = Tab:CreateButton({
+ Name = "Judgement Cut End",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Judgement Cut End"].LocalScript.Event:FireServer()
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Ultimate Judgement Cut",
+ Callback = function()
+        for i = 1, 50 do
+game:GetService("Players").LocalPlayer.Backpack["Judgement Cut"].LocalScript.Event:FireServer()
+end
+   end    
+})
+
 local Section = Tab:CreateSection("Yhwach")
 
 local Button = Tab:CreateButton({
@@ -901,27 +919,6 @@ local Toggle = Tab:CreateToggle({
  })
 
 local Button = Tab:CreateButton({
- Name = "Fly GUI",
- Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/yoo"))()
-   end    
-})
-
-local Button = Tab:CreateButton({
- Name = "Vanish",
- Callback = function()
-game:GetService("ReplicatedStorage").Remotes.Vanish:FireServer()
-   end    
-})
-
-local Button = Tab:CreateButton({
- Name = "Vanish aizen",
- Callback = function()
-game:GetService("ReplicatedStorage").Remotes.Vanishaizen:FireServer()
-   end    
-})
-
-local Button = Tab:CreateButton({
  Name = "Sonido",
  Callback = function()
 game:GetService("ReplicatedStorage").Remotes.sonido:FireServer()
@@ -939,6 +936,13 @@ local Button = Tab:CreateButton({
  Name = "Teleport to Hueco mundo",
  Callback = function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-40479.5039, 50.7923508, 1717.92053)
+   end    
+})
+
+local Button = Tab:CreateButton({
+ Name = "Teleport to Vergil NPC",
+ Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-31097.8438, 1377.82935, -13591.8994)
    end    
 })
 
