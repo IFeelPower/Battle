@@ -263,21 +263,21 @@ game:GetService("Players").LocalPlayer.Backpack["Recovery Atomic"].LocalScript.E
 })
 
 local Button = Tab:CreateButton({
- Name = "Atomic - You Need hold",
+ Name = "V1&V2 Atomic - You Need hold item",
  Callback = function()
 game:GetService("ReplicatedStorage").AtomicFolder.gaydog:FireServer()
    end    
 })
 
 local Button = Tab:CreateButton({
- Name = "V1 All Range Atomic - You need hold",
+ Name = "V1 All Range Atomic - You need hold item",
  Callback = function()
 game:GetService("ReplicatedStorage").AtomicFolder.Event:FireServer()
    end    
 })
 
 local Button = Tab:CreateButton({
- Name = "V2 All Range Atomic - You need hold",
+ Name = "V2 All Range Atomic - You need hold item",
  Callback = function()
 game:GetService("ReplicatedStorage").CidKageeno.Atomicc:FireServer()
    end    
