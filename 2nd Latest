@@ -149,7 +149,7 @@ local Section = Tab:CreateSection("useless skills")
 local Button = Tab:CreateButton({
  Name = "100 Void slash.",
  Callback = function()
-        for i = 1, 10000 do
+        for i = 1, 1000 do
 game:GetService("Players").LocalPlayer.Backpack["Void Slash"].LocalScript.Event:FireServer()
 end
    end    
