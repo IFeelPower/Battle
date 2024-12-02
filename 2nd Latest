@@ -141,3 +141,16 @@ local Button = Tab:CreateButton({
 loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/Latest"))()
    end    
 })
+
+local Tab = Window:CreateTab("Test", 4483362458) -- Title, Image
+
+local Section = Tab:CreateSection("useless skills")
+
+local Button = Tab:CreateButton({
+ Name = "100 Void slash",
+ Callback = function()
+        for i = 1, 100 do
+game:GetService("Players").LocalPlayer.Backpack["Void Slash"].LocalScript.Event:FireServer()
+end
+   end    
+})
