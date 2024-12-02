@@ -675,7 +675,7 @@ game:GetService("Players").LocalPlayer.Backpack["Six Eyes"].Script.Event:FireSer
 })
 
 local Button = Tab:CreateButton({
- Name = "Black Flash",
+ Name = "Freeze Black Flash - use old hakari domain after u use this",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack["Black Flash"].BlackFlash:FireServer()
    end    
