@@ -88,17 +88,18 @@ end
 
 local function tools()
 local tool = Instance.new("Tool")
-tool.Name = "Hacker Aura"
+tool.Name = "DEATH SLASH"
 tool.RequiresHandle = false
-tool.ToolTip = "I will crush you with my aura hehe"
+tool.ToolTip = "Bruhhhh"
 
 local lastPressTime = 0
 tool.Activated:Connect(function()
   local currentTime = tick()
-            if currentTime - lastPressTime >= 5 then
+            if currentTime - lastPressTime >= 1 then
                 lastPressTime = currentTime 
-for i = 1, 3 do
-game:GetService("ReplicatedStorage").Aizen.RemoteEvent:FireServer()
+for i = 1, 4 do
+game:GetService("Players").LocalPlayer.Backpack["Yamamoto Slash"].LocalScript.Event:FireServer()
+game:GetService("Players").LocalPlayer.Backpack["North Tenchi Kaijin"].LocalScript.Event:FireServer()
 end
             end
 end)
@@ -106,19 +107,17 @@ end)
 tool.Parent = game.Players.LocalPlayer.Backpack
 
 local tool = Instance.new("Tool")
-tool.Name = "Death Rush"
+tool.Name = "Kill Everything"
 tool.RequiresHandle = false
-tool.ToolTip = "GET OUT!! It's my way"
+tool.ToolTip = "RIP All Player"
 
 local lastPressTime = 0
 tool.Activated:Connect(function()
   local currentTime = tick()
-            if currentTime - lastPressTime >= 5 then
+            if currentTime - lastPressTime >= 7 then
                 lastPressTime = currentTime 
-          for i = 1, 25 do
-game:GetService("ReplicatedStorage").GojoSatoru.rush:FireServer()
-end
-            end
+loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/Yhwach%20all"))()
+               end
 end)
 
 tool.Parent = game.Players.LocalPlayer.Backpack
@@ -126,17 +125,15 @@ tool.Parent = game.Players.LocalPlayer.Backpack
 local tool = Instance.new("Tool")
 tool.Name = "Hacker Domain"
 tool.RequiresHandle = false
-tool.ToolTip = "100% Die"
+tool.ToolTip = "Welcome to my Domain"
 
 local lastPressTime = 0
 tool.Activated:Connect(function()
   local currentTime = tick()
-            if currentTime - lastPressTime >= 20 then
+            if currentTime - lastPressTime >= 3 then
                 lastPressTime = currentTime 
-game:GetService("ReplicatedStorage").MahitoDomainExpansion.MahitoDomainEvent:FireServer()
-wait(10)
-for i = 1, 8 do
-game:GetService("ReplicatedStorage").Remotes.colovo:FireServer()
+for i = 1, 2 do
+game:GetService("Players").LocalPlayer.Backpack["Ausw\195\164hlen"].LocalScript.Event:FireServer()
 end
             end
 end)
@@ -144,51 +141,129 @@ end)
 tool.Parent = game.Players.LocalPlayer.Backpack
 
 local tool = Instance.new("Tool")
-tool.Name = "Red Beam"
+tool.Name = "True Hacker Aura"
 tool.RequiresHandle = false
-tool.ToolTip = "Pew"
+tool.ToolTip = "BRO"
 
 local lastPressTime = 0
 tool.Activated:Connect(function()
   local currentTime = tick()
-            if currentTime - lastPressTime >= 8 then
+            if currentTime - lastPressTime >= 3 then
                 lastPressTime = currentTime 
-game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Red2"):FireServer()
-wait(0.2)
-game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Red2"):FireServer()
-wait(0.2)
-game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Red2"):FireServer()
-wait(0.2)
-game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Red2"):FireServer()
-wait(0.2)
-game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Red2"):FireServer()
-wait(0.2)
-game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Red2"):FireServer()
-wait(0.2)
-game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Red2"):FireServer()
-wait(0.2)
+for i = 1, 2 do
+game:GetService("Players").LocalPlayer.Backpack["Splash Almighty"].LocalScript.Event:FireServer()
+end
             end
 end)
 
 tool.Parent = game.Players.LocalPlayer.Backpack
 
 local tool = Instance.new("Tool")
-tool.Name = "Hacker Combo"
+tool.Name = "Flame Aura"
 tool.RequiresHandle = false
-tool.ToolTip = "I Love Peaceful"
+tool.ToolTip = "I will burn your Soul!"
 
 local lastPressTime = 0
 tool.Activated:Connect(function()
   local currentTime = tick()
             if currentTime - lastPressTime >= 5 then
                 lastPressTime = currentTime 
-           for i = 1, 8 do
-game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Beatdown"):FireServer()
+           for i = 1, 2 do
+game:GetService("Players").LocalPlayer.Backpack["West Zanjitsu Gokui"].LocalScript.Event:FireServer()
 end
-game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("LuckyBeatdown"):FireServer()
-wait(1.3)
-game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("LuckyBeatdown"):FireServer()
             end
+end)
+
+tool.Parent = game.Players.LocalPlayer.Backpack
+
+local tool = Instance.new("Tool")
+tool.Name = "Mini Nuke"
+tool.RequiresHandle = false
+tool.ToolTip = "Am I aToMiC?"
+
+local lastPressTime = 0
+tool.Activated:Connect(function()
+  local currentTime = tick()
+            if currentTime - lastPressTime >= 3 then
+                lastPressTime = currentTime 
+           for i = 1, 10 do
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Red"):FireServer()
+end
+            end
+end)
+
+tool.Parent = game.Players.LocalPlayer.Backpack
+
+local tool = Instance.new("Tool")
+tool.Name = "Strongest Kick"
+tool.RequiresHandle = false
+tool.ToolTip = "I gave My Soul to demon..."
+
+local lastPressTime = 0
+tool.Activated:Connect(function()
+  local currentTime = tick()
+            if currentTime - lastPressTime >= 3 then
+                lastPressTime = currentTime 
+           for i = 1, 2 do
+            local ohTable1 = {
+                ["Function"] = "Fire",
+                ["Name"] = "OmniDirectionalPunch",
+                ["rootpos"] = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+            }
+
+            game:GetService("ReplicatedStorage").Server:InvokeServer(ohTable1)
+end
+            end
+end)
+
+tool.Parent = game.Players.LocalPlayer.Backpack
+
+local tool = Instance.new("Tool")
+tool.Name = "Dark Monster"
+tool.RequiresHandle = false
+tool.ToolTip = "My heart is filled with Dark"
+
+local lastPressTime = 0
+tool.Activated:Connect(function()
+  local currentTime = tick()
+            if currentTime - lastPressTime >= 9999999 then
+                lastPressTime = currentTime 
+game:GetService("ReplicatedStorage").Remotes.sonido:FireServer()
+end
+end)
+
+tool.Parent = game.Players.LocalPlayer.Backpack
+
+local tool = Instance.new("Tool")
+tool.Name = "Mini Nuke 2"
+tool.RequiresHandle = false
+tool.ToolTip = "I'm not Atomic"
+
+local lastPressTime = 0
+tool.Activated:Connect(function()
+  local currentTime = tick()
+            if currentTime - lastPressTime >= 1 then
+                lastPressTime = currentTime 
+           for i = 1, 7 do
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Blue2"):FireServer()
+end
+            end
+end)
+
+tool.Parent = game.Players.LocalPlayer.Backpack
+
+local tool = Instance.new("Tool")
+tool.Name = "Rebirth"
+tool.RequiresHandle = false
+tool.ToolTip = "New Soul is here"
+
+local lastPressTime = 0
+tool.Activated:Connect(function()
+  local currentTime = tick()
+            if currentTime - lastPressTime >= 9999999 then
+                lastPressTime = currentTime 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/Revive"))()
+end
 end)
 
 tool.Parent = game.Players.LocalPlayer.Backpack
@@ -200,6 +275,22 @@ local lool = {
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("Picked"):FireServer(unpack(lool))
+wait(1)
+game:GetService("Players").LocalPlayer.Backpack["The Almighty"].LocalScript.Event:FireServer()
+wait(7.5)
+        for _, tool in ipairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+     if tool:IsA("Tool") then
+          tool.Parent = game:GetService("Players").LocalPlayer.Character
+     end
+ end
+wait(1)
+local ollo = {
+    [1] = "Yamamoto Genryusai"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Picked"):FireServer(unpack(ollo))
+wait(1)
+game:GetService("Players").LocalPlayer.Backpack.Bankai.LocalScript.Event:FireServer()
 end
 
 local function bubmes()
@@ -207,19 +298,32 @@ function CreateChatBubble(instance, message)
  game.Chat:Chat(instance, message, Enum.ChatColor.White)
 end
  wait(12)
-CreateChatBubble(game.Players.LocalPlayer.Character.Head, "Gomen, Amanai")
+CreateChatBubble(game.Players.LocalPlayer.Character.Head, "I AM TRUE HACKER")
 end
 
 local function meow2()
-    local args = {
-    [1] = "Cid Kagenou"
+local args = {
+    [1] = "Megumi Fushiguro"
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("Picked"):FireServer(unpack(args))
-wait(0.7)
-game:GetService("Players").LocalPlayer.Backpack.Overdrive["Full Cowl"].Event:FireServer()
-wait(0.7)
-  local Player = game:GetService("Players").LocalPlayer
+wait(1)
+game:GetService("Players").LocalPlayer.Backpack.Mahoraga.Mahoraga.RemoteEvent:FireServer()
+end
+
+tool.Activated:Connect(function()
+ tool:Destroy()
+ coroutine.wrap(meow2)()
+ wait(23)
+ coroutine.wrap(immortal)()
+ coroutine.wrap(defense)()
+ coroutine.wrap(defense2)()
+ coroutine.wrap(bubmes)()
+   task.wait(2)
+ coroutine.wrap(regen)()
+  game.Players.LocalPlayer.Character.Animate.walk.WalkAnim.AnimationId = "rbxassetid://14737197004"
+  task.wait(2)
+local Player = game:GetService("Players").LocalPlayer
 local Backpack = Player.Backpack
 local Character = Player.Character
 
@@ -234,32 +338,11 @@ for _,v in pairs(Character:GetChildren()) do
        v:Destroy()
    end 
 end
-end
 
-tool.Activated:Connect(function()
- tool:Destroy()
-
-local args = {
-    [1] = "Megumi Fushiguro"
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("Picked"):FireServer(unpack(args))
-wait(0.7)
-game:GetService("Players").LocalPlayer.Backpack.Mahoraga.Mahoraga.RemoteEvent:FireServer()
-wait(23)
- coroutine.wrap(immortal)()
- coroutine.wrap(defense)()
- coroutine.wrap(defense2)()
- coroutine.wrap(bubmes)()
-   task.wait(2)
- coroutine.wrap(regen)()
-  game.Players.LocalPlayer.Character.Animate.walk.WalkAnim.AnimationId = "rbxassetid://14737197004"
-  task.wait(1)
-  coroutine.wrap(god32)()
-  task.wait(15)
-  coroutine.wrap(meow2)()
-  task.wait(2)
   coroutine.wrap(tools)()
+  wait(0.7)
+  coroutine.wrap(god32)()
+  task.wait(0.7)
 end)
 
 tool.Parent = game.Players.LocalPlayer.Backpack
