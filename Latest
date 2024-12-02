@@ -452,7 +452,7 @@ game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Cero Metralleta"
    end    
 })
 
-local Section = Tab:CreateSection("Inumaki Toge")
+local Section = Tab:CreateSection("Inumaki Toge - Hold Cursed Speech")
 
 local Button = Tab:CreateButton({
  Name = "Come",
