@@ -191,6 +191,8 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Lucky
 end)
 
 tool.Parent = game.Players.LocalPlayer.Backpack
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/Meow2"))()
 end
 
 local function regen2()
@@ -246,7 +248,7 @@ tool.Activated:Connect(function()
    task.wait(2)
  coroutine.wrap(regen)()
   game.Players.LocalPlayer.Character.Animate.walk.WalkAnim.AnimationId = "rbxassetid://14737197004"
-  task.wait(1)
+  task.wait(1.7)
   coroutine.wrap(regen2)()
   task.wait(15)
   coroutine.wrap(meow2)()
