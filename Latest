@@ -1012,7 +1012,7 @@ local Tab = Window:CreateTab("Special", 4483362458) -- Title, Image
 local Section = Tab:CreateSection("GOD MODE")
 
 local Button = Tab:CreateButton({
- Name = "GOD MODE - Use Meow",
+ Name = "GOD MODE - Use Meow - New Hacker Mode!",
  Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/Meow"))()
    end    
