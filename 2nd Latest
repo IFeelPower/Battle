@@ -100,7 +100,7 @@ local Tab = Window:CreateTab("Kill", 4483362458) -- Title, Image
 local Section = Tab:CreateSection("Need Awaken Toji - you can awake toji in Main tab")
 
 local Button = Tab:CreateButton({
- Name = "Kill Aura",
+ Name = "Kill Aura - hold wrong way if u want to stop",
  Callback = function()
         while true do
   wait(1)
@@ -112,12 +112,12 @@ end
 local Section = Tab:CreateSection("Kill Aura V2 - No need item")
 
 local Button = Tab:CreateButton({
- Name = "Kill Aura V2 Slash",
+ Name = "Kill Aura V2 Slash - until you die",
  Callback = function()
-        while true do
-  wait(1)
-game:GetService("ReplicatedStorage").Remotes.colovo:FireServer()
-end
+repeat
+   wait(1)
+game:GetService("ReplicatedStorage").Remotes.colovo:FireServer()           
+until game:GetService("Players").LocalPlayer.Character.Humanoid.Health <= 0
    end    
 })
 
