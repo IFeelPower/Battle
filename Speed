@@ -28,7 +28,7 @@ local Window = Rayfield:CreateWindow({
 
 local Tab = Window:CreateTab("Main", 4483362458) -- Title, Image
 
-local Section = Tab:CreateSection("Vergil V2 - Free Vergil in 'Move'")
+local Section = Tab:CreateSection("?")
 
 local Button = Tab:CreateButton({
  Name = "Speed",
