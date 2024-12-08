@@ -57,3 +57,18 @@ game:GetService("ReplicatedStorage").Events.InventoryEvent:FireServer(unpack(arg
 end   
 end
 })
+
+local Button = Tab:CreateButton({
+ Name = "Horror 10000",
+ Callback = function()
+ for i = 1, 10000 do
+  local args = {
+    [1] = "Equip",
+    [2] = "Super Luck Potion",
+    [3] = "Usable"
+}
+
+game:GetService("ReplicatedStorage").Events.InventoryEvent:FireServer(unpack(args))
+end   
+end
+})
