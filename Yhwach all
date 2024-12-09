@@ -1,5 +1,4 @@
         local Players = game:GetService("Players")
-                local TeleportInterval = 1
 
                 local function teleportToPlayers(player)
                     for _, targetPlayer in pairs(Players:GetPlayers()) do
@@ -11,7 +10,7 @@
                             game:GetService("Players").LocalPlayer.Backpack["Sankt  Zwinger"].LocalScript.Event:FireServer()
                             game:GetService("Players").LocalPlayer.Backpack["Sankt  Zwinger"].LocalScript.Event:FireServer()
                             game:GetService("Players").LocalPlayer.Backpack["Sankt  Zwinger"].LocalScript.Event:FireServer()
-                            wait(TeleportInterval)
+                            wait(1)
                         end
                     end
                 end
