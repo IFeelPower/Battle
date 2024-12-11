@@ -54,6 +54,12 @@ local Button = Tab:CreateButton({
 game:GetService("Players").lamAtomicIoI.Backpack["Atomic Bomb"].LocalScript.Event:FireServer()
    end})
 
+local Button = Tab:CreateButton({
+ Name = "Atomic Bomb",
+ Callback = function()
+game:GetService("Players").lamAtomicIoI.Backpack.Overdrive["Local Script"].Event:FireServer()
+   end})
+
 local Tab = Window:CreateTab("Move", 4483362458) -- Title, Image
 
 local Toggle = Tab:CreateToggle({
