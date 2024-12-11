@@ -31,6 +31,18 @@ local Tab = Window:CreateTab("Main", 4483362458) -- Title, Image
 local Section = Tab:CreateSection("Cid True Power V3")
 
 local Button = Tab:CreateButton({
+ Name = "Blade Master Technique",
+ Callback = function()
+game:GetService("Players").lamAtomicIoI.Backpack["Blade Master Technique"].LocalScript.Event:FireServer()
+   end})
+
+local Button = Tab:CreateButton({
+ Name = "Birdcage",
+ Callback = function()
+game:GetService("Players").lamAtomicIoI.Backpack.Birdcage.LocalScript.Event:FireServer()
+   end})
+
+local Button = Tab:CreateButton({
  Name = "Gravitational Stomp",
  Callback = function()
 game:GetService("Players").lamAtomicIoI.Backpack["Gravitational Stomp"].LocalScript.Event:FireServer()
