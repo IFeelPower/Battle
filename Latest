@@ -28,6 +28,50 @@ local Window = Rayfield:CreateWindow({
 
 local Tab = Window:CreateTab("Main", 4483362458) -- Title, Image
 
+local Section = Tab:CreateSection("Cid True Power V3 - wait for game update")
+
+local Button = Tab:CreateButton({
+ Name = "Blade Master Technique",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Blade Master Technique"].LocalScript.Event:FireServer()
+   end})
+
+local Button = Tab:CreateButton({
+ Name = "Birdcage",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Birdcage.LocalScript.Event:FireServer()
+   end})
+
+local Button = Tab:CreateButton({
+ Name = "Gravitational Stomp",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Gravitational Stomp"].LocalScript.Event:FireServer()
+   end})
+
+local Button = Tab:CreateButton({
+ Name = "Overdrive",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Overdrive["Local Script"].Event:FireServer()
+   end})
+
+local Button = Tab:CreateButton({
+ Name = "Recovery Atomic",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Recovery Atomic"].LocalScript.Event:FireServer()
+   end})
+
+local Button = Tab:CreateButton({
+ Name = "Shadow Rush Cut",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Shadow Rush Cut"].LocalScript.Event:FireServer()
+   end})
+
+local Button = Tab:CreateButton({
+ Name = "Atomic Bomb",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Atomic Bomb"].LocalScript.Event:FireServer()
+   end})
+
 local Section = Tab:CreateSection("Vergil V2 - Free Vergil in 'Move'")
 
 local Button = Tab:CreateButton({
