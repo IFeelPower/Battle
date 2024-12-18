@@ -46,6 +46,17 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/ref
    end    
 })
 
+local Section = Tab:CreateSection("Cid V3")
+
+local Button = Tab:CreateButton({
+ Name = "REAL ATOMIC! - You need to hold V3 All range atomic item",
+ Callback = function()
+        for i = 1, 10000 do
+game:GetService("ReplicatedStorage").CidKageeno.Atomicc2:FireServer()
+end
+   end    
+})
+
 local Section = Tab:CreateSection("Sukuna No need item")
 
 local Button = Tab:CreateButton({
@@ -149,7 +160,7 @@ local Section = Tab:CreateSection("useless skills")
 local Button = Tab:CreateButton({
  Name = "100 Void slash.",
  Callback = function()
-        for i = 1, 1000 do
+        for i = 1, 100 do
 game:GetService("Players").LocalPlayer.Backpack["Void Slash"].LocalScript.Event:FireServer()
 end
    end    
