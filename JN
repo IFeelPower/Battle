@@ -1,0 +1,14 @@
+local args = {
+    [1] = "Module",
+    [2] = "Savage Fangs",
+    [3] = {
+        ["char"] = game:GetService("Players").LocalPlayer.Character,
+        ["player"] = game:GetService("Players").LocalPlayer,
+        ["root"] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,
+        ["hum"] = game:GetService("Players").LocalPlayer.Character.Humanoid,
+        ["primarypart"] = game:GetService("Players").LocalPlayer.Character.PrimaryPart,
+        ["rootpartpos"] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position
+    }
+}
+
+game:GetService("ReplicatedStorage").MainServerFunction:InvokeServer(unpack(args))
