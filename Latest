@@ -1153,26 +1153,3 @@ local Button = Tab:CreateButton({
 game:GetService("ReplicatedStorage").Deku:FireServer()
 end
 end}) 
-
-local Section = Tab:CreateSection("Mugetsu")
-
-local Button = Tab:CreateButton({
- Name = "Add Mugetsu to inventory",
- Callback = function()
-        local ohString1 = "Kurosaki Ichigo"
-game:GetService("ReplicatedStorage").Picked:FireServer(ohString1)
-wait(1)
-game:GetService("Players").LocalPlayer.Backpack["Final Getsuga Tensho"].LocalScript.Event:FireServer()
-end}) 
-
-local Button = Tab:CreateButton({
- Name = "Use Mugetsu",
- Callback = function()
-        game:GetService("Players").LocalPlayer.Backpack.Mugetsu.LocalScript.Event:FireServer()
-end}) 
-
-local Button = Tab:CreateButton({
- Name = "Imminet Blink",
- Callback = function()
-        game:GetService("ReplicatedStorage").CidKageeno.Blinkk:FireServer()
-end}) 
