@@ -884,6 +884,12 @@ local Button = Tab:CreateButton({
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-31097.8438, 1377.82935, -13591.8994)
 end}) 
 
+local Button = Tab:CreateButton({
+ Name = "Teleport to Jackpicture - every 2 minutes spawn",
+ Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.jack5trvillaitem.CFrame
+end}) 
+
 local Tab = Window:CreateTab("Option Nuke", 4483362458) -- Title, Image
 
 local Button = Tab:CreateButton({
@@ -946,7 +952,7 @@ local Tab = Window:CreateTab("Special", 4483362458) -- Title, Image
 local Section = Tab:CreateSection("GOD MODE")
 
 local Button = Tab:CreateButton({
- Name = "GOD MODE - Use Meow - New Hacker Mode!",
+ Name = "GOD MODE - Use Meow",
  Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/Meow"))()
 end}) 
