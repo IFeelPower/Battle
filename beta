@@ -882,29 +882,33 @@ Tab:AddButton({
 game:GetService("ReplicatedStorage").Remotes.sonido:FireServer()
 end}) 
 
+local Section = Tab:AddSection({Name = "Teleport"})
+
 Tab:AddButton({
- Name = "Teleport to Normal world",
+ Name = "TP to Normal world",
  Callback = function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(3.6723702, 103.105331, -419.923584)
 end}) 
 
 Tab:AddButton({
- Name = "Teleport to Hueco mundo",
+ Name = "TP to Hueco mundo",
  Callback = function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-40479.5039, 50.7923508, 1717.92053)
 end}) 
 
 Tab:AddButton({
- Name = "Teleport to Vergil NPC",
+ Name = "TP to Vergil NPC",
  Callback = function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-31097.8438, 1377.82935, -13591.8994)
 end}) 
 
 Tab:AddButton({
- Name = "Teleport to Jackpicture - every 2 minutes spawn",
+ Name = "TP to Jackpicture - every 2 minutes spawn",
  Callback = function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.jack5trvillaitem.CFrame
 end})
+
+local Section = Tab:AddSection({Name = "Kidnapping"})
 
 local playerNametwo = nil
 local playerNames = {}
