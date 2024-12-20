@@ -175,28 +175,10 @@ Tab:AddButton({
 game:GetService("Players").LocalPlayer.Backpack["Supreme Art: Maximum Uzumaki"].Move1.Event:FireServer()
    end})
 
-local Section = Tab:AddSection({Name = "Shadow V1 V2"})
+local Section = Tab:AddSection({Name = "Shadow V1"})
 
 Tab:AddButton({
- Name = "V2 Speed Blitz",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Speed Blitz"].LocalScript.Event:FireServer()
-   end})
-
-Tab:AddButton({
- Name = "V2 OverDrive",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack.Overdrive["Local Script"].Event:FireServer()
-end})
-
-Tab:AddButton({
- Name = "V2 Recovery Atomic",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Recovery Atomic"].LocalScript.Event:FireServer()
-end})
-
-Tab:AddButton({
- Name = "V1&V2 Atomic - You Need hold item",
+ Name = "V1 Atomic - You Need hold item",
  Callback = function()
 game:GetService("ReplicatedStorage").AtomicFolder.gaydog:FireServer()
 end})
@@ -205,12 +187,6 @@ Tab:AddButton({
  Name = "V1 All Range Atomic - You need hold item",
  Callback = function()
 game:GetService("ReplicatedStorage").AtomicFolder.Event:FireServer()
-end})
-
-Tab:AddButton({
- Name = "V2 All Range Atomic - You need hold item",
- Callback = function()
-game:GetService("ReplicatedStorage").CidKageeno.Atomicc:FireServer()
 end})
 
 local Section = Tab:AddSection({Name = "Kuchiki Byakuya"})
@@ -355,15 +331,9 @@ game:GetService("Players").LocalPlayer.Backpack["World Slash: Dismantle"].Punch.
 end})
 
 Tab:AddButton({
- Name = "Become V2 Sukuna - No world slash",
+ Name = "Become Fake V2 Sukuna",
  Callback = function()
 game:GetService("ReplicatedStorage").Remotes.KingofCurses:FireServer()
-end})
-
-Tab:AddButton({
- Name = "100% v2 - Use this after you get Sukuna finger",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Sukuna Finger"].Script.Event:FireServer()
 end})
 
 Tab:AddButton({
@@ -378,26 +348,6 @@ Tab:AddButton({
  Name = "V2 Dismantle",
  Callback = function()      
 game:GetService("Players").LocalPlayer.Backpack.Dismantle.LocalScript.Event:FireServer()
-end})
-
-Tab:AddButton({
- Name = "V2 Death Rush Beatdown",
- Callback = function()
-        for i = 1, 5 do
-game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Rush Beatdown").LocalScript.RemoteEvent:FireServer()
-end
-end})
-
-Tab:AddButton({
- Name = "V2 World Slash for sukuna unleashed",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("World Slash").LocalScript.Event:FireServer()
-end})
-
-Tab:AddButton({
- Name = "V2 World slash Net for sukuna unleashed",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Dismantle: Net").LocalScript.Event:FireServer()
 end})
 
 Tab:AddButton({
@@ -798,6 +748,92 @@ Tab:AddButton({
 game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Cero Metralleta").LocalScript.Event:FireServer()
 end})
 
+local Section = Tab:AddSection({Name = "Shadow V2"})
+
+Tab:AddButton({
+ Name = "V2 Speed Blitz",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Speed Blitz"].LocalScript.Event:FireServer()
+   end})
+
+Tab:AddButton({
+ Name = "V2 OverDrive",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Overdrive["Local Script"].Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "V2 Recovery Atomic",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Recovery Atomic"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "V2 Atomic - You Need hold item",
+ Callback = function()
+game:GetService("ReplicatedStorage").AtomicFolder.gaydog:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "V2 All Range Atomic - You need hold item",
+ Callback = function()
+game:GetService("ReplicatedStorage").CidKageeno.Atomicc:FireServer()
+end})
+
+local Section = Tab:AddSection({Name = "Sukuna V2"})
+
+Tab:AddButton({
+ Name = "100% v2 - Use this after you get Sukuna finger",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Sukuna Finger"].Script.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "V2 Cleave",
+ Callback = function()  
+        for i = 1, 5 do
+game:GetService("Players").LocalPlayer.Backpack.Cleave.LocalScript.Event:FireServer()
+end
+end})
+
+Tab:AddButton({
+ Name = "V2 Dismantle",
+ Callback = function()      
+game:GetService("Players").LocalPlayer.Backpack.Dismantle.LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "V2 Death Rush Beatdown",
+ Callback = function()
+        for i = 1, 5 do
+game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Rush Beatdown").LocalScript.RemoteEvent:FireServer()
+end
+end})
+
+Tab:AddButton({
+ Name = "V2 World Slash",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("World Slash").LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "V2 World slash Net",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Dismantle: Net").LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Normal Fuga",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Furnace.LocalScript.event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "True Fuga",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Furnace.LocalScript.Event:FireServer()
+end})
+
 local Tab = Window:MakeTab({
 	Name = "Move",
 	Icon = "rbxassetid://4483345998",
@@ -821,7 +857,7 @@ Tab:AddSlider({
 	Min = 16,
 	Max = 250,
 	Default = 16,
-	Color = Color3.fromRGB(255,255,255),
+	Color = Color3.fromRGB(0,125,245),
 	Increment = 1,
 	ValueName = "Speed Power",
 	Callback = function(v)
@@ -833,7 +869,7 @@ Tab:AddSlider({
 	Min = 30,
 	Max = 500,
 	Default = 30,
-	Color = Color3.fromRGB(255,255,255),
+	Color = Color3.fromRGB(0,199,42),
 	Increment = 1,
 	ValueName = "Jump Power",
 	Callback = function(v)
@@ -846,29 +882,33 @@ Tab:AddButton({
 game:GetService("ReplicatedStorage").Remotes.sonido:FireServer()
 end}) 
 
+local Section = Tab:AddSection({Name = "Teleport"})
+
 Tab:AddButton({
- Name = "Teleport to Normal world",
+ Name = "TP to Normal world",
  Callback = function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(3.6723702, 103.105331, -419.923584)
 end}) 
 
 Tab:AddButton({
- Name = "Teleport to Hueco mundo",
+ Name = "TP to Hueco mundo",
  Callback = function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-40479.5039, 50.7923508, 1717.92053)
 end}) 
 
 Tab:AddButton({
- Name = "Teleport to Vergil NPC",
+ Name = "TP to Vergil NPC",
  Callback = function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-31097.8438, 1377.82935, -13591.8994)
 end}) 
 
 Tab:AddButton({
- Name = "Teleport to Jackpicture - every 2 minutes spawn",
+ Name = "TP to Jackpicture - every 2 minutes spawn",
  Callback = function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.jack5trvillaitem.CFrame
 end})
+
+local Section = Tab:AddSection({Name = "Kidnapping"})
 
 local playerNametwo = nil
 local playerNames = {}
