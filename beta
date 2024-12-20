@@ -7,78 +7,6 @@ local Tab = Window:MakeTab({
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false})
 
-local Section = Tab:AddSection({Name = "Cid True Power V3 - NPC Drop"})
-
-Tab:AddButton({
- Name = "Blade Master Technique",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Blade Master Technique"].LocalScript.Event:FireServer()
-end})
-
-Tab:AddButton({
- Name = "Afterimage",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack.Afterimage.LocalScript.Event:FireServer()
-end})
-
-Tab:AddButton({
- Name = "Birdcage - stun player",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack.Birdcage.LocalScript.Event:FireServer()
-end})
-
-Tab:AddButton({
- Name = "Gravitational Stomp",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Gravitational Stomp"].LocalScript.Event:FireServer()
-end})
-
-Tab:AddButton({
- Name = "Overdrive",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack.Overdrive["Local Script"].Event:FireServer()
-end})
-
-Tab:AddButton({
- Name = "Recovery Atomic",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Recovery Atomic"].LocalScript.Event:FireServer()
-end})
-
-Tab:AddButton({
- Name = "Shadow Rush Cut",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Shadow Rush Cut"].LocalScript.Event:FireServer()
-end})
-
-Tab:AddButton({
- Name = "All Range Atomic - You need to hold item",
- Callback = function()
-game:GetService("ReplicatedStorage").CidKageeno.Atomicc2:FireServer()
-end})
-
-Tab:AddButton({
- Name = "Atomic Bomb",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Atomic Bomb"].LocalScript.Event:FireServer()
-end})
-
-local Section = Tab:AddSection({Name = "Vergil V2 - Free Vergil in 'Move'"})
-
-Tab:AddButton({
- Name = "Judgement Cut End",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Judgement Cut End"].LocalScript.Event:FireServer()
-end})
-
-Tab:AddButton({
- Name = "Ultimate Judgement Cut",
- Callback = function()
-for i = 1, 50 do
-game:GetService("Players").LocalPlayer.Backpack["Judgement Cut"].LocalScript.Event:FireServer()
-end
-end}) 
-
 local Section = Tab:AddSection({Name = "Yhwach"})
 
 Tab:AddButton({
@@ -326,110 +254,6 @@ Tab:AddButton({
 for i = 1, 6 do
 game:GetService("Players").LocalPlayer.Backpack.Sokatsui.LocalScript.Event:FireServer()
 end
-end})
-
-local Section = Tab:AddSection({Name = "aizen V2"})
-
-Tab:AddButton({
- Name = "Garganta",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack.Garganta.LocalScript.Event:FireServer()
-end})
-
-Tab:AddButton({
- Name = "Shatter",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack.Shatter.LocalScript.event:FireServer()
-end})
-
-Tab:AddButton({
- Name = "3x Reiatsu",
- Callback = function()
-for i = 1, 3 do
-game:GetService("Players").LocalPlayer.Backpack.Reiatsu.LocalScript.Event:FireServer()
-end
-end})
-
-Tab:AddButton({
- Name = "2x Spiritual Pressure",
- Callback = function()
-for i = 1, 2 do
-game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Spiritual Pressure").LocalScript.Event:FireServer()
-end
-end})
-
-Tab:AddButton({
- Name = "Normal Hado 90",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Had\197\141 90"].LocalScript.Event:FireServer()
-end})
-
-Tab:AddButton({
- Name = "Hado 90 Unstealed",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack.Unstealed.LocalScript.Event:FireServer()
-end})
-
-Tab:AddButton({
- Name = "Dominate No Need Aizen v2",
- Callback = function()
-game:GetService("ReplicatedStorage").Aizen.RemoteEvent:FireServer()
-end})
-
-Tab:AddButton({
- Name = "Big Hado 90",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Had\197\141 90: Kurohitsugi").LocalScript.Event:FireServer()
-end})
-
-Tab:AddButton({
- Name = "Real Hado 99 Goryu Tenmetsu Tool",
- Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/aize"))()
-end})
-
-local Section = Tab:AddSection({Name = "Unleashed Starrk - boss drop"})
-
-Tab:AddButton({
- Name = "Awake Starrk - You need to wear any shirts and pants in roblox avator",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Resurrecci\195\179n:  Los Lobos").LocalScript.Event:FireServer()
-end})
-
-Tab:AddButton({
- Name = "Colmilo",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack.Colmilo.LocalScript.Event:FireServer()
-end})
-
-Tab:AddButton({
- Name = "Divine Dogs",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack.Wolves["Divine Dogs"].RemoteEvent:FireServer()
-end})
-
-Tab:AddButton({
- Name = "Spinning Shots",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Spinning Shots").LocalScript.Event:FireServer()
-end})
-
-Tab:AddButton({
- Name = "Sonido Cero",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Sonido Cero").LocalScript.event:FireServer()
-end})
-
-Tab:AddButton({
- Name = "Right Gun",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Right Gun").LocalScript.Event:FireServer()
-end})
-
-Tab:AddButton({
- Name = "Cero Metralleta",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Cero Metralleta").LocalScript.Event:FireServer()
 end})
 
 local Section = Tab:AddSection({Name = "Inumaki Toge - Hold Cursed Speech"})
@@ -791,6 +615,187 @@ Tab:AddButton({
  Name = "Hollow Mask",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack["Hollow Mask"].HollowMask.Remote:FireServer()
+end})
+
+local Tab = Window:MakeTab({
+	Name = "V2 and V3",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false})
+
+local Section = Tab:AddSection({Name = "Cid True Power V3 - NPC Drop"})
+
+Tab:AddButton({
+ Name = "Blade Master Technique",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Blade Master Technique"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Afterimage",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Afterimage.LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Birdcage - stun player",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Birdcage.LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Gravitational Stomp",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Gravitational Stomp"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Overdrive",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Overdrive["Local Script"].Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Recovery Atomic",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Recovery Atomic"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Shadow Rush Cut",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Shadow Rush Cut"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "All Range Atomic - You need to hold item",
+ Callback = function()
+game:GetService("ReplicatedStorage").CidKageeno.Atomicc2:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Atomic Bomb",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Atomic Bomb"].LocalScript.Event:FireServer()
+end})
+
+local Section = Tab:AddSection({Name = "Vergil V2 - Free Vergil in 'Move'"})
+
+Tab:AddButton({
+ Name = "Judgement Cut End",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Judgement Cut End"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Ultimate Judgement Cut",
+ Callback = function()
+for i = 1, 50 do
+game:GetService("Players").LocalPlayer.Backpack["Judgement Cut"].LocalScript.Event:FireServer()
+end
+end}) 
+
+local Section = Tab:AddSection({Name = "aizen V2"})
+
+Tab:AddButton({
+ Name = "Garganta",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Garganta.LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Shatter",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Shatter.LocalScript.event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "3x Reiatsu",
+ Callback = function()
+for i = 1, 3 do
+game:GetService("Players").LocalPlayer.Backpack.Reiatsu.LocalScript.Event:FireServer()
+end
+end})
+
+Tab:AddButton({
+ Name = "2x Spiritual Pressure",
+ Callback = function()
+for i = 1, 2 do
+game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Spiritual Pressure").LocalScript.Event:FireServer()
+end
+end})
+
+Tab:AddButton({
+ Name = "Normal Hado 90",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Had\197\141 90"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Hado 90 Unstealed",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Unstealed.LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Dominate No Need Aizen v2",
+ Callback = function()
+game:GetService("ReplicatedStorage").Aizen.RemoteEvent:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Big Hado 90",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Had\197\141 90: Kurohitsugi").LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Real Hado 99 Goryu Tenmetsu Tool",
+ Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/aize"))()
+end})
+
+local Section = Tab:AddSection({Name = "Unleashed Starrk - boss drop"})
+
+Tab:AddButton({
+ Name = "Awake Starrk - You need to wear any shirts and pants in roblox avator",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Resurrecci\195\179n:  Los Lobos").LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Colmilo",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Colmilo.LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Divine Dogs",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Wolves["Divine Dogs"].RemoteEvent:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Spinning Shots",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Spinning Shots").LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Sonido Cero",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Sonido Cero").LocalScript.event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Right Gun",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Right Gun").LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Cero Metralleta",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Cero Metralleta").LocalScript.Event:FireServer()
 end})
 
 local Tab = Window:MakeTab({
