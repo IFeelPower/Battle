@@ -178,6 +178,18 @@ game:GetService("Players").LocalPlayer.Backpack["Supreme Art: Maximum Uzumaki"].
 local Section = Tab:AddSection({Name = "Shadow V1"})
 
 Tab:AddButton({
+ Name = "Overdrive",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Overdrive["Full Cowl"].Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Heal",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Heal.Script.Event:FireServer()
+end})
+
+Tab:AddButton({
  Name = "V1 Atomic - You Need hold item",
  Callback = function()
 game:GetService("ReplicatedStorage").AtomicFolder.gaydog:FireServer()
