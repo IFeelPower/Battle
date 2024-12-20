@@ -886,7 +886,7 @@ local function updatePlayerNames()
 end
 
 playerDropdown = Tab:AddDropdown({
-        Name = "Kidnapping to You",
+        Name = "Kidnapping Player to You",
         Default = "Select player",
         Options = playerNames,
         Callback = function(PlayerUsername)
@@ -926,7 +926,7 @@ end
 end
 
 playerDropdown = Tab:AddDropdown({
-        Name = "Kidnapping to Hueco mundo",
+        Name = "Kidnapping Player to Hueco mundo",
         Default = "Select player",
         Options = playerNames,
         Callback = function(PlayerUsername)
@@ -969,7 +969,7 @@ end
 end
 
 playerDropdown = Tab:AddDropdown({
-        Name = "Kidnapping to Vergil V2 NPC",
+        Name = "Kidnapping to Player Vergil V2 NPC",
         Default = "Select player",
         Options = playerNames,
         Callback = function(PlayerUsername)
@@ -1012,7 +1012,7 @@ end
 end
 
 playerDropdown = Tab:AddDropdown({
-        Name = "Kidnapping to Prison Realm",
+        Name = "Kidnapping to Player Prison Realm",
         Default = "Select player",
         Options = playerNames,
         Callback = function(PlayerUsername)
