@@ -536,9 +536,25 @@ game:GetService("Players").LocalPlayer.Backpack.Mahoraga.Mahoraga.RemoteEvent:Fi
 end})
 
 Tab:AddButton({
- Name = "Eat Mukbang Finger - Sukuna Finger",
+ Name = "Eat Mukbang Finger - become Fushiguro Sukuna",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack["Mukbang Finger"].Script.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Become Megumi Fushiguro",
+ Callback = function()
+        local args = {
+    [1] = "Megumi Fushiguro"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Picked"):FireServer(unpack(args))
+end})
+
+Tab:AddButton({
+ Name = "Summon NPC Mahoraga",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Summon Mahoraga"].Use.RemoteEvent:FireServer()
 end})
 
 Tab:AddButton({
