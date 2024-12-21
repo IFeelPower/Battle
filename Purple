@@ -18,6 +18,7 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))
+wait(0.1)
         for i = 1, 10000 do
 game:GetService("ReplicatedStorage").GojoV3.nuke:FireServer()
 end
