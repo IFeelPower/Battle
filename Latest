@@ -1080,7 +1080,7 @@ end})
 Tab:AddButton({
  Name = "TP to Jackpicture - every 2 minutes spawn",
  Callback = function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.jack5trvillaitem.CFrame
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.jack5trvillaitem.CFrame + Vector3.new(0, 3, 0)
 end})
 
 local Section = Tab:AddSection({Name = "Kidnapping"})
