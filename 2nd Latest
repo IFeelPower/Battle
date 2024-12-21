@@ -26,9 +26,9 @@ local Window = Rayfield:CreateWindow({
    }
 })
 
-local Tab = Window:CreateTab("Nuke", 4483362458) -- Title, Image
+local Tab = Window:CreateTab("Server Nuke", 4483362458) -- Title, Image
 
-local Section = Tab:CreateSection("You need Cid V2")
+local Section = Tab:CreateSection("Cid V2 Destroy server for 5 - 10 min")
 
 local Button = Tab:CreateButton({
  Name = "REAL ATOMIC! - You need to hold V2 All range atomic item",
@@ -39,7 +39,7 @@ end
    end    
 })
 
-local Section = Tab:CreateSection("Cid V3")
+local Section = Tab:CreateSection("Cid V3 Destroy server for 5 - 10 min")
 
 local Button = Tab:CreateButton({
  Name = "REAL ATOMIC! - You need to hold V3 All range atomic item",
@@ -140,7 +140,7 @@ end
 local Tab = Window:CreateTab("Option", 4483362458) -- Title, Image
 
 local Button = Tab:CreateButton({
- Name = "Back to Lazy script",
+ Name = "Back to Lazy script V2",
  Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/Latest"))()
    end    
@@ -151,7 +151,7 @@ local Tab = Window:CreateTab("Test", 4483362458) -- Title, Image
 local Section = Tab:CreateSection("useless skills")
 
 local Button = Tab:CreateButton({
- Name = "100 Void slash.",
+ Name = "v1 Vergil 100 Void slash",
  Callback = function()
         for i = 1, 100 do
 game:GetService("Players").LocalPlayer.Backpack["Void Slash"].LocalScript.Event:FireServer()
