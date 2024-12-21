@@ -652,7 +652,7 @@ end
 end
 
 playerDropdown = Tab:AddDropdown({
-        Name = "Steal Aizen V2",
+        Name = "Steal Aizen TYBW",
         Default = "Select player",
         Options = playerNames,
         Callback = function(PlayerUsername)
