@@ -1077,12 +1077,6 @@ Tab:AddButton({
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-31097.8438, 1377.82935, -13591.8994)
 end}) 
 
-Tab:AddButton({
- Name = "TP to Jackpicture - every 2 minutes spawn",
- Callback = function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.jack5trvillaitem.CFrame + Vector3.new(0, 3, 0)
-end})
-
 local Section = Tab:AddSection({Name = "Kidnapping"})
 
 local playerNametwo = nil
@@ -1555,3 +1549,35 @@ Tab:AddButton({
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack.Mugetsu.LocalScript.Event:FireServer()
 end}) 
+
+local Tab = Window:MakeTab({
+	Name = "JackPicture",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false})
+
+Tab:AddLabel("How to get Cid V3")
+Tab:AddLabel("1. Use Cid V2 First")
+Tab:AddLabel("2. Get 'Cid sword' from Gamble Machine - 9% Rate")
+Tab:AddLabel("3. Give 'Cid Sword' to Anh NPC")
+Tab:AddLabel("4. Anh NPC will give u 'atomic energy' - 30% Rate")
+Tab:AddLabel("5. use atomic energy on cid v2")
+
+local Section = Tab:AddSection({Name = "Teleport"})
+
+Tab:AddButton({
+ Name = "TP to Jackpicture - every 2 minutes spawn",
+ Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.jack5trvillaitem.CFrame + Vector3.new(0, 3, 0)
+end})
+
+Tab:AddButton({
+ Name = "TP to Cid Machine",
+ Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(141.665634, 18.8472042, -460.235992)
+end})
+
+Tab:AddButton({
+ Name = "TP to Anh Tài Say Xỉn",
+ Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-419.678986, 19.2471962, -272.365662)
+end})
