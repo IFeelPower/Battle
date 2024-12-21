@@ -28,7 +28,7 @@ local Window = Rayfield:CreateWindow({
 
 local Tab = Window:CreateTab("Nuke", 4483362458) -- Title, Image
 
-local Section = Tab:CreateSection("Cid V2")
+local Section = Tab:CreateSection("You need Cid V2")
 
 local Button = Tab:CreateButton({
  Name = "REAL ATOMIC! - You need to hold V2 All range atomic item",
@@ -36,13 +36,6 @@ local Button = Tab:CreateButton({
         for i = 1, 10000 do
 game:GetService("ReplicatedStorage").CidKageeno.Atomicc:FireServer()
 end
-   end    
-})
-
-local Button = Tab:CreateButton({
- Name = "REAL ATOMIC! with chat",
- Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/Atomic"))()
    end    
 })
 
