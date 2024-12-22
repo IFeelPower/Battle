@@ -1305,6 +1305,46 @@ game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(ohInstance1)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = omgohh
 end}) 
 
+Tab:AddButton({
+ Name = "Kidnapping Coyote Starrk Boss",
+ Callback = function()
+local omgohh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+local ohInstance1 = workspace["Coyote Starrk"]["Left Leg"]
+game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(ohInstance1)
+  task.wait(0.95)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = omgohh
+end}) 
+
+Tab:AddButton({
+ Name = "Kidnapping Aizen Sosuke NPC",
+ Callback = function()
+local omgohh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+local ohInstance1 = workspace["Aizen Sosuke"]["Left Leg"]
+game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(ohInstance1)
+  task.wait(0.95)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = omgohh
+end}) 
+
+Tab:AddButton({
+ Name = "Kidnapping Gojo Satoru Boss",
+ Callback = function()
+local omgohh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+local ohInstance1 = workspace["Gojo Satoru"]["Left Leg"]
+game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(ohInstance1)
+  task.wait(0.95)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = omgohh
+end}) 
+
+Tab:AddButton({
+ Name = "Kidnapping Ryomen Sukuna Boss",
+ Callback = function()
+local omgohh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+local ohInstance1 = workspace["Ryomen Sukuna"]["Left Leg"]
+game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(ohInstance1)
+  task.wait(0.95)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = omgohh
+end})
+
 local Tab = Window:MakeTab({
 	Name = "Option",
 	Icon = "rbxassetid://4483345998",
