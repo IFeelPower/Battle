@@ -1564,10 +1564,17 @@ Tab:AddLabel("5. use atomic energy on cid v2")
 
 local Section = Tab:AddSection({Name = "Teleport"})
 
-Tab:AddButton({
- Name = "TP to Jackpicture - every 2 minutes spawn",
- Callback = function()
+Tab:AddToggle({
+	Name = "Auto Tp to Jack Picture",
+	Default = false,
+	Callback = function(Value)
+lol = Value 
+while lol do
+wait(1)
+if workspace:FindFirstChild("jack5trvillaitem") then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.jack5trvillaitem.CFrame + Vector3.new(0, 3, 0)
+end
+end
 end})
 
 Tab:AddButton({
