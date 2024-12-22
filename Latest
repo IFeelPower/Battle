@@ -1721,5 +1721,5 @@ end})
 Tab:AddButton({
  Name = "TP to Anh Tài Say Xỉn NPC",
  Callback = function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-419.678986, 19.2471962, -272.365662)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace["Anh T\195\160i Say X\225\187\137n"].HumanoidRootPart.CFrame
 end})
