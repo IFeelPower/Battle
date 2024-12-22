@@ -1112,7 +1112,7 @@ function(player)
 updatePlayerNames()
 end)
 
-local Section = Tab:AddSection({Name = "Kidnapping"})
+local Section = Tab:AddSection({Name = "Kidnapping Player"})
 
 local playerNametwo = nil
 local playerNames = {}
