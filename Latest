@@ -1283,7 +1283,7 @@ function(player)
 updatePlayerNames()
 end)
 
-local Section = Tab:AddSection({Name = "Kidnapping"})
+local Section = Tab:AddSection({Name = "Kidnapping NPC"})
 
 Tab:AddButton({
  Name = "Kidnapping Anh Tài Say Xỉn NPC",
