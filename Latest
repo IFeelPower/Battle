@@ -1565,7 +1565,7 @@ Tab:AddLabel("5. use atomic energy on cid v2")
 local Section = Tab:AddSection({Name = "Teleport"})
 
 Tab:AddToggle({
-	Name = "Auto Tp to Jack Picture",
+	Name = "Auto TP to Jack Picture",
 	Default = false,
 	Callback = function(Value)
 lol = Value 
