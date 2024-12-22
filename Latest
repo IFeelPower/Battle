@@ -1551,11 +1551,11 @@ game:GetService("Players").LocalPlayer.Backpack.Mugetsu.LocalScript.Event:FireSe
 end}) 
 
 local Tab = Window:MakeTab({
-	Name = "JackPicture",
+	Name = "Auto Farm",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false})
 
-Tab:AddLabel("How to get Cid V3")
+local Section = Tab:AddSection({Name = "How to get Cid V3"})
 Tab:AddLabel("1. Use Cid V2 First")
 Tab:AddLabel("2. Get 'Cid sword' from Cid Machine - 11% Rate")
 Tab:AddLabel("3. Give 'Cid Sword' to Anh NPC")
