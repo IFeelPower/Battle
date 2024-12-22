@@ -1295,6 +1295,16 @@ game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(ohInstance1)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = omgohh
 end}) 
 
+Tab:AddButton({
+ Name = "Kidnapping Cid Kagenou Boss",
+ Callback = function()
+local omgohh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+local ohInstance1 = workspace["Cid Kagenou"]["Left Leg"]
+game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(ohInstance1)
+  task.wait(0.95)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = omgohh
+end}) 
+
 local Tab = Window:MakeTab({
 	Name = "Option",
 	Icon = "rbxassetid://4483345998",
