@@ -1283,6 +1283,18 @@ function(player)
 updatePlayerNames()
 end)
 
+local Section = Tab:AddSection({Name = "Kidnapping"})
+
+Tab:AddButton({
+ Name = "Kidnapping Anh Tài Say Xỉn NPC",
+ Callback = function()
+local omgohh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+local ohInstance1 = workspace["Anh T\195\160i Say X\225\187\137n"]["Left Leg"]
+game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(ohInstance1)
+  task.wait(0.95)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = omgohh
+end}) 
+
 local Tab = Window:MakeTab({
 	Name = "Option",
 	Icon = "rbxassetid://4483345998",
