@@ -138,3 +138,53 @@ Tab:AddButton({
  Callback = function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-31097.8438, 1377.82935, -13591.8994)
 end}) 
+
+local Tab = Window:MakeTab({
+	Name = "Special",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false})
+
+local Section = Tab:AddSection({Name = "OP Ability"})
+
+Tab:AddButton({
+ Name = "No More Games - Owner Move - NEW!",
+ Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/JN"))()
+end}) 
+
+local playerNames = {}
+local playerDropdown
+local players = game:GetService("Players")
+
+local function updatePlayerNames()
+playerNames = {}
+for _, player in pairs(players:GetPlayers()) do
+table.insert(playerNames, player.Name)
+end
+if playerDropdown then
+playerDropdown:Refresh(playerNames, true)
+end
+end
+
+playerDropdown = Tab:AddDropdown({
+        Name = "Surprise No More Games",
+        Default = "Select player",
+        Options = playerNames,
+        Callback = function(PlayerUsername)
+lol = PlayerUsername
+loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/JN"))()
+wait(0.2)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace[lol].HumanoidRootPart.CFrame
+end})
+
+updatePlayerNames()
+
+players.PlayerAdded:Connect(
+function(player)
+updatePlayerNames()
+end)
+
+players.PlayerRemoving:Connect(
+function(player)
+updatePlayerNames()
+end)
