@@ -1,80 +1,82 @@
-local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 
-local Window = Rayfield:CreateWindow({
-   Name = "Lazy Script",
-   LoadingTitle = "Rayfield Interface Suite",
-   LoadingSubtitle = "by Sirius",
-   ConfigurationSaving = {
-      Enabled = true,
-      FolderName = nil, -- Create a custom folder for your hub/game
-      FileName = "Big Hub"
-   },
-   Discord = {
-      Enabled = false,
-      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
-      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
-   },
-   KeySystem = false, -- Set this to true to use our key system
-   KeySettings = {
-      Title = "Untitled",
-      Subtitle = "Key System",
-      Note = "No method of obtaining the key is provided",
-      FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
-      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
-      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
-      Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
-   }
-})
+local Window = OrionLib:MakeWindow({Name = "Lazy Script V2 - Test", HidePremium = true, IntroEnabled = false, SaveConfig = false, ConfigFolder = "OrionTest", IntroText = "Are You Lazy?", IntroIcon = "rbxassetid://16336200609"})
 
-local Tab = Window:CreateTab("Main", 4483362458) -- Title, Image
+local Tab = Window:MakeTab({
+	Name = "Admin Move",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false})
 
-local Section = Tab:CreateSection("Cid True Power V3")
+local Section = Tab:AddSection({Name = "Goku Rework"})
 
-local Button = Tab:CreateButton({
- Name = "Blade Master Technique",
+Tab:AddButton({
+ Name = "Slam",
  Callback = function()
-game:GetService("Players").lamAtomicIoI.Backpack["Blade Master Technique"].LocalScript.Event:FireServer()
+game:GetService("Players").LocalPlayer.Backpack.Slam.LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Throw",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Throw.LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Spirit Shot",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Spirit Shot"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Kamehameha",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Kamehameha["LocalScript "].Event:FireServer()
    end})
 
-local Button = Tab:CreateButton({
- Name = "Birdcage",
+Tab:AddButton({
+ Name = "Super Saiyan",
  Callback = function()
-game:GetService("Players").lamAtomicIoI.Backpack.Birdcage.LocalScript.Event:FireServer()
-   end})
+game:GetService("Players").LocalPlayer.Backpack["Super Saiyan"].LocalScript.Event:FireServer()
+end})
 
-local Button = Tab:CreateButton({
- Name = "Gravitational Stomp",
+Tab:AddButton({
+ Name = "Combo 3x",
  Callback = function()
-game:GetService("Players").lamAtomicIoI.Backpack["Gravitational Stomp"].LocalScript.Event:FireServer()
-   end})
+game:GetService("Players").LocalPlayer.Backpack["Combo 3x"].LocalScript.Event:FireServer()
+end})
 
-local Button = Tab:CreateButton({
- Name = "Recovery Atomic",
+Tab:AddButton({
+ Name = "Spirit Shot",
  Callback = function()
-game:GetService("Players").lamAtomicIoI.Backpack["Recovery Atomic"].LocalScript.Event:FireServer()
-   end})
+game:GetService("Players").LocalPlayer.Backpack["Spirit Shot"].LocalScript.Event:FireServer()
+end})
 
-local Button = Tab:CreateButton({
- Name = "Shadow Rush Cut",
+Tab:AddButton({
+ Name = "Throw TP",
  Callback = function()
-game:GetService("Players").lamAtomicIoI.Backpack["Shadow Rush Cut"].LocalScript.Event:FireServer()
-   end})
+game:GetService("Players").LocalPlayer.Backpack["Throw TP"].LocalScript.Event:FireServer()
+end})
 
-local Button = Tab:CreateButton({
- Name = "Atomic Bomb",
+Tab:AddButton({
+ Name = "Spirit Bomb",
  Callback = function()
-game:GetService("Players").lamAtomicIoI.Backpack["Atomic Bomb"].LocalScript.Event:FireServer()
-   end})
+game:GetService("Players").LocalPlayer.Backpack["Spirit Bomb"].LocalScript.Event:FireServer()
+end})
 
-local Button = Tab:CreateButton({
- Name = "Overdrive",
+Tab:AddButton({
+ Name = "Ultra Bomb",
  Callback = function()
-game:GetService("Players").lamAtomicIoI.Backpack.Overdrive["Local Script"].Event:FireServer()
-   end})
+for i = 1, 6 do
+game:GetService("Players").LocalPlayer.Backpack["Spirit Bomb"].LocalScript.Event:FireServer()
+end
+end}) 
 
-local Tab = Window:CreateTab("Move", 4483362458) -- Title, Image
+local Tab = Window:MakeTab({
+	Name = "Move",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false})
 
-local Toggle = Tab:CreateToggle({
+Tab:AddToggle({
     Name = "Infinite Jump",
     CurrentValue = false,
     Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
@@ -85,44 +87,54 @@ local Toggle = Tab:CreateToggle({
                 game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
             end
         end)
-    end,
- })
+    end,})
 
-  local Slider = Tab:CreateSlider({
-    Name = "Walkspeed",
-    Range = {16, 250},
-    Increment = 1,
-    Suffix = "Walkspeed",
-    CurrentValue = 16,
-    Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-    Callback = function(v)
-        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = v
-    end,
- })
+Tab:AddSlider({
+	Name = "Speed",
+	Min = 16,
+	Max = 250,
+	Default = 16,
+	Color = Color3.fromRGB(0,125,245),
+	Increment = 1,
+	ValueName = "Speed Power",
+	Callback = function(v)
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = v
+end})
 
- 
- local Slider = Tab:CreateSlider({
-    Name = "JumpPower",
-    Range = {30, 500},
-    Increment = 1,
-    Suffix = "JumpPower",
-    CurrentValue = 30,
-    Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-    Callback = function(v)
-        game.Players.LocalPlayer.Character.Humanoid.JumpPower = v
-    end,
- })
+Tab:AddSlider({
+	Name = "Jump",
+	Min = 30,
+	Max = 500,
+	Default = 30,
+	Color = Color3.fromRGB(0,199,42),
+	Increment = 1,
+	ValueName = "Jump Power",
+	Callback = function(v)
+game.Players.LocalPlayer.Character.Humanoid.JumpPower = v
+end})
 
-local Button = Tab:CreateButton({
- Name = "Teleport to Normal world",
+Tab:AddButton({
+ Name = "Sonido",
+ Callback = function()
+game:GetService("ReplicatedStorage").Remotes.sonido:FireServer()
+end}) 
+
+local Section = Tab:AddSection({Name = "Teleport"})
+
+Tab:AddButton({
+ Name = "TP to Normal world",
  Callback = function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(3.6723702, 103.105331, -419.923584)
-   end    
-})
+end}) 
 
-local Button = Tab:CreateButton({
- Name = "Teleport to Hueco mundo",
+Tab:AddButton({
+ Name = "TP to Hueco mundo",
  Callback = function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-40479.5039, 50.7923508, 1717.92053)
-   end    
-})
+end}) 
+
+Tab:AddButton({
+ Name = "TP to Vergil NPC",
+ Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-31097.8438, 1377.82935, -13591.8994)
+end}) 
