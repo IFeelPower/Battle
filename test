@@ -46,6 +46,14 @@ game:GetService("Players").LocalPlayer.Backpack["Combo 3x"].LocalScript.Event:Fi
 end})
 
 Tab:AddButton({
+ Name = "Ultra Combo 3x",
+ Callback = function()
+for i = 1, 4 do
+game:GetService("Players").LocalPlayer.Backpack["Combo 3x"].LocalScript.Event:FireServer()
+end
+end}) 
+
+Tab:AddButton({
  Name = "Spirit Shot",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack["Spirit Shot"].LocalScript.Event:FireServer()
