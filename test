@@ -34,6 +34,14 @@ game:GetService("Players").LocalPlayer.Backpack.Kamehameha["LocalScript "].Event
    end})
 
 Tab:AddButton({
+ Name = "Ultra Kamehameha",
+ Callback = function()
+for i = 1, 4 do
+game:GetService("Players").LocalPlayer.Backpack.Kamehameha["LocalScript "].Event:FireServer()
+end
+end}) 
+
+Tab:AddButton({
  Name = "Super Saiyan",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack["Super Saiyan"].LocalScript.Event:FireServer()
@@ -44,14 +52,6 @@ Tab:AddButton({
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack["Combo 3x"].LocalScript.Event:FireServer()
 end})
-
-Tab:AddButton({
- Name = "Ultra Combo 3x",
- Callback = function()
-for i = 1, 4 do
-game:GetService("Players").LocalPlayer.Backpack["Combo 3x"].LocalScript.Event:FireServer()
-end
-end}) 
 
 Tab:AddButton({
  Name = "Spirit Shot",
