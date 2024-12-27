@@ -1421,7 +1421,7 @@ Tab:AddButton({
 loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/Meow"))()
 end}) 
 
-local Section = Tab:AddSection({Name = "OP Ability"})
+local Section = Tab:AddSection({Name = "Jun"})
 
 Tab:AddButton({
  Name = "No More Games - Owner Move - NEW!",
@@ -1466,12 +1466,15 @@ function(player)
 updatePlayerNames()
 end)
 
+local Section = Tab:AddSection({Name = "Megumin"})
 
 Tab:AddButton({
- Name = "Strongest Magic - Megumin Item - Pay to win",
+ Name = "Strongest Magic Tool - Pay to win",
  Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/Explo"))()
 end}) 
+
+local Section = Tab:AddSection({Name = "KJ"})
 
 Tab:AddButton({
  Name = "KJ Collaretal Ruin - Admin Move",
@@ -1593,6 +1596,8 @@ Tab:AddButton({
 game:GetService("ReplicatedStorage").Yuta.love:FireServer()
 end}) 
 
+local Section = Tab:AddSection({Name = "Cid"})
+
 Tab:AddButton({
  Name = "Imminet Blink",
  Callback = function()
@@ -1679,11 +1684,15 @@ Tab:AddButton({
 game:GetService("ReplicatedStorage").Server:InvokeServer(ohTable1)
 end}) 
 
+local Section = Tab:AddSection({Name = "Mahito"})
+
 Tab:AddButton({
  Name = "Mahito Domain",
  Callback = function()
 game:GetService("ReplicatedStorage").MahitoDomainExpansion.MahitoDomainEvent:FireServer()
 end}) 
+
+local Section = Tab:AddSection({Name = "Hacker"})
 
 Tab:AddButton({
  Name = "Hacker Rush Punch",
