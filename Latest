@@ -1497,6 +1497,20 @@ Tab:AddButton({
 loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/KoJ"))()
 end}) 
 
+local Section = Tab:AddSection({Name = "Hakari"})
+
+Tab:AddButton({
+ Name = "Old Hakari Domain",
+ Callback = function()
+game:GetService("ReplicatedStorage").Domainthing:FireServer()
+end}) 
+
+Tab:AddButton({
+ Name = "100% Win Hakari Domain",
+ Callback = function()
+game:GetService("ReplicatedStorage").Remotes.IdleDeathGamble:FireServer()
+end}) 
+
 Tab:AddButton({
  Name = "Go/jo Cut",
  Callback = function()
@@ -1510,6 +1524,8 @@ Tab:AddButton({
  Callback = function()
 game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("ContainerKick"):FireServer()
 end}) 
+
+local Section = Tab:AddSection({Name = "Sukuna"})
 
 Tab:AddButton({
  Name = "Death Sukuna Rush",
@@ -1563,17 +1579,7 @@ Tab:AddButton({
 game:GetService("Players").LocalPlayer.Backpack["Reverse Cursed Technique"].Script.Event:FireServer()
 end}) 
 
-Tab:AddButton({
- Name = "Old Hakari Domain",
- Callback = function()
-game:GetService("ReplicatedStorage").Domainthing:FireServer()
-end}) 
-
-Tab:AddButton({
- Name = "100% Win Hakari Domain",
- Callback = function()
-game:GetService("ReplicatedStorage").Remotes.IdleDeathGamble:FireServer()
-end}) 
+local Section = Tab:AddSection({Name = "Okkotsu"})
 
 Tab:AddButton({
  Name = "Okkotsu Domain",
@@ -1592,6 +1598,8 @@ Tab:AddButton({
  Callback = function()
 game:GetService("ReplicatedStorage").CidKageeno.Blinkk:FireServer()
 end})
+
+local Section = Tab:AddSection({Name = "Gojo"})
 
 Tab:AddButton({
 Name = "Gojo Rush",
@@ -1649,9 +1657,26 @@ game:GetService("ReplicatedStorage").Events["UnlimitedVoid0.2"]:FireServer()
 end}) 
 
 Tab:AddButton({
+ Name = "Gojo 0.2 Domain - Pay to Win",
+ Callback = function()
+game:GetService("ReplicatedStorage").Events["Domain0.2"]:FireServer()
+end}) 
+
+Tab:AddButton({
  Name = "Gojo Long Domain",
  Callback = function()
 game:GetService("ReplicatedStorage").Events.UnlimitedVoid:FireServer()
+end}) 
+
+Tab:AddButton({
+ Name = "Blue Pull - Pay to win",
+ Callback = function()
+            local ohTable1 = {
+    ["Function"] = "Fire",
+    ["Name"] = "BlueMo",
+    ["rootpos"] = CFrame.new(39.0846443, 19.8230076, -162.294754, -0.0822739899, 3.01816527e-08, 0.996609747, -4.96030914e-08, 1, -3.43792514e-08, -0.996609747, -5.22634416e-08, -0.0822739899)
+}
+game:GetService("ReplicatedStorage").Server:InvokeServer(ohTable1)
 end}) 
 
 Tab:AddButton({
