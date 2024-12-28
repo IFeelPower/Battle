@@ -1395,7 +1395,7 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false})
 
 Tab:AddButton({
- Name = "Hold all items",
+ Name = "Hold all inventory tools",
  Callback = function()
         for _, tool in ipairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
      if tool:IsA("Tool") then
@@ -1422,7 +1422,7 @@ end
 end}) 
 
 Tab:AddButton({
- Name = "Delete all Items",
+ Name = "Delete all Inventory tools",
  Callback = function()
         local Player = game:GetService("Players").LocalPlayer
 local Backpack = Player.Backpack
