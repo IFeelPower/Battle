@@ -1,43 +1,20 @@
-local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 
-local Window = Rayfield:CreateWindow({
-   Name = "LOL",
-   LoadingTitle = "Rayfield Interface Suite",
-   LoadingSubtitle = "by Sirius",
-   ConfigurationSaving = {
-      Enabled = true,
-      FolderName = nil, -- Create a custom folder for your hub/game
-      FileName = "Big Hub"
-   },
-   Discord = {
-      Enabled = false,
-      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
-      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
-   },
-   KeySystem = false, -- Set this to true to use our key system
-   KeySettings = {
-      Title = "Untitled",
-      Subtitle = "Key System",
-      Note = "No method of obtaining the key is provided",
-      FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
-      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
-      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
-      Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
-   }
-})
+local Window = OrionLib:MakeWindow({Name = "Lazy Script V2", HidePremium = true, IntroEnabled = false, SaveConfig = false, ConfigFolder = "OrionTest", IntroText = "Are You Lazy?", IntroIcon = "rbxassetid://16336200609"})
 
-local Tab = Window:CreateTab("Main", 4483362458) -- Title, Image
+local Tab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false})
 
-local Section = Tab:CreateSection("Movement")
- 
-local Button = Tab:CreateButton({
+Tab:AddButton({
   Name = "No Fall Damage",
   Callback = function()
     game.ReplicatedStorage.GameRemotes.Demo:Destroy()
   end    
 })
 
-local Toggle = Tab:CreateToggle({
+Tab:AddToggle({
     Name = "Infinite Jump",
     CurrentValue = false,
     Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
@@ -48,51 +25,45 @@ local Toggle = Tab:CreateToggle({
                 game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
             end
         end)
-    end,
- })
+    end,})
 
-  local Slider = Tab:CreateSlider({
-    Name = "Walkspeed",
-    Range = {16, 250},
-    Increment = 1,
-    Suffix = "Walkspeed",
-    CurrentValue = 16,
-    Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-    Callback = function(v)
-        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = v
-    end,
- })
+Tab:AddSlider({
+	Name = "Speed",
+	Min = 16,
+	Max = 250,
+	Default = 16,
+	Color = Color3.fromRGB(0,125,245),
+	Increment = 1,
+	ValueName = "Speed Power",
+	Callback = function(v)
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = v
+end})
 
- 
- local Slider = Tab:CreateSlider({
-    Name = "JumpPower",
-    Range = {30, 500},
-    Increment = 1,
-    Suffix = "JumpPower",
-    CurrentValue = 30,
-    Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-    Callback = function(v)
-        game.Players.LocalPlayer.Character.Humanoid.JumpPower = v
-    end,
- })
+Tab:AddSlider({
+	Name = "Jump",
+	Min = 30,
+	Max = 500,
+	Default = 30,
+	Color = Color3.fromRGB(0,199,42),
+	Increment = 1,
+	ValueName = "Jump Power",
+	Callback = function(v)
+game.Players.LocalPlayer.Character.Humanoid.JumpPower = v
+end})
 
-local Button = Tab:CreateButton({
- Name = "Fly GUI",
- Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/yoo"))()
-   end    
-})
-
-local Button = Tab:CreateButton({
+Tab:AddButton({
   Name = "ESP (Press B)",
   Callback = function()
     loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-FE-ESP-1174",true))()
   end    
 })
 
-local Button = Tab:CreateButton({
+Tab:AddToggle({
   Name = "Kill aura",
-  Callback = function()
+  Default = false,
+Callback = function(Value)
+lol4 = Value
+
     local TweenService = game:GetService("TweenService")
 local player = game.Players.LocalPlayer
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -305,7 +276,7 @@ RunService.RenderStepped:Connect(function()
     updateCirclePosition()
 end)
 
-while true do
+while lol4 do
     task.wait(0.1)
     local target = getClosestPlayer()
     if target and target:FindFirstChild("Humanoid") and target.Humanoid.Health > 0 then
@@ -356,7 +327,7 @@ function conv(txt)
 	return str;
 end
 
-local Button = Tab:CreateButton({
+Tab:AddButton({
  Name = "Click dup",
    Callback = function()
 	local b = game:GetService("Players").LocalPlayer.PlayerGui.HUDGui.Inventory.Slots["Slot-1"].SlotNA.Count
@@ -422,14 +393,14 @@ local Button = Tab:CreateButton({
 		te = nil
 end})
 
-local Button = Tab:CreateButton({
+Tab:AddButton({
  Name = "Cursed Emotes",
  Callback = function()
         loadstring(game:HttpGet(('https://pastebin.com/raw/1p6xnBNf'),true))()
    end    
 })
 
-local Button = Tab:CreateButton({
+Tab:AddButton({
  Name = "SUS????",
  Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/Cursed%20attack"))()
