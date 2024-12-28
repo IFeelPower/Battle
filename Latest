@@ -1444,12 +1444,23 @@ end})
 local Section = Tab:AddSection({Name = "Kill Aura"})
 
 Tab:AddToggle({
-	Name = "Sukuna killaura",
+	Name = "Sukuna Killaura",
 	Default = false,
 	Callback = function(Value)
 lol = Value 
 while lol do
 wait(0.4)
+game:GetService("ReplicatedStorage").Remotes.colovo:FireServer()  
+end
+end})
+
+Tab:AddToggle({
+	Name = "Sukuna Killaura",
+	Default = false,
+	Callback = function(Value)
+lol = Value 
+while lol do
+wait(0.3)
 game:GetService("ReplicatedStorage").Remotes.colovo:FireServer()  
 end
 end})
