@@ -743,7 +743,7 @@ updatePlayerNames()
 end)
 
 local Tab = Window:MakeTab({
-	Name = "V2 and V3",
+	Name = "V2, V3",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false})
 
@@ -879,10 +879,10 @@ Tab:AddButton({
 loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/aize"))()
 end})
 
-local Section = Tab:AddSection({Name = "Unleashed Starrk - boss drop"})
+local Section = Tab:AddSection({Name = "Unleashed Starrk - Boss drop"})
 
 Tab:AddButton({
- Name = "Awake Starrk - You need to wear any shirts and pants in roblox avator",
+ Name = "Awake - You have to wear shirts and pants in roblox avator",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Resurrecci\195\179n:  Los Lobos").LocalScript.Event:FireServer()
 end})
