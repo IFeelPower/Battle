@@ -1656,21 +1656,27 @@ game:GetService("ReplicatedStorage").GojoV3.nuke:FireServer()
 end}) 
 
 Tab:AddButton({
- Name = "Gojo 0.2 Domain",
+ Name = "0.2 Domain",
  Callback = function()
 game:GetService("ReplicatedStorage").Events["UnlimitedVoid0.2"]:FireServer()
 end}) 
 
 Tab:AddButton({
- Name = "Gojo 0.2 Domain - Pay to Win",
+ Name = "0.2 Domain - Pay to Win",
  Callback = function()
 game:GetService("ReplicatedStorage").Events["Domain0.2"]:FireServer()
 end}) 
 
 Tab:AddButton({
- Name = "Gojo Long Domain",
+ Name = "Unlimited Void",
  Callback = function()
 game:GetService("ReplicatedStorage").Events.UnlimitedVoid:FireServer()
+end}) 
+
+Tab:AddButton({
+ Name = "Unlimited Void - Pay to win",
+ Callback = function()
+game:GetService("ReplicatedStorage").Gogay:FireServer()
 end}) 
 
 Tab:AddButton({
