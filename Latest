@@ -803,7 +803,7 @@ Tab:AddButton({
 game:GetService("Players").LocalPlayer.Backpack["Atomic Bomb"].LocalScript.Event:FireServer()
 end})
 
-local Section = Tab:AddSection({Name = "Vergil V2 - Free Vergil in 'Move'"})
+local Section = Tab:AddSection({Name = "Vergil V2 - NPC Drop"})
 
 Tab:AddButton({
  Name = "Judgement Cut End",
@@ -819,7 +819,7 @@ game:GetService("Players").LocalPlayer.Backpack["Judgement Cut"].LocalScript.Eve
 end
 end}) 
 
-local Section = Tab:AddSection({Name = "aizen V2"})
+local Section = Tab:AddSection({Name = "Aizen TYBW - NPC Drop"})
 
 Tab:AddButton({
  Name = "Garganta",
@@ -923,7 +923,7 @@ Tab:AddButton({
 game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Cero Metralleta").LocalScript.Event:FireServer()
 end})
 
-local Section = Tab:AddSection({Name = "Shadow V2"})
+local Section = Tab:AddSection({Name = "Shadow V2 - Boss drop"})
 
 Tab:AddButton({
  Name = "V2 Speed Blitz",
@@ -955,7 +955,7 @@ Tab:AddButton({
 game:GetService("ReplicatedStorage").CidKageeno.Atomicc:FireServer()
 end})
 
-local Section = Tab:AddSection({Name = "Sukuna V2"})
+local Section = Tab:AddSection({Name = "Sukuna V2 - Boss drop"})
 
 Tab:AddButton({
  Name = "100% v2 - Use this after you get Sukuna finger",
