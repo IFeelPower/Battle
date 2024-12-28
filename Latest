@@ -1213,7 +1213,7 @@ end
 end
 
 playerDropdown = Tab:AddDropdown({
-        Name = "Kidnapping to Player Vergil V2 NPC",
+        Name = "Kidnapping Player to Vergil V2 NPC",
         Default = "Select player",
         Options = playerNames,
         Callback = function(PlayerUsername)
@@ -1256,7 +1256,7 @@ end
 end
 
 playerDropdown = Tab:AddDropdown({
-        Name = "Kidnapping to Player Prison Realm",
+        Name = "Kidnapping Player to Prison Realm",
         Default = "Select player",
         Options = playerNames,
         Callback = function(PlayerUsername)
@@ -1282,6 +1282,50 @@ players.PlayerRemoving:Connect(
 function(player)
 updatePlayerNames()
 end)
+
+local playerNametwo = nil
+local playerNames = {}
+local playerDropdown
+local players = game:GetService("Players")
+
+local function updatePlayerNames()
+playerNames = {}
+for _, player in pairs(players:GetPlayers()) do
+table.insert(playerNames, player.Name)
+end
+if playerDropdown then
+playerDropdown:Refresh(playerNames, true)
+end
+end
+
+playerDropdown = Tab:AddDropdown({
+        Name = "Kidnapping Player to Trash Can",
+        Default = "Select player",
+        Options = playerNames,
+        Callback = function(PlayerUsername)
+            playerNametwo = PlayerUsername
+            local gh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+       wait(0.1)
+     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-416, 19.9, -308.5)
+      wait(0.1)
+local ohInstance1 = workspace[playerNametwo]["Left Leg"]
+game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(ohInstance1)
+  task.wait(0.95)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = gh
+end})
+
+updatePlayerNames()
+
+players.PlayerAdded:Connect(
+function(player)
+updatePlayerNames()
+end)
+
+players.PlayerRemoving:Connect(
+function(player)
+updatePlayerNames()
+end)
+
 
 local Section = Tab:AddSection({Name = "Kidnapping NPC"})
 
