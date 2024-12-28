@@ -1441,6 +1441,19 @@ for _,v in pairs(Character:GetChildren()) do
 end
 end}) 
 
+local Section = Tab:AddSection({Name = "Kill Aura"})
+
+Tab:AddToggle({
+	Name = "Sukuna killaura",
+	Default = false,
+	Callback = function(Value)
+lol = Value 
+while lol do
+wait(0.4)
+game:GetService("ReplicatedStorage").Remotes.colovo:FireServer()  
+end
+end})
+
 local Tab = Window:MakeTab({
 	Name = "Nuke",
 	Icon = "rbxassetid://4483345998",
