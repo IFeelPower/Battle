@@ -1455,13 +1455,13 @@ end
 end})
 
 Tab:AddToggle({
-	Name = "Sukuna Killaura",
+	Name = "Sukuna Killaura 2",
 	Default = false,
 	Callback = function(Value)
 lol = Value 
 while lol do
 wait(0.3)
-game:GetService("ReplicatedStorage").Remotes.colovo:FireServer()  
+game:GetService("ReplicatedStorage").sukuna.remotes.dismantle:FireServer() 
 end
 end})
 
