@@ -1583,6 +1583,30 @@ game:GetService("ReplicatedStorage").Remotes.IdleDeathGamble:FireServer()
 end}) 
 
 Tab:AddButton({
+ Name = "Death Ball Tool",
+ Callback = function()
+local tool = Instance.new("Tool")
+tool.Name = "Death Ball"
+tool.RequiresHandle = false
+tool.ToolTip = "Gambling!"
+tool.Activated:Connect(function()
+
+for i = 1, 10 do
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+
+local targetPosition = mouse.Hit.Position
+local ohCFrame1 = CFrame.new(targetPosition)
+local ohVector32 = Vector3.new(targetPosition.X, targetPosition.Y, targetPosition.Z)
+
+game:GetService("ReplicatedStorage").Remotes.PachinkoBall:FireServer(ohCFrame1, ohVector32)
+end
+end)
+
+tool.Parent = game.Players.LocalPlayer.Backpack
+end}) 
+
+Tab:AddButton({
  Name = "Go/jo Cut",
  Callback = function()
 for i = 1, 10 do
