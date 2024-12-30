@@ -1465,6 +1465,19 @@ game:GetService("ReplicatedStorage").sukuna.remotes.dismantle:FireServer()
 end
 end})
 
+Tab:AddToggle({
+	Name = "Toji Annoying KillAura",
+	Default = false,
+	Callback = function(Value)
+lol = Value 
+while lol do
+wait(1)
+if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Wrong Way") then
+game:GetService("Players").LocalPlayer.Backpack["Wrong Way"].Main.Event:FireServer()
+end
+end
+end})
+
 local Tab = Window:MakeTab({
 	Name = "Nuke",
 	Icon = "rbxassetid://4483345998",
