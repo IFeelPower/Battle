@@ -1465,6 +1465,18 @@ game:GetService("ReplicatedStorage").sukuna.remotes.dismantle:FireServer()
 end
 end})
 
+Tab:AddButton({
+ Name = "Get Awaken Toji",
+ Callback = function()
+local args = {
+    [1] = "Toji Fushiguro"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Picked"):FireServer(unpack(args))
+wait(1)
+game:GetService("Players").LocalPlayer.Backpack["Inverted Spear Of Heaven"].Script.Event:FireServer()
+end}) 
+
 Tab:AddToggle({
 	Name = "Toji Annoying KillAura",
 	Default = false,
