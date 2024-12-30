@@ -1390,7 +1390,7 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = omgohh
 end})
 
 local Tab = Window:MakeTab({
-	Name = "Option",
+	Name = "Option:killaura",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false})
 
