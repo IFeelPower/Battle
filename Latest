@@ -1478,7 +1478,7 @@ game:GetService("Players").LocalPlayer.Backpack["Inverted Spear Of Heaven"].Scri
 end}) 
 
 Tab:AddToggle({
-	Name = "Toji Annoying KillAura",
+	Name = "Toji Annoying KillAura - Amanai!",
 	Default = false,
 	Callback = function(Value)
 lol = Value 
