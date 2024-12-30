@@ -595,6 +595,34 @@ Tab:AddButton({
 game:GetService("Players").LocalPlayer.Backpack["Hollow Mask"].HollowMask.Remote:FireServer()
 end})
 
+local Section = Tab:AddSection({Name = "Kamado Tanjiro"})
+
+Tab:AddButton({
+ Name = "Death Dance",
+ Callback = function()
+for i = 1, 7 do
+game:GetService("Players").LocalPlayer.Backpack["Dragon Sun Halo Head Dance"].Ground.Event:FireServer()
+end
+end})
+
+local Section = Tab:AddSection({Name = "Akaza"})
+
+Tab:AddButton({
+ Name = "Compass Needle",
+ Callback = function()
+for i = 1, 7 do
+game:GetService("Players").LocalPlayer.Backpack["Compass Needle"].Akaza.Event:FireServer()
+end
+end})
+
+Tab:AddButton({
+ Name = "Death Punch Rush",
+ Callback = function()
+for i = 1, 7 do
+game:GetService("Players").LocalPlayer.Backpack.Disorder.Punch.Event:FireServer()
+end
+end})
+
 local Tab = Window:MakeTab({
 	Name = "Steal V2 V3",
 	Icon = "rbxassetid://4483345998",
