@@ -1492,7 +1492,7 @@ end})
 local Section = Tab:AddSection({Name = "Jun"})
 
 Tab:AddButton({
- Name = "No More Games - Owner Move - NEW!",
+ Name = "No More Games - Owner Move - bugging",
  Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/JN"))()
 end}) 
@@ -1533,6 +1533,12 @@ players.PlayerRemoving:Connect(
 function(player)
 updatePlayerNames()
 end)
+
+Tab:AddButton({
+ Name = "Kill all with No More Games",
+ Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/JN%20all"))()
+end}) 
 
 local Section = Tab:AddSection({Name = "Megumin"})
 
