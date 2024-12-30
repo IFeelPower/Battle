@@ -4,7 +4,7 @@ local function teleportToPlayers(player)
 for _, targetPlayer in pairs(Players:GetPlayers()) do
 if targetPlayer ~= player then
 loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/JN"))()
-wait(1)
+wait(0.7)
 player.Character:MoveTo(targetPlayer.Character.HumanoidRootPart.Position)
 end
 end
