@@ -109,35 +109,6 @@ local RunService = game:GetService("RunService")
 
 local strafeEnabled = false -- you can set this to true or false to enable or disable strafing
 
--- Create UI elements
-local screenGui = Instance.new("ScreenGui")
-screenGui.Parent = game.CoreGui
-
-local targetGui = Instance.new("Frame")
-targetGui.Size = UDim2.new(0, 275, 0, 120)
-targetGui.Position = UDim2.new(0.5, -137.5, 0.7, 0)
-targetGui.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-targetGui.BorderSizePixel = 1
-targetGui.BorderColor3 = Color3.fromRGB(60, 60, 60)
-targetGui.Visible = false
-targetGui.Parent = screenGui
-
-local uiGradient = Instance.new("UIGradient")
-uiGradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 182, 193)), -- light pink
-    ColorSequenceKeypoint.new(0.50, Color3.fromRGB(255, 20, 147)), -- deep pink
-    ColorSequenceKeypoint.new(1.00, Color3.fromRGB(173, 216, 230)) -- light blue
-}
-uiGradient.Parent = targetGui
-
-local function animateBackground()
-    local tweenInfo = TweenInfo.new(2, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, -1, true)
-    local tween = TweenService:Create(uiGradient, tweenInfo, {Offset = Vector2.new(1, 0)})
-    tween:Play()
-end
-
-animateBackground()
-
 local uiCorner = Instance.new("UICorner")
 uiCorner.CornerRadius = UDim.new(0, 10)
 uiCorner.Parent = targetGui
