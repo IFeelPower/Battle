@@ -790,6 +790,31 @@ game:GetService("Players").LocalPlayer.Backpack.Afterimage.LocalScript.Event:Fir
 end})
 
 Tab:AddButton({
+ Name = "Kill all",
+ Callback = function()
+local Players = game:GetService("Players")
+
+local function teleportToPlayers(player)
+for _, targetPlayer in pairs(Players:GetPlayers()) do
+if targetPlayer ~= player then
+player.Character:MoveTo(targetPlayer.Character.PrimaryPart.Position)
+task.wait(0.2)
+game:GetService("Players").LocalPlayer.Backpack.Afterimage.LocalScript.Event:FireServer()
+game:GetService("Players").LocalPlayer.Backpack.Afterimage.LocalScript.Event:FireServer()
+game:GetService("Players").LocalPlayer.Backpack.Afterimage.LocalScript.Event:FireServer()
+game:GetService("Players").LocalPlayer.Backpack.Afterimage.LocalScript.Event:FireServer()
+game:GetService("Players").LocalPlayer.Backpack.Afterimage.LocalScript.Event:FireServer()
+game:GetService("Players").LocalPlayer.Backpack.Afterimage.LocalScript.Event:FireServer()
+wait(1)
+end
+end
+end
+
+local localPlayer = Players.LocalPlayer
+teleportToPlayers(localPlayer)
+end})
+
+Tab:AddButton({
  Name = "Birdcage - stun player",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack.Birdcage.LocalScript.Event:FireServer()
