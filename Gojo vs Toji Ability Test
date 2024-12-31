@@ -427,6 +427,15 @@ local Button = Tab:CreateButton({
    end    
 })
 
+local Button = Tab:CreateButton({
+ Name = "5 Season",
+    Callback = function()
+    game:GetService("Players").LocalPlayer.Backpack["Unlimited Flex Works"].LocalScript.EventVariant:FireServer()
+   end    
+})
+
+   game:GetService("Players").LocalPlayer.Backpack["Unlimited Flex Works"].LocalScript.Event
+
 local Section = Tab:CreateSection("JUN")
 
 local Button = Tab:CreateButton({
