@@ -368,50 +368,49 @@ Tab:AddButton({
  Name = "Ravage",
     Callback = function()
     game:GetService("Players").LocalPlayer.Backpack.Ravage.LocalScript.Event:FireServer()
-   end    
-})
+   end})
 
 Tab:AddButton({
  Name = "Swift Sweep",
     Callback = function()
     game:GetService("Players").LocalPlayer.Backpack["Swift Sweep"].LocalScript.Event:FireServer()
-   end    
-})
+   end})
+
+Tab:AddButton({
+ Name = "Collateral Ruin",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Collateral Ruin"].LocalScript.Event:FireServer()
+end})
 
 Tab:AddButton({
  Name = "20 Series awake V1",
     Callback = function()
     game:GetService("Players").LocalPlayer.Backpack["20 Series"].Rush.Event:FireServer()
-   end    
-})
+   end})
 
 Tab:AddButton({
  Name = "20 Series awake V2",
     Callback = function()
     game:GetService("Players").LocalPlayer.Backpack["20 Series"].Rush.Event2:FireServer()
-   end    
-})
+   end})
 
 Tab:AddButton({
  Name = "Stoic Bomb",
     Callback = function()
     game:GetService("Players").LocalPlayer.Backpack["Stoic Bomb"].LocalScript.Event:FireServer()
-   end    
-})
+   end})
 
 Tab:AddButton({
  Name = "Unlimited Flex Works",
     Callback = function()
     game:GetService("Players").LocalPlayer.Backpack["Unlimited Flex Works"].LocalScript.Event:FireServer()
-   end    
-})
+   end})
 
 Tab:AddButton({
  Name = "5 Season",
     Callback = function()
     game:GetService("Players").LocalPlayer.Backpack["Unlimited Flex Works"].LocalScript.EventVariant:FireServer()
-   end    
-})
+   end})
 
 local Section = Tab:AddSection({Name = "JUN"})
 
@@ -419,15 +418,13 @@ Tab:AddButton({
  Name = "Fang Dance",
     Callback = function()
     game:GetService("Players").LocalPlayer.Backpack["Fang Dance"].LocalScript.Event:FireServer()
-   end    
-})
+   end})
 
 Tab:AddButton({
  Name = "Glimpse Of Power Variant",
     Callback = function()
     game:GetService("Players").LocalPlayer.Backpack["Glimpse Of Power Variant"].LocalScript.Event:FireServer()
-   end    
-})
+   end})
 
 Tab:AddButton({
  Name = "Virgule Cascade",
@@ -552,29 +549,25 @@ Tab:AddButton({
  Name = "KJ DropKick",
     Callback = function()
     game:GetService("ReplicatedStorage").KJ.Remote.DropKick:FireServer()
-   end    
-})
+   end})
 
 Tab:AddButton({
  Name = "KJ DropKick 2",
     Callback = function()
     game:GetService("ReplicatedStorage").KJ.Remote.DropKick2:FireServer()
-   end    
-})
+   end})
 
 Tab:AddButton({
  Name = "KJ Freeze Bomb lol",
     Callback = function()
     game:GetService("ReplicatedStorage").KJ.Remote.Stoic:FireServer()
-   end    
-})
+   end})
 
 Tab:AddButton({
  Name = "KJ Kick",
     Callback = function()
     game:GetService("ReplicatedStorage").Remotes.BanishPath:FireServer()
-   end    
-})
+   end})
 
 Tab:AddButton({
  Name = "Fire Arrow",
