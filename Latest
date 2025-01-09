@@ -34,12 +34,6 @@ game:GetService("Players").LocalPlayer.Backpack["\"I can return from death\""].L
 end})
 
 Tab:AddButton({
-Name = "REM!",
-Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["REMM !"].LocalScript.Event:FireServer()
-end})
-
-Tab:AddButton({
 Name = "Reinhard",
 Callback = function()
 game:GetService("Players").LocalPlayer.Backpack["Reinhard !!"].LocalScript.Event:FireServer()
