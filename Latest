@@ -7,6 +7,50 @@ local Tab = Window:MakeTab({
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false})
 
+local Section = Tab:AddSection({Name = "Subaru"})
+
+Tab:AddButton({
+Name = "Shamac",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Shamac.LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+Name = "Rental Goa",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Rental Goa"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+Name = "REM!",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["REMM !"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+Name = "I can return from death",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["\"I can return from death\""].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+Name = "REM!",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["REMM !"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+Name = "Reinhard",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Reinhard !!"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+Name = "Return By Death",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Return By Death"].LocalScript.Event:FireServer()
+end})
+
 local Section = Tab:AddSection({Name = "Yhwach"})
 
 Tab:AddButton({
