@@ -7,6 +7,62 @@ local Tab = Window:MakeTab({
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false})
 
+local Section = Tab:AddSection({Name = "Gremmy"})
+
+Tab:AddButton({
+Name = "Water Flip",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Water Flip"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+Name = "Mini Meteor",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Mini Meteor"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+Name = "Fissure Slap",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Fissure Slap"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+Name = "Fissure Slap",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Fissure Slap"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+Name = "Magma Explode",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Magma Explode"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+Name = "Grenade Explosion",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Grenade Explosion"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+Name = "Water Prison",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Water Prison"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+Name = "Space Vacuum",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Space Vacuum"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+Name = "The Strongest Quincy",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["The Strongest Quincy"].LocalScript.Event:FireServer()
+end})
+
 local Section = Tab:AddSection({Name = "Subaru"})
 
 Tab:AddButton({
