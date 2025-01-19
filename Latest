@@ -2043,7 +2043,7 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false})
 
 local Section = Tab:AddSection({Name = "How to get Cid V3"})
-Tab:AddLabel("1. Use Cid V2 First")
+Tab:AddLabel("1. Use Unleashed V2 Cid First")
 Tab:AddLabel("2. Get 'Cid sword' from Cid Machine - 11% Rate")
 Tab:AddLabel("3. Give 'Cid Sword' to Anh NPC")
 Tab:AddLabel("4. Anh NPC will give u 'atomic energy' - 25% Rate")
