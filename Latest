@@ -60,6 +60,26 @@ game:GetService("Players").LocalPlayer.Backpack["Magma Explode"].LocalScript.Eve
 end})
 
 Tab:AddButton({
+Name = "Magma Splash",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Magma Explode"].LocalScript.Event:FireServer()
+wait(0.2)
+game:GetService("Players").LocalPlayer.Backpack["Magma Explode"].LocalScript.Event:FireServer()
+wait(0.2)
+game:GetService("Players").LocalPlayer.Backpack["Magma Explode"].LocalScript.Event:FireServer()
+wait(0.2)
+game:GetService("Players").LocalPlayer.Backpack["Magma Explode"].LocalScript.Event:FireServer()
+wait(0.2)
+game:GetService("Players").LocalPlayer.Backpack["Magma Explode"].LocalScript.Event:FireServer()
+wait(0.2)
+game:GetService("Players").LocalPlayer.Backpack["Magma Explode"].LocalScript.Event:FireServer()
+wait(0.2)
+game:GetService("Players").LocalPlayer.Backpack["Magma Explode"].LocalScript.Event:FireServer()
+wait(0.2)
+game:GetService("Players").LocalPlayer.Backpack["Magma Explode"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
 Name = "Grenade Explosion",
 Callback = function()
 game:GetService("Players").LocalPlayer.Backpack["Grenade Explosion"].LocalScript.Event:FireServer()
