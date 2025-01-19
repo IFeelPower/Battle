@@ -31,6 +31,23 @@ tool.Parent = game.Players.LocalPlayer.Backpack
 end})
 
 Tab:AddButton({
+Name = "Big Meteor Tool",
+Callback = function()
+local tool = Instance.new("Tool")
+tool.Name = "Hacked Meteor!"
+tool.RequiresHandle = false
+
+tool.Activated:Connect(function()
+local troller = game.Players.LocalPlayer:GetMouse().Hit.Position
+for i = 1, 5 do
+game:GetService("Players").LocalPlayer.Backpack["Mini Meteor"].LocalScript.Event:FireServer(troller)
+end
+end)
+
+tool.Parent = game.Players.LocalPlayer.Backpack
+end})
+
+Tab:AddButton({
 Name = "Fissure Slap",
 Callback = function()
 game:GetService("Players").LocalPlayer.Backpack["Fissure Slap"].LocalScript.Event:FireServer()
