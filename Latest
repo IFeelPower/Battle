@@ -28,12 +28,6 @@ game:GetService("Players").LocalPlayer.Backpack["Fissure Slap"].LocalScript.Even
 end})
 
 Tab:AddButton({
-Name = "Fissure Slap",
-Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Fissure Slap"].LocalScript.Event:FireServer()
-end})
-
-Tab:AddButton({
 Name = "Magma Explode",
 Callback = function()
 game:GetService("Players").LocalPlayer.Backpack["Magma Explode"].LocalScript.Event:FireServer()
