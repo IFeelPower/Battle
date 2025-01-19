@@ -70,24 +70,6 @@ end
    end    
 })
 
-local Section = Tab:CreateSection("Gojo No need item - Destroy server for 5 - 10 min")
-
-local Button = Tab:CreateButton({
- Name = "ATOMIC PURPLE",
- Callback = function()
-        for i = 1, 10000 do
-game:GetService("ReplicatedStorage").GojoV3.nuke:FireServer()
-end
-   end    
-})
-
-local Button = Tab:CreateButton({
- Name = "ATOMIC PURPLE - with chat",
- Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/Purple"))()
-   end    
-})
-
 local Section = Tab:CreateSection("Yamamoto")
 
 local Button = Tab:CreateButton({
