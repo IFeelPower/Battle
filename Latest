@@ -16,9 +16,18 @@ game:GetService("Players").LocalPlayer.Backpack["Water Flip"].LocalScript.Event:
 end})
 
 Tab:AddButton({
-Name = "Mini Meteor",
+Name = "Mini Meteor Tool",
 Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Mini Meteor"].LocalScript.Event:FireServer()
+local tool = Instance.new("Tool")
+tool.Name = "Hacked Meteor!"
+tool.RequiresHandle = false
+
+tool.Activated:Connect(function()
+                local troller = game.Players.LocalPlayer:GetMouse().Hit.Position
+game:GetService("Players").LocalPlayer.Backpack["Mini Meteor"].LocalScript.Event:FireServer(troller)
+end)
+
+tool.Parent = game.Players.LocalPlayer.Backpack
 end})
 
 Tab:AddButton({
