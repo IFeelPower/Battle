@@ -7,6 +7,32 @@ local Tab = Window:MakeTab({
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false})
 
+local Section = Tab:AddSection({Name = "taicon"})
+
+Tab:AddButton({
+ Name = "Kamutoke",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Kamutoke.LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Kirisaki",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Kirisaki.LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Nake",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Nake.LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Bankai",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Bankai.LocalScript.Event:FireServer()
+end})
+
 local Section = Tab:AddSection({Name = "Goku Rework"})
 
 Tab:AddButton({
