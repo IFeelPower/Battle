@@ -19,7 +19,7 @@ Tab:AddButton({
 Name = "Mini Meteor Tool",
 Callback = function()
 local tool = Instance.new("Tool")
-tool.Name = "Hacked Meteor!"
+tool.Name = "Hacked Mini Meteor!"
 tool.RequiresHandle = false
 
 tool.Activated:Connect(function()
@@ -34,7 +34,7 @@ Tab:AddButton({
 Name = "Big Meteor Tool",
 Callback = function()
 local tool = Instance.new("Tool")
-tool.Name = "Hacked Meteor!"
+tool.Name = "Hacked Big Meteor!"
 tool.RequiresHandle = false
 
 tool.Activated:Connect(function()
