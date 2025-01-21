@@ -1522,8 +1522,8 @@ Tab:AddButton({
  Name = "Kidnapping Anh Tài Say Xỉn NPC",
  Callback = function()
 local omgohh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-local ohInstance1 = workspace["Anh T\195\160i Say X\225\187\137n"]["Left Leg"]
-game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(ohInstance1)
+local npclol = workspace["Anh T\195\160i Say X\225\187\137n"]["Left Leg"]
+game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(npclol)
   task.wait(0.95)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = omgohh
 end}) 
@@ -1532,8 +1532,8 @@ Tab:AddButton({
  Name = "Kidnapping Weaknest Dummy",
  Callback = function()
 local omgohh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-local ohInstance1 = workspace["Weakest Dummy"]["Left Leg"]
-game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(ohInstance1)
+local npclol = workspace["Weakest Dummy"]["Left Leg"]
+game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(npclol)
   task.wait(0.95)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = omgohh
 end}) 
@@ -1542,8 +1542,8 @@ Tab:AddButton({
  Name = "Kidnapping Cid Kagenou Boss",
  Callback = function()
 local omgohh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-local ohInstance1 = workspace["Cid Kagenou"]["Left Leg"]
-game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(ohInstance1)
+local npclol = workspace["Cid Kagenou"]["Left Leg"]
+game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(npclol)
   task.wait(0.95)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = omgohh
 end}) 
@@ -1552,8 +1552,8 @@ Tab:AddButton({
  Name = "Kidnapping Coyote Starrk Boss",
  Callback = function()
 local omgohh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-local ohInstance1 = workspace["Coyote Starrk"]["Left Leg"]
-game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(ohInstance1)
+local npclol = workspace["Coyote Starrk"]["Left Leg"]
+game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(npclol)
   task.wait(0.95)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = omgohh
 end}) 
@@ -1562,8 +1562,8 @@ Tab:AddButton({
  Name = "Kidnapping Aizen Sosuke NPC",
  Callback = function()
 local omgohh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-local ohInstance1 = workspace["Aizen Sosuke"]["Left Leg"]
-game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(ohInstance1)
+local npclol = workspace["Aizen Sosuke"]["Left Leg"]
+game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(npclol)
   task.wait(0.95)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = omgohh
 end}) 
@@ -1572,8 +1572,8 @@ Tab:AddButton({
  Name = "Kidnapping Gojo Satoru Boss",
  Callback = function()
 local omgohh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-local ohInstance1 = workspace["Gojo Satoru"]["Left Leg"]
-game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(ohInstance1)
+local npclol = workspace["Gojo Satoru"]["Left Leg"]
+game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(npclol)
   task.wait(0.95)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = omgohh
 end}) 
@@ -1582,8 +1582,8 @@ Tab:AddButton({
  Name = "Kidnapping Ryomen Sukuna Boss",
  Callback = function()
 local omgohh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-local ohInstance1 = workspace["Ryomen Sukuna"]["Left Leg"]
-game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(ohInstance1)
+local npclol = workspace["Ryomen Sukuna"]["Left Leg"]
+game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(npclol)
   task.wait(0.95)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = omgohh
 end})
