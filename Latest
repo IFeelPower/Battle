@@ -1199,7 +1199,7 @@ game:GetService("Players").LocalPlayer.Backpack.Furnace.LocalScript.Event:FireSe
 end})
 
 local Tab = Window:MakeTab({
-	Name = "Move",
+	Name = "Move, TP",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false})
 
