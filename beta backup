@@ -7,6 +7,142 @@ local Tab = Window:MakeTab({
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false})
 
+local Section = Tab:AddSection({Name = "Gremmy"})
+
+Tab:AddButton({
+Name = "Water Flip",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Water Flip"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+Name = "Mini Meteor Tool",
+Callback = function()
+local tool = Instance.new("Tool")
+tool.Name = "Hacked Mini Meteor!"
+tool.RequiresHandle = false
+
+tool.Activated:Connect(function()
+                local troller = game.Players.LocalPlayer:GetMouse().Hit.Position
+game:GetService("Players").LocalPlayer.Backpack["Mini Meteor"].LocalScript.Event:FireServer(troller)
+end)
+
+tool.Parent = game.Players.LocalPlayer.Backpack
+end})
+
+Tab:AddButton({
+Name = "Big Meteor Tool",
+Callback = function()
+local tool = Instance.new("Tool")
+tool.Name = "Hacked Big Meteor!"
+tool.RequiresHandle = false
+
+tool.Activated:Connect(function()
+local troller = game.Players.LocalPlayer:GetMouse().Hit.Position
+for i = 1, 5 do
+game:GetService("Players").LocalPlayer.Backpack["Mini Meteor"].LocalScript.Event:FireServer(troller)
+end
+end)
+
+tool.Parent = game.Players.LocalPlayer.Backpack
+end})
+
+Tab:AddButton({
+Name = "Fissure Slap",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Fissure Slap"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+Name = "Magma Explode",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Magma Explode"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+Name = "Magma Splash",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Magma Explode"].LocalScript.Event:FireServer()
+wait(0.15)
+game:GetService("Players").LocalPlayer.Backpack["Magma Explode"].LocalScript.Event:FireServer()
+wait(0.15)
+game:GetService("Players").LocalPlayer.Backpack["Magma Explode"].LocalScript.Event:FireServer()
+wait(0.15)
+game:GetService("Players").LocalPlayer.Backpack["Magma Explode"].LocalScript.Event:FireServer()
+wait(0.15)
+game:GetService("Players").LocalPlayer.Backpack["Magma Explode"].LocalScript.Event:FireServer()
+wait(0.15)
+game:GetService("Players").LocalPlayer.Backpack["Magma Explode"].LocalScript.Event:FireServer()
+wait(0.15)
+game:GetService("Players").LocalPlayer.Backpack["Magma Explode"].LocalScript.Event:FireServer()
+wait(0.15)
+game:GetService("Players").LocalPlayer.Backpack["Magma Explode"].LocalScript.Event:FireServer()
+wait(0.15)
+game:GetService("Players").LocalPlayer.Backpack["Magma Explode"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+Name = "Grenade Explosion",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Grenade Explosion"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+Name = "Water Prison",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Water Prison"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+Name = "Space Vacuum",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Space Vacuum"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+Name = "The Strongest Quincy",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["The Strongest Quincy"].LocalScript.Event:FireServer()
+end})
+
+local Section = Tab:AddSection({Name = "Subaru"})
+
+Tab:AddButton({
+Name = "Shamac",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Shamac.LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+Name = "Rental Goa",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Rental Goa"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+Name = "REM!",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["REMM !"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+Name = "I can return from death",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["\"I can return from death\""].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+Name = "Reinhard",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Reinhard !!"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+Name = "Return By Death",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Return By Death"].LocalScript.Event:FireServer()
+end})
+
 local Section = Tab:AddSection({Name = "Yhwach"})
 
 Tab:AddButton({
@@ -176,6 +312,18 @@ game:GetService("Players").LocalPlayer.Backpack["Supreme Art: Maximum Uzumaki"].
    end})
 
 local Section = Tab:AddSection({Name = "Shadow V1"})
+
+Tab:AddButton({
+ Name = "Overdrive",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Overdrive["Full Cowl"].Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Heal",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Heal.Script.Event:FireServer()
+end})
 
 Tab:AddButton({
  Name = "V1 Atomic - You Need hold item",
@@ -524,9 +672,25 @@ game:GetService("Players").LocalPlayer.Backpack.Mahoraga.Mahoraga.RemoteEvent:Fi
 end})
 
 Tab:AddButton({
- Name = "Eat Mukbang Finger - Sukuna Finger",
+ Name = "Eat Mukbang Finger - become Fushiguro Sukuna",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack["Mukbang Finger"].Script.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Become Megumi Fushiguro",
+ Callback = function()
+        local args = {
+    [1] = "Megumi Fushiguro"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Picked"):FireServer(unpack(args))
+end})
+
+Tab:AddButton({
+ Name = "Summon NPC Mahoraga",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Summon Mahoraga"].Use.RemoteEvent:FireServer()
 end})
 
 Tab:AddButton({
@@ -567,8 +731,183 @@ Tab:AddButton({
 game:GetService("Players").LocalPlayer.Backpack["Hollow Mask"].HollowMask.Remote:FireServer()
 end})
 
+local Section = Tab:AddSection({Name = "Kamado Tanjiro"})
+
+Tab:AddButton({
+ Name = "Death Dance",
+ Callback = function()
+for i = 1, 7 do
+game:GetService("Players").LocalPlayer.Backpack["Dragon Sun Halo Head Dance"].Ground.Event:FireServer()
+end
+end})
+
+local Section = Tab:AddSection({Name = "Akaza"})
+
+Tab:AddButton({
+ Name = "Compass Needle",
+ Callback = function()
+for i = 1, 7 do
+game:GetService("Players").LocalPlayer.Backpack["Compass Needle"].Akaza.Event:FireServer()
+end
+end})
+
+Tab:AddButton({
+ Name = "Death Punch Rush",
+ Callback = function()
+for i = 1, 7 do
+game:GetService("Players").LocalPlayer.Backpack.Disorder.Punch.Event:FireServer()
+end
+end})
+
 local Tab = Window:MakeTab({
-	Name = "V2 and V3",
+	Name = "Steal V2 V3",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false})
+
+Tab:AddLabel("you can use skill until you die or leaving server!")
+
+local playerNames = {}
+local playerDropdown
+local players = game:GetService("Players")
+
+local function updatePlayerNames()
+playerNames = {}
+for _, player in pairs(players:GetPlayers()) do
+table.insert(playerNames, player.Name)
+end
+if playerDropdown then
+playerDropdown:Refresh(playerNames, true)
+end
+end
+
+playerDropdown = Tab:AddDropdown({
+        Name = "Steal Cid V3",
+        Default = "Select player",
+        Options = playerNames,
+        Callback = function(PlayerUsername)
+lol = PlayerUsername
+workspace[lol]["Cid True Power"].Script.Event:FireServer()
+end})
+
+updatePlayerNames()
+
+players.PlayerAdded:Connect(
+function(player)
+updatePlayerNames()
+end)
+
+players.PlayerRemoving:Connect(
+function(player)
+updatePlayerNames()
+end)
+
+local playerNames = {}
+local playerDropdown
+local players = game:GetService("Players")
+
+local function updatePlayerNames()
+playerNames = {}
+for _, player in pairs(players:GetPlayers()) do
+table.insert(playerNames, player.Name)
+end
+if playerDropdown then
+playerDropdown:Refresh(playerNames, true)
+end
+end
+
+playerDropdown = Tab:AddDropdown({
+        Name = "Steal Aizen TYBW",
+        Default = "Select player",
+        Options = playerNames,
+        Callback = function(PlayerUsername)
+lol = PlayerUsername
+workspace[lol]["Aizen TYBW"].Script.Event:FireServer()
+end})
+
+updatePlayerNames()
+
+players.PlayerAdded:Connect(
+function(player)
+updatePlayerNames()
+end)
+
+players.PlayerRemoving:Connect(
+function(player)
+updatePlayerNames()
+end)
+
+local playerNames = {}
+local playerDropdown
+local players = game:GetService("Players")
+
+local function updatePlayerNames()
+playerNames = {}
+for _, player in pairs(players:GetPlayers()) do
+table.insert(playerNames, player.Name)
+end
+if playerDropdown then
+playerDropdown:Refresh(playerNames, true)
+end
+end
+
+playerDropdown = Tab:AddDropdown({
+        Name = "Steal Starrk",
+        Default = "Select player",
+        Options = playerNames,
+        Callback = function(PlayerUsername)
+lol = PlayerUsername
+workspace[lol]["Coyote Starrk"].Script.Event:FireServer()
+end})
+
+updatePlayerNames()
+
+players.PlayerAdded:Connect(
+function(player)
+updatePlayerNames()
+end)
+
+players.PlayerRemoving:Connect(
+function(player)
+updatePlayerNames()
+end)
+
+local playerNames = {}
+local playerDropdown
+local players = game:GetService("Players")
+
+local function updatePlayerNames()
+playerNames = {}
+for _, player in pairs(players:GetPlayers()) do
+table.insert(playerNames, player.Name)
+end
+if playerDropdown then
+playerDropdown:Refresh(playerNames, true)
+end
+end
+
+playerDropdown = Tab:AddDropdown({
+        Name = "Steal KJ - Find 5k HP Player",
+        Default = "Select player",
+        Options = playerNames,
+        Callback = function(PlayerUsername)
+lol = PlayerUsername
+workspace[lol].KJ.Script.Event:FireServer()
+end})
+
+updatePlayerNames()
+
+players.PlayerAdded:Connect(
+function(player)
+updatePlayerNames()
+end)
+
+players.PlayerRemoving:Connect(
+function(player)
+updatePlayerNames()
+end)
+
+local Tab = Window:MakeTab({
+	Name = "V2, V3",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false})
 
@@ -584,6 +923,31 @@ Tab:AddButton({
  Name = "Afterimage",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack.Afterimage.LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Kill all",
+ Callback = function()
+local Players = game:GetService("Players")
+
+local function teleportToPlayers(player)
+for _, targetPlayer in pairs(Players:GetPlayers()) do
+if targetPlayer ~= player then
+player.Character:MoveTo(targetPlayer.Character.PrimaryPart.Position)
+task.wait(0.2)
+game:GetService("Players").LocalPlayer.Backpack.Afterimage.LocalScript.Event:FireServer()
+game:GetService("Players").LocalPlayer.Backpack.Afterimage.LocalScript.Event:FireServer()
+game:GetService("Players").LocalPlayer.Backpack.Afterimage.LocalScript.Event:FireServer()
+game:GetService("Players").LocalPlayer.Backpack.Afterimage.LocalScript.Event:FireServer()
+game:GetService("Players").LocalPlayer.Backpack.Afterimage.LocalScript.Event:FireServer()
+game:GetService("Players").LocalPlayer.Backpack.Afterimage.LocalScript.Event:FireServer()
+wait(1)
+end
+end
+end
+
+local localPlayer = Players.LocalPlayer
+teleportToPlayers(localPlayer)
 end})
 
 Tab:AddButton({
@@ -628,7 +992,7 @@ Tab:AddButton({
 game:GetService("Players").LocalPlayer.Backpack["Atomic Bomb"].LocalScript.Event:FireServer()
 end})
 
-local Section = Tab:AddSection({Name = "Vergil V2 - Free Vergil in 'Move'"})
+local Section = Tab:AddSection({Name = "Vergil V2 - NPC Drop"})
 
 Tab:AddButton({
  Name = "Judgement Cut End",
@@ -644,7 +1008,7 @@ game:GetService("Players").LocalPlayer.Backpack["Judgement Cut"].LocalScript.Eve
 end
 end}) 
 
-local Section = Tab:AddSection({Name = "aizen V2"})
+local Section = Tab:AddSection({Name = "Aizen TYBW - NPC Drop"})
 
 Tab:AddButton({
  Name = "Garganta",
@@ -704,10 +1068,10 @@ Tab:AddButton({
 loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/aize"))()
 end})
 
-local Section = Tab:AddSection({Name = "Unleashed Starrk - boss drop"})
+local Section = Tab:AddSection({Name = "Unleashed Starrk - Boss drop"})
 
 Tab:AddButton({
- Name = "Awake Starrk - You need to wear any shirts and pants in roblox avator",
+ Name = "Awake - You have to wear shirts and pants in roblox avator",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Resurrecci\195\179n:  Los Lobos").LocalScript.Event:FireServer()
 end})
@@ -748,7 +1112,7 @@ Tab:AddButton({
 game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Cero Metralleta").LocalScript.Event:FireServer()
 end})
 
-local Section = Tab:AddSection({Name = "Shadow V2"})
+local Section = Tab:AddSection({Name = "Shadow V2 - Boss drop"})
 
 Tab:AddButton({
  Name = "V2 Speed Blitz",
@@ -780,7 +1144,7 @@ Tab:AddButton({
 game:GetService("ReplicatedStorage").CidKageeno.Atomicc:FireServer()
 end})
 
-local Section = Tab:AddSection({Name = "Sukuna V2"})
+local Section = Tab:AddSection({Name = "Sukuna V2 - Boss drop"})
 
 Tab:AddButton({
  Name = "100% v2 - Use this after you get Sukuna finger",
@@ -902,13 +1266,42 @@ Tab:AddButton({
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-31097.8438, 1377.82935, -13591.8994)
 end}) 
 
-Tab:AddButton({
- Name = "TP to Jackpicture - every 2 minutes spawn",
- Callback = function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.jack5trvillaitem.CFrame
+local playerNames = {}
+local playerDropdown
+local players = game:GetService("Players")
+
+local function updatePlayerNames()
+playerNames = {}
+for _, player in pairs(players:GetPlayers()) do
+table.insert(playerNames, player.Name)
+end
+if playerDropdown then
+playerDropdown:Refresh(playerNames, true)
+end
+end
+
+playerDropdown = Tab:AddDropdown({
+        Name = "TP to Player",
+        Default = "Select player",
+        Options = playerNames,
+        Callback = function(PlayerUsername)
+lol = PlayerUsername
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace[lol].HumanoidRootPart.CFrame
 end})
 
-local Section = Tab:AddSection({Name = "Kidnapping"})
+updatePlayerNames()
+
+players.PlayerAdded:Connect(
+function(player)
+updatePlayerNames()
+end)
+
+players.PlayerRemoving:Connect(
+function(player)
+updatePlayerNames()
+end)
+
+local Section = Tab:AddSection({Name = "Kidnapping Player"})
 
 local playerNametwo = nil
 local playerNames = {}
@@ -1009,7 +1402,7 @@ end
 end
 
 playerDropdown = Tab:AddDropdown({
-        Name = "Kidnapping to Player Vergil V2 NPC",
+        Name = "Kidnapping Player to Vergil V2 NPC",
         Default = "Select player",
         Options = playerNames,
         Callback = function(PlayerUsername)
@@ -1052,7 +1445,7 @@ end
 end
 
 playerDropdown = Tab:AddDropdown({
-        Name = "Kidnapping to Player Prison Realm",
+        Name = "Kidnapping Player to Prison Realm",
         Default = "Select player",
         Options = playerNames,
         Callback = function(PlayerUsername)
@@ -1079,13 +1472,129 @@ function(player)
 updatePlayerNames()
 end)
 
+local playerNametwo = nil
+local playerNames = {}
+local playerDropdown
+local players = game:GetService("Players")
+
+local function updatePlayerNames()
+playerNames = {}
+for _, player in pairs(players:GetPlayers()) do
+table.insert(playerNames, player.Name)
+end
+if playerDropdown then
+playerDropdown:Refresh(playerNames, true)
+end
+end
+
+playerDropdown = Tab:AddDropdown({
+        Name = "Kidnapping Player to Trash Can",
+        Default = "Select player",
+        Options = playerNames,
+        Callback = function(PlayerUsername)
+            playerNametwo = PlayerUsername
+            local gh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+       wait(0.1)
+     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-416, 19.9, -308.5)
+      wait(0.1)
+local ohInstance1 = workspace[playerNametwo]["Left Leg"]
+game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(ohInstance1)
+  task.wait(0.95)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = gh
+end})
+
+updatePlayerNames()
+
+players.PlayerAdded:Connect(
+function(player)
+updatePlayerNames()
+end)
+
+players.PlayerRemoving:Connect(
+function(player)
+updatePlayerNames()
+end)
+
+
+local Section = Tab:AddSection({Name = "Kidnapping NPC"})
+
+Tab:AddButton({
+ Name = "Kidnapping Anh Tài Say Xỉn NPC",
+ Callback = function()
+local omgohh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+local ohInstance1 = workspace["Anh T\195\160i Say X\225\187\137n"]["Left Leg"]
+game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(ohInstance1)
+  task.wait(0.95)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = omgohh
+end}) 
+
+Tab:AddButton({
+ Name = "Kidnapping Weaknest Dummy",
+ Callback = function()
+local omgohh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+local ohInstance1 = workspace["Weakest Dummy"]["Left Leg"]
+game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(ohInstance1)
+  task.wait(0.95)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = omgohh
+end}) 
+
+Tab:AddButton({
+ Name = "Kidnapping Cid Kagenou Boss",
+ Callback = function()
+local omgohh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+local ohInstance1 = workspace["Cid Kagenou"]["Left Leg"]
+game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(ohInstance1)
+  task.wait(0.95)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = omgohh
+end}) 
+
+Tab:AddButton({
+ Name = "Kidnapping Coyote Starrk Boss",
+ Callback = function()
+local omgohh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+local ohInstance1 = workspace["Coyote Starrk"]["Left Leg"]
+game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(ohInstance1)
+  task.wait(0.95)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = omgohh
+end}) 
+
+Tab:AddButton({
+ Name = "Kidnapping Aizen Sosuke NPC",
+ Callback = function()
+local omgohh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+local ohInstance1 = workspace["Aizen Sosuke"]["Left Leg"]
+game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(ohInstance1)
+  task.wait(0.95)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = omgohh
+end}) 
+
+Tab:AddButton({
+ Name = "Kidnapping Gojo Satoru Boss",
+ Callback = function()
+local omgohh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+local ohInstance1 = workspace["Gojo Satoru"]["Left Leg"]
+game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(ohInstance1)
+  task.wait(0.95)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = omgohh
+end}) 
+
+Tab:AddButton({
+ Name = "Kidnapping Ryomen Sukuna Boss",
+ Callback = function()
+local omgohh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+local ohInstance1 = workspace["Ryomen Sukuna"]["Left Leg"]
+game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(ohInstance1)
+  task.wait(0.95)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = omgohh
+end})
+
 local Tab = Window:MakeTab({
-	Name = "Option",
+	Name = "Option:killaura",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false})
 
 Tab:AddButton({
- Name = "Hold all items",
+ Name = "Hold all inventory tools",
  Callback = function()
         for _, tool in ipairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
      if tool:IsA("Tool") then
@@ -1112,7 +1621,7 @@ end
 end}) 
 
 Tab:AddButton({
- Name = "Delete all Items",
+ Name = "Delete all Inventory tools",
  Callback = function()
         local Player = game:GetService("Players").LocalPlayer
 local Backpack = Player.Backpack
@@ -1130,6 +1639,55 @@ for _,v in pairs(Character:GetChildren()) do
    end 
 end
 end}) 
+
+local Section = Tab:AddSection({Name = "Kill Aura"})
+
+Tab:AddToggle({
+	Name = "Sukuna Killaura",
+	Default = false,
+	Callback = function(Value)
+lol = Value 
+while lol do
+wait(0.4)
+game:GetService("ReplicatedStorage").Remotes.colovo:FireServer()  
+end
+end})
+
+Tab:AddToggle({
+	Name = "Sukuna Killaura 2",
+	Default = false,
+	Callback = function(Value)
+lol = Value 
+while lol do
+wait(0.3)
+game:GetService("ReplicatedStorage").sukuna.remotes.dismantle:FireServer() 
+end
+end})
+
+Tab:AddButton({
+ Name = "Get Awaken Toji",
+ Callback = function()
+local args = {
+    [1] = "Toji Fushiguro"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Picked"):FireServer(unpack(args))
+wait(1)
+game:GetService("Players").LocalPlayer.Backpack["Inverted Spear Of Heaven"].Script.Event:FireServer()
+end}) 
+
+Tab:AddToggle({
+	Name = "Toji Annoying KillAura - Amanai!",
+	Default = false,
+	Callback = function(Value)
+lol = Value 
+while lol do
+wait(1)
+if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Wrong Way") then
+game:GetService("Players").LocalPlayer.Backpack["Wrong Way"].Main.Event:FireServer()
+end
+end
+end})
 
 local Tab = Window:MakeTab({
 	Name = "Nuke",
@@ -1155,19 +1713,66 @@ Tab:AddButton({
 loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/Meow"))()
 end}) 
 
-local Section = Tab:AddSection({Name = "OP Ability"})
+local Section = Tab:AddSection({Name = "Jun"})
 
 Tab:AddButton({
- Name = "No More Games - Owner Move - NEW!",
+ Name = "No More Games - Owner Move - bugging",
  Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/JN"))()
 end}) 
 
+local playerNames = {}
+local playerDropdown
+local players = game:GetService("Players")
+
+local function updatePlayerNames()
+playerNames = {}
+for _, player in pairs(players:GetPlayers()) do
+table.insert(playerNames, player.Name)
+end
+if playerDropdown then
+playerDropdown:Refresh(playerNames, true)
+end
+end
+
+playerDropdown = Tab:AddDropdown({
+        Name = "Surprise No More Games",
+        Default = "Select player",
+        Options = playerNames,
+        Callback = function(PlayerUsername)
+lol = PlayerUsername
+loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/JN"))()
+wait(0.2)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace[lol].HumanoidRootPart.CFrame
+end})
+
+updatePlayerNames()
+
+players.PlayerAdded:Connect(
+function(player)
+updatePlayerNames()
+end)
+
+players.PlayerRemoving:Connect(
+function(player)
+updatePlayerNames()
+end)
+
 Tab:AddButton({
- Name = "Strongest Magic - Megumin Item - Pay to win",
+ Name = "Kill all with No More Games",
+ Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/JN%20all"))()
+end}) 
+
+local Section = Tab:AddSection({Name = "Megumin"})
+
+Tab:AddButton({
+ Name = "Strongest Magic Tool - Pay to win",
  Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/Explo"))()
 end}) 
+
+local Section = Tab:AddSection({Name = "KJ"})
 
 Tab:AddButton({
  Name = "KJ Collaretal Ruin - Admin Move",
@@ -1193,6 +1798,44 @@ Tab:AddButton({
 loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/KoJ"))()
 end}) 
 
+local Section = Tab:AddSection({Name = "Hakari"})
+
+Tab:AddButton({
+ Name = "Old Hakari Domain",
+ Callback = function()
+game:GetService("ReplicatedStorage").Domainthing:FireServer()
+end}) 
+
+Tab:AddButton({
+ Name = "100% Win Hakari Domain",
+ Callback = function()
+game:GetService("ReplicatedStorage").Remotes.IdleDeathGamble:FireServer()
+end}) 
+
+Tab:AddButton({
+ Name = "Death Ball Tool",
+ Callback = function()
+local tool = Instance.new("Tool")
+tool.Name = "Death Ball"
+tool.RequiresHandle = false
+tool.ToolTip = "Gambling!"
+tool.Activated:Connect(function()
+
+for i = 1, 10 do
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+
+local targetPosition = mouse.Hit.Position
+local ohCFrame1 = CFrame.new(targetPosition)
+local ohVector32 = Vector3.new(targetPosition.X, targetPosition.Y, targetPosition.Z)
+
+game:GetService("ReplicatedStorage").Remotes.PachinkoBall:FireServer(ohCFrame1, ohVector32)
+end
+end)
+
+tool.Parent = game.Players.LocalPlayer.Backpack
+end}) 
+
 Tab:AddButton({
  Name = "Go/jo Cut",
  Callback = function()
@@ -1206,6 +1849,8 @@ Tab:AddButton({
  Callback = function()
 game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("ContainerKick"):FireServer()
 end}) 
+
+local Section = Tab:AddSection({Name = "Sukuna"})
 
 Tab:AddButton({
  Name = "Death Sukuna Rush",
@@ -1259,17 +1904,7 @@ Tab:AddButton({
 game:GetService("Players").LocalPlayer.Backpack["Reverse Cursed Technique"].Script.Event:FireServer()
 end}) 
 
-Tab:AddButton({
- Name = "Old Hakari Domain",
- Callback = function()
-game:GetService("ReplicatedStorage").Domainthing:FireServer()
-end}) 
-
-Tab:AddButton({
- Name = "100% Win Hakari Domain",
- Callback = function()
-game:GetService("ReplicatedStorage").Remotes.IdleDeathGamble:FireServer()
-end}) 
+local Section = Tab:AddSection({Name = "Okkotsu"})
 
 Tab:AddButton({
  Name = "Okkotsu Domain",
@@ -1283,11 +1918,15 @@ Tab:AddButton({
 game:GetService("ReplicatedStorage").Yuta.love:FireServer()
 end}) 
 
+local Section = Tab:AddSection({Name = "Cid"})
+
 Tab:AddButton({
  Name = "Imminet Blink",
  Callback = function()
 game:GetService("ReplicatedStorage").CidKageeno.Blinkk:FireServer()
 end})
+
+local Section = Tab:AddSection({Name = "Gojo"})
 
 Tab:AddButton({
 Name = "Gojo Rush",
@@ -1339,22 +1978,49 @@ game:GetService("ReplicatedStorage").GojoV3.nuke:FireServer()
 end}) 
 
 Tab:AddButton({
- Name = "Gojo 0.2 Domain",
+ Name = "0.2 Domain",
  Callback = function()
 game:GetService("ReplicatedStorage").Events["UnlimitedVoid0.2"]:FireServer()
 end}) 
 
 Tab:AddButton({
- Name = "Gojo Long Domain",
+ Name = "0.2 Domain - Pay to Win",
+ Callback = function()
+game:GetService("ReplicatedStorage").Events["Domain0.2"]:FireServer()
+end}) 
+
+Tab:AddButton({
+ Name = "Unlimited Void",
  Callback = function()
 game:GetService("ReplicatedStorage").Events.UnlimitedVoid:FireServer()
 end}) 
+
+Tab:AddButton({
+ Name = "Unlimited Void - Pay to win",
+ Callback = function()
+game:GetService("ReplicatedStorage").Gogay:FireServer()
+end}) 
+
+Tab:AddButton({
+ Name = "Blue Pull - Pay to win",
+ Callback = function()
+            local ohTable1 = {
+    ["Function"] = "Fire",
+    ["Name"] = "BlueMo",
+    ["rootpos"] = CFrame.new(39.0846443, 19.8230076, -162.294754, -0.0822739899, 3.01816527e-08, 0.996609747, -4.96030914e-08, 1, -3.43792514e-08, -0.996609747, -5.22634416e-08, -0.0822739899)
+}
+game:GetService("ReplicatedStorage").Server:InvokeServer(ohTable1)
+end}) 
+
+local Section = Tab:AddSection({Name = "Mahito"})
 
 Tab:AddButton({
  Name = "Mahito Domain",
  Callback = function()
 game:GetService("ReplicatedStorage").MahitoDomainExpansion.MahitoDomainEvent:FireServer()
 end}) 
+
+local Section = Tab:AddSection({Name = "Hacker"})
 
 Tab:AddButton({
  Name = "Hacker Rush Punch",
@@ -1380,3 +2046,42 @@ Tab:AddButton({
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack.Mugetsu.LocalScript.Event:FireServer()
 end}) 
+
+local Tab = Window:MakeTab({
+	Name = "Auto Farm",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false})
+
+local Section = Tab:AddSection({Name = "How to get Cid V3"})
+Tab:AddLabel("1. Use Unleashed V2 Cid First")
+Tab:AddLabel("2. Get 'Cid sword' from Cid Machine - 11% Rate")
+Tab:AddLabel("3. Give 'Cid Sword' to Anh NPC")
+Tab:AddLabel("4. Anh NPC will give u 'atomic energy' - 25% Rate")
+Tab:AddLabel("5. use atomic energy on cid v2")
+
+local Section = Tab:AddSection({Name = "Teleport"})
+
+Tab:AddToggle({
+	Name = "Auto TP to Jack Picture",
+	Default = false,
+	Callback = function(Value)
+lol = Value 
+while lol do
+wait(1)
+if workspace:FindFirstChild("jack5trvillaitem") then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.jack5trvillaitem.CFrame + Vector3.new(0, 3, 0)
+end
+end
+end})
+
+Tab:AddButton({
+ Name = "TP to Cid Machine",
+ Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(141.665634, 18.8472042, -460.235992)
+end})
+
+Tab:AddButton({
+ Name = "TP to Anh Tài Say Xỉn NPC",
+ Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace["Anh T\195\160i Say X\225\187\137n"].HumanoidRootPart.CFrame
+end})
