@@ -1045,7 +1045,7 @@ game:GetService("Players").LocalPlayer.Backpack["Had\197\141 90"].LocalScript.Ev
 end})
 
 Tab:AddButton({
- Name = "Hado 90 Unstealed",
+ Name = "Hado 90 Unstealed - Awaken",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack.Unstealed.LocalScript.Event:FireServer()
 end})
@@ -1057,13 +1057,13 @@ game:GetService("ReplicatedStorage").Aizen.RemoteEvent:FireServer()
 end})
 
 Tab:AddButton({
- Name = "Big Hado 90",
+ Name = "Big Hado 90 - Awaken skill",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Had\197\141 90: Kurohitsugi").LocalScript.Event:FireServer()
 end})
 
 Tab:AddButton({
- Name = "Real Hado 99 Goryu Tenmetsu Tool",
+ Name = "Hado 99 Goryu Tenmetsu Tool - Awaken skill",
  Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/aize"))()
 end})
