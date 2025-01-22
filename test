@@ -105,6 +105,26 @@ game:GetService("Players").LocalPlayer.Backpack["Spirit Bomb"].LocalScript.Event
 end
 end}) 
 
+local Section = Tab:AddSection({Name = "KJ"})
+
+Tab:AddButton({
+ Name = "20 Series",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["20 Series"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Stoic Bomb",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Stoic Bomb"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Unlimited Flex Works",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Unlimited Flex Works"].client.StartMove:FireServer()
+end})
+
 local Tab = Window:MakeTab({
 	Name = "Move",
 	Icon = "rbxassetid://4483345998",
