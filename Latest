@@ -16,6 +16,24 @@ game:GetService("Players").LocalPlayer.Backpack["Water Flip"].LocalScript.Event:
 end})
 
 Tab:AddButton({
+Name = "Meteor All",
+Callback = function()
+local Players = game:GetService("Players")
+
+local function teleportToPlayers(player)
+for _, targetPlayer in pairs(Players:GetPlayers()) do
+if targetPlayer ~= player then
+local loool = targetPlayer.Character.HumanoidRootPart.Position + Vector3.new(0, 0, 0)
+game:GetService("Players").LocalPlayer.Backpack["Mini Meteor"].LocalScript.Event:FireServer(loool)
+end
+end
+end
+
+local localPlayer = Players.LocalPlayer
+teleportToPlayers(localPlayer)
+end})
+
+Tab:AddButton({
 Name = "Mini Meteor Tool",
 Callback = function()
 local tool = Instance.new("Tool")
@@ -1066,6 +1084,24 @@ Tab:AddButton({
  Name = "Hado 99 Goryu Tenmetsu Tool - Awaken skill",
  Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/aize"))()
+end})
+
+Tab:AddButton({
+ Name = "Divine judgment - New",
+ Callback = function()
+local Players = game:GetService("Players")
+
+local function teleportToPlayers(player)
+for _, targetPlayer in pairs(Players:GetPlayers()) do
+if targetPlayer ~= player then
+local loool = targetPlayer.Character.HumanoidRootPart.Position + Vector3.new(0, 0, 0)
+game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Had\197\141 99: Goryutenmetsu").LocalScript.Event:FireServer(loool)
+end
+end
+end
+
+local localPlayer = Players.LocalPlayer
+teleportToPlayers(localPlayer)
 end})
 
 local Section = Tab:AddSection({Name = "Unleashed Starrk - Boss drop"})
