@@ -441,9 +441,9 @@ game:GetService("Players").LocalPlayer.Backpack["No More Games"]["Awakening : Se
 end})
 
 Tab:AddButton({
- Name = "Finished Already?",
+ Name = "Savage Fangs",
     Callback = function()
-    game:GetService("Players").LocalPlayer.Backpack["Finished Already?"]["Awakening : Serious Mode"].Event:FireServer()
+game:GetService("Players").LocalPlayer.Backpack["Savage Fangs"].LocalScript.Event:FireServer()
    end    
 })
 
@@ -451,15 +451,13 @@ Tab:AddButton({
  Name = "One Inch Killer Punch",
     Callback = function()
     game:GetService("Players").LocalPlayer.Backpack["One Inch Killer Punch"].LocalScript.Event:FireServer()
-   end    
-})
+end})
 
 Tab:AddButton({
- Name = "One Inch",
+ Name = "Phantom Sever",
     Callback = function()
-    game:GetService("Players").LocalPlayer.Backpack["One Inch"].LocalScript.Event:FireServer()
-   end    
-})
+game:GetService("Players").LocalPlayer.Backpack["Phantom Sever"].LocalScript.Event:FireServer()
+end})
 
 local Tab = Window:MakeTab({
 	Name = "Move",
