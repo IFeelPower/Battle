@@ -422,9 +422,9 @@ Tab:AddButton({
    end})
 
 Tab:AddButton({
- Name = "Glimpse Of Power Variant",
+ Name = "Glimpse Of Power",
     Callback = function()
-    game:GetService("Players").LocalPlayer.Backpack["Glimpse Of Power Variant"].LocalScript.Event:FireServer()
+game:GetService("Players").LocalPlayer.Backpack["Glimpse Of Power"].LocalScript.Event:FireServer()
    end})
 
 Tab:AddButton({
@@ -433,6 +433,12 @@ Tab:AddButton({
     game:GetService("Players").LocalPlayer.Backpack["Virgule Cascade"].LocalScript.Event:FireServer()
    end    
 })
+
+Tab:AddButton({
+ Name = "No More Games",
+    Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["No More Games"]["Awakening : Serious Mode"].Event:FireServer()
+end})
 
 Tab:AddButton({
  Name = "Finished Already?",
@@ -452,13 +458,6 @@ Tab:AddButton({
  Name = "One Inch",
     Callback = function()
     game:GetService("Players").LocalPlayer.Backpack["One Inch"].LocalScript.Event:FireServer()
-   end    
-})
-
-Tab:AddButton({
- Name = "No More Games",
-    Callback = function()
-    game:GetService("Players").LocalPlayer.Backpack["No More Games"].LocalScript.Event:FireServer()
    end    
 })
 
