@@ -1,0 +1,143 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/CeleryHub/Shlexware-s-Orion/main/source')))()
+
+local Window = OrionLib:MakeWindow({Name = "Lazy Script - Field Trip Z", HidePremium = true, IntroEnabled = false, SaveConfig = false, ConfigFolder = "OrionTest", IntroText = "Are You Lazy?", IntroIcon = "rbxassetid://16336200609"})
+
+local Tab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false})
+
+local Section = Tab:AddSection({Name = "Heal"})
+
+Tab:AddButton({
+   Name = "Heal all",
+   Callback = function()
+for i, v in pairs(game.Players:GetPlayers()) do
+if v.Name ~= game:GetService("Players").LocalPlayer then
+game:GetService("ReplicatedStorage").NetworkEvents.RemoteFunction:InvokeServer(
+"HEAL_PLAYER",
+v,
+9e9
+)
+end
+end
+end})
+
+Tab:AddToggle({
+	Name = "Spam Heal all",
+	Default = false,
+	Callback = function(Value)
+lol = Value 
+        while lol do
+wait(0.3)
+for i, v in pairs(game.Players:GetPlayers()) do
+if v.Name ~= game:GetService("Players").LocalPlayer then
+game:GetService("ReplicatedStorage").NetworkEvents.RemoteFunction:InvokeServer(
+"HEAL_PLAYER",
+v,
+9e9
+)
+end
+end
+end
+end})
+
+local Section = Tab:AddSection({Name = "other"})
+
+Tab:AddButton({
+ Name = "Click TP",
+ Callback = function()
+        mouse = game.Players.LocalPlayer:GetMouse()
+tool = Instance.new("Tool")
+tool.RequiresHandle = false
+tool.Name = "Click TP"
+tool.Activated:connect(function()
+local pos = mouse.Hit+Vector3.new(0,2.5,0)
+pos = CFrame.new(pos.X,pos.Y,pos.Z)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos
+end)
+tool.Parent = game.Players.LocalPlayer.Backpack
+end})
+
+Tab:AddButton({
+ Name = "Infinite-Yield",
+ Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/DarkNetworks/Infinite-Yield/main/latest.lua'))()
+end})
+
+local Tab = Window:MakeTab({
+	Name = "Move, TP",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false})
+
+Tab:AddToggle({
+    Name = "Infinite Jump",
+    CurrentValue = false,
+    Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+    Callback = function(InfiniteJumpEnabled)
+        local InfiniteJumpEnabled = true
+        game:GetService("UserInputService").JumpRequest:connect(function()
+            if InfiniteJumpEnabled then
+                game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+            end
+        end)
+    end,})
+
+Tab:AddSlider({
+	Name = "Speed",
+	Min = 16,
+	Max = 250,
+	Default = 16,
+	Color = Color3.fromRGB(0,125,245),
+	Increment = 1,
+	ValueName = "Speed Power",
+	Callback = function(v)
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = v
+end})
+
+Tab:AddSlider({
+	Name = "Jump",
+	Min = 30,
+	Max = 500,
+	Default = 30,
+	Color = Color3.fromRGB(0,199,42),
+	Increment = 1,
+	ValueName = "Jump Power",
+	Callback = function(v)
+game.Players.LocalPlayer.Character.Humanoid.JumpPower = v
+end})
+
+local playerNames = {}
+local playerDropdown
+local players = game:GetService("Players")
+
+local function updatePlayerNames()
+playerNames = {}
+for _, player in pairs(players:GetPlayers()) do
+table.insert(playerNames, player.Name)
+end
+if playerDropdown then
+playerDropdown:Refresh(playerNames, true)
+end
+end
+
+playerDropdown = Tab:AddDropdown({
+        Name = "TP to Player",
+        Default = "Select player",
+        Options = playerNames,
+        Callback = function(PlayerUsername)
+lol = PlayerUsername
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace[lol].HumanoidRootPart.CFrame
+end})
+
+updatePlayerNames()
+
+players.PlayerAdded:Connect(
+function(player)
+updatePlayerNames()
+end)
+
+players.PlayerRemoving:Connect(
+function(player)
+updatePlayerNames()
+end)
