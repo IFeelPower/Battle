@@ -7,6 +7,104 @@ local Tab = Window:MakeTab({
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false})
 
+local Section = Tab:AddSection({Name = "Gojo V3"})
+
+Tab:AddButton({
+ Name = "Heavy Punch",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Heavy Punch"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = " Heavy punch Black Flash",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Heavy Punch"].LocalScript.Event2:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Black Flash",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Black Flash"].LocalScript.Event2:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Blue Pull",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Blue: Pull"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Blue Attract",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Blue: Attract"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Blue Attract 2",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Blue: Attract"].LocalScript.Event2:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Reversal Red",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Reversal Red"].LocalScript.Event1:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Reversal Red 2",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Reversal Red"].LocalScript.Event22:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Imaginary Technique Purple",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Imaginary Technique Purple"].murasaki.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Imaginary Technique Purple 2",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Imaginary Technique Purple"].murasaki.Event1:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Hollow Purple Nuke",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Hollow Purple Nuke"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Hollow Purple Nuke 2",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Hollow Purple Nuke"].LocalScript.RemoteEvent:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Teleport to wueco mundo",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Teleport.LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Teleport to Normal World",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Teleport.LocalScript.Even2:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Six Eyes",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Six Eyes"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Six Eyes 2",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Six Eyes"].LocalScript.Event2:FireServer()
+end})
+
 local Section = Tab:AddSection({Name = "taicon"})
 
 Tab:AddButton({
@@ -191,6 +289,360 @@ Tab:AddButton({
  Name = "TP to Vergil NPC",
  Callback = function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-31097.8438, 1377.82935, -13591.8994)
+end}) 
+
+local playerNames = {}
+local playerDropdown
+local players = game:GetService("Players")
+
+local function updatePlayerNames()
+playerNames = {}
+for _, player in pairs(players:GetPlayers()) do
+table.insert(playerNames, player.Name)
+end
+if playerDropdown then
+playerDropdown:Refresh(playerNames, true)
+end
+end
+
+playerDropdown = Tab:AddDropdown({
+        Name = "TP to Player",
+        Default = "Select player",
+        Options = playerNames,
+        Callback = function(PlayerUsername)
+lol = PlayerUsername
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace[lol].HumanoidRootPart.CFrame
+end})
+
+updatePlayerNames()
+
+players.PlayerAdded:Connect(
+function(player)
+updatePlayerNames()
+end)
+
+players.PlayerRemoving:Connect(
+function(player)
+updatePlayerNames()
+end)
+
+local Section = Tab:AddSection({Name = "Kidnapping Player"})
+
+local playerNametwo = nil
+local playerNames = {}
+local playerDropdown
+local players = game:GetService("Players")
+
+local function updatePlayerNames()
+    playerNames = {}
+    for _, player in pairs(players:GetPlayers()) do
+        table.insert(playerNames, player.Name)
+    end
+    if playerDropdown then
+        playerDropdown:Refresh(playerNames, true)
+    end
+end
+
+playerDropdown = Tab:AddDropdown({
+        Name = "Kidnapping Player to You",
+        Default = "Select player",
+        Options = playerNames,
+        Callback = function(PlayerUsername)
+playerNametwo = PlayerUsername
+local gh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+local ohInstance1 = workspace[playerNametwo]["Left Leg"]
+game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(ohInstance1)
+  task.wait(0.95)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = gh
+end})
+
+updatePlayerNames()
+
+players.PlayerAdded:Connect(
+function(player)
+updatePlayerNames()
+end)
+
+players.PlayerRemoving:Connect(
+function(player)
+updatePlayerNames()
+end)
+
+local playerNametwo = nil
+local playerNames = {}
+local playerDropdown
+local players = game:GetService("Players")
+
+local function updatePlayerNames()
+playerNames = {}
+for _, player in pairs(players:GetPlayers()) do
+table.insert(playerNames, player.Name)
+end
+if playerDropdown then
+playerDropdown:Refresh(playerNames, true)
+end
+end
+
+playerDropdown = Tab:AddDropdown({
+        Name = "Kidnapping Player to Hueco mundo",
+        Default = "Select player",
+        Options = playerNames,
+        Callback = function(PlayerUsername)
+            playerNametwo = PlayerUsername
+            local gh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+       wait(0.1)
+     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-40479.5039, 50.7923508, 1717.92053)
+      wait(0.1)
+local ohInstance1 = workspace[playerNametwo]["Left Leg"]
+game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(ohInstance1)
+  task.wait(0.95)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = gh
+end})
+
+updatePlayerNames()
+
+players.PlayerAdded:Connect(
+function(player)
+updatePlayerNames()
+end)
+
+players.PlayerRemoving:Connect(
+function(player)
+updatePlayerNames()
+end)
+
+local playerNametwo = nil
+local playerNames = {}
+local playerDropdown
+local players = game:GetService("Players")
+
+local function updatePlayerNames()
+playerNames = {}
+for _, player in pairs(players:GetPlayers()) do
+table.insert(playerNames, player.Name)
+end
+if playerDropdown then
+playerDropdown:Refresh(playerNames, true)
+end
+end
+
+playerDropdown = Tab:AddDropdown({
+        Name = "Kidnapping Player to Vergil V2 NPC",
+        Default = "Select player",
+        Options = playerNames,
+        Callback = function(PlayerUsername)
+playerNametwo = PlayerUsername
+local gh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+wait(0.1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-31097.8438, 1377.82935, -13591.8994)
+wait(0.1)
+local ohInstance1 = workspace[playerNametwo]["Left Leg"]
+game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(ohInstance1)
+task.wait(0.95)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = gh
+end})
+
+updatePlayerNames()
+
+players.PlayerAdded:Connect(
+function(player)
+updatePlayerNames()
+end)
+
+players.PlayerRemoving:Connect(
+function(player)
+updatePlayerNames()
+end)
+
+local playerNametwo = nil
+local playerNames = {}
+local playerDropdown
+local players = game:GetService("Players")
+
+local function updatePlayerNames()
+playerNames = {}
+for _, player in pairs(players:GetPlayers()) do
+table.insert(playerNames, player.Name)
+end
+if playerDropdown then
+playerDropdown:Refresh(playerNames, true)
+end
+end
+
+playerDropdown = Tab:AddDropdown({
+        Name = "Kidnapping Player to Prison Realm",
+        Default = "Select player",
+        Options = playerNames,
+        Callback = function(PlayerUsername)
+playerNametwo = PlayerUsername
+local gh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+wait(0.1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-831, -40, -60)
+wait(0.25)
+local ohInstance1 = workspace[playerNametwo]["Torso"]
+game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(ohInstance1)
+task.wait(0.95)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = gh
+end})
+
+updatePlayerNames()
+
+players.PlayerAdded:Connect(
+function(player)
+updatePlayerNames()
+end)
+
+players.PlayerRemoving:Connect(
+function(player)
+updatePlayerNames()
+end)
+
+local playerNametwo = nil
+local playerNames = {}
+local playerDropdown
+local players = game:GetService("Players")
+
+local function updatePlayerNames()
+playerNames = {}
+for _, player in pairs(players:GetPlayers()) do
+table.insert(playerNames, player.Name)
+end
+if playerDropdown then
+playerDropdown:Refresh(playerNames, true)
+end
+end
+
+playerDropdown = Tab:AddDropdown({
+        Name = "Kidnapping Player to Trash Can",
+        Default = "Select player",
+        Options = playerNames,
+        Callback = function(PlayerUsername)
+            playerNametwo = PlayerUsername
+            local gh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+       wait(0.1)
+     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-416, 19.9, -308.5)
+      wait(0.1)
+local ohInstance1 = workspace[playerNametwo]["Left Leg"]
+game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(ohInstance1)
+  task.wait(0.95)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = gh
+end})
+
+updatePlayerNames()
+
+players.PlayerAdded:Connect(
+function(player)
+updatePlayerNames()
+end)
+
+players.PlayerRemoving:Connect(
+function(player)
+updatePlayerNames()
+end)
+
+
+local Section = Tab:AddSection({Name = "Kidnapping NPC"})
+
+Tab:AddButton({
+ Name = "Kidnapping Anh Tài Say Xỉn NPC",
+ Callback = function()
+local omgohh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+local npclol = workspace["Anh T\195\160i Say X\225\187\137n"]["Left Leg"]
+game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(npclol)
+  task.wait(0.95)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = omgohh
+end}) 
+
+Tab:AddButton({
+ Name = "Kidnapping Weaknest Dummy",
+ Callback = function()
+local omgohh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+local npclol = workspace["Weakest Dummy"]["Left Leg"]
+game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(npclol)
+  task.wait(0.95)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = omgohh
+end}) 
+
+Tab:AddButton({
+ Name = "Kidnapping Cid Kagenou Boss",
+ Callback = function()
+local omgohh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+local npclol = workspace["Cid Kagenou"]["Left Leg"]
+game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(npclol)
+  task.wait(0.95)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = omgohh
+end}) 
+
+Tab:AddButton({
+ Name = "Kidnapping Coyote Starrk Boss",
+ Callback = function()
+local omgohh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+local npclol = workspace["Coyote Starrk"]["Left Leg"]
+game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(npclol)
+  task.wait(0.95)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = omgohh
+end}) 
+
+Tab:AddButton({
+ Name = "Kidnapping Aizen Sosuke NPC",
+ Callback = function()
+local omgohh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+local npclol = workspace["Aizen Sosuke"]["Left Leg"]
+game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(npclol)
+  task.wait(0.95)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = omgohh
+end}) 
+
+Tab:AddButton({
+ Name = "Kidnapping Gojo Satoru Boss",
+ Callback = function()
+local omgohh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+local npclol = workspace["Gojo Satoru"]["Left Leg"]
+game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(npclol)
+  task.wait(0.95)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = omgohh
+end}) 
+
+Tab:AddButton({
+ Name = "Kidnapping Ryomen Sukuna Boss",
+ Callback = function()
+local omgohh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+local npclol = workspace["Ryomen Sukuna"]["Left Leg"]
+game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(npclol)
+  task.wait(0.95)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = omgohh
+end})
+
+local Tab = Window:MakeTab({
+	Name = "Option",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false})
+
+Tab:AddButton({
+ Name = "Hold all inventory tools",
+ Callback = function()
+        for _, tool in ipairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+     if tool:IsA("Tool") then
+          tool.Parent = game:GetService("Players").LocalPlayer.Character
+     end
+ end
+end}) 
+
+Tab:AddToggle({
+ Name = "Always show Characters",
+ Default = false,
+ Callback = function(Value)
+        local player = game.Players.LocalPlayer
+local playerGui = player.PlayerGui
+neko = Value
+while neko do
+  task.wait()
+local selectionGui = playerGui:FindFirstChild("SelectionGui")
+if selectionGui and selectionGui.Enabled == false then
+  selectionGui.Enabled = true
+  print("I am lazy")
+ end
+end
 end}) 
 
 local Tab = Window:MakeTab({
