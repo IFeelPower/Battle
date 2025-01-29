@@ -14,32 +14,53 @@ Tab:AddButton({
    Callback = function()
 for i, v in pairs(game.Players:GetPlayers()) do
 if v.Name ~= game:GetService("Players").LocalPlayer then
-game:GetService("ReplicatedStorage").NetworkEvents.RemoteFunction:InvokeServer(
-"HEAL_PLAYER",
-v,
-9e9
-)
+game:GetService("ReplicatedStorage").NetworkEvents.RemoteFunction:InvokeServer("HEAL_PLAYER",v,9e9)
 end
 end
 end})
 
 Tab:AddToggle({
-	Name = "Spam Heal all",
+	Name = "Auto Heal all",
 	Default = false,
 	Callback = function(Value)
 lol = Value 
-        while lol do
+while lol do
 wait(0.3)
 for i, v in pairs(game.Players:GetPlayers()) do
 if v.Name ~= game:GetService("Players").LocalPlayer then
-game:GetService("ReplicatedStorage").NetworkEvents.RemoteFunction:InvokeServer(
-"HEAL_PLAYER",
-v,
-9e9
-)
+game:GetService("ReplicatedStorage").NetworkEvents.RemoteFunction:InvokeServer("HEAL_PLAYER",v,9e9)
 end
 end
 end
+end})
+
+local Section = Tab:AddSection({Name = "Items"})
+
+Tab:AddButton({
+   Name = "Get Donus",
+   Callback = function()
+local args = {
+[1] = "PICKUP_ITEM",
+[2] = "Donut"}
+game:GetService("ReplicatedStorage").NetworkEvents.RemoteFunction:InvokeServer(unpack(args))
+end})
+
+Tab:AddButton({
+   Name = "Get Bandage",
+   Callback = function()
+local args = {
+[1] = "PICKUP_ITEM",
+[2] = "Bandage"}
+game:GetService("ReplicatedStorage").NetworkEvents.RemoteFunction:InvokeServer(unpack(args))
+end})
+
+Tab:AddButton({
+   Name = "Get MedKit",
+   Callback = function()
+local args = {
+[1] = "PICKUP_ITEM",
+[2] = "MedKit"}
+game:GetService("ReplicatedStorage").NetworkEvents.RemoteFunction:InvokeServer(unpack(args))
 end})
 
 local Section = Tab:AddSection({Name = "other"})
