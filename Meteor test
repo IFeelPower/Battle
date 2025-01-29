@@ -1,4 +1,4 @@
-right 190 left 380
+right 190 left 380 this is laggy so i gave up
 local tool = Instance.new("Tool")
 tool.Name = "Ultimate Meteor"
 tool.RequiresHandle = false
