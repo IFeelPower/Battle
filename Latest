@@ -951,6 +951,104 @@ local Tab = Window:MakeTab({
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false})
 
+local Section = Tab:AddSection({Name = "Gojo V3 - wait until game update"})
+
+Tab:AddButton({
+ Name = "Heavy Punch",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Heavy Punch"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = " Heavy punch Black Flash",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Heavy Punch"].LocalScript.Event2:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Black Flash",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Black Flash"].LocalScript.Event2:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Blue Pull",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Blue: Pull"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Blue Attract",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Blue: Attract"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Blue Attract 2",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Blue: Attract"].LocalScript.Event2:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Reversal Red",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Reversal Red"].LocalScript.Event1:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Reversal Red 2",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Reversal Red"].LocalScript.Event22:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Imaginary Technique Purple",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Imaginary Technique Purple"].murasaki.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Imaginary Technique Purple 2",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Imaginary Technique Purple"].murasaki.Event1:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Hollow Purple Nuke",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Hollow Purple Nuke"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Hollow Purple Nuke 2",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Hollow Purple Nuke"].LocalScript.RemoteEvent:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Teleport to wueco mundo",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Teleport.LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Teleport to Normal World",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Teleport.LocalScript.Even2:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Six Eyes",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Six Eyes"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Six Eyes 2",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Six Eyes"].LocalScript.Event2:FireServer()
+end})
+
 local Section = Tab:AddSection({Name = "Cid True Power V3 - NPC Drop"})
 
 Tab:AddButton({
