@@ -2222,6 +2222,14 @@ game:GetService("ReplicatedStorage").Deku:FireServer()
 end
 end}) 
 
+Tab:AddButton({
+ Name = "Random Rush Punch",
+ Callback = function()
+        for i = 1, 5 do
+game:GetService("ReplicatedStorage").Remotes.Punches:FireServer()
+end
+end}) 
+
 local Section = Tab:AddSection({Name = "Mugetsu"})
 
 Tab:AddButton({
