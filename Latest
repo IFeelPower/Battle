@@ -2264,7 +2264,7 @@ local Section = Tab:AddSection({Name = "Teleport"})
 Tab:AddButton({
  Name = "TP to Gojo The Strongest",
  Callback = function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.NPC["Gojo The Strongest"].HumanoidRootPart.CFrame
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.NPC["Gojo The Strongest"]["Left Arm"].Container.CFrame
 end})
 
 Tab:AddToggle({
