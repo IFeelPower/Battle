@@ -1711,10 +1711,20 @@ end)
 local Section = Tab:AddSection({Name = "Kidnapping NPC"})
 
 Tab:AddButton({
+ Name = "Gojo The Strongest",
+ Callback = function()
+local omgohh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+local npclol = workspace.NPC["Gojo The Strongest"]["Left Leg"]
+game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(npclol)
+  task.wait(0.95)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = omgohh
+end}) 
+
+Tab:AddButton({
  Name = "Kidnapping Anh Tài Say Xỉn NPC",
  Callback = function()
 local omgohh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-local npclol = workspace["Anh T\195\160i Say X\225\187\137n"]["Left Leg"]
+local npclol = workspace.NPC["Anh T\195\160i Say X\225\187\137n"]["Left Leg"]
 game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(npclol)
   task.wait(0.95)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = omgohh
@@ -2261,6 +2271,12 @@ Tab:AddLabel("5. use atomic energy on cid v2")
 
 local Section = Tab:AddSection({Name = "Teleport"})
 
+Tab:AddButton({
+ Name = "TP to Gojo The Strongest",
+ Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.NPC["Gojo The Strongest"].CFrame
+end})
+
 Tab:AddToggle({
 	Name = "Auto TP to Jack Picture",
 	Default = false,
@@ -2283,5 +2299,5 @@ end})
 Tab:AddButton({
  Name = "TP to Anh Tài Say Xỉn NPC",
  Callback = function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace["Anh T\195\160i Say X\225\187\137n"].HumanoidRootPart.CFrame
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.NPC["Anh T\195\160i Say X\225\187\137n"].HumanoidRootPart.CFrame
 end})
