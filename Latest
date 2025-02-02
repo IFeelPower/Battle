@@ -1711,16 +1711,6 @@ end)
 local Section = Tab:AddSection({Name = "Kidnapping NPC"})
 
 Tab:AddButton({
- Name = "Gojo The Strongest",
- Callback = function()
-local omgohh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-local npclol = workspace.NPC["Gojo The Strongest"]["Left Leg"]
-game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(npclol)
-  task.wait(0.95)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = omgohh
-end}) 
-
-Tab:AddButton({
  Name = "Kidnapping Anh Tài Say Xỉn NPC",
  Callback = function()
 local omgohh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
@@ -2274,7 +2264,7 @@ local Section = Tab:AddSection({Name = "Teleport"})
 Tab:AddButton({
  Name = "TP to Gojo The Strongest",
  Callback = function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.NPC["Gojo The Strongest"].CFrame
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.NPC["Gojo The Strongest"].HumanoidRootPart.CFrame
 end})
 
 Tab:AddToggle({
