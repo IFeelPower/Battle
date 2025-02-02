@@ -966,9 +966,15 @@ game:GetService("Players").LocalPlayer.Backpack["Heavy Punch"].LocalScript.Event
 end})
 
 Tab:AddButton({
- Name = "Black Flash",
+ Name = " Heavy punch Rush Punch",
  Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Black Flash"].LocalScript.Event2:FireServer()
+game:GetService("Players").LocalPlayer.Backpack["Heavy Punch"].LocalScript.Event3:FireServer()
+end})
+
+Tab:AddButton({
+ Name = " Heavy punch Rush Punch + Black Flash",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Heavy Punch"].LocalScript.Event3:FireServer()
 end})
 
 Tab:AddButton({
@@ -1026,6 +1032,12 @@ game:GetService("Players").LocalPlayer.Backpack["Hollow Purple Nuke"].LocalScrip
 end})
 
 Tab:AddButton({
+ Name = "Unlimited Void",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Unlimited Void"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
  Name = "Teleport to wueco mundo",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack.Teleport.LocalScript.Event:FireServer()
@@ -1038,7 +1050,7 @@ game:GetService("Players").LocalPlayer.Backpack.Teleport.LocalScript.Even2:FireS
 end})
 
 Tab:AddButton({
- Name = "Six Eyes",
+ Name = "Six Eyes - choose this for no cd skill",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack["Six Eyes"].LocalScript.Event:FireServer()
 end})
