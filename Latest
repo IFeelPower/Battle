@@ -1031,9 +1031,11 @@ game:GetService("Players").LocalPlayer.Backpack["Blue: Attract"].LocalScript.Eve
 end})
 
 Tab:AddButton({
- Name = "Blue Attract 2",
+ Name = "BOOM",
  Callback = function()
+for i = 1, 8 do
 game:GetService("Players").LocalPlayer.Backpack["Blue: Attract"].LocalScript.Event2:FireServer()
+end
 end})
 
 Tab:AddButton({
