@@ -2251,12 +2251,27 @@ Tab:AddButton({
 game:GetService("ReplicatedStorage").Server:InvokeServer(ohTable1)
 end}) 
 
-local Section = Tab:AddSection({Name = "Mahito"})
+local Section = Tab:AddSection({Name = "Others"})
 
 Tab:AddButton({
  Name = "Mahito Domain",
  Callback = function()
 game:GetService("ReplicatedStorage").MahitoDomainExpansion.MahitoDomainEvent:FireServer()
+end}) 
+
+Tab:AddButton({
+ Name = "Prison Realm - 35 sec CD",
+ Callback = function()
+local omgohh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+local args = {
+    [1] = {
+        ["Function"] = "Fire",
+        ["rootcf"] = omgohh,
+        ["Name"] = "PrisonRealm"
+    }
+}
+
+game:GetService("ReplicatedStorage").Server:InvokeServer(unpack(args))
 end}) 
 
 local Section = Tab:AddSection({Name = "Hacker"})
