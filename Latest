@@ -1019,6 +1019,12 @@ game:GetService("Players").LocalPlayer.Backpack["Blue: Pull"].LocalScript.Event:
 end})
 
 Tab:AddButton({
+ Name = "Blue Pull 2",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Blue: Pull"].LocalScript.Event2:FireServer()
+end})
+
+Tab:AddButton({
  Name = "Blue Attract",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack["Blue: Attract"].LocalScript.Event:FireServer()
@@ -1040,6 +1046,12 @@ Tab:AddButton({
  Name = "Reversal Red 2",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack["Reversal Red"].LocalScript.Event22:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Red Push 2",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Red: Push"].LocalScript.Event2:FireServer()
 end})
 
 Tab:AddButton({
