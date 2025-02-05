@@ -1026,6 +1026,24 @@ game:GetService("Players").LocalPlayer.Backpack["Blue: Pull"].LocalScript.Event2
 end
 end})
 
+Tab:AddToggle({
+	Name = "BOOM Kill Aura",
+	Default = false,
+	Callback = function(Value)
+lol = Value 
+while lol do
+wait(1)
+if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Blue: Pull") then
+game:GetService("Players").LocalPlayer.Backpack["Blue: Pull"].LocalScript.Event2:FireServer()
+game:GetService("Players").LocalPlayer.Backpack["Blue: Pull"].LocalScript.Event2:FireServer()
+game:GetService("Players").LocalPlayer.Backpack["Blue: Pull"].LocalScript.Event2:FireServer()
+game:GetService("Players").LocalPlayer.Backpack["Blue: Pull"].LocalScript.Event2:FireServer()
+game:GetService("Players").LocalPlayer.Backpack["Blue: Pull"].LocalScript.Event2:FireServer()
+game:GetService("Players").LocalPlayer.Backpack["Blue: Pull"].LocalScript.Event2:FireServer()
+end
+end
+end})
+
 Tab:AddButton({
  Name = "Blue Attract",
  Callback = function()
