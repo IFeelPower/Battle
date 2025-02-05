@@ -2356,6 +2356,11 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.NPC["Anh 
 end})
 
 local Section = Tab:AddSection({Name = "Gojo V3"})
+Tab:AddLabel("1. Use Unleashed V2 Gojo First")
+Tab:AddLabel("2. Get blue and red orb - 10min spawn 10% and 5% rate")
+Tab:AddLabel("3. Give 2 orbs to Gojo NPC")
+Tab:AddLabel("4. NPC will give you Purple Orb")
+Tab:AddLabel("5. use Purple Orb on Gojo v2")
 
 Tab:AddButton({
  Name = "TP to Gojo The Strongest",
@@ -2364,7 +2369,7 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.NPC["Gojo
 end})
 
 Tab:AddToggle({
-	Name = "Auto TP to Red",
+	Name = "Auto TP to Red Orb",
 	Default = false,
 	Callback = function(Value)
 lol = Value 
@@ -2377,7 +2382,7 @@ end
 end})
 
 Tab:AddToggle({
-	Name = "Auto TP to Blue",
+	Name = "Auto TP to Blue Orb",
 	Default = false,
 	Callback = function(Value)
 lol = Value 
