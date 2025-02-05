@@ -2330,12 +2330,6 @@ Tab:AddLabel("5. use atomic energy on cid v2")
 
 local Section = Tab:AddSection({Name = "Teleport"})
 
-Tab:AddButton({
- Name = "TP to Gojo The Strongest",
- Callback = function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.NPC["Gojo The Strongest"]["Left Arm"].Container.CFrame
-end})
-
 Tab:AddToggle({
 	Name = "Auto TP to Jack Picture",
 	Default = false,
@@ -2359,6 +2353,14 @@ Tab:AddButton({
  Name = "TP to Anh Tài Say Xỉn NPC",
  Callback = function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.NPC["Anh T\195\160i Say X\225\187\137n"].HumanoidRootPart.CFrame
+end})
+
+local Section = Tab:AddSection({Name = "Gojo V3"})
+
+Tab:AddButton({
+ Name = "TP to Gojo The Strongest",
+ Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.NPC["Gojo The Strongest"]["Left Arm"].Container.CFrame
 end})
 
 Tab:AddToggle({
