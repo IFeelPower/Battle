@@ -1018,27 +1018,14 @@ Tab:AddButton({
 game:GetService("Players").LocalPlayer.Backpack["Blue: Pull"].LocalScript.Event:FireServer()
 end})
 
-Tab:AddButton({
- Name = "BOOM",
- Callback = function()
-for i = 1, 8 do
-game:GetService("Players").LocalPlayer.Backpack["Blue: Pull"].LocalScript.Event2:FireServer()
-end
-end})
-
 Tab:AddToggle({
-	Name = "BOOM Kill Aura",
+	Name = "Ultra BOOM",
 	Default = false,
 	Callback = function(Value)
 lol = Value 
 while lol do
-wait(1)
+wait(0.1)
 if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Blue: Pull") then
-game:GetService("Players").LocalPlayer.Backpack["Blue: Pull"].LocalScript.Event2:FireServer()
-game:GetService("Players").LocalPlayer.Backpack["Blue: Pull"].LocalScript.Event2:FireServer()
-game:GetService("Players").LocalPlayer.Backpack["Blue: Pull"].LocalScript.Event2:FireServer()
-game:GetService("Players").LocalPlayer.Backpack["Blue: Pull"].LocalScript.Event2:FireServer()
-game:GetService("Players").LocalPlayer.Backpack["Blue: Pull"].LocalScript.Event2:FireServer()
 game:GetService("Players").LocalPlayer.Backpack["Blue: Pull"].LocalScript.Event2:FireServer()
 end
 end
@@ -1081,7 +1068,7 @@ game:GetService("Players").LocalPlayer.Backpack["Imaginary Technique Purple"].mu
 end})
 
 Tab:AddButton({
- Name = "Imaginary Technique Purple 2",
+ Name = "Animated Imaginary Technique Purple",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack["Imaginary Technique Purple"].murasaki.Event1:FireServer()
 end})
@@ -1102,18 +1089,6 @@ Tab:AddButton({
  Name = "Unlimited Void",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack["Unlimited Void"].LocalScript.Event:FireServer()
-end})
-
-Tab:AddButton({
- Name = "Teleport to wueco mundo",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack.Teleport.LocalScript.Event:FireServer()
-end})
-
-Tab:AddButton({
- Name = "Teleport to Normal World",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack.Teleport.LocalScript.Even2:FireServer()
 end})
 
 Tab:AddButton({
