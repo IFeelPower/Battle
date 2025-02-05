@@ -2260,7 +2260,7 @@ game:GetService("ReplicatedStorage").MahitoDomainExpansion.MahitoDomainEvent:Fir
 end}) 
 
 Tab:AddButton({
- Name = "Prison Realm - 35 sec CD",
+ Name = "Fake Prison Realm - 35 sec CD",
  Callback = function()
 local omgohh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
 local args = {
