@@ -2355,12 +2355,14 @@ Tab:AddButton({
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.NPC["Anh T\195\160i Say X\225\187\137n"].HumanoidRootPart.CFrame
 end})
 
-local Section = Tab:AddSection({Name = "Gojo V3"})
+local Section = Tab:AddSection({Name = "How to get Gojo V3"})
 Tab:AddLabel("1. Use Unleashed V2 Gojo First")
 Tab:AddLabel("2. Get blue and red orb - 10min spawn 10% and 5% rate")
 Tab:AddLabel("3. Give 2 orbs to Gojo NPC")
 Tab:AddLabel("4. NPC will give you Purple Orb")
 Tab:AddLabel("5. use Purple Orb on Gojo v2")
+
+local Section = Tab:AddSection({Name = "Teleport"})
 
 Tab:AddButton({
  Name = "TP to Gojo The Strongest",
