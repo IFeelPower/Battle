@@ -2357,7 +2357,7 @@ end})
 
 local Section = Tab:AddSection({Name = "How to get Gojo V3"})
 Tab:AddLabel("1. Use Unleashed V2 Gojo First")
-Tab:AddLabel("2. Get blue and red orb - 10min spawn 10% and 5% rate")
+Tab:AddLabel("2. Get blue and red orb - 25 min spawn 50% and 25% rate")
 Tab:AddLabel("3. Give 2 orbs to Gojo NPC")
 Tab:AddLabel("4. NPC will give you Purple Orb")
 Tab:AddLabel("5. use Purple Orb on Gojo v2")
