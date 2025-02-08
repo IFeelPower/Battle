@@ -10,7 +10,7 @@ local Tab = Window:MakeTab({
 local Section = Tab:AddSection({Name = "Soccer"})
 
 Tab:AddButton({
-Name = "Auto Ball",
+Name = "TP Ball",
 Callback = function()
 local player = game.Players.LocalPlayer
 local character = player.Character
