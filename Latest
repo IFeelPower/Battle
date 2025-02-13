@@ -7,6 +7,44 @@ local Tab = Window:MakeTab({
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false})
 
+local Section = Tab:AddSection({Name = "Sung Jin Woo"})
+
+Tab:AddButton({
+Name = "Impale Cuts",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Impale Cuts"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+Name = "Speed Blitz",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Speed Blitz"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+Name = "Shadow Dash",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Shadow Dash"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+Name = "Shadow Slash Barrage",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Shadow Slash Barrage"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+Name = "Shadow Rush Rampage",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Shadow Rush Rampage"].Client.Connector:FireServer()
+end})
+
+Tab:AddButton({
+Name = "Arise",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Arise.LocalScript.Event:FireServer()
+end})
+
 local Section = Tab:AddSection({Name = "Gremmy"})
 
 Tab:AddButton({
