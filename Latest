@@ -30,7 +30,9 @@ end})
 Tab:AddButton({
 Name = "Shadow Slash Barrage",
 Callback = function()
+for i = 1, 8 do
 game:GetService("Players").LocalPlayer.Backpack["Shadow Slash Barrage"].LocalScript.Event:FireServer()
+end
 end})
 
 Tab:AddButton({
