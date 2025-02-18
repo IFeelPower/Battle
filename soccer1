@@ -23,6 +23,12 @@ local newPosition = humRootPart.Position + (direction * distance)
 ball.CFrame = CFrame.new(newPosition)
 end})
 
+Tab:AddButton({
+Name = "TP Ball",
+Callback = function()
+loadstring(game:HttpGet("https://pastebin.com/raw/zqyDSUWX"))()
+end})
+
 local Tab = Window:MakeTab({
 	Name = "Move, TP",
 	Icon = "rbxassetid://4483345998",
