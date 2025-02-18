@@ -23,8 +23,10 @@ local newPosition = humRootPart.Position + (direction * distance)
 ball.CFrame = CFrame.new(newPosition)
 end})
 
+local Section = Tab:AddSection({Name = "Troll"})
+
 Tab:AddButton({
-Name = "TP Ball",
+Name = "Fling all",
 Callback = function()
 loadstring(game:HttpGet("https://pastebin.com/raw/zqyDSUWX"))()
 end})
