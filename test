@@ -7,111 +7,71 @@ local Tab = Window:MakeTab({
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false})
 
-local Section = Tab:AddSection({Name = "Gojo V3"})
+local Section = Tab:AddSection({Name = "SJW 2"})
 
 Tab:AddButton({
- Name = "Heavy Punch",
+ Name = "Head Slam",
  Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Heavy Punch"].LocalScript.Event:FireServer()
+game:GetService("Players").LocalPlayer.Backpack["Head Slam"].LocalScript.Event:FireServer()
 end})
 
 Tab:AddButton({
- Name = " Heavy punch Black Flash",
+ Name = "Impale Cuts",
  Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Heavy Punch"].LocalScript.Event2:FireServer()
+game:GetService("Players").LocalPlayer.Backpack["Impale Cuts"].LocalScript.Event:FireServer()
 end})
 
 Tab:AddButton({
- Name = "Black Flash",
+ Name = "Slash Blitz",
  Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Black Flash"].LocalScript.Event2:FireServer()
+game:GetService("Players").LocalPlayer.Backpack["Slash Blitz"].LocalScript.Event:FireServer()
+end})
+
+local Section = Tab:AddSection({Name = "Okarun"})
+
+Tab:AddButton({
+ Name = "Serious Punch",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Serious Punch"].Client.Connector:FireServer()
 end})
 
 Tab:AddButton({
- Name = "Blue Pull",
+ Name = "Swirl Kick",
  Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Blue: Pull"].LocalScript.Event:FireServer()
+game:GetService("Players").LocalPlayer.Backpack["Swirl Kick"].Client.SwirlKickEvent:FireServer()
 end})
 
 Tab:AddButton({
- Name = "Blue Attract",
+ Name = "Unlimited Flex Works",
  Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Blue: Attract"].LocalScript.Event:FireServer()
+game:GetService("Players").LocalPlayer.Backpack["Unlimited Flex Works"].client.StartMove:FireServer()
 end})
 
 Tab:AddButton({
- Name = "Blue Attract 2",
+ Name = "Unlimited Flex Works ongu",
  Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Blue: Attract"].LocalScript.Event2:FireServer()
+game:GetService("Players").LocalPlayer.Backpack["Unlimited Flex Works ongu"].LocalScript.Event:FireServer()
 end})
 
 Tab:AddButton({
- Name = "Reversal Red",
+ Name = "I'm So Depressed",
  Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Reversal Red"].LocalScript.Event1:FireServer()
+game:GetService("Players").LocalPlayer.Backpack["I'm So Depressed"].LocalScript.Event:FireServer()
 end})
 
 Tab:AddButton({
- Name = "Reversal Red 2",
+ Name = "20 Blow",
  Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Reversal Red"].LocalScript.Event22:FireServer()
+game:GetService("Players").LocalPlayer.Backpack["20 Blow"].Handler.Connector:FireServer()
 end})
 
 Tab:AddButton({
- Name = "Imaginary Technique Purple",
+ Name = "Hurricane Dropkick",
  Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Imaginary Technique Purple"].murasaki.Event:FireServer()
-end})
-
-Tab:AddButton({
- Name = "Imaginary Technique Purple 2",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Imaginary Technique Purple"].murasaki.Event1:FireServer()
-end})
-
-Tab:AddButton({
- Name = "Hollow Purple Nuke",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Hollow Purple Nuke"].LocalScript.Event:FireServer()
-end})
-
-Tab:AddButton({
- Name = "Hollow Purple Nuke 2",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Hollow Purple Nuke"].LocalScript.RemoteEvent:FireServer()
-end})
-
-Tab:AddButton({
- Name = "Teleport to wueco mundo",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack.Teleport.LocalScript.Event:FireServer()
-end})
-
-Tab:AddButton({
- Name = "Teleport to Normal World",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack.Teleport.LocalScript.Even2:FireServer()
-end})
-
-Tab:AddButton({
- Name = "Six Eyes",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Six Eyes"].LocalScript.Event:FireServer()
-end})
-
-Tab:AddButton({
- Name = "Six Eyes 2",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Six Eyes"].LocalScript.Event2:FireServer()
+game:GetService("Players").LocalPlayer.Backpack["Hurricane Dropkick"].Run.Connect:FireServer()
 end})
 
 local Section = Tab:AddSection({Name = "taicon"})
-
-Tab:AddButton({
- Name = "Kamutoke",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack.Kamutoke.LocalScript.Event:FireServer()
-end})
 
 Tab:AddButton({
  Name = "Kirisaki",
