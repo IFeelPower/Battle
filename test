@@ -28,6 +28,12 @@ game:GetService("Players").LocalPlayer.Backpack["Impale Cuts"].LocalScript.Event
 end})
 
 Tab:AddButton({
+ Name = "Head Slam",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Head Slam"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
  Name = "Ruler's Authority",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack["Ruler's Authority"].LocalScript.Event:FireServer()
