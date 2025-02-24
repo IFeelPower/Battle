@@ -10,6 +10,12 @@ local Tab = Window:MakeTab({
 local Section = Tab:AddSection({Name = "SJW 2"})
 
 Tab:AddButton({
+ Name = "Kamish Dagger",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Kamish Dagger"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
  Name = "Head Slam",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack["Head Slam"].LocalScript.Event:FireServer()
@@ -25,6 +31,24 @@ Tab:AddButton({
  Name = "Slash Blitz",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack["Slash Blitz"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Head Slam",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Head Slam"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Ruler's Authority",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Ruler's Authority"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Shadow Monarch Slam",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Shadow Monarch Slam"].LocalScript.Event:FireServer()
 end})
 
 local Section = Tab:AddSection({Name = "Okarun"})
