@@ -1026,7 +1026,51 @@ local Tab = Window:MakeTab({
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false})
 
-local Section = Tab:AddSection({Name = "Gojo V3 - wait until game update"})
+local Section = Tab:AddSection({Name = "SJW V2 - wait until game update"})
+
+Tab:AddButton({
+ Name = "Kamish Dagger",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Kamish Dagger"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Slash Blitz",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Slash Blitz"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Impale Cuts",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Impale Cuts"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Head Slam",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Head Slam"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Ruler's Authority",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Ruler's Authority"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Dragon Fear",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Dragon Fear"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Shadow Monarch Slam",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Shadow Monarch Slam"].LocalScript.Event:FireServer()
+end})
+
+local Section = Tab:AddSection({Name = "Gojo V3"})
 
 Tab:AddButton({
  Name = "Heavy Punch",
