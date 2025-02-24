@@ -16,27 +16,15 @@ game:GetService("Players").LocalPlayer.Backpack["Kamish Dagger"].LocalScript.Eve
 end})
 
 Tab:AddButton({
- Name = "Head Slam",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Head Slam"].LocalScript.Event:FireServer()
-end})
-
-Tab:AddButton({
- Name = "Impale Cuts",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Impale Cuts"].LocalScript.Event:FireServer()
-end})
-
-Tab:AddButton({
  Name = "Slash Blitz",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack["Slash Blitz"].LocalScript.Event:FireServer()
 end})
 
 Tab:AddButton({
- Name = "Head Slam",
+ Name = "Impale Cuts",
  Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Head Slam"].LocalScript.Event:FireServer()
+game:GetService("Players").LocalPlayer.Backpack["Impale Cuts"].LocalScript.Event:FireServer()
 end})
 
 Tab:AddButton({
