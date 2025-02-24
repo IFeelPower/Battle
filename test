@@ -34,6 +34,12 @@ game:GetService("Players").LocalPlayer.Backpack["Ruler's Authority"].LocalScript
 end})
 
 Tab:AddButton({
+ Name = "Dragon Fear",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Dragon Fear"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
  Name = "Shadow Monarch Slam",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack["Shadow Monarch Slam"].LocalScript.Event:FireServer()
