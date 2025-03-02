@@ -1101,13 +1101,21 @@ Tab:AddButton({
 game:GetService("Players").LocalPlayer.Backpack["Ruler's Authority"].LocalScript.Event:FireServer()
 end})
 
+Tab:AddButton({
+ Name = "Hacker's Authority",
+ Callback = function()
+for i = 1, 7 do
+game:GetService("Players").LocalPlayer.Backpack["Ruler's Authority"].LocalScript.Event:FireServer()
+end
+end})
+
 Tab:AddToggle({
-	Name = "Telekinesis aura",
+	Name = "Hacker aura",
 	Default = false,
 	Callback = function(Value)
 lol = Value 
 while lol do
-wait(0.1)
+wait(0.2)
 if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Ruler's Authority") then
 game:GetService("Players").LocalPlayer.Backpack["Ruler's Authority"].LocalScript.Event:FireServer()
 end
@@ -2428,14 +2436,6 @@ game:GetService("ReplicatedStorage").Server:InvokeServer(unpack(args))
 end}) 
 
 local Section = Tab:AddSection({Name = "Hacker"})
-
-Tab:AddButton({
- Name = "Hacker Rush Punch",
- Callback = function()
-        for i = 1, 5 do
-game:GetService("ReplicatedStorage").Deku:FireServer()
-end
-end}) 
 
 Tab:AddButton({
  Name = "Random Rush Punch",
