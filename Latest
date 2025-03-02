@@ -1101,6 +1101,19 @@ Tab:AddButton({
 game:GetService("Players").LocalPlayer.Backpack["Ruler's Authority"].LocalScript.Event:FireServer()
 end})
 
+Tab:AddToggle({
+	Name = "Telekinesis aura",
+	Default = false,
+	Callback = function(Value)
+lol = Value 
+while lol do
+wait(0.1)
+if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Ruler's Authority") then
+game:GetService("Players").LocalPlayer.Backpack["Ruler's Authority"].LocalScript.Event:FireServer()
+end
+end
+end})
+
 Tab:AddButton({
  Name = "Dragon Fear",
  Callback = function()
