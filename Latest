@@ -861,6 +861,41 @@ end
 end
 
 playerDropdown = Tab:AddDropdown({
+        Name = "Steal Sung Jin Woo V2",
+        Default = "Select player",
+        Options = playerNames,
+        Callback = function(PlayerUsername)
+lol = PlayerUsername
+workspace[lol]["Sung Jin Woo: Shadow Monarch"].Script.Event:FireServer()
+end})
+
+updatePlayerNames()
+
+players.PlayerAdded:Connect(
+function(player)
+updatePlayerNames()
+end)
+
+players.PlayerRemoving:Connect(
+function(player)
+updatePlayerNames()
+end)
+
+local playerNames = {}
+local playerDropdown
+local players = game:GetService("Players")
+
+local function updatePlayerNames()
+playerNames = {}
+for _, player in pairs(players:GetPlayers()) do
+table.insert(playerNames, player.Name)
+end
+if playerDropdown then
+playerDropdown:Refresh(playerNames, true)
+end
+end
+
+playerDropdown = Tab:AddDropdown({
         Name = "Steal Gojo V3",
         Default = "Select player",
         Options = playerNames,
@@ -1068,6 +1103,12 @@ Tab:AddButton({
  Name = "Shadow Monarch Slam",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack["Shadow Monarch Slam"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Arise",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Arise.LocalScript.Event:FireServer()
 end})
 
 local Section = Tab:AddSection({Name = "Gojo V3"})
