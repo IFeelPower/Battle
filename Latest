@@ -7,6 +7,64 @@ local Tab = Window:MakeTab({
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false})
 
+local Section = Tab:AddSection({Name = "Okarun"})
+
+Tab:AddButton({
+Name = "Swirl Kick",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Swirl Kick"].Client.SwirlKickEvent:FireServer()
+end})
+
+Tab:AddButton({
+Name = "I'm So Depressed",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["I'm So Depressed"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+Name = "20 Blow",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["20 Blow"].Handler.Connector:FireServer()
+end})
+
+Tab:AddButton({
+Name = "Claws Rampage",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Claws Rampage"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+Name = "Hurricane Dropkick",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Hurricane Dropkick"].Run.Connect:FireServer()
+end})
+
+Tab:AddButton({
+Name = "Rush Strike",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Rush Strike"].Client.AxeKickEvent:FireServer()
+end})
+
+Tab:AddButton({
+Name = "Rush Rampage",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Rush Rampage"].LocalScript.Event:FireServer()
+end})
+
+local Section = Tab:AddSection({Name = "Saitama"})
+
+Tab:AddButton({
+Name = "Serious Punch",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Serious Punch"].Client.Connector:FireServer()
+end})
+
+Tab:AddButton({
+Name = "Table Flip",
+Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Table Flip"].Client.Connector:FireServer()
+end})
+
 local Section = Tab:AddSection({Name = "Sung Jin Woo"})
 
 Tab:AddButton({
