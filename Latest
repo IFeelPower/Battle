@@ -2256,6 +2256,12 @@ Tab:AddButton({
 loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/KoJ"))()
 end}) 
 
+Tab:AddButton({
+ Name = "KJ Unlimited Flex Works - Admin Move",
+ Callback = function()
+game:GetService("ReplicatedStorage").Assets.Resources.UFW.Use:FireServer()
+end}) 
+
 local Section = Tab:AddSection({Name = "Hakari"})
 
 Tab:AddButton({
