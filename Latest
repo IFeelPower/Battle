@@ -2262,6 +2262,16 @@ Tab:AddButton({
 game:GetService("ReplicatedStorage").Assets.Resources.UFW.Use:FireServer()
 end}) 
 
+Tab:AddButton({
+ Name = "KJ effect - Admin Move",
+ Callback = function()
+local args = {
+    [1] = "UFW Final Punch"
+}
+
+game:GetService("ReplicatedStorage").Assets.Resources.UFW.UseSkill:FireServer(unpack(args))
+end}) 
+
 local Section = Tab:AddSection({Name = "Hakari"})
 
 Tab:AddButton({
