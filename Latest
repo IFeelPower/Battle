@@ -24,7 +24,11 @@ end})
 Tab:AddButton({
 Name = "20 Blow",
 Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["20 Blow"].Handler.Connector:FireServer()
+local args = {
+    [1] = "20 Blow Counter"
+}
+
+game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("20 Blow").Handler.Connector:FireServer(unpack(args))
 end})
 
 Tab:AddButton({
