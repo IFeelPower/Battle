@@ -40,7 +40,11 @@ end})
 Tab:AddButton({
 Name = "Hurricane Dropkick",
 Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Hurricane Dropkick"].Run.Connect:FireServer()
+local args = {
+    [1] = "Dropkick"
+}
+
+game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Hurricane Dropkick").Run.Connect:FireServer(unpack(args))
 end})
 
 Tab:AddButton({
