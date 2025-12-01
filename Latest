@@ -1201,12 +1201,6 @@ game:GetService("Players").LocalPlayer.Backpack.Chrysalis.LocalScript.Event2:Fir
 end})
 
 Tab:AddButton({
- Name = "Awake 3 - Butterfly",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack.Butterfly.LocalScript.Event3:FireServer()
-end})
-
-Tab:AddButton({
  Name = "Spiritual Pressure 2",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack["Spiritual Pressure"].LocalScript.Event2:FireServer()
