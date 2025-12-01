@@ -1195,18 +1195,6 @@ game:GetService("Players").LocalPlayer.Backpack.Chrysalis.LocalScript.Event:Fire
 end})
 
 Tab:AddButton({
- Name = "Chrysalis 2",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack.Execution.LocalScript.Event2:FireServer()
-end})
-
-Tab:AddButton({
- Name = "Chrysalis 3",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack.Execution.LocalScript.Event3:FireServer()
-end})
-
-Tab:AddButton({
  Name = "Butterfly 1",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack.Butterfly.LocalScript.Event:FireServer()
