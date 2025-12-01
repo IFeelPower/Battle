@@ -927,6 +927,41 @@ end
 end
 
 playerDropdown = Tab:AddDropdown({
+        Name = "Steal Aizen Fierce Battle",
+        Default = "Select player",
+        Options = playerNames,
+        Callback = function(PlayerUsername)
+lol = PlayerUsername
+workspace[lol]["Aizen Fierce Battle"].Script.Event:FireServer()
+end})
+
+updatePlayerNames()
+
+players.PlayerAdded:Connect(
+function(player)
+updatePlayerNames()
+end)
+
+players.PlayerRemoving:Connect(
+function(player)
+updatePlayerNames()
+end)
+
+local playerNames = {}
+local playerDropdown
+local players = game:GetService("Players")
+
+local function updatePlayerNames()
+playerNames = {}
+for _, player in pairs(players:GetPlayers()) do
+table.insert(playerNames, player.Name)
+end
+if playerDropdown then
+playerDropdown:Refresh(playerNames, true)
+end
+end
+
+playerDropdown = Tab:AddDropdown({
         Name = "Steal Sung Jin Woo V2",
         Default = "Select player",
         Options = playerNames,
@@ -1126,6 +1161,68 @@ local Tab = Window:MakeTab({
 	Name = "V2, V3",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false})
+
+local Section = Tab:AddSection({Name = "Aizen Fierce Battle"})
+
+Tab:AddButton({
+ Name = "Hado 90 Kurohitsugi",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Hado 90: Kurohitsugi"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Shatter Kyoka Suigetsu",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Shatter Kyoka Suigetsu"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Kanzen Saimin",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Kanzen Saimin"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Execution",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Execution.LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Chrysalis 1",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Chrysalis.LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Butterfly 1",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Butterfly.LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Butterfly 2",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Butterfly.LocalScript.Event2:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Butterfly 3",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Butterfly.LocalScript.Event3:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Spiritual Pressure 2",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Spiritual Pressure"].LocalScript.Event2:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Hado 90: Kurohitsugi Full Incantation",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Hado 90: Kurohitsugi Full Incantation"].LocalScript.Event:FireServer()
+end})
 
 local Section = Tab:AddSection({Name = "Sung Jin Woo V2"})
 
