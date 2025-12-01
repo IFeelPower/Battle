@@ -1197,23 +1197,11 @@ end})
 Tab:AddButton({
  Name = "Awake 2 - Chrysalis",
  Callback = function()
-game:GetService("Players").LocalPlayer.Backpack.Chrysalis.LocalScript.Event:FireServer()
+game:GetService("Players").LocalPlayer.Backpack.Chrysalis.LocalScript.Event2:FireServer()
 end})
 
 Tab:AddButton({
- Name = "Butterfly",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack.Butterfly.LocalScript.Event:FireServer()
-end})
-
-Tab:AddButton({
- Name = "Butterfly 2",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack.Butterfly.LocalScript.Event2:FireServer()
-end})
-
-Tab:AddButton({
- Name = "Butterfly 3",
+ Name = "Awake 3 - Butterfly",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack.Butterfly.LocalScript.Event3:FireServer()
 end})
