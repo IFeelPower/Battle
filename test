@@ -1188,6 +1188,36 @@ Tab:AddButton({
 game:GetService("Players").LocalPlayer.Backpack.Execution.LocalScript.Event:FireServer()
 end})
 
+Tab:AddButton({
+ Name = "Chrysalis 1",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Chrysalis.LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Chrysalis 2",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Execution.LocalScript.Event2:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Chrysalis 3",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Execution.LocalScript.Event3:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Spiritual Pressure",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Spiritual Pressure"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Spiritual Pressure 2",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Spiritual Pressure"].LocalScript.Event2:FireServer()
+end})
+
 local Section = Tab:AddSection({Name = "Sung Jin Woo V2"})
 
 Tab:AddButton({
