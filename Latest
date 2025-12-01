@@ -1189,13 +1189,19 @@ game:GetService("Players").LocalPlayer.Backpack.Execution.LocalScript.Event:Fire
 end})
 
 Tab:AddButton({
- Name = "Chrysalis 1",
+ Name = "Awake 1 - Hogyoku Fusion",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Hogyoku Fusion"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Awake 2 - Chrysalis",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack.Chrysalis.LocalScript.Event:FireServer()
 end})
 
 Tab:AddButton({
- Name = "Butterfly 1",
+ Name = "Butterfly",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack.Butterfly.LocalScript.Event:FireServer()
 end})
