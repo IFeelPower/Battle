@@ -1183,9 +1183,41 @@ game:GetService("Players").LocalPlayer.Backpack["Kanzen Saimin"].LocalScript.Eve
 end})
 
 Tab:AddButton({
- Name = "Execution",
+ Name = "Kanzen Saimin 2",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Kanzen Saimin"].LocalScript.Event2:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Execution - One Shot",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack.Execution.LocalScript.Event:FireServer()
+end})
+
+Tab:AddToggle({
+	Name = "Kill Aura",
+	Default = false,
+	Callback = function(Value)
+lol = Value 
+while lol do
+wait(1)
+if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Shatter Kyoka Suigetsu") then
+game:GetService("Players").LocalPlayer.Backpack["Shatter Kyoka Suigetsu"].LocalScript.Event:FireServer()
+end
+end
+end})
+
+Tab:AddToggle({
+	Name = "Troll",
+	Default = false,
+	Callback = function(Value)
+lol = Value 
+while lol do
+wait(1)
+if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Kanzen Saimin") then
+game:GetService("Players").LocalPlayer.Backpack["Kanzen Saimin"].LocalScript.Event:FireServer()
+end
+end
 end})
 
 Tab:AddButton({
