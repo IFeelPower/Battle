@@ -2195,6 +2195,16 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = omgohh
 end}) 
 
 Tab:AddButton({
+ Name = "Kidnapping Urahara Kisuke NPC",
+ Callback = function()
+local omgohh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+local npclol = workspace.NPC["Kisuke Urahara"]["Left Leg"]
+game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(npclol)
+  task.wait(0.95)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = omgohh
+end}) 
+
+Tab:AddButton({
  Name = "Kidnapping Weaknest Dummy",
  Callback = function()
 local omgohh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
