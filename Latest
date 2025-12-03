@@ -1200,7 +1200,7 @@ Tab:AddToggle({
 	Callback = function(Value)
 lol = Value 
 while lol do
-wait(1)
+wait(0.1)
 if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Shatter Kyoka Suigetsu") then
 game:GetService("Players").LocalPlayer.Backpack["Shatter Kyoka Suigetsu"].LocalScript.Event:FireServer()
 end
