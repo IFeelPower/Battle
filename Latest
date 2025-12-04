@@ -7,6 +7,8 @@ local Tab = Window:MakeTab({
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false})
 
+Tab:AddLabel("Choose 'characters' in game first")
+
 local Section = Tab:AddSection({Name = "Okarun"})
 
 Tab:AddButton({
@@ -1196,6 +1198,8 @@ local Tab = Window:MakeTab({
 	Name = "V2, V3",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false})
+
+Tab:AddLabel("V2 nad V3 is boss drop Characters")
 
 local Section = Tab:AddSection({Name = "Aizen Fierce Battle"})
 
