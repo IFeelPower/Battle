@@ -587,6 +587,14 @@ game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("True Curse").Loc
 end})
 
 Tab:AddButton({
+ Name = "True Curse V2",
+ Callback = function()  
+for i = 1, 7 do
+game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("True Curse").LocalScript.Event:FireServer()
+end
+end})
+
+Tab:AddButton({
  Name = "Eye pop",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Eye Pop").Rush.Event:FireServer()
