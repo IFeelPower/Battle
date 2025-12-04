@@ -1199,7 +1199,7 @@ local Tab = Window:MakeTab({
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false})
 
-Tab:AddLabel("V2 nad V3 is boss drop Characters")
+Tab:AddLabel("V2 and V3 is boss drop Characters")
 
 local Section = Tab:AddSection({Name = "Aizen Fierce Battle"})
 
