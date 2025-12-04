@@ -582,15 +582,17 @@ local Section = Tab:AddSection({Name = "Mahito"})
 
 Tab:AddButton({
  Name = "True Curse",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("True Curse").LocalScript.Event:FireServer()
-end})
-
-Tab:AddButton({
- Name = "True Curse V2",
  Callback = function()  
 for i = 1, 7 do
 game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("True Curse").LocalScript.Event:FireServer()
+end
+end})
+
+Tab:AddButton({
+ Name = "One Punch",
+ Callback = function()  
+for i = 1, 15 do
+game:GetService("Players").LocalPlayer.Backpack["Soul Bend"].Move.Event:FireServer()
 end
 end})
 
