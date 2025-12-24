@@ -406,9 +406,224 @@ Tab:AddButton({
    end    
 })
 
+ -- Services --
+  local TweenService = game:GetService("TweenService")
+  local UserInputService = game:GetService("UserInputService")
+  local RunService = game:GetService("RunService")
+  local ReplicatedStorage = game:GetService("ReplicatedStorage")
+  local Workspace = game:GetService("Workspace")
+  
+  -- Variables --
+  
+  local player = game:GetService("Players").LocalPlayer
+  local LP = game.Players.LocalPlayer
+  local Character = player.Character
+  local Gamemode = Instance.new('IntValue', player.Character)
+  Gamemode.Name = [[Gamemode]]
+  local ESP = loadstring(game:HttpGet("https://kiriot22.com/releases/ESP.lua"))()
+  local metaBlocks = game.ReplicatedFirst:FindFirstChild("MetaBlocks")
+  local blocks = workspace.Blocks
+  local strafeEnabled = false
+  local features = {}
+  local usetables = false
+  local isMobile
+  local isPC
+  local hasGiveExploit
+  local delay = 0
+  local useTaskSpawn = false
+  local speed = 20
+  
+  
+  -- Remotes --
+  local gameremotes = ReplicatedStorage.GameRemotes
+  local GameRemotes = ReplicatedStorage.GameRemotes
+  local Demo = gameremotes:FindFirstChild("Demo") or Workspace:FindFirstChild("Demo")
+  local abb = gameremotes.AcceptBreakBlock
+  local bb = gameremotes.BreakBlock
+  local Attack = gameremotes:WaitForChild("Attack")
+  local moveitems = gameremotes:FindFirstChild("MoveItem") or gameremotes:FindFirstChild("MoveItems")
+  local sortitems = gameremotes:FindFirstChild("SortItem") or gameremotes:FindFirstChild("SortItems")
+  local useblock = gameremotes.UseBlock
+
+function infhealth()
+    local function healthLoop()
+      while infh do
+        moveitems:InvokeServer(101, 9, true)
+        moveitems:InvokeServer(9, 101, true)
+        task.wait()
+      end
+    end
+
+    if useTaskSpawn then
+      task.spawn(healthLoop) -- Runs asynchronously
+    else
+      healthLoop() -- Runs normally (blocking)
+    end
+  end
+
+Tab:AddToggle({
+  Name = "Infinite Health",
+    Default = false,
+    Callback = function(infihp)
+      infh = infihp
+      infhealth(infihp)
+    end 
+  })
+
+Tab:AddToggle({
+  Name = "Immortal",
+    Default = false,
+    Callback = function()
+    game.ReplicatedStorage.GameRemotes.MoveItem:InvokeServer(101, 9, true)
+      end
+  })
+
+  function FastBreak()
+    while fb do
+      abb:InvokeServer()
+      task.wait()
+    end
+  end
+
+Tab:AddToggle({
+  Name = "Fast Break",
+    Default = false,
+    Callback = function(f)
+      fb = f
+      FastBreak(f)
+    end 
+  })
+
+  function Nuker()
+    while nk do
+      local playerPos = player.Character.HumanoidRootPart.Position / 3
+      local roundedX, roundedY, roundedZ =
+        math.floor(playerPos.x), 
+        math.floor(playerPos.y - 1), 
+        math.floor(playerPos.z)
+
+      bb:FireServer(roundedX, roundedY, roundedZ)
+      abb:InvokeServer()
+
+      task.wait()
+    end
+  end
+
+Tab:AddToggle({
+  Name = "Nuker",
+    Default = false,
+    Callback = function(n)
+      nk = n
+      Nuker(n)
+    end 
+  })
+  
+  function InstaMine()
+    player.Character.Gamemode.Value = im and 1 or 0
+  end
+
+  function FastBreak()
+    while fb do
+      abb:InvokeServer()
+      task.wait()
+    end
+  end
+
+Tab:AddToggle({
+  Name = "Insta mine",
+    Default = false,
+    Callback = function(i)
+      im = i
+      InstaMine(i)
+    end 
+  }) 
+
+    function cheststealer()
+    for i = 36, 62 do
+      task.spawn(function()
+        game:GetService("ReplicatedStorage").GameRemotes.MoveItem:InvokeServer(i, i - 27, true)
+      end)
+    end
+  end
+
+  function chestdupe(mode)
+    if mode == 1 then
+      sortitems:InvokeServer(36)
+    elseif mode == 2 then
+      for i = 36, 62 do
+        task.spawn(function()
+          sortitems:InvokeServer(i)
+        end)
+      end
+    end
+  end
+
 Tab:AddButton({
- Name = "SUS????",
- Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/Cursed%20attack"))()
-   end    
-})
+ Name = "chest dup",
+    Callback = function()
+      chestdupe(2)
+    end
+  })
+
+Tab:AddButton({
+ Name = "chest dup dump",
+    Callback = function()
+      cheststealer()
+      chestdupe(2)
+    end
+  })
+
+Tab:AddToggle({
+	Name = "xray",
+    Description = "Makes you see ores through blocks",
+    Default = false,
+    Callback = function(x)
+      xr = x
+      
+      local humanroot2 = game.Players.LocalPlayer.Character.HumanoidRootPart
+      
+      if xr then
+        wasEnabled = true
+        for _, v in pairs(game.ReplicatedFirst.MetaBlocks:GetChildren()) do
+          if v.Name == "Stone" or v.Name == "Dirt" then
+            for _, texture in pairs(v:GetChildren()) do
+              texture.Transparency = 1
+            end
+          end
+        end
+        for _, v in pairs(game.ReplicatedFirst.Blocks:GetChildren()) do
+          if v.Name == "Stone" or v.Name == "Dirt" then
+            v.Transparency = 1
+          end
+        end
+        
+        local pos = humanroot2.Position
+        task.wait()
+        humanroot2.CFrame = CFrame.new(30000, 180, 30000)
+        task.wait()
+        humanroot2.CFrame = CFrame.new(pos)
+      elseif not xr then
+        for _, v in pairs(game.ReplicatedFirst.MetaBlocks:GetChildren()) do
+          if v.Name == "Stone" or v.Name == "Dirt" then
+            for _, texture in pairs(v:GetChildren()) do
+              texture.Transparency = 0
+            end
+          end
+        end
+        for _, v in pairs(game.ReplicatedFirst.Blocks:GetChildren()) do
+          if v.Name == "Stone" or v.Name == "Dirt" then
+            v.Transparency = 0
+          end
+        end
+        
+        if wasEnabled then
+          local pos = humanroot2.Position
+          task.wait()
+          humanroot2.CFrame = CFrame.new(30000, 180, 30000)
+          task.wait()
+          humanroot2.CFrame = CFrame.new(pos)
+          wasEnabled = false
+        end
+      end
+    end 
+  }) 
