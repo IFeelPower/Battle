@@ -1282,6 +1282,12 @@ game:GetService("Players").LocalPlayer.Backpack.Chrysalis.LocalScript.Event2:Fir
 end})
 
 Tab:AddButton({
+ Name = "Awake 3 - Monster",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Butterfly.LocalScript.Even3:FireServer()
+end})
+
+Tab:AddButton({
  Name = "Spiritual Pressure 2",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack["Spiritual Pressure"].LocalScript.Event2:FireServer()
@@ -1291,6 +1297,36 @@ Tab:AddButton({
  Name = "Hado 90: Kurohitsugi Full Incantation",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack["Hado 90: Kurohitsugi Full Incantation"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Cero",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Cero.LocalScript.Event2:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Grab Cero",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Grab Cero"].LocalScript.Event2:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Destruction Circle",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Destruction Circle"].LocalScript.Event3:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Kyoka suigetsu",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Kyoka Suigetsu"].LocalScript.Event:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Kido combo",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Kido Combo"].LocalScript.Event3:FireServer()
 end})
 
 local Section = Tab:AddSection({Name = "Sung Jin Woo V2"})
