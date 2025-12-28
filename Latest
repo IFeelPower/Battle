@@ -1278,11 +1278,17 @@ end})
 Tab:AddButton({
  Name = "Awake 2 - Chrysalis",
  Callback = function()
-game:GetService("Players").LocalPlayer.Backpack.Chrysalis.LocalScript.Event2:FireServer()
+game:GetService("Players").LocalPlayer.Backpack.Chrysalis.LocalScript.Event1:FireServer()
 end})
 
 Tab:AddButton({
- Name = "Awake 3 - Monster",
+ Name = "Awake 3 - Butterfly",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack.Butterfly.LocalScript.Event2:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Awake 4 - Monster",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack.Butterfly.LocalScript.Even3:FireServer()
 end})
@@ -1306,6 +1312,14 @@ game:GetService("Players").LocalPlayer.Backpack.Cero.LocalScript.Event2:FireServ
 end})
 
 Tab:AddButton({
+ Name = "Ultimate Cero",
+ Callback = function()
+for i = 1, 9 do
+game:GetService("Players").LocalPlayer.Backpack.Cero.LocalScript.Event2:FireServer()
+end
+end})
+
+Tab:AddButton({
  Name = "Grab Cero",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack["Grab Cero"].LocalScript.Event2:FireServer()
@@ -1315,6 +1329,19 @@ Tab:AddButton({
  Name = "Destruction Circle",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack["Destruction Circle"].LocalScript.Event3:FireServer()
+end})
+
+Tab:AddToggle({
+	Name = "Kill Aura - for Monster mode",
+	Default = false,
+	Callback = function(Value)
+lol = Value 
+while lol do
+wait(0.3)
+if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Destruction Circle") then
+game:GetService("Players").LocalPlayer.Backpack["Destruction Circle"].LocalScript.Event3:FireServer()
+end
+end
 end})
 
 Tab:AddButton({
