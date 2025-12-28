@@ -2520,7 +2520,7 @@ end})
 local Section = Tab:AddSection({Name = "Megumin"})
 
 Tab:AddButton({
- Name = "Strongest Magic Tool - Pay to win",
+ Name = "Megumin - dont use its bugging",
  Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/Explo"))()
 end}) 
