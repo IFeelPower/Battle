@@ -1220,7 +1220,13 @@ game:GetService("Players").LocalPlayer.Backpack["Hado 90: Kurohitsugi"].LocalScr
 end})
 
 Tab:AddButton({
- Name = "Shatter Kyoka Suigetsu",
+ Name = "Hado 90 Kurohitsugi",
+ Callback = function()
+game:GetService("Players").LocalPlayer.Backpack["Hado 90: Kurohitsugi"].LocalScript.full:FireServer()
+end})
+
+Tab:AddButton({
+ Name = "Shatter Kyoka Suigetsu Full",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack["Shatter Kyoka Suigetsu"].LocalScript.Event:FireServer()
 end})
@@ -1297,12 +1303,6 @@ Tab:AddButton({
  Name = "Spiritual Pressure 2",
  Callback = function()
 game:GetService("Players").LocalPlayer.Backpack["Spiritual Pressure"].LocalScript.Event2:FireServer()
-end})
-
-Tab:AddButton({
- Name = "Hado 90: Kurohitsugi Full Incantation",
- Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Hado 90: Kurohitsugi Full Incantation"].LocalScript.Event:FireServer()
 end})
 
 Tab:AddButton({
