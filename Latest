@@ -1464,7 +1464,7 @@ end})
 Tab:AddButton({
  Name = "Blue Pull",
  Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Blue: Pull"].LocalScript.Event:FireServer()
+game:GetService("Players").LocalPlayer.Backpack["Blue: Collapse"].LocalScript.Event:FireServer()
 end})
 
 Tab:AddToggle({
@@ -1474,8 +1474,8 @@ Tab:AddToggle({
 lol = Value 
 while lol do
 wait(0.1)
-if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Blue: Pull") then
-game:GetService("Players").LocalPlayer.Backpack["Blue: Pull"].LocalScript.Event2:FireServer()
+if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Blue: Collapse") then
+game:GetService("Players").LocalPlayer.Backpack["Blue: Collapse"].LocalScript.Event2:FireServer()
 end
 end
 end})
@@ -1483,31 +1483,57 @@ end})
 Tab:AddButton({
  Name = "Blue Attract",
  Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Blue: Attract"].LocalScript.Event:FireServer()
+game:GetService("Players").LocalPlayer.Backpack["Blue: Collapse"].LocalScript.Event:FireServer()
 end})
 
 Tab:AddButton({
  Name = "Blue Ball",
  Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Blue: Attract"].LocalScript.Event2:FireServer()
+game:GetService("Players").LocalPlayer.Backpack["Maximum Blue"].LocalScript.Event2:FireServer()
 end})
 
 Tab:AddButton({
- Name = "Reversal Red",
+ Name = "Maximum Red",
  Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Reversal Red"].LocalScript.Event1:FireServer()
+game:GetService("Players").LocalPlayer.Backpack["Maximum Red"].LocalScript.Event1:FireServer()
 end})
 
 Tab:AddButton({
  Name = "Reversal Red 2",
  Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Reversal Red"].LocalScript.Event22:FireServer()
+game:GetService("Players").LocalPlayer.Backpack["Maximum Red"].LocalScript.Event22:FireServer()
 end})
 
 Tab:AddButton({
- Name = "Red Push 2",
+ Name = "Red: Force",
  Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Red: Push"].LocalScript.Event2:FireServer()
+game:GetService("Players").LocalPlayer.Backpack["Red: Force"].LocalScript.Event22:FireServer()
+end})
+
+Tab:AddToggle({
+	Name = "Infinite Blue",
+	Default = false,
+	Callback = function(Value)
+lol = Value 
+while lol do
+wait(0.1)
+if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Maximum Blue") then
+game:GetService("Players").LocalPlayer.Backpack["Maximum Blue"].LocalScript.Event2:FireServer()
+end
+end
+end})
+
+Tab:AddToggle({
+	Name = "Infinite Red",
+	Default = false,
+	Callback = function(Value)
+lol = Value 
+while lol do
+wait(0.1)
+if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Maximum Red") then
+game:GetService("Players").LocalPlayer.Backpack["Maximum Red"].LocalScript.Event1:FireServer():FireServer()
+end
+end
 end})
 
 Tab:AddButton({
