@@ -1513,13 +1513,13 @@ end})
 Tab:AddButton({
  Name = "Imaginary Technique Purple",
  Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Imaginary Technique Purple"].murasaki.Event:FireServer()
+game:GetService("Players").LocalPlayer.Backpack["Maximum Hollow Purple"].murasaki.Event.Event:FireServer()
 end})
 
 Tab:AddButton({
  Name = "Animated Imaginary Technique Purple",
  Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Imaginary Technique Purple"].murasaki.Event1:FireServer()
+game:GetService("Players").LocalPlayer.Backpack["Maximum Hollow Purple"].murasaki.Event1.murasaki.Event1:FireServer()
 end})
 
 Tab:AddButton({
