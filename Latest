@@ -1234,13 +1234,13 @@ end})
 Tab:AddButton({
  Name = "Kanzen Saimin",
  Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Kanzen Saimin"].LocalScript.Event:FireServer()
+game:GetService("Players").LocalPlayer.Backpack["Destruction Circle"].LocalScript.Event:FireServer()
 end})
 
 Tab:AddButton({
  Name = "Kanzen Saimin 2",
  Callback = function()
-game:GetService("Players").LocalPlayer.Backpack["Kanzen Saimin"].LocalScript.Event2:FireServer()
+game:GetService("Players").LocalPlayer.Backpack["Destruction Circle"].LocalScript.Event2:FireServer()
 end})
 
 Tab:AddButton({
@@ -1256,8 +1256,8 @@ Tab:AddToggle({
 lol = Value 
 while lol do
 wait(0.1)
-if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Kanzen Saimin") then
-game:GetService("Players").LocalPlayer.Backpack["Kanzen Saimin"].LocalScript.Event2:FireServer()
+if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Destruction Circle") then
+game:GetService("Players").LocalPlayer.Backpack["Destruction Circle"].LocalScript.Event2:FireServer()
 end
 end
 end})
@@ -1269,8 +1269,8 @@ Tab:AddToggle({
 lol = Value 
 while lol do
 wait(1)
-if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Kanzen Saimin") then
-game:GetService("Players").LocalPlayer.Backpack["Kanzen Saimin"].LocalScript.Event:FireServer()
+if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Destruction Circle") then
+game:GetService("Players").LocalPlayer.Backpack["Destruction Circle"].LocalScript.Event:FireServer()
 end
 end
 end})
