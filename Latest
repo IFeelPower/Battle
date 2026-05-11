@@ -2288,10 +2288,10 @@ end)
 local Section = Tab:AddSection({Name = "Kidnapping NPC"})
 
 Tab:AddButton({
- Name = "Kidnapping Anh Tài Say Xỉn NPC",
+ Name = "Kidnapping AETX NPC",
  Callback = function()
 local omgohh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-local npclol = workspace.NPC["Anh T\195\160i Say X\225\187\137n"]["Left Leg"]
+local npclol = workspace.NPC.AETX["Left Leg"]
 game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(npclol)
   task.wait(0.95)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = omgohh
@@ -2934,5 +2934,19 @@ wait(1)
 if workspace.NPC:FindFirstChild("Blue") then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.NPC.Blue.CFrame + Vector3.new(0, 3, 0)
 end
+end
+end})
+
+local Section = Tab:AddSection({Name = "How to get Sung Jin Woo"})
+Tab:AddLabel("1. Use sung Jin Woo character")
+Tab:AddLabel("2. Click Bear NPC (0.005%)")
+Tab:AddLabel("3. Use Kamish's Wrath item)")
+
+Tab:AddButton({
+Name = "Auto Click bear npc 20k times",
+Callback = function()
+for i = 1, 20000 do
+local bears = workspace.Map.battle.Plates.Plate4.Skatepark.Trash.Cans:GetChildren()[8].ProximityPrompt
+fireproximityprompt(bears)
 end
 end})
