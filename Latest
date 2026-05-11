@@ -2945,6 +2945,12 @@ Tab:AddLabel("3. Use Kamish's Wrath item)")
 Tab:AddButton({
 Name = "Auto Click bear npc 20k times",
 Callback = function()
+local args = {
+    [1] = "Sung Jin Woo"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Picked"):FireServer(unpack(args))
+task.wait(1)
 for i = 1, 20000 do
 local bears = workspace.Map.battle.Plates.Plate4.Skatepark.Trash.Cans:GetChildren()[8].ProximityPrompt
 fireproximityprompt(bears)
