@@ -285,6 +285,50 @@ Callback = function()
 game:GetService("Players").LocalPlayer.Backpack["Reinhard !!"].LocalScript.Event:FireServer()
 end})
 
+local playerNames = {}
+local playerDropdown
+local players = game:GetService("Players")
+
+local function updatePlayerNames()
+playerNames = {}
+for _, player in pairs(players:GetPlayers()) do
+table.insert(playerNames, player.Name)
+end
+if playerDropdown then
+playerDropdown:Refresh(playerNames, true)
+end
+end
+
+playerDropdown = Tab:AddDropdown({
+        Name = "Giving Reinhard",
+        Default = "Select player",
+        Options = playerNames,
+        Callback = function(PlayerUsername)
+game:GetService("Players").LocalPlayer.Backpack["Reinhard !!"].LocalScript.Event:FireServer()
+task.wait(13)
+lol = PlayerUsername
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace[lol].HumanoidRootPart.CFrame
+task.wait(0.1)
+local omgohh = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+local npclol = workspace.Visuals.Reinhard["Left Arm"]
+game:GetService("ReplicatedStorage").Remote.BoogieWoogie:FireServer(npclol)
+  task.wait(0.95)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = omgohh
+
+end})
+
+updatePlayerNames()
+
+players.PlayerAdded:Connect(
+function(player)
+updatePlayerNames()
+end)
+
+players.PlayerRemoving:Connect(
+function(player)
+updatePlayerNames()
+end)
+
 Tab:AddButton({
  Name = "Kidnapping Reinhard",
  Callback = function()
