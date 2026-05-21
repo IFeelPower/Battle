@@ -8,11 +8,14 @@ local Tab = Window:MakeTab({
     PremiumOnly = false})
 
 local Section = Tab:AddSection({Name = "How to steal tool"})
+
 Tab:AddLabel("1. u need above mod rank first")
 Tab:AddLabel("2. type ;gear me 95354288")
 Tab:AddLabel("3. shoot it to tool while they hold it)")
 Tab:AddLabel("4. they will drop tool)")
 Tab:AddLabel("Aim it to their tool (not body))")
+
+local Section = Tab:AddSection({Name = "Auto Steal Tools"})
 
 Tab:AddToggle({
     Name = "Wtools Steal",
@@ -58,7 +61,7 @@ end})
 local Section = Tab:AddSection({Name = "auto touch admin pad"})
 
 Tab:AddToggle({
-    Name = "Auto Admin original adminobby - green head admin",
+    Name = "Auto Admin original - green head admin",
     Default = false,
     Callback = function(Value)
 lol = Value 
@@ -75,7 +78,7 @@ end
 end})
 
 Tab:AddToggle({
-    Name = "Auto Admin wrench - auto touch all pads",
+    Name = "Auto Admin wtools - auto touch all pads",
     Default = false,
     Callback = function(Value)
 lol = Value 
@@ -94,7 +97,13 @@ end})
 local Section = Tab:AddSection({Name = "u need btools in inventory but dont hold"})
 
 Tab:AddButton({
- Name = "f3x btools c00lkid script - do not use color spam",
+ Name = "f3x btools c00lkid script",
  Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/c00lkid"))()
+end})
+
+Tab:AddButton({
+ Name = "infiniteyield",
+ Callback = function()
+loadstring(game:HttpGet("loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()"))()
 end})
