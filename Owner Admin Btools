@@ -54,6 +54,7 @@ end
 end})
 
 local Section = Tab:AddSection({Name = "auto touch admin pad"})
+
 Tab:AddToggle({
     Name = "Auto Admin original adminobby - green head admin",
     Default = false,
@@ -88,3 +89,10 @@ end
 end
 end})
 
+local Section = Tab:AddSection({Name = "u need btools in inventory but dont hold"})
+
+Tab:AddButton({
+ Name = "f3x btools c00lkid script - do not use color spam",
+ Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/c00lkid"))()
+end})
