@@ -1,0 +1,90 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/CeleryHub/Shlexware-s-Orion/main/source')))()
+
+local Window = OrionLib:MakeWindow({Name = "Lazy Script V2 - Obby for Owner Admin", HidePremium = true, IntroEnabled = false, SaveConfig = false, ConfigFolder = "OrionTest", IntroText = "Are You Lazy?", IntroIcon = "rbxassetid://16336200609"})
+
+local Tab = Window:MakeTab({
+    Name = "Main",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false})
+
+local Section = Tab:AddSection({Name = "How to steal tool"})
+Tab:AddLabel("1. u need above mod rank first")
+Tab:AddLabel("2. type ;gear me 95354288")
+Tab:AddLabel("3. shoot it to tool while they hold it)")
+Tab:AddLabel("4. they will drop tool)")
+Tab:AddLabel("Aim it to their tool (not body))")
+
+Tab:AddToggle({
+    Name = "Wtools Steal",
+    Default = false,
+    Callback = function(Value)
+lol = Value 
+while lol do
+wait(0.1)
+if workspace:FindFirstChild("super cool wrench") then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace["super cool wrench"].Handle.CFrame
+end
+end
+end})
+
+Tab:AddToggle({
+    Name = "Btools Steal",
+    Default = false,
+    Callback = function(Value)
+lol = Value 
+while lol do
+wait(0.1)
+if workspace:FindFirstChild("Building Tools") then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace["Building Tools"].Handle.CFrame
+end
+end
+end})
+
+Tab:AddToggle({
+    Name = "Fork3x Steal",
+    Default = false,
+    Callback = function(Value)
+lol = Value 
+while lol do
+wait(0.1)
+if workspace:FindFirstChild("Fork3X") then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Fork3X.Handle.CFrame
+end
+end
+end})
+
+local Section = Tab:AddSection({Name = "auto touch admin pad"})
+Tab:AddToggle({
+    Name = "Auto Admin original adminobby - green head admin",
+    Default = false,
+    Callback = function(Value)
+lol = Value 
+while lol do
+wait(0.1)
+for _, v in pairs(workspace.adminobby:GetChildren()) do
+    if v.Name == "pad" then
+        local party = game.Players.LocalPlayer.Character.HumanoidRootPart
+firetouchinterest(party, v.admingiver, 0)
+firetouchinterest(party, v.admingiver, 1)
+    end
+end
+end
+end})
+
+Tab:AddToggle({
+    Name = "Auto Admin wrench - auto touch all pads",
+    Default = false,
+    Callback = function(Value)
+lol = Value 
+while lol do
+wait(0.1)
+for _, v in pairs(workspace.WrenchObjs:GetChildren()) do
+    if v.Name == "pad" then
+        local party = game.Players.LocalPlayer.Character.HumanoidRootPart
+firetouchinterest(party, v.admingiver, 0)
+firetouchinterest(party, v.admingiver, 1)
+    end
+end
+end
+end})
+
