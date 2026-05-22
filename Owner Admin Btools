@@ -151,6 +151,12 @@ Tab:AddButton({
 game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 87824870129318 ;volume 10")
 end})
 
+Tab:AddButton({
+ Name = "Golden hour",
+ Callback = function()
+game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 136409279011083 ;volume 10")
+end})
+
 local Tab = Window:MakeTab({
     Name = "Decal",
     Icon = "rbxassetid://4483345998",
