@@ -71,6 +71,7 @@ for _, v in pairs(workspace.adminobby:GetChildren()) do
     if v.Name == "pad" then
         local party = game.Players.LocalPlayer.Character.HumanoidRootPart
 firetouchinterest(party, v.admingiver, 0)
+task.wait()
 firetouchinterest(party, v.admingiver, 1)
     end
 end
@@ -88,6 +89,7 @@ for _, v in pairs(workspace.WrenchObjs:GetChildren()) do
     if v.Name == "pad" then
         local party = game.Players.LocalPlayer.Character.HumanoidRootPart
 firetouchinterest(party, v.admingiver, 0)
+task.wait()
 firetouchinterest(party, v.admingiver, 1)
     end
 end
