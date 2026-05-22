@@ -17,6 +17,12 @@ Tab:AddLabel("Aim it to their tool (not body))")
 
 local Section = Tab:AddSection({Name = "Auto Steal Tools"})
 
+Tab:AddButton({
+ Name = "Gear steal item",
+ Callback = function()
+game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";gear me 95354288")
+end})
+
 Tab:AddToggle({
     Name = "Wtools Steal",
     Default = false,
@@ -108,4 +114,27 @@ Tab:AddButton({
  Name = "infiniteyield",
  Callback = function()
 loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end})
+
+local Tab = Window:MakeTab({
+    Name = "Music",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false})
+
+Tab:AddButton({
+ Name = "Spooky skeleton",
+ Callback = function()
+game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 104181508980428 ;pitch 0.2 ;volume 4")
+end})
+
+Tab:AddButton({
+ Name = "sus music",
+ Callback = function()
+game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 110807176141277 ;volume 10")
+end})
+
+Tab:AddButton({
+ Name = "Giorno theme",
+ Callback = function()
+game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 119844081391856 ;volume 10")
 end})
