@@ -138,3 +138,15 @@ Tab:AddButton({
  Callback = function()
 game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 119844081391856 ;volume 10")
 end})
+
+Tab:AddButton({
+ Name = "Through Patches of Violet",
+ Callback = function()
+game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 77579718926500 ;volume 10")
+end})
+
+Tab:AddButton({
+ Name = "Blend W",
+ Callback = function()
+game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 87824870129318 ;volume 10")
+end})
