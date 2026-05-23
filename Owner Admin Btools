@@ -1415,3 +1415,208 @@ local player = game.Players.LocalPlayer
 		end)
 	end
 end})
+
+local Tab = Window:MakeTab({
+	Name = "Grief",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false})
+
+Tab:AddButton({
+ Name = "Unchor all",
+ Callback = function()
+	local player = game.Players.LocalPlayer
+	local char = player.Character
+	local tool
+	for i,v in player:GetDescendants() do
+		if v.Name == "SyncAPI" then
+			tool = v.Parent
+		end
+	end
+	for i,v in game.ReplicatedStorage:GetDescendants() do
+		if v.Name == "SyncAPI" then
+			tool = v.Parent
+		end
+	end
+	--craaa
+	remote = tool.SyncAPI.ServerEndpoint
+	function _(args)
+		remote:InvokeServer(unpack(args))
+	end
+
+	function SetAnchor(boolean,part)
+		local args = {
+			[1] = "SyncAnchor",
+			[2] = {
+				[1] = {
+					["Part"] = part,
+					["Anchored"] = boolean
+				}
+			}
+		}
+		_(args)
+	end
+
+	function SetLocked(part,boolean)
+		local args = {
+			[1] = "SetLocked",
+			[2] = {
+				[1] = part
+			},
+			[3] = boolean
+		}
+		_(args)
+	end
+
+	function Unanchor()
+		for i,v in game.Workspace:GetDescendants() do
+			spawn(function()
+				SetLocked(v,false)
+				SetAnchor(false,v)
+			end)
+		end
+	end
+	Unanchor()
+end}) 
+
+Tab:AddButton({
+Name = "Crash mesh all",
+Callback = function()
+local player = game.Players.LocalPlayer
+	local char = player.Character
+    local character = workspace:FindFirstChild(player.Name)
+	local tool
+	for i,v in player:GetDescendants() do
+		if v.Name == "SyncAPI" then
+			tool = v.Parent
+		end
+	end
+	for i,v in game.ReplicatedStorage:GetDescendants() do
+		if v.Name == "SyncAPI" then
+			tool = v.Parent
+		end
+	end
+	--craaa
+	remote = tool.SyncAPI.ServerEndpoint
+	function _(args)
+		remote:InvokeServer(unpack(args))
+	end
+
+	function AddMesh(part)
+		local args = {
+			[1] = "CreateMeshes",
+			[2] = {
+				[1] = {
+					["Part"] = part
+				}
+			}
+		}
+		_(args)
+	end
+
+   	function SetMesh(part,meshid)
+		local args = {
+			[1] = "SyncMesh",
+			[2] = {
+				[1] = {
+					["Part"] = part,
+					["MeshId"] = "rbxassetid://"..meshid
+				}
+			}
+		}
+		_(args)
+	end
+
+    	function MeshResize(part,size)
+		local args = {
+			[1] = "SyncMesh",
+			[2] = {
+				[1] = {
+					["Part"] = part,
+					["Scale"] = size
+				}
+			}
+		}
+		_(args)
+	end
+
+	function crash()
+		for i,v in game.workspace:GetDescendants() do
+			if v:IsA("BasePart") then
+            spawn(function()
+            AddMesh(v)
+            SetMesh(v,12902786354)
+            MeshResize(v,Vector3.new(5,5,5))
+            task.wait(0.1)
+            local player = game.Players.LocalPlayer
+            local character = player.Character or player.CharacterAdded:Wait()
+
+            local humanoid = character:WaitForChild("Humanoid")
+            SetMesh(humanoid,1)
+
+end)
+end
+end
+end
+crash()
+end})
+
+Tab:AddButton({
+Name = "Uncrash mesh all",
+Callback = function()
+local player = game.Players.LocalPlayer
+	local char = player.Character
+    local character = workspace:FindFirstChild(player.Name)
+	local tool
+	for i,v in player:GetDescendants() do
+		if v.Name == "SyncAPI" then
+			tool = v.Parent
+		end
+	end
+	for i,v in game.ReplicatedStorage:GetDescendants() do
+		if v.Name == "SyncAPI" then
+			tool = v.Parent
+		end
+	end
+	--craaa
+	remote = tool.SyncAPI.ServerEndpoint
+	function _(args)
+		remote:InvokeServer(unpack(args))
+	end
+
+	function AddMesh(part)
+		local args = {
+			[1] = "CreateMeshes",
+			[2] = {
+				[1] = {
+					["Part"] = part
+				}
+			}
+		}
+		_(args)
+	end
+
+   	function SetMesh(part,meshid)
+		local args = {
+			[1] = "SyncMesh",
+			[2] = {
+				[1] = {
+					["Part"] = part,
+					["MeshId"] = "rbxassetid://"..meshid
+				}
+			}
+		}
+		_(args)
+	end
+
+	function crash()
+		for i,v in game.workspace:GetDescendants() do
+			if v:IsA("BasePart") then
+            spawn(function()
+            AddMesh(v)
+            SetMesh(v,1)
+end)
+end
+end
+end
+crash()
+end})
