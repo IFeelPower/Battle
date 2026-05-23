@@ -982,22 +982,7 @@ local player = game.Players.LocalPlayer
 			[4] = workspace}
 		_(args)
 	end
-	function DestroyPart(part)
-		local args = {
-			[1] = "Remove",
-			[2] = {
-				[1] = workspace.Part}}
-		_(args)
-	end
-	function MovePart(part,cf)
-		local args = {
-			[1] = "SyncMove",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["CFrame"] = cf}}}
-		_(args)
-	end
+
 	function Resize(part,size,cf)
 		local args = {
 			[1] = "SyncResize",
@@ -1129,22 +1114,7 @@ local player = game.Players.LocalPlayer
 			[4] = workspace}
 		_(args)
 	end
-	function DestroyPart(part)
-		local args = {
-			[1] = "Remove",
-			[2] = {
-				[1] = workspace.Part}}
-		_(args)
-	end
-	function MovePart(part,cf)
-		local args = {
-			[1] = "SyncMove",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["CFrame"] = cf}}}
-		_(args)
-	end
+
 	function Resize(part,size,cf)
 		local args = {
 			[1] = "SyncResize",
