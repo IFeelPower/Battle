@@ -74,7 +74,7 @@ lol = Value
 while lol do
 wait(0.1)
 for _, v in pairs(workspace.adminobby:GetChildren()) do
-    if v.Name == "pad" then
+    if v.Name == "pad" and v:FindFirstChild("admingiver") then
         local party = game.Players.LocalPlayer.Character.HumanoidRootPart
 firetouchinterest(party, v.admingiver, 0)
 task.wait()
@@ -92,7 +92,7 @@ lol = Value
 while lol do
 wait(0.1)
 for _, v in pairs(workspace.WrenchObjs:GetChildren()) do
-    if v.Name == "pad" then
+    if v.Name == "pad" and v:FindFirstChild("admingiver") then
         local party = game.Players.LocalPlayer.Character.HumanoidRootPart
 firetouchinterest(party, v.admingiver, 0)
 task.wait()
@@ -105,9 +105,9 @@ end})
 local Section = Tab:AddSection({Name = "u need btools in inventory but dont hold"})
 
 Tab:AddButton({
- Name = "f3x btools c00lkid script",
+ Name = "jerk off",
  Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/IFeelPower/Battle/refs/heads/main/c00lkid"))()
+loadstring(game:HttpGet("https://pastefy.app/wa3v2Vgm/raw"))("Spider Script")
 end})
 
 Tab:AddButton({
