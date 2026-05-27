@@ -114,6 +114,78 @@ Tab:AddButton({
 game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";gear me 82357101")
 end})
 
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+local SelectedPlayer = nil
+
+local function GetPlayerList()
+    local list = {}
+
+    for _, plr in ipairs(Players:GetPlayers()) do
+        if plr ~= LocalPlayer then
+            table.insert(list, plr.Name)
+        end
+    end
+
+    return list
+end
+
+local Dropdown = Tab:AddDropdown({
+    Name = "Target Player",
+    Default = "",
+    Options = GetPlayerList(),
+    Callback = function(Value)
+        SelectedPlayer = Value
+    end
+})
+
+Players.PlayerAdded:Connect(function()
+    Dropdown:Refresh(GetPlayerList(), true)
+end)
+
+Players.PlayerRemoving:Connect(function()
+    Dropdown:Refresh(GetPlayerList(), true)
+end)
+
+Tab:AddButton({
+    Name = "Auto Portacell",
+    Callback = function()
+        if not SelectedPlayer then
+            OrionLib:MakeNotification({
+                Name = "Error",
+                Content = "Select Player",
+                Time = 3
+            })
+            return
+        end
+
+        local Target = Players:FindFirstChild(SelectedPlayer)
+
+        if Target and Target.Character and Target.Character:FindFirstChild("HumanoidRootPart") then
+            local MyCharacter = LocalPlayer.Character
+            local MyHRP = MyCharacter and MyCharacter:FindFirstChild("HumanoidRootPart")
+
+            if MyHRP then
+
+                MyHRP.CFrame = Target.Character.HumanoidRootPart.CFrame + Vector3.new(2,0,0)
+
+                task.wait(0.3)
+
+                local args = {
+                    Target.Character
+                }
+
+                LocalPlayer
+                    :WaitForChild("Backpack")
+                    :WaitForChild("PortableJustice")
+                    :WaitForChild("MouseClick")
+                    :FireServer(unpack(args))
+            end
+        end
+    end
+})
+
 local StarterGui = game:GetService("StarterGui")
 
 Tab:AddButton({
@@ -1664,6 +1736,103 @@ Tab:AddSlider({
 game.Players.LocalPlayer.Character.Humanoid.JumpPower = v
 end})
 
+local flying = false
+local flySpeed = 50
+
+local player = game.Players.LocalPlayer
+local UIS = game:GetService("UserInputService")
+local RunService = game:GetService("RunService")
+
+local bodyVelocity
+local bodyGyro
+
+local function startFly()
+    local character = player.Character or player.CharacterAdded:Wait()
+    local hrp = character:WaitForChild("HumanoidRootPart")
+
+    bodyVelocity = Instance.new("BodyVelocity")
+    bodyVelocity.MaxForce = Vector3.new(9e9, 9e9, 9e9)
+    bodyVelocity.Velocity = Vector3.zero
+    bodyVelocity.Parent = hrp
+
+    bodyGyro = Instance.new("BodyGyro")
+    bodyGyro.MaxTorque = Vector3.new(9e9, 9e9, 9e9)
+    bodyGyro.CFrame = hrp.CFrame
+    bodyGyro.Parent = hrp
+
+    RunService.RenderStepped:Connect(function()
+        if flying and character and hrp then
+            local cam = workspace.CurrentCamera
+            local moveDir = Vector3.zero
+
+            if UIS:IsKeyDown(Enum.KeyCode.W) then
+                moveDir += cam.CFrame.LookVector
+            end
+            if UIS:IsKeyDown(Enum.KeyCode.S) then
+                moveDir -= cam.CFrame.LookVector
+            end
+            if UIS:IsKeyDown(Enum.KeyCode.A) then
+                moveDir -= cam.CFrame.RightVector
+            end
+            if UIS:IsKeyDown(Enum.KeyCode.D) then
+                moveDir += cam.CFrame.RightVector
+            end
+            if UIS:IsKeyDown(Enum.KeyCode.Space) then
+                moveDir += Vector3.new(0,1,0)
+            end
+            if UIS:IsKeyDown(Enum.KeyCode.LeftControl) then
+                moveDir -= Vector3.new(0,1,0)
+            end
+
+            bodyVelocity.Velocity = moveDir.Unit * flySpeed
+            if moveDir.Magnitude == 0 then
+                bodyVelocity.Velocity = Vector3.zero
+            end
+
+            bodyGyro.CFrame = cam.CFrame
+        end
+    end)
+end
+
+local function stopFly()
+    if bodyVelocity then
+        bodyVelocity:Destroy()
+        bodyVelocity = nil
+    end
+
+    if bodyGyro then
+        bodyGyro:Destroy()
+        bodyGyro = nil
+    end
+end
+
+Tab:AddToggle({
+    Name = "Fly",
+    Default = false,
+    Callback = function(Value)
+        flying = Value
+
+        if flying then
+            startFly()
+        else
+            stopFly()
+        end
+    end
+})
+
+Tab:AddSlider({
+    Name = "Fly Speed",
+    Min = 10,
+    Max = 500,
+    Default = 50,
+    Color = Color3.fromRGB(255,255,255),
+    Increment = 1,
+    ValueName = "Speed",
+    Callback = function(Value)
+        flySpeed = Value
+    end
+})
+
 local Tab = Window:MakeTab({
 	Name = "Command",
 	Icon = "rbxassetid://4483345998",
@@ -3103,62 +3272,90 @@ crash()
 end})
 
 Tab:AddButton({
-Name = "Uncrash mesh all",
-Callback = function()
-local player = game.Players.LocalPlayer
-	local char = player.Character
-    local character = workspace:FindFirstChild(player.Name)
-	local tool
-	for i,v in player:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	for i,v in game.ReplicatedStorage:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	--craaa
-	remote = tool.SyncAPI.ServerEndpoint
-	function _(args)
-		remote:InvokeServer(unpack(args))
-	end
+    Name = "Restore All Meshes",
+    Callback = function()
 
-	function AddMesh(part)
-		local args = {
-			[1] = "CreateMeshes",
-			[2] = {
-				[1] = {
-					["Part"] = part
-				}
-			}
-		}
-		_(args)
-	end
+        local player = game.Players.LocalPlayer
+        local tool
 
-   	function SetMesh(part,meshid)
-		local args = {
-			[1] = "SyncMesh",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["MeshId"] = "rbxassetid://"..meshid
-				}
-			}
-		}
-		_(args)
-	end
+        for _, v in pairs(player:GetDescendants()) do
+            if v.Name == "SyncAPI" then
+                tool = v.Parent
+            end
+        end
 
-	function crash()
-		for i,v in game.workspace:GetDescendants() do
-			if v:IsA("BasePart") then
-            spawn(function()
-            AddMesh(v)
-            SetMesh(v,1)
-end)
-end
-end
-end
-crash()
-end})
+        for _, v in pairs(game.ReplicatedStorage:GetDescendants()) do
+            if v.Name == "SyncAPI" then
+                tool = v.Parent
+            end
+        end
+
+        if not tool then
+            OrionLib:MakeNotification({
+                Name = "Error",
+                Content = "you need btools bro",
+                Time = 3
+            })
+            return
+        end
+
+        local remote = tool.SyncAPI.ServerEndpoint
+
+        local function Invoke(args)
+            remote:InvokeServer(unpack(args))
+        end
+
+        local function RemoveMesh(part)
+
+            for _, mesh in pairs(part:GetChildren()) do
+                if mesh:IsA("SpecialMesh") then
+
+                    local args = {
+                        [1] = "Remove",
+                        [2] = {
+                            [1] = mesh
+                        }
+                    }
+
+                    Invoke(args)
+                end
+            end
+
+            if part:IsA("MeshPart") then
+
+                local args = {
+                    [1] = "SyncMesh",
+                    [2] = {
+                        [1] = {
+                            ["Part"] = part,
+                            ["MeshId"] = ""
+                        }
+                    }
+                }
+
+                Invoke(args)
+            end
+        end
+
+        local count = 0
+
+        for _, v in pairs(workspace:GetDescendants()) do
+            if v:IsA("BasePart") then
+                spawn(function()
+                    pcall(function()
+                        RemoveMesh(v)
+                    end)
+                end)
+
+                count += 1
+            end
+        end
+
+        OrionLib:MakeNotification({
+            Name = "F3X",
+            Content = "Meshes Restored : "..count,
+            Time = 5
+        })
+
+    end
+})
