@@ -114,6 +114,8 @@ Tab:AddButton({
 game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";gear me 82357101")
 end})
 
+local Section = Tab:AddSection({Name = "Tips: use invisible command before jail player"})
+
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 
