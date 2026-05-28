@@ -3431,6 +3431,39 @@ Tab:AddButton({
 
 local targetMeshId = "12902786354"
 local enabled = false
+local descendantConnection
+local changedConnections = {}
+
+
+local function tryDestroyMesh(mesh)
+    if not enabled then return end
+    if mesh:IsA("MeshPart") or mesh:IsA("SpecialMesh") then
+        local meshId = tostring(mesh.MeshId or "")
+        if meshId:find(targetMeshId) then
+
+            if changedConnections[mesh] then
+                changedConnections[mesh]:Disconnect()
+                changedConnections[mesh] = nil
+            end
+            mesh:Destroy()
+        end
+    end
+end
+
+local function onDescendantAdded(v)
+    if not enabled then return end
+
+    if v:IsA("MeshPart") or v:IsA("SpecialMesh") then
+
+        tryDestroyMesh(v)
+
+        local conn
+        conn = v:GetPropertyChangedSignal("MeshId"):Connect(function()
+            tryDestroyMesh(v)
+        end)
+        changedConnections[v] = conn
+    end
+end
 
 Tab:AddToggle({
     Name = "Anti Crash Mesh",
@@ -3438,29 +3471,34 @@ Tab:AddToggle({
     Callback = function(Value)
         enabled = Value
 
-        while enabled do
-            for _, v in pairs(workspace:GetDescendants()) do
-                -- MeshPart の場合
-                if v:IsA("MeshPart") then
-                    if tostring(v.MeshId):find(targetMeshId) then
-                        v:Destroy()
-                    end
-                end
+        if enabled then
 
-                -- SpecialMesh の場合
-                if v:IsA("SpecialMesh") then
-                    if tostring(v.MeshId):find(targetMeshId) then
-                        v:Destroy()
-                    end
-                end
+            for _, v in ipairs(workspace:GetDescendants()) do
+                onDescendantAdded(v)
             end
 
-            task.wait(1)
+            if descendantConnection then
+                descendantConnection:Disconnect()
+            end
+            descendantConnection = workspace.DescendantAdded:Connect(onDescendantAdded)
+        else
+
+            if descendantConnection then
+                descendantConnection:Disconnect()
+                descendantConnection = nil
+            end
+
+            for mesh, conn in pairs(changedConnections) do
+                if conn then
+                    conn:Disconnect()
+                end
+            end
+            changedConnections = {}
         end
     end
 })
 
----- ignore ----
+
 while true do
     local found = false
 
