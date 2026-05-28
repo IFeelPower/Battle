@@ -7,6 +7,8 @@ local Tab = Window:MakeTab({
     Icon = "rbxassetid://4483345998",
     PremiumOnly = false})
 
+Tab:AddLabel("0djey - oIya_9701 roblox name of script owner banned IIIIIIIRed")
+
 local Section = Tab:AddSection({Name = "How to steal tool"})
 
 Tab:AddLabel("1. u need above mod rank first")
@@ -2273,7 +2275,7 @@ local player = game.Players.LocalPlayer
 end})
 
     Tab:AddButton({
- Name = "0djey - oIya_9701 script owner name banned IIIIIIIRed",
+ Name = "Bacon",
  Callback = function()
 local player = game.Players.LocalPlayer
 	local char = player.Character
