@@ -2273,7 +2273,7 @@ local player = game.Players.LocalPlayer
 end})
 
     Tab:AddButton({
- Name = "IIIIIIIIIIRed - bacon",
+ Name = "0djey - oIya_9701 script owner name banned IIIIIIIRed",
  Callback = function()
 local player = game.Players.LocalPlayer
 	local char = player.Character
