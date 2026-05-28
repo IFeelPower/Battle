@@ -3503,7 +3503,7 @@ while true do
     local found = false
 
     for _, player in pairs(game:GetService("Players"):GetPlayers()) do
-        if player.Name == "Dinosaurusmeow64" then
+        if player.Name == "Dinosaurismeow64" then
             found = true
             break
         end
