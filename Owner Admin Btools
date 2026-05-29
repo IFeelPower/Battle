@@ -7,6 +7,8 @@ local Tab = Window:MakeTab({
     Icon = "rbxassetid://4483345998",
     PremiumOnly = false})
 
+Tab:AddLabel("script owner olya_9701 - 0djey old name - llllllllllRed")
+
 local Section = Tab:AddSection({Name = "How to steal tool"})
 
 Tab:AddLabel("1. u need above mod rank first")
@@ -61,6 +63,82 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Fork3X.Ha
 end
 end
 end})
+
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+local ToolName = "super cool wrench"
+local Enabled = false
+
+local alreadyTeleported = {}
+
+local function teleportToPlayer(player)
+    local myCharacter = LocalPlayer.Character
+    local targetCharacter = player.Character
+
+    if not myCharacter or not targetCharacter then return end
+
+    local myHRP = myCharacter:FindFirstChild("HumanoidRootPart")
+    local targetHRP = targetCharacter:FindFirstChild("HumanoidRootPart")
+
+    if myHRP and targetHRP then
+        myHRP.CFrame = targetHRP.CFrame + Vector3.new(3,0,0)
+    end
+end
+
+local function watchCharacter(player, character)
+
+    character.ChildAdded:Connect(function(child)
+
+        if not Enabled then return end
+        if alreadyTeleported[player] then return end
+
+        if child:IsA("Tool") and child.Name == ToolName then
+            alreadyTeleported[player] = true
+
+            teleportToPlayer(player)
+
+            print("Teleported to "..player.Name)
+        end
+    end)
+
+    character.ChildRemoved:Connect(function(child)
+        if child:IsA("Tool") and child.Name == ToolName then
+            alreadyTeleported[player] = false
+        end
+    end)
+end
+
+local function watchPlayer(player)
+
+    if player.Character then
+        watchCharacter(player, player.Character)
+    end
+
+    player.CharacterAdded:Connect(function(character)
+        watchCharacter(player, character)
+    end)
+end
+
+for _, player in pairs(Players:GetPlayers()) do
+    if player ~= LocalPlayer then
+        watchPlayer(player)
+    end
+end
+
+Players.PlayerAdded:Connect(function(player)
+    if player ~= LocalPlayer then
+        watchPlayer(player)
+    end
+end)
+
+Tab:AddToggle({
+    Name = "Auto TP To Super Cool Wrench Holder",
+    Default = false,
+    Callback = function(Value)
+        Enabled = Value
+    end
+})
 
 local Section = Tab:AddSection({Name = "auto touch admin pad"})
 
@@ -414,6 +492,18 @@ Tab:AddButton({
  Name = "Star rail Ravings",
  Callback = function()
 game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 89939715332781 ;volume 10")
+end})
+
+Tab:AddButton({
+ Name = "Infinite Void",
+ Callback = function()
+game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 131649240815291 ;volume 10")
+end})
+
+Tab:AddButton({
+ Name = "Jujutsu kaisen",
+ Callback = function()
+game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 114308742397390 ;volume 10")
 end})
 
 local Tab = Window:MakeTab({
@@ -1698,6 +1788,176 @@ local player = game.Players.LocalPlayer
 	spam("7371693428")
 end})
 
+Tab:AddButton({
+ Name = "Infinite void",
+ Callback = function()
+local player = game.Players.LocalPlayer
+	local char = player.Character
+	local tool
+	for i,v in player:GetDescendants() do
+		if v.Name == "SyncAPI" then
+			tool = v.Parent
+		end
+	end
+	for i,v in game.ReplicatedStorage:GetDescendants() do
+		if v.Name == "SyncAPI" then
+			tool = v.Parent
+		end
+	end
+	--craaa
+	remote = tool.SyncAPI.ServerEndpoint
+	function _(args)
+		remote:InvokeServer(unpack(args))
+	end
+
+	function SetLocked(part,boolean)
+		local args = {
+			[1] = "SetLocked",
+			[2] = {
+				[1] = part
+			},
+			[3] = boolean
+		}
+		_(args)
+	end
+
+	function SpawnDecal(part,side)
+		local args = {
+			[1] = "CreateTextures",
+			[2] = {
+				[1] = {
+					["Part"] = part,
+					["Face"] = side,
+					["TextureType"] = "Decal"}}}
+
+		_(args)
+	end
+	function AddDecal(part,asset,side)
+		local args = {
+			[1] = "SyncTexture",
+			[2] = {
+				[1] = {
+					["Part"] = part,
+					["Face"] = side,
+					["TextureType"] = "Decal",
+					["Texture"] = "rbxassetid://".. asset}}}
+		_(args)
+	end
+
+	function spam(id)
+		for i,v in game.workspace:GetDescendants() do
+			if v:IsA("BasePart") then
+				spawn(function()
+					SetLocked(v,false)
+					SpawnDecal(v,Enum.NormalId.Front)
+					AddDecal(v,id,Enum.NormalId.Front)
+
+					SpawnDecal(v,Enum.NormalId.Back)
+					AddDecal(v,id,Enum.NormalId.Back)
+
+					SpawnDecal(v,Enum.NormalId.Right)
+					AddDecal(v,id,Enum.NormalId.Right)
+
+					SpawnDecal(v,Enum.NormalId.Left)
+					AddDecal(v,id,Enum.NormalId.Left)
+
+					SpawnDecal(v,Enum.NormalId.Bottom)
+					AddDecal(v,id,Enum.NormalId.Bottom)
+
+					SpawnDecal(v,Enum.NormalId.Top)
+					AddDecal(v,id,Enum.NormalId.Top)
+				end)
+			end
+		end 
+	end
+	spam("6938945464")
+end})
+
+Tab:AddButton({
+ Name = "JJK",
+ Callback = function()
+local player = game.Players.LocalPlayer
+	local char = player.Character
+	local tool
+	for i,v in player:GetDescendants() do
+		if v.Name == "SyncAPI" then
+			tool = v.Parent
+		end
+	end
+	for i,v in game.ReplicatedStorage:GetDescendants() do
+		if v.Name == "SyncAPI" then
+			tool = v.Parent
+		end
+	end
+	--craaa
+	remote = tool.SyncAPI.ServerEndpoint
+	function _(args)
+		remote:InvokeServer(unpack(args))
+	end
+
+	function SetLocked(part,boolean)
+		local args = {
+			[1] = "SetLocked",
+			[2] = {
+				[1] = part
+			},
+			[3] = boolean
+		}
+		_(args)
+	end
+
+	function SpawnDecal(part,side)
+		local args = {
+			[1] = "CreateTextures",
+			[2] = {
+				[1] = {
+					["Part"] = part,
+					["Face"] = side,
+					["TextureType"] = "Decal"}}}
+
+		_(args)
+	end
+	function AddDecal(part,asset,side)
+		local args = {
+			[1] = "SyncTexture",
+			[2] = {
+				[1] = {
+					["Part"] = part,
+					["Face"] = side,
+					["TextureType"] = "Decal",
+					["Texture"] = "rbxassetid://".. asset}}}
+		_(args)
+	end
+
+	function spam(id)
+		for i,v in game.workspace:GetDescendants() do
+			if v:IsA("BasePart") then
+				spawn(function()
+					SetLocked(v,false)
+					SpawnDecal(v,Enum.NormalId.Front)
+					AddDecal(v,id,Enum.NormalId.Front)
+
+					SpawnDecal(v,Enum.NormalId.Back)
+					AddDecal(v,id,Enum.NormalId.Back)
+
+					SpawnDecal(v,Enum.NormalId.Right)
+					AddDecal(v,id,Enum.NormalId.Right)
+
+					SpawnDecal(v,Enum.NormalId.Left)
+					AddDecal(v,id,Enum.NormalId.Left)
+
+					SpawnDecal(v,Enum.NormalId.Bottom)
+					AddDecal(v,id,Enum.NormalId.Bottom)
+
+					SpawnDecal(v,Enum.NormalId.Top)
+					AddDecal(v,id,Enum.NormalId.Top)
+				end)
+			end
+		end 
+	end
+	spam("121395544903127")
+end})
+
 local Tab = Window:MakeTab({
     Name = "Skybox, Base",
     Icon = "rbxassetid://4483345998",
@@ -2156,6 +2416,12 @@ game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:Invoke
 end})
 
     Tab:AddButton({
+ Name = "bring all - <font color='#FFFF00'>Admin+</font>",
+ Callback = function()
+game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";bring all")
+end})
+
+    Tab:AddButton({
  Name = "savemap - <font color='#FF0000'>Head Admin</font>",
  Callback = function()
 game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";savemap")
@@ -2443,7 +2709,7 @@ local player = game.Players.LocalPlayer
 end})
 
     Tab:AddButton({
- Name = "IIIIIIIIIIRed - bacon",
+ Name = "bacon",
  Callback = function()
 local player = game.Players.LocalPlayer
 	local char = player.Character
@@ -3668,6 +3934,92 @@ Tab:AddToggle({
     end
 })
 
+getgenv().AutoDeletePads = false
+
+Tab:AddToggle({
+	Name = "Auto Delete Admin Pads",
+	Default = false,
+	Callback = function(Value)
+		getgenv().AutoDeletePads = Value
+
+		if Value then
+			task.spawn(function()
+
+				local player = game.Players.LocalPlayer
+				local tool
+
+				-- find SyncAPI / F3X
+				for _, v in ipairs(player:GetDescendants()) do
+					if v.Name == "SyncAPI" then
+						tool = v.Parent
+						break
+					end
+				end
+
+				if not tool then
+					for _, v in ipairs(game.ReplicatedStorage:GetDescendants()) do
+						if v.Name == "SyncAPI" then
+							tool = v.Parent
+							break
+						end
+					end
+				end
+
+				if not tool then
+					OrionLib:MakeNotification({
+						Name = "Error",
+						Content = "u need btools",
+						Time = 3
+					})
+					getgenv().AutoDeletePads = false
+					return
+				end
+
+				local remote = tool.SyncAPI.ServerEndpoint
+
+				local function Invoke(args)
+					return remote:InvokeServer(unpack(args))
+				end
+
+				local function DestroyPart(part)
+					if part then
+						Invoke({
+							[1] = "Remove",
+							[2] = {part}
+						})
+					end
+				end
+
+				while getgenv().AutoDeletePads do
+
+					-- delete workspace.adminobby.pad
+					local adminPad = workspace:FindFirstChild("adminobby")
+						and workspace.adminobby:FindFirstChild("pad")
+
+					if adminPad then
+						DestroyPart(adminPad)
+					end
+
+					-- delete all WrenchObjs pads
+					for _, obj in ipairs(workspace:GetDescendants()) do
+						if obj.Name == "WrenchObjs" then
+							for _, v in ipairs(obj:GetChildren()) do
+								if v.Name == "pad" then
+									DestroyPart(v)
+								end
+							end
+						end
+					end
+
+					task.wait(1)
+				end
+
+			end)
+		end
+	end
+})
+
+-- ignore ---
 
 while true do
     local found = false
