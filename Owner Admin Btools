@@ -340,7 +340,13 @@ local Section = Tab:AddSection({Name = "u need Admin+"})
 Tab:AddButton({
  Name = "Spooky skeleton",
  Callback = function()
-game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 104181508980428 ;pitch 0.2 ;volume 4")
+game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 104181508980428 ;pitch 0.2 ;volume 10")
+end})
+
+Tab:AddButton({
+ Name = "Spooky skeleton 2",
+ Callback = function()
+game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 100828050594137 ;volume 10")
 end})
 
 Tab:AddButton({
@@ -504,6 +510,48 @@ Tab:AddButton({
  Name = "Jujutsu kaisen",
  Callback = function()
 game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 114308742397390 ;volume 10")
+end})
+
+Tab:AddButton({
+ Name = "Jujutsu kaisen Todo",
+ Callback = function()
+game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 103838195310017 ;volume 10")
+end})
+
+Tab:AddButton({
+ Name = "Obunga rap",
+ Callback = function()
+game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 5216738441 ;volume 10")
+end})
+
+Tab:AddButton({
+ Name = "this is halloween Japan ver",
+ Callback = function()
+game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 137172267069591 ;volume 10")
+end})
+
+Tab:AddButton({
+ Name = "Horror Movie",
+ Callback = function()
+game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 72504072770543 ;volume 10")
+end})
+
+Tab:AddButton({
+ Name = "Toma Toma",
+ Callback = function()
+game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 89180400948567 ;volume 10")
+end})
+
+Tab:AddButton({
+ Name = "KJ",
+ Callback = function()
+game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 96096795516863 ;volume 10")
+end})
+
+Tab:AddButton({
+ Name = "idk",
+ Callback = function()
+game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 9041745502 ;volume 10")
 end})
 
 local Tab = Window:MakeTab({
@@ -1958,6 +2006,431 @@ local player = game.Players.LocalPlayer
 	spam("121395544903127")
 end})
 
+Tab:AddButton({
+ Name = "JJK Todo",
+ Callback = function()
+local player = game.Players.LocalPlayer
+	local char = player.Character
+	local tool
+	for i,v in player:GetDescendants() do
+		if v.Name == "SyncAPI" then
+			tool = v.Parent
+		end
+	end
+	for i,v in game.ReplicatedStorage:GetDescendants() do
+		if v.Name == "SyncAPI" then
+			tool = v.Parent
+		end
+	end
+	--craaa
+	remote = tool.SyncAPI.ServerEndpoint
+	function _(args)
+		remote:InvokeServer(unpack(args))
+	end
+
+	function SetLocked(part,boolean)
+		local args = {
+			[1] = "SetLocked",
+			[2] = {
+				[1] = part
+			},
+			[3] = boolean
+		}
+		_(args)
+	end
+
+	function SpawnDecal(part,side)
+		local args = {
+			[1] = "CreateTextures",
+			[2] = {
+				[1] = {
+					["Part"] = part,
+					["Face"] = side,
+					["TextureType"] = "Decal"}}}
+
+		_(args)
+	end
+	function AddDecal(part,asset,side)
+		local args = {
+			[1] = "SyncTexture",
+			[2] = {
+				[1] = {
+					["Part"] = part,
+					["Face"] = side,
+					["TextureType"] = "Decal",
+					["Texture"] = "rbxassetid://".. asset}}}
+		_(args)
+	end
+
+	function spam(id)
+		for i,v in game.workspace:GetDescendants() do
+			if v:IsA("BasePart") then
+				spawn(function()
+					SetLocked(v,false)
+					SpawnDecal(v,Enum.NormalId.Front)
+					AddDecal(v,id,Enum.NormalId.Front)
+
+					SpawnDecal(v,Enum.NormalId.Back)
+					AddDecal(v,id,Enum.NormalId.Back)
+
+					SpawnDecal(v,Enum.NormalId.Right)
+					AddDecal(v,id,Enum.NormalId.Right)
+
+					SpawnDecal(v,Enum.NormalId.Left)
+					AddDecal(v,id,Enum.NormalId.Left)
+
+					SpawnDecal(v,Enum.NormalId.Bottom)
+					AddDecal(v,id,Enum.NormalId.Bottom)
+
+					SpawnDecal(v,Enum.NormalId.Top)
+					AddDecal(v,id,Enum.NormalId.Top)
+				end)
+			end
+		end 
+	end
+	spam("91504556474159")
+end})
+
+Tab:AddButton({
+ Name = "Obama",
+ Callback = function()
+local player = game.Players.LocalPlayer
+	local char = player.Character
+	local tool
+	for i,v in player:GetDescendants() do
+		if v.Name == "SyncAPI" then
+			tool = v.Parent
+		end
+	end
+	for i,v in game.ReplicatedStorage:GetDescendants() do
+		if v.Name == "SyncAPI" then
+			tool = v.Parent
+		end
+	end
+	--craaa
+	remote = tool.SyncAPI.ServerEndpoint
+	function _(args)
+		remote:InvokeServer(unpack(args))
+	end
+
+	function SetLocked(part,boolean)
+		local args = {
+			[1] = "SetLocked",
+			[2] = {
+				[1] = part
+			},
+			[3] = boolean
+		}
+		_(args)
+	end
+
+	function SpawnDecal(part,side)
+		local args = {
+			[1] = "CreateTextures",
+			[2] = {
+				[1] = {
+					["Part"] = part,
+					["Face"] = side,
+					["TextureType"] = "Decal"}}}
+
+		_(args)
+	end
+	function AddDecal(part,asset,side)
+		local args = {
+			[1] = "SyncTexture",
+			[2] = {
+				[1] = {
+					["Part"] = part,
+					["Face"] = side,
+					["TextureType"] = "Decal",
+					["Texture"] = "rbxassetid://".. asset}}}
+		_(args)
+	end
+
+	function spam(id)
+		for i,v in game.workspace:GetDescendants() do
+			if v:IsA("BasePart") then
+				spawn(function()
+					SetLocked(v,false)
+					SpawnDecal(v,Enum.NormalId.Front)
+					AddDecal(v,id,Enum.NormalId.Front)
+
+					SpawnDecal(v,Enum.NormalId.Back)
+					AddDecal(v,id,Enum.NormalId.Back)
+
+					SpawnDecal(v,Enum.NormalId.Right)
+					AddDecal(v,id,Enum.NormalId.Right)
+
+					SpawnDecal(v,Enum.NormalId.Left)
+					AddDecal(v,id,Enum.NormalId.Left)
+
+					SpawnDecal(v,Enum.NormalId.Bottom)
+					AddDecal(v,id,Enum.NormalId.Bottom)
+
+					SpawnDecal(v,Enum.NormalId.Top)
+					AddDecal(v,id,Enum.NormalId.Top)
+				end)
+			end
+		end 
+	end
+	spam("3137451504")
+end})
+
+Tab:AddButton({
+ Name = "Obunga",
+ Callback = function()
+local player = game.Players.LocalPlayer
+	local char = player.Character
+	local tool
+	for i,v in player:GetDescendants() do
+		if v.Name == "SyncAPI" then
+			tool = v.Parent
+		end
+	end
+	for i,v in game.ReplicatedStorage:GetDescendants() do
+		if v.Name == "SyncAPI" then
+			tool = v.Parent
+		end
+	end
+	--craaa
+	remote = tool.SyncAPI.ServerEndpoint
+	function _(args)
+		remote:InvokeServer(unpack(args))
+	end
+
+	function SetLocked(part,boolean)
+		local args = {
+			[1] = "SetLocked",
+			[2] = {
+				[1] = part
+			},
+			[3] = boolean
+		}
+		_(args)
+	end
+
+	function SpawnDecal(part,side)
+		local args = {
+			[1] = "CreateTextures",
+			[2] = {
+				[1] = {
+					["Part"] = part,
+					["Face"] = side,
+					["TextureType"] = "Decal"}}}
+
+		_(args)
+	end
+	function AddDecal(part,asset,side)
+		local args = {
+			[1] = "SyncTexture",
+			[2] = {
+				[1] = {
+					["Part"] = part,
+					["Face"] = side,
+					["TextureType"] = "Decal",
+					["Texture"] = "rbxassetid://".. asset}}}
+		_(args)
+	end
+
+	function spam(id)
+		for i,v in game.workspace:GetDescendants() do
+			if v:IsA("BasePart") then
+				spawn(function()
+					SetLocked(v,false)
+					SpawnDecal(v,Enum.NormalId.Front)
+					AddDecal(v,id,Enum.NormalId.Front)
+
+					SpawnDecal(v,Enum.NormalId.Back)
+					AddDecal(v,id,Enum.NormalId.Back)
+
+					SpawnDecal(v,Enum.NormalId.Right)
+					AddDecal(v,id,Enum.NormalId.Right)
+
+					SpawnDecal(v,Enum.NormalId.Left)
+					AddDecal(v,id,Enum.NormalId.Left)
+
+					SpawnDecal(v,Enum.NormalId.Bottom)
+					AddDecal(v,id,Enum.NormalId.Bottom)
+
+					SpawnDecal(v,Enum.NormalId.Top)
+					AddDecal(v,id,Enum.NormalId.Top)
+				end)
+			end
+		end 
+	end
+	spam("2563374622")
+end})
+
+Tab:AddButton({
+ Name = "steak with popcorn butter?",
+ Callback = function()
+local player = game.Players.LocalPlayer
+	local char = player.Character
+	local tool
+	for i,v in player:GetDescendants() do
+		if v.Name == "SyncAPI" then
+			tool = v.Parent
+		end
+	end
+	for i,v in game.ReplicatedStorage:GetDescendants() do
+		if v.Name == "SyncAPI" then
+			tool = v.Parent
+		end
+	end
+	--craaa
+	remote = tool.SyncAPI.ServerEndpoint
+	function _(args)
+		remote:InvokeServer(unpack(args))
+	end
+
+	function SetLocked(part,boolean)
+		local args = {
+			[1] = "SetLocked",
+			[2] = {
+				[1] = part
+			},
+			[3] = boolean
+		}
+		_(args)
+	end
+
+	function SpawnDecal(part,side)
+		local args = {
+			[1] = "CreateTextures",
+			[2] = {
+				[1] = {
+					["Part"] = part,
+					["Face"] = side,
+					["TextureType"] = "Decal"}}}
+
+		_(args)
+	end
+	function AddDecal(part,asset,side)
+		local args = {
+			[1] = "SyncTexture",
+			[2] = {
+				[1] = {
+					["Part"] = part,
+					["Face"] = side,
+					["TextureType"] = "Decal",
+					["Texture"] = "rbxassetid://".. asset}}}
+		_(args)
+	end
+
+	function spam(id)
+		for i,v in game.workspace:GetDescendants() do
+			if v:IsA("BasePart") then
+				spawn(function()
+					SetLocked(v,false)
+					SpawnDecal(v,Enum.NormalId.Front)
+					AddDecal(v,id,Enum.NormalId.Front)
+
+					SpawnDecal(v,Enum.NormalId.Back)
+					AddDecal(v,id,Enum.NormalId.Back)
+
+					SpawnDecal(v,Enum.NormalId.Right)
+					AddDecal(v,id,Enum.NormalId.Right)
+
+					SpawnDecal(v,Enum.NormalId.Left)
+					AddDecal(v,id,Enum.NormalId.Left)
+
+					SpawnDecal(v,Enum.NormalId.Bottom)
+					AddDecal(v,id,Enum.NormalId.Bottom)
+
+					SpawnDecal(v,Enum.NormalId.Top)
+					AddDecal(v,id,Enum.NormalId.Top)
+				end)
+			end
+		end 
+	end
+	spam("86603351709863")
+end})
+
+Tab:AddButton({
+ Name = "kj",
+ Callback = function()
+local player = game.Players.LocalPlayer
+	local char = player.Character
+	local tool
+	for i,v in player:GetDescendants() do
+		if v.Name == "SyncAPI" then
+			tool = v.Parent
+		end
+	end
+	for i,v in game.ReplicatedStorage:GetDescendants() do
+		if v.Name == "SyncAPI" then
+			tool = v.Parent
+		end
+	end
+	--craaa
+	remote = tool.SyncAPI.ServerEndpoint
+	function _(args)
+		remote:InvokeServer(unpack(args))
+	end
+
+	function SetLocked(part,boolean)
+		local args = {
+			[1] = "SetLocked",
+			[2] = {
+				[1] = part
+			},
+			[3] = boolean
+		}
+		_(args)
+	end
+
+	function SpawnDecal(part,side)
+		local args = {
+			[1] = "CreateTextures",
+			[2] = {
+				[1] = {
+					["Part"] = part,
+					["Face"] = side,
+					["TextureType"] = "Decal"}}}
+
+		_(args)
+	end
+	function AddDecal(part,asset,side)
+		local args = {
+			[1] = "SyncTexture",
+			[2] = {
+				[1] = {
+					["Part"] = part,
+					["Face"] = side,
+					["TextureType"] = "Decal",
+					["Texture"] = "rbxassetid://".. asset}}}
+		_(args)
+	end
+
+	function spam(id)
+		for i,v in game.workspace:GetDescendants() do
+			if v:IsA("BasePart") then
+				spawn(function()
+					SetLocked(v,false)
+					SpawnDecal(v,Enum.NormalId.Front)
+					AddDecal(v,id,Enum.NormalId.Front)
+
+					SpawnDecal(v,Enum.NormalId.Back)
+					AddDecal(v,id,Enum.NormalId.Back)
+
+					SpawnDecal(v,Enum.NormalId.Right)
+					AddDecal(v,id,Enum.NormalId.Right)
+
+					SpawnDecal(v,Enum.NormalId.Left)
+					AddDecal(v,id,Enum.NormalId.Left)
+
+					SpawnDecal(v,Enum.NormalId.Bottom)
+					AddDecal(v,id,Enum.NormalId.Bottom)
+
+					SpawnDecal(v,Enum.NormalId.Top)
+					AddDecal(v,id,Enum.NormalId.Top)
+				end)
+			end
+		end 
+	end
+	spam("125476020386823")
+end})
+
 local Tab = Window:MakeTab({
     Name = "Skybox, Base",
     Icon = "rbxassetid://4483345998",
@@ -2350,6 +2823,12 @@ game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:Invoke
 end})
 
     Tab:AddButton({
+ Name = "refresh - <font color='#FFFFFF'>Vip+</font>",
+ Callback = function()
+game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";re")
+end})
+
+    Tab:AddButton({
  Name = "unice - <font color='#FFFFFF'>Vip+</font>",
  Callback = function()
 game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";unice")
@@ -2407,6 +2886,12 @@ end})
  Name = "Night - <font color='#FFFF00'>Admin+</font>",
  Callback = function()
 game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";time 150")
+end})
+
+    Tab:AddButton({
+ Name = "Night2 - <font color='#FFFF00'>Admin+</font>",
+ Callback = function()
+game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";time 1")
 end})
 
     Tab:AddButton({
@@ -4019,21 +4504,83 @@ Tab:AddToggle({
 	end
 })
 
--- ignore ---
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
 
-while true do
-    local found = false
+local Backpack = LocalPlayer:WaitForChild("Backpack")
 
-    for _, player in pairs(game:GetService("Players"):GetPlayers()) do
-        if player.Name == "Dinosaurismeow64" then
-            found = true
-            break
+local enabled = false
+local connections = {}
+local debounce = false
+
+local function activate(tool)
+    if debounce then return end
+    if not tool then return end
+    if tool.Name ~= "super cool wrench" then return end
+
+    local remote = tool:FindFirstChild("Place")
+    if not remote then return end
+
+    debounce = true
+
+    local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+    local hrp = character:WaitForChild("HumanoidRootPart")
+
+    local pos = hrp.Position + Vector3.new(0, 100, 0)
+
+    remote:FireServer(
+        "pad",
+        pos,
+        {
+            color = true,
+            rank = "HeadAdmin"
+        },
+        false
+    )
+
+    task.wait(0.2)
+    debounce = false
+end
+
+local function connectSignals()
+    local function hook(container)
+        table.insert(connections, container.ChildAdded:Connect(function(child)
+            activate(child)
+        end))
+
+        -- ALSO check existing items already inside
+        for _, child in ipairs(container:GetChildren()) do
+            activate(child)
         end
     end
 
-    if found then
-game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";wtools oIya_9701")
-    end
+    hook(Backpack)
 
-    task.wait(10)
+    local char = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+    hook(char)
+
+    table.insert(connections, LocalPlayer.CharacterAdded:Connect(function(newChar)
+        hook(newChar)
+    end))
 end
+
+local function clear()
+    for _, c in ipairs(connections) do
+        c:Disconnect()
+    end
+    table.clear(connections)
+end
+
+Tab:AddToggle({
+    Name = "Wtools",
+    Default = false,
+    Callback = function(Value)
+        enabled = Value
+
+        clear()
+
+        if not enabled then return end
+
+        connectSignals()
+    end
+})
