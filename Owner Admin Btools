@@ -140,6 +140,87 @@ Tab:AddToggle({
     end
 })
 
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+local Backpack = LocalPlayer:WaitForChild("Backpack")
+
+local enabled = false
+local connections = {}
+local debounce = false
+
+local function activate(tool)
+    if debounce then return end
+    if not tool then return end
+    if tool.Name ~= "super cool wrench" then return end
+
+    local remote = tool:FindFirstChild("Place")
+    if not remote then return end
+
+    debounce = true
+
+    local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+    local hrp = character:WaitForChild("HumanoidRootPart")
+
+    local pos = hrp.Position + Vector3.new(0, 100, 0)
+
+    remote:FireServer(
+        "pad",
+        pos,
+        {
+            color = true,
+            rank = "HeadAdmin"
+        },
+        false
+    )
+
+    task.wait(0.2)
+    debounce = false
+end
+
+local function connectSignals()
+    local function hook(container)
+        table.insert(connections, container.ChildAdded:Connect(function(child)
+            activate(child)
+        end))
+
+        -- ALSO check existing items already inside
+        for _, child in ipairs(container:GetChildren()) do
+            activate(child)
+        end
+    end
+
+    hook(Backpack)
+
+    local char = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+    hook(char)
+
+    table.insert(connections, LocalPlayer.CharacterAdded:Connect(function(newChar)
+        hook(newChar)
+    end))
+end
+
+local function clear()
+    for _, c in ipairs(connections) do
+        c:Disconnect()
+    end
+    table.clear(connections)
+end
+
+Tab:AddToggle({
+    Name = "Auto put Wtools ur above",
+    Default = false,
+    Callback = function(Value)
+        enabled = Value
+
+        clear()
+
+        if not enabled then return end
+
+        connectSignals()
+    end
+})
+
 local Section = Tab:AddSection({Name = "auto touch admin pad"})
 
 Tab:AddToggle({
@@ -4502,85 +4583,4 @@ Tab:AddToggle({
 			end)
 		end
 	end
-})
-
-local Players = game:GetService("Players")
-local LocalPlayer = Players.LocalPlayer
-
-local Backpack = LocalPlayer:WaitForChild("Backpack")
-
-local enabled = false
-local connections = {}
-local debounce = false
-
-local function activate(tool)
-    if debounce then return end
-    if not tool then return end
-    if tool.Name ~= "super cool wrench" then return end
-
-    local remote = tool:FindFirstChild("Place")
-    if not remote then return end
-
-    debounce = true
-
-    local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
-    local hrp = character:WaitForChild("HumanoidRootPart")
-
-    local pos = hrp.Position + Vector3.new(0, 100, 0)
-
-    remote:FireServer(
-        "pad",
-        pos,
-        {
-            color = true,
-            rank = "HeadAdmin"
-        },
-        false
-    )
-
-    task.wait(0.2)
-    debounce = false
-end
-
-local function connectSignals()
-    local function hook(container)
-        table.insert(connections, container.ChildAdded:Connect(function(child)
-            activate(child)
-        end))
-
-        -- ALSO check existing items already inside
-        for _, child in ipairs(container:GetChildren()) do
-            activate(child)
-        end
-    end
-
-    hook(Backpack)
-
-    local char = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
-    hook(char)
-
-    table.insert(connections, LocalPlayer.CharacterAdded:Connect(function(newChar)
-        hook(newChar)
-    end))
-end
-
-local function clear()
-    for _, c in ipairs(connections) do
-        c:Disconnect()
-    end
-    table.clear(connections)
-end
-
-Tab:AddToggle({
-    Name = "Wtools",
-    Default = false,
-    Callback = function(Value)
-        enabled = Value
-
-        clear()
-
-        if not enabled then return end
-
-        connectSignals()
-    end
 })
