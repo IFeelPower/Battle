@@ -208,7 +208,7 @@ local function clear()
 end
 
 Tab:AddToggle({
-    Name = "Auto put Wtools ur above",
+    Name = "Auto put Wtools ur above - useful with steal gun",
     Default = false,
     Callback = function(Value)
         enabled = Value
@@ -627,6 +627,12 @@ Tab:AddButton({
  Name = "KJ",
  Callback = function()
 game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 96096795516863 ;volume 10")
+end})
+
+Tab:AddButton({
+ Name = "Lonely Lonely",
+ Callback = function()
+game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 109473586258688 ;volume 10")
 end})
 
 Tab:AddButton({
@@ -2510,6 +2516,176 @@ local player = game.Players.LocalPlayer
 		end 
 	end
 	spam("125476020386823")
+end})
+
+Tab:AddButton({
+ Name = "Evernight",
+ Callback = function()
+local player = game.Players.LocalPlayer
+	local char = player.Character
+	local tool
+	for i,v in player:GetDescendants() do
+		if v.Name == "SyncAPI" then
+			tool = v.Parent
+		end
+	end
+	for i,v in game.ReplicatedStorage:GetDescendants() do
+		if v.Name == "SyncAPI" then
+			tool = v.Parent
+		end
+	end
+	--craaa
+	remote = tool.SyncAPI.ServerEndpoint
+	function _(args)
+		remote:InvokeServer(unpack(args))
+	end
+
+	function SetLocked(part,boolean)
+		local args = {
+			[1] = "SetLocked",
+			[2] = {
+				[1] = part
+			},
+			[3] = boolean
+		}
+		_(args)
+	end
+
+	function SpawnDecal(part,side)
+		local args = {
+			[1] = "CreateTextures",
+			[2] = {
+				[1] = {
+					["Part"] = part,
+					["Face"] = side,
+					["TextureType"] = "Decal"}}}
+
+		_(args)
+	end
+	function AddDecal(part,asset,side)
+		local args = {
+			[1] = "SyncTexture",
+			[2] = {
+				[1] = {
+					["Part"] = part,
+					["Face"] = side,
+					["TextureType"] = "Decal",
+					["Texture"] = "rbxassetid://".. asset}}}
+		_(args)
+	end
+
+	function spam(id)
+		for i,v in game.workspace:GetDescendants() do
+			if v:IsA("BasePart") then
+				spawn(function()
+					SetLocked(v,false)
+					SpawnDecal(v,Enum.NormalId.Front)
+					AddDecal(v,id,Enum.NormalId.Front)
+
+					SpawnDecal(v,Enum.NormalId.Back)
+					AddDecal(v,id,Enum.NormalId.Back)
+
+					SpawnDecal(v,Enum.NormalId.Right)
+					AddDecal(v,id,Enum.NormalId.Right)
+
+					SpawnDecal(v,Enum.NormalId.Left)
+					AddDecal(v,id,Enum.NormalId.Left)
+
+					SpawnDecal(v,Enum.NormalId.Bottom)
+					AddDecal(v,id,Enum.NormalId.Bottom)
+
+					SpawnDecal(v,Enum.NormalId.Top)
+					AddDecal(v,id,Enum.NormalId.Top)
+				end)
+			end
+		end 
+	end
+	spam("108963831426567")
+end})
+
+Tab:AddButton({
+ Name = "fake peppino",
+ Callback = function()
+local player = game.Players.LocalPlayer
+	local char = player.Character
+	local tool
+	for i,v in player:GetDescendants() do
+		if v.Name == "SyncAPI" then
+			tool = v.Parent
+		end
+	end
+	for i,v in game.ReplicatedStorage:GetDescendants() do
+		if v.Name == "SyncAPI" then
+			tool = v.Parent
+		end
+	end
+	--craaa
+	remote = tool.SyncAPI.ServerEndpoint
+	function _(args)
+		remote:InvokeServer(unpack(args))
+	end
+
+	function SetLocked(part,boolean)
+		local args = {
+			[1] = "SetLocked",
+			[2] = {
+				[1] = part
+			},
+			[3] = boolean
+		}
+		_(args)
+	end
+
+	function SpawnDecal(part,side)
+		local args = {
+			[1] = "CreateTextures",
+			[2] = {
+				[1] = {
+					["Part"] = part,
+					["Face"] = side,
+					["TextureType"] = "Decal"}}}
+
+		_(args)
+	end
+	function AddDecal(part,asset,side)
+		local args = {
+			[1] = "SyncTexture",
+			[2] = {
+				[1] = {
+					["Part"] = part,
+					["Face"] = side,
+					["TextureType"] = "Decal",
+					["Texture"] = "rbxassetid://".. asset}}}
+		_(args)
+	end
+
+	function spam(id)
+		for i,v in game.workspace:GetDescendants() do
+			if v:IsA("BasePart") then
+				spawn(function()
+					SetLocked(v,false)
+					SpawnDecal(v,Enum.NormalId.Front)
+					AddDecal(v,id,Enum.NormalId.Front)
+
+					SpawnDecal(v,Enum.NormalId.Back)
+					AddDecal(v,id,Enum.NormalId.Back)
+
+					SpawnDecal(v,Enum.NormalId.Right)
+					AddDecal(v,id,Enum.NormalId.Right)
+
+					SpawnDecal(v,Enum.NormalId.Left)
+					AddDecal(v,id,Enum.NormalId.Left)
+
+					SpawnDecal(v,Enum.NormalId.Bottom)
+					AddDecal(v,id,Enum.NormalId.Bottom)
+
+					SpawnDecal(v,Enum.NormalId.Top)
+					AddDecal(v,id,Enum.NormalId.Top)
+				end)
+			end
+		end 
+	end
+	spam("79736862379383")
 end})
 
 local Tab = Window:MakeTab({
@@ -4583,4 +4759,108 @@ Tab:AddToggle({
 			end)
 		end
 	end
+})
+
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+local ToolName = "super cool wrench"
+local Enabled = false
+
+local alreadyTeleported = {}
+
+local function teleportToPlayer(player)
+    local myCharacter = LocalPlayer.Character
+    local targetCharacter = player.Character
+
+    if not myCharacter or not targetCharacter then return end
+
+    local myHRP = myCharacter:FindFirstChild("Right Arm")
+    local targetHRP = targetCharacter:FindFirstChild("Right Arm")
+
+    if myHRP and targetHRP then
+        myHRP.CFrame = CFrame.lookAt(
+    targetHRP.Position + targetHRP.CFrame.LookVector * 3,
+    targetHRP.Position
+)
+    end
+end
+
+local function watchCharacter(player, character)
+
+    character.ChildAdded:Connect(function(child)
+
+        if not Enabled then return end
+        if alreadyTeleported[player] then return end
+
+        if child:IsA("Tool") and child.Name == ToolName then
+            alreadyTeleported[player] = true
+
+            teleportToPlayer(player)
+
+            print("Teleported to "..player.Name)
+               local targetChar = player.Character
+        if not targetChar then return end
+
+        local rightArm = targetChar:FindFirstChild("Right Arm")
+        if not rightArm then return end
+
+        local pos = rightArm.Position
+        local v = vector.create(pos.X, pos.Y, pos.Z)
+
+        local myChar = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+        local myTool = myChar:FindFirstChild("Luger") or LocalPlayer.Backpack:FindFirstChild("Luger")
+
+        if not myTool then return end
+
+        local remote = myTool:FindFirstChild("Input")
+        if not remote then return end
+
+        local args = {
+            "Mouse1",
+            true,
+            v,
+            rightArm
+        }
+
+        remote:FireServer(unpack(args))
+        end
+    end)
+
+    character.ChildRemoved:Connect(function(child)
+        if child:IsA("Tool") and child.Name == ToolName then
+            alreadyTeleported[player] = false
+        end
+    end)
+end
+
+local function watchPlayer(player)
+
+    if player.Character then
+        watchCharacter(player, player.Character)
+    end
+
+    player.CharacterAdded:Connect(function(character)
+        watchCharacter(player, character)
+    end)
+end
+
+for _, player in pairs(Players:GetPlayers()) do
+    if player ~= LocalPlayer then
+        watchPlayer(player)
+    end
+end
+
+Players.PlayerAdded:Connect(function(player)
+    if player ~= LocalPlayer then
+        watchPlayer(player)
+    end
+end)
+
+Tab:AddToggle({
+    Name = "Auto shoot Wtools - this is beta",
+    Default = false,
+    Callback = function(Value)
+        Enabled = Value
+    end
 })
