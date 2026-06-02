@@ -4877,7 +4877,7 @@ Tab:AddButton({
 end}) 
 
 Tab:AddButton({
-Name = "Crash mesh all",
+Name = "Atomic mesh all",
 Callback = function()
 local player = game.Players.LocalPlayer
 	local char = player.Character
@@ -5084,7 +5084,7 @@ local function onDescendantAdded(v)
 end
 
 Tab:AddToggle({
-    Name = "Anti Crash Mesh",
+    Name = "Anti Atomic Mesh",
     Default = false,
     Callback = function(Value)
         enabled = Value
