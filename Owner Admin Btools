@@ -5720,3 +5720,21 @@ Tools[9].Parent = plr.Character
 Tools[10].Grip = CFrame.new(16.5, -1.5, -1.3) * CFrame.Angles(1.6, math.rad(90), 3.16)
 Tools[10].Parent = plr.Character
 end})
+
+Tab:AddButton({
+ Name = "beta",
+ Callback = function()
+	for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+        if v:FindFirstChild("Remote") then
+            v.Parent = game.Players.LocalPlayer.Character
+        end
+    end
+
+    local count = 0
+    for _, tool in ipairs(game.Players.LocalPlayer.Character:GetChildren()) do
+        if tool:IsA("Tool") and tool:FindFirstChild("Remote") then
+            tool.Remote:FireServer("PlaySong", 92199602729478)
+            count = count + 1
+        end
+    end
+end})
