@@ -12,11 +12,20 @@ local Section = Tab:AddSection({Name = "lol"})
 Tab:AddButton({
  Name = "Free slap",
  Callback = function()
-                local plr = game.Players.LocalPlayer
-                local char = plr.Character
-                local hrp = char and char:FindFirstChild("HumanoidRootPart")
-firetouchinterest(hrp, workspace:GetChildren()[249], 0)
-firetouchinterest(hrp, workspace:GetChildren()[249], 1)
+local character = game.Players.LocalPlayer.Character
+local hrp = character and character:FindFirstChild("HumanoidRootPart")
+
+if hrp then
+    local originalCFrame = hrp.CFrame
+
+    -- Teleport to target
+    hrp.CFrame = CFrame.new(325, 51, 272)
+
+    task.wait(1) -- stay there for 1 second
+
+    -- Teleport back
+    hrp.CFrame = originalCFrame
+end
 end})
 
 Tab:AddToggle({
