@@ -1,0 +1,304 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/CeleryHub/Shlexware-s-Orion/main/source')))()
+
+local Window = OrionLib:MakeWindow({Name = "Lazy Script V2 - Jail troll tower", HidePremium = true, IntroEnabled = false, SaveConfig = false, ConfigFolder = "OrionTest", IntroText = "Are You Lazy?", IntroIcon = "rbxassetid://16336200609"})
+
+local Tab = Window:MakeTab({
+    Name = "Main",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false})
+
+local Section = Tab:AddSection({Name = "lol"})
+
+Tab:AddButton({
+ Name = "Free slap",
+ Callback = function()
+                local plr = game.Players.LocalPlayer
+                local char = plr.Character
+                local hrp = char and char:FindFirstChild("HumanoidRootPart")
+firetouchinterest(hrp, workspace:GetChildren()[249], 0)
+firetouchinterest(hrp, workspace:GetChildren()[249], 1)
+end})
+
+Tab:AddToggle({
+    Name = "Server Slap",
+    Default = false,
+    Callback = function(Value)
+lol = Value 
+while lol do
+task.wait(0.1)
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+for _, target in ipairs(Players:GetPlayers()) do
+    if target ~= LocalPlayer and target.Character then
+        local hrp = target.Character:FindFirstChild("HumanoidRootPart")
+
+        if hrp then
+            local args = {
+                "slash",
+                target.Character,
+                vector.create(-6.993801593780518, 1.764019152972196e-08, 0.29451557993888855)
+            }
+
+            LocalPlayer.Character
+                :WaitForChild("ee")
+                :WaitForChild("Event")
+                :FireServer(unpack(args))
+end
+end
+end
+end
+end})
+
+local Tab = Window:MakeTab({
+	Name = "Move, TP",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false})
+
+local UIS = game:GetService("UserInputService")
+local Players = game:GetService("Players")
+
+local InfiniteJumpEnabled = false
+local JumpConnection
+
+Tab:AddToggle({
+    Name = "Infinite Jump",
+    CurrentValue = false,
+    Flag = "InfiniteJump",
+    Callback = function(state)
+        InfiniteJumpEnabled = state
+
+        if state then
+            if JumpConnection then JumpConnection:Disconnect() end
+
+            JumpConnection = UIS.JumpRequest:Connect(function()
+                if InfiniteJumpEnabled then
+                    local char = Players.LocalPlayer.Character
+                    local hum = char and char:FindFirstChildOfClass("Humanoid")
+                    if hum then
+                        hum:ChangeState(Enum.HumanoidStateType.Jumping)
+                    end
+                end
+            end)
+        else
+            if JumpConnection then
+                JumpConnection:Disconnect()
+                JumpConnection = nil
+            end
+        end
+    end
+})
+
+local Players = game:GetService("Players")
+local Player = Players.LocalPlayer
+
+local SpeedEnabled = false
+local SpeedValue = 16
+
+local function UpdateSpeed()
+    local Character = Player.Character
+    local Humanoid = Character and Character:FindFirstChildOfClass("Humanoid")
+
+    if Humanoid then
+        Humanoid.WalkSpeed = SpeedEnabled and SpeedValue or 16
+    end
+end
+
+-- Reapply after respawn
+Player.CharacterAdded:Connect(function(Character)
+    local Humanoid = Character:WaitForChild("Humanoid")
+    task.wait(0.1)
+
+    if SpeedEnabled then
+        Humanoid.WalkSpeed = SpeedValue
+    end
+end)
+
+Tab:AddToggle({
+    Name = "Custom Speed",
+    Default = false,
+    Callback = function(Value)
+        SpeedEnabled = Value
+        UpdateSpeed()
+    end
+})
+
+Tab:AddSlider({
+    Name = "Speed",
+    Min = 16,
+    Max = 250,
+    Default = 16,
+    Color = Color3.fromRGB(0,125,245),
+    Increment = 1,
+    ValueName = "Speed Power",
+    Callback = function(Value)
+        SpeedValue = Value
+        UpdateSpeed()
+    end
+})
+
+local Players = game:GetService("Players")
+local Player = Players.LocalPlayer
+
+local JumpEnabled = false
+local JumpValue = 60
+
+local function UpdateJump()
+    local Character = Player.Character
+    local Humanoid = Character and Character:FindFirstChildOfClass("Humanoid")
+
+    if Humanoid then
+        Humanoid.JumpPower = JumpEnabled and JumpValue or 50
+    end
+end
+
+-- Reapply after respawn
+Player.CharacterAdded:Connect(function(Character)
+    local Humanoid = Character:WaitForChild("Humanoid")
+    task.wait(0.1)
+
+    if JumpEnabled then
+        Humanoid.JumpPower = JumpValue
+    end
+end)
+
+Tab:AddToggle({
+    Name = "Custom Jump",
+    Default = false,
+    Callback = function(Value)
+        JumpEnabled = Value
+        UpdateJump()
+    end
+})
+
+Tab:AddSlider({
+    Name = "Jump",
+    Min = 30,
+    Max = 500,
+    Default = 50,
+    Color = Color3.fromRGB(0,199,42),
+    Increment = 1,
+    ValueName = "Jump Power",
+    Callback = function(Value)
+        JumpValue = Value
+        UpdateJump()
+    end
+})
+
+local Player = game.Players.LocalPlayer
+local Noclip = false
+
+Tab:AddToggle({
+    Name = "Noclip",
+    Default = false,
+    Callback = function(Value)
+        Noclip = Value
+    end
+})
+
+game:GetService("RunService").Stepped:Connect(function()
+    if Noclip and Player.Character then
+        for _, part in pairs(Player.Character:GetDescendants()) do
+            if part:IsA("BasePart") then
+                part.CanCollide = false
+            end
+        end
+    end
+end)
+
+local flying = false
+local flySpeed = 50
+
+local player = game.Players.LocalPlayer
+local UIS = game:GetService("UserInputService")
+local RunService = game:GetService("RunService")
+
+local bodyVelocity
+local bodyGyro
+
+local function startFly()
+    local character = player.Character or player.CharacterAdded:Wait()
+    local hrp = character:WaitForChild("HumanoidRootPart")
+
+    bodyVelocity = Instance.new("BodyVelocity")
+    bodyVelocity.MaxForce = Vector3.new(9e9, 9e9, 9e9)
+    bodyVelocity.Velocity = Vector3.zero
+    bodyVelocity.Parent = hrp
+
+    bodyGyro = Instance.new("BodyGyro")
+    bodyGyro.MaxTorque = Vector3.new(9e9, 9e9, 9e9)
+    bodyGyro.CFrame = hrp.CFrame
+    bodyGyro.Parent = hrp
+
+    RunService.RenderStepped:Connect(function()
+        if flying and character and hrp then
+            local cam = workspace.CurrentCamera
+            local moveDir = Vector3.zero
+
+            if UIS:IsKeyDown(Enum.KeyCode.W) then
+                moveDir += cam.CFrame.LookVector
+            end
+            if UIS:IsKeyDown(Enum.KeyCode.S) then
+                moveDir -= cam.CFrame.LookVector
+            end
+            if UIS:IsKeyDown(Enum.KeyCode.A) then
+                moveDir -= cam.CFrame.RightVector
+            end
+            if UIS:IsKeyDown(Enum.KeyCode.D) then
+                moveDir += cam.CFrame.RightVector
+            end
+            if UIS:IsKeyDown(Enum.KeyCode.Space) then
+                moveDir += Vector3.new(0,1,0)
+            end
+            if UIS:IsKeyDown(Enum.KeyCode.LeftControl) then
+                moveDir -= Vector3.new(0,1,0)
+            end
+
+            bodyVelocity.Velocity = moveDir.Unit * flySpeed
+            if moveDir.Magnitude == 0 then
+                bodyVelocity.Velocity = Vector3.zero
+            end
+
+            bodyGyro.CFrame = cam.CFrame
+        end
+    end)
+end
+
+local function stopFly()
+    if bodyVelocity then
+        bodyVelocity:Destroy()
+        bodyVelocity = nil
+    end
+
+    if bodyGyro then
+        bodyGyro:Destroy()
+        bodyGyro = nil
+    end
+end
+
+Tab:AddToggle({
+    Name = "Fly",
+    Default = false,
+    Callback = function(Value)
+        flying = Value
+
+        if flying then
+            startFly()
+        else
+            stopFly()
+        end
+    end
+})
+
+Tab:AddSlider({
+    Name = "Fly Speed",
+    Min = 10,
+    Max = 500,
+    Default = 50,
+    Color = Color3.fromRGB(255,255,255),
+    Increment = 1,
+    ValueName = "Speed",
+    Callback = function(Value)
+        flySpeed = Value
+    end
+})
