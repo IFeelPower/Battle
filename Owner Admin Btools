@@ -482,9 +482,9 @@ game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:Invoke
 end})
 
 Tab:AddButton({
- Name = "Obunga rap",
+ Name = "Obunga",
  Callback = function()
-game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 5216738441 ;volume 10")
+game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 130351568910729 ;volume 10 ;pitch 0.1")
 end})
 
 Tab:AddButton({
@@ -837,176 +837,6 @@ local player = game.Players.LocalPlayer
 		end 
 	end
 	spam("134574472097973")
-end})
-
-Tab:AddButton({
- Name = "Hit the jackpot",
- Callback = function()
-local player = game.Players.LocalPlayer
-	local char = player.Character
-	local tool
-	for i,v in player:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	for i,v in game.ReplicatedStorage:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	--craaa
-	remote = tool.SyncAPI.ServerEndpoint
-	function _(args)
-		remote:InvokeServer(unpack(args))
-	end
-
-	function SetLocked(part,boolean)
-		local args = {
-			[1] = "SetLocked",
-			[2] = {
-				[1] = part
-			},
-			[3] = boolean
-		}
-		_(args)
-	end
-
-	function SpawnDecal(part,side)
-		local args = {
-			[1] = "CreateTextures",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal"}}}
-
-		_(args)
-	end
-	function AddDecal(part,asset,side)
-		local args = {
-			[1] = "SyncTexture",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal",
-					["Texture"] = "rbxassetid://".. asset}}}
-		_(args)
-	end
-
-	function spam(id)
-		for i,v in game.workspace:GetDescendants() do
-			if v:IsA("BasePart") then
-				spawn(function()
-					SetLocked(v,false)
-					SpawnDecal(v,Enum.NormalId.Front)
-					AddDecal(v,id,Enum.NormalId.Front)
-
-					SpawnDecal(v,Enum.NormalId.Back)
-					AddDecal(v,id,Enum.NormalId.Back)
-
-					SpawnDecal(v,Enum.NormalId.Right)
-					AddDecal(v,id,Enum.NormalId.Right)
-
-					SpawnDecal(v,Enum.NormalId.Left)
-					AddDecal(v,id,Enum.NormalId.Left)
-
-					SpawnDecal(v,Enum.NormalId.Bottom)
-					AddDecal(v,id,Enum.NormalId.Bottom)
-
-					SpawnDecal(v,Enum.NormalId.Top)
-					AddDecal(v,id,Enum.NormalId.Top)
-				end)
-			end
-		end 
-	end
-	spam("78913745918994")
-end})
-
-Tab:AddButton({
- Name = "Simply walk around it",
- Callback = function()
-local player = game.Players.LocalPlayer
-	local char = player.Character
-	local tool
-	for i,v in player:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	for i,v in game.ReplicatedStorage:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	--craaa
-	remote = tool.SyncAPI.ServerEndpoint
-	function _(args)
-		remote:InvokeServer(unpack(args))
-	end
-
-	function SetLocked(part,boolean)
-		local args = {
-			[1] = "SetLocked",
-			[2] = {
-				[1] = part
-			},
-			[3] = boolean
-		}
-		_(args)
-	end
-
-	function SpawnDecal(part,side)
-		local args = {
-			[1] = "CreateTextures",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal"}}}
-
-		_(args)
-	end
-	function AddDecal(part,asset,side)
-		local args = {
-			[1] = "SyncTexture",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal",
-					["Texture"] = "rbxassetid://".. asset}}}
-		_(args)
-	end
-
-	function spam(id)
-		for i,v in game.workspace:GetDescendants() do
-			if v:IsA("BasePart") then
-				spawn(function()
-					SetLocked(v,false)
-					SpawnDecal(v,Enum.NormalId.Front)
-					AddDecal(v,id,Enum.NormalId.Front)
-
-					SpawnDecal(v,Enum.NormalId.Back)
-					AddDecal(v,id,Enum.NormalId.Back)
-
-					SpawnDecal(v,Enum.NormalId.Right)
-					AddDecal(v,id,Enum.NormalId.Right)
-
-					SpawnDecal(v,Enum.NormalId.Left)
-					AddDecal(v,id,Enum.NormalId.Left)
-
-					SpawnDecal(v,Enum.NormalId.Bottom)
-					AddDecal(v,id,Enum.NormalId.Bottom)
-
-					SpawnDecal(v,Enum.NormalId.Top)
-					AddDecal(v,id,Enum.NormalId.Top)
-				end)
-			end
-		end 
-	end
-	spam("138539686869407")
 end})
 
 Tab:AddButton({
@@ -1690,91 +1520,6 @@ local player = game.Players.LocalPlayer
 end})
 
 Tab:AddButton({
- Name = "You die",
- Callback = function()
-local player = game.Players.LocalPlayer
-	local char = player.Character
-	local tool
-	for i,v in player:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	for i,v in game.ReplicatedStorage:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	--craaa
-	remote = tool.SyncAPI.ServerEndpoint
-	function _(args)
-		remote:InvokeServer(unpack(args))
-	end
-
-	function SetLocked(part,boolean)
-		local args = {
-			[1] = "SetLocked",
-			[2] = {
-				[1] = part
-			},
-			[3] = boolean
-		}
-		_(args)
-	end
-
-	function SpawnDecal(part,side)
-		local args = {
-			[1] = "CreateTextures",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal"}}}
-
-		_(args)
-	end
-	function AddDecal(part,asset,side)
-		local args = {
-			[1] = "SyncTexture",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal",
-					["Texture"] = "rbxassetid://".. asset}}}
-		_(args)
-	end
-
-	function spam(id)
-		for i,v in game.workspace:GetDescendants() do
-			if v:IsA("BasePart") then
-				spawn(function()
-					SetLocked(v,false)
-					SpawnDecal(v,Enum.NormalId.Front)
-					AddDecal(v,id,Enum.NormalId.Front)
-
-					SpawnDecal(v,Enum.NormalId.Back)
-					AddDecal(v,id,Enum.NormalId.Back)
-
-					SpawnDecal(v,Enum.NormalId.Right)
-					AddDecal(v,id,Enum.NormalId.Right)
-
-					SpawnDecal(v,Enum.NormalId.Left)
-					AddDecal(v,id,Enum.NormalId.Left)
-
-					SpawnDecal(v,Enum.NormalId.Bottom)
-					AddDecal(v,id,Enum.NormalId.Bottom)
-
-					SpawnDecal(v,Enum.NormalId.Top)
-					AddDecal(v,id,Enum.NormalId.Top)
-				end)
-			end
-		end 
-	end
-	spam("73706487651627")
-end})
-
-Tab:AddButton({
  Name = "kanye west",
  Callback = function()
 local player = game.Players.LocalPlayer
@@ -2281,7 +2026,7 @@ local player = game.Players.LocalPlayer
 			end
 		end 
 	end
-	spam("2563374622")
+	spam("10665646504")
 end})
 
 Tab:AddButton({
@@ -4119,6 +3864,111 @@ Tab:AddToggle({
                     :InvokeServer(";createTeam r Lazy Script on Top " .. randomText(5))
             end
         end
+    end
+})
+
+local TeamColor = "r"
+local TeamName = "Lazy"
+
+local function randomText(length)
+    local chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+    local text = ""
+
+    for i = 1, length do
+        local index = math.random(#chars)
+        text = text .. chars:sub(index, index)
+    end
+
+    return text
+end
+
+local TeamColor = "Red"
+local TeamName = "Lazy"
+
+local ColorCodes = {
+    Red = "r",
+    Orange = "o",
+    Yellow = "y",
+    Green = "g",
+    DarkGreen = "dg",
+    Blue = "b",
+    DarkBlue = "db",
+    Purple = "p",
+    Pink = "pk",
+    Black = "bk",
+    White = "w"
+}
+
+local ColorList = {
+    "r","o","y","g","dg","b","db","p","pk","bk","w"
+}
+
+local function randomText(length)
+    local chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+    local text = ""
+
+    for i = 1, length do
+        local index = math.random(#chars)
+        text = text .. chars:sub(index, index)
+    end
+
+    return text
+end
+
+Tab:AddDropdown({
+    Name = "Team Color",
+    Default = "Red",
+    Options = {
+        "Red",
+        "Orange",
+        "Yellow",
+        "Green",
+        "DarkGreen",
+        "Blue",
+        "DarkBlue",
+        "Purple",
+        "Pink",
+        "Black",
+        "White",
+        "Rainbow"
+    },
+    Callback = function(Value)
+        TeamColor = Value
+    end
+})
+
+Tab:AddTextbox({
+    Name = "Team Name",
+    Default = "Lazy",
+    TextDisappear = false,
+    Callback = function(Value)
+        TeamName = Value
+    end
+})
+
+Tab:AddToggle({
+    Name = "Auto Create Team",
+    Default = false,
+    Callback = function(Value)
+        getgenv().AutoTeam = Value
+
+        task.spawn(function()
+            while getgenv().AutoTeam do
+                local color
+
+                if TeamColor == "Rainbow" then
+                    color = ColorList[math.random(#ColorList)]
+                else
+                    color = ColorCodes[TeamColor]
+                end
+
+                game:GetService("ReplicatedStorage")
+                    .HDAdminClient.Signals.RequestCommand
+                    :InvokeServer(";createTeam " .. color .. " " .. TeamName .. " " .. randomText(5))
+
+                wait(1)
+            end
+        end)
     end
 })
 
