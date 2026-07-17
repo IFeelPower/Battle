@@ -223,33 +223,23 @@ Tab:AddToggle({
 
 local Section = Tab:AddSection({Name = "auto touch admin pad"})
 
+local AutoCat = false
+
 Tab:AddToggle({
-    Name = "Auto Touch Admin Pad",
+    Name = "Auto Touch Pad",
     Default = false,
     Callback = function(Value)
-        getgenv().AutoAdmin = Value
+        AutoCat = Value
 
         task.spawn(function()
-            while getgenv().AutoAdmin do
-                local plr = game.Players.LocalPlayer
-                local char = plr.Character
-                local hrp = char and char:FindFirstChild("HumanoidRootPart")
+            while AutoCat do
+                local hrp = game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
 
                 if hrp then
-                    for _, folder in ipairs(workspace:GetDescendants()) do
-                        if folder.Name == "adminobby" or folder.Name == "WrenchObjs" then
-
-                            for _, v in ipairs(folder:GetChildren()) do
-                                if v.Name == "pad" then
-                                    local giver = v:FindFirstChild("admingiver")
-
-                                    if giver then
-                                        firetouchinterest(hrp, giver, 0)
-                                        firetouchinterest(hrp, giver, 1)
-                                    end
-                                end
-                            end
-
+                    for _, v in ipairs(workspace:GetDescendants()) do
+                        if v.Name == "admingiver" and v:IsA("BasePart") then
+                            firetouchinterest(hrp, v, 0)
+                            firetouchinterest(hrp, v, 1)
                         end
                     end
                 end
@@ -5816,107 +5806,76 @@ Tab:AddToggle({
 	end
 })
 
-local Players = game:GetService("Players")
-local LocalPlayer = Players.LocalPlayer
+Tab:AddButton({
+    Name = "Rotate all",
+    Callback = function()
+        local player = game.Players.LocalPlayer
+        local tool
 
-local ToolName = "super cool wrench"
-local Enabled = false
-
-local alreadyTeleported = {}
-
-local function teleportToPlayer(player)
-    local myCharacter = LocalPlayer.Character
-    local targetCharacter = player.Character
-
-    if not myCharacter or not targetCharacter then return end
-
-    local myHRP = myCharacter:FindFirstChild("Right Arm")
-    local targetHRP = targetCharacter:FindFirstChild("Right Arm")
-
-    if myHRP and targetHRP then
-        myHRP.CFrame = CFrame.lookAt(
-    targetHRP.Position + targetHRP.CFrame.LookVector * 3,
-    targetHRP.Position
-)
-    end
-end
-
-local function watchCharacter(player, character)
-
-    character.ChildAdded:Connect(function(child)
-
-        if not Enabled then return end
-        if alreadyTeleported[player] then return end
-
-        if child:IsA("Tool") and child.Name == ToolName then
-            alreadyTeleported[player] = true
-
-            teleportToPlayer(player)
-
-            print("Teleported to "..player.Name)
-               local targetChar = player.Character
-        if not targetChar then return end
-
-        local rightArm = targetChar:FindFirstChild("Right Arm")
-        if not rightArm then return end
-
-        local pos = rightArm.Position
-        local v = vector.create(pos.X, pos.Y, pos.Z)
-
-        local myChar = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
-        local myTool = myChar:FindFirstChild("Luger") or LocalPlayer.Backpack:FindFirstChild("Luger")
-
-        if not myTool then return end
-
-        local remote = myTool:FindFirstChild("Input")
-        if not remote then return end
-
-        local args = {
-            "Mouse1",
-            true,
-            v,
-            rightArm
-        }
-
-        remote:FireServer(unpack(args))
+        for _, v in ipairs(player:GetDescendants()) do
+            if v.Name == "SyncAPI" then
+                tool = v.Parent
+                break
+            end
         end
-    end)
 
-    character.ChildRemoved:Connect(function(child)
-        if child:IsA("Tool") and child.Name == ToolName then
-            alreadyTeleported[player] = false
+        if not tool then
+            for _, v in ipairs(game.ReplicatedStorage:GetDescendants()) do
+                if v.Name == "SyncAPI" then
+                    tool = v.Parent
+                    break
+                end
+            end
         end
-    end)
-end
 
-local function watchPlayer(player)
+        if not tool then
+            warn("SyncAPI not found!")
+            return
+        end
 
-    if player.Character then
-        watchCharacter(player, player.Character)
-    end
+        local remote = tool.SyncAPI.ServerEndpoint
 
-    player.CharacterAdded:Connect(function(character)
-        watchCharacter(player, character)
-    end)
-end
+        local function Invoke(args)
+            remote:InvokeServer(unpack(args))
+        end
 
-for _, player in pairs(Players:GetPlayers()) do
-    if player ~= LocalPlayer then
-        watchPlayer(player)
-    end
-end
+        local function MovePart(part, cf)
+            Invoke({
+                [1] = "SyncMove",
+                [2] = {
+                    {
+                        Part = part,
+                        CFrame = cf
+                    }
+                }
+            })
+        end
 
-Players.PlayerAdded:Connect(function(player)
-    if player ~= LocalPlayer then
-        watchPlayer(player)
-    end
-end)
+        local function SetLocked(part, locked)
+            Invoke({
+                [1] = "SetLocked",
+                [2] = {
+                    part
+                },
+                [3] = locked
+            })
+        end
 
-Tab:AddToggle({
-    Name = "Auto shoot Wtools - Beta useless",
-    Default = false,
-    Callback = function(Value)
-        Enabled = Value
+        for _, v in ipairs(workspace:GetDescendants()) do
+            if v:IsA("BasePart") then
+                task.spawn(function()
+                    SetLocked(v, false)
+                    MovePart(
+                        v,
+                        v.CFrame * CFrame.Angles(
+                            math.random(0, 1),
+                            math.random(0, 1),
+                            math.random(0, 1)
+                        )
+                    )
+                end)
+            end
+        end
     end
 })
 
