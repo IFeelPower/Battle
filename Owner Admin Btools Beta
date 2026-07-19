@@ -208,7 +208,7 @@ local function clear()
 end
 
 Tab:AddToggle({
-    Name = "Auto put Wtools ur above - useful with steal gun",
+    Name = "Auto put Pad ur above - useful with steal gun",
     Default = false,
     Callback = function(Value)
         enabled = Value
@@ -223,33 +223,23 @@ Tab:AddToggle({
 
 local Section = Tab:AddSection({Name = "auto touch admin pad"})
 
+local AutoCat = false
+
 Tab:AddToggle({
-    Name = "Auto Touch Admin Pad",
+    Name = "Auto Touch Pad",
     Default = false,
     Callback = function(Value)
-        getgenv().AutoAdmin = Value
+        AutoCat = Value
 
         task.spawn(function()
-            while getgenv().AutoAdmin do
-                local plr = game.Players.LocalPlayer
-                local char = plr.Character
-                local hrp = char and char:FindFirstChild("HumanoidRootPart")
+            while AutoCat do
+                local hrp = game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
 
                 if hrp then
-                    for _, folder in ipairs(workspace:GetDescendants()) do
-                        if folder.Name == "adminobby" or folder.Name == "WrenchObjs" then
-
-                            for _, v in ipairs(folder:GetChildren()) do
-                                if v.Name == "pad" then
-                                    local giver = v:FindFirstChild("admingiver")
-
-                                    if giver then
-                                        firetouchinterest(hrp, giver, 0)
-                                        firetouchinterest(hrp, giver, 1)
-                                    end
-                                end
-                            end
-
+                    for _, v in ipairs(workspace:GetDescendants()) do
+                        if v.Name == "admingiver" and v:IsA("BasePart") then
+                            firetouchinterest(hrp, v, 0)
+                            firetouchinterest(hrp, v, 1)
                         end
                     end
                 end
@@ -367,7 +357,7 @@ Tab:AddButton({
 })
 
 Tab:AddButton({
- Name = "infiniteyield",
+ Name = "infinite yield",
  Callback = function()
 loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
 end})
@@ -379,16 +369,22 @@ local Tab = Window:MakeTab({
 
 local Section = Tab:AddSection({Name = "u need Admin+"})
 
+local function Music(id)
+    game:GetService("ReplicatedStorage")
+        .HDAdminClient.Signals.RequestCommand
+        :InvokeServer(";music " .. id .. " ;volume 10")
+end
+
 Tab:AddButton({
  Name = "Spooky skeleton",
  Callback = function()
-game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 104181508980428 ;pitch 0.2 ;volume 10")
+Music("104181508980428 ;pitch 0.2")
 end})
 
 Tab:AddButton({
  Name = "Spooky skeleton 2",
  Callback = function()
-game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 100828050594137 ;volume 10")
+ Music("100828050594137")
 end})
 
 Tab:AddButton({
@@ -400,43 +396,43 @@ end})
 Tab:AddButton({
  Name = "Through Patches of Violet",
  Callback = function()
-game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 77579718926500 ;volume 10")
+Music("77579718926500")
 end})
 
 Tab:AddButton({
  Name = "Blend W",
  Callback = function()
-game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 87824870129318 ;volume 10")
+Music("87824870129318")
 end})
 
 Tab:AddButton({
  Name = "Golden hour",
  Callback = function()
-game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 136409279011083 ;volume 10")
+Music("136409279011083")
 end})
 
 Tab:AddButton({
  Name = "Jumpstyle",
  Callback = function()
-game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 75522197868449 ;volume 10")
+Music("75522197868449")
 end})
 
 Tab:AddButton({
  Name = "2004 bootleg",
  Callback = function()
-game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 135881205397136 ;volume 10")
+Music("135881205397136")
 end})
 
 Tab:AddButton({
  Name = "Crypt dust",
  Callback = function()
-game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 138397903891342 ;volume 10")
+Music("138397903891342")
 end})
 
 Tab:AddButton({
  Name = "laserstyle mix",
  Callback = function()
-game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 72205284895340 ;volume 10")
+Music("72205284895340")
 end})
 
 Tab:AddButton({
@@ -577,6 +573,24 @@ Tab:AddButton({
 game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 88116925875362 ;volume 10")
 end})
 
+Tab:AddButton({
+ Name = "Chainsaw man - Kick back",
+ Callback = function()
+game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 94110452996090 ;volume 10")
+end})
+
+Tab:AddButton({
+ Name = "Mario",
+ Callback = function()
+game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 124143766633529 ;volume 10")
+end})
+
+Tab:AddButton({
+ Name = "Mario tomato",
+ Callback = function()
+Music("118761863682498")
+end})
+
 local Tab = Window:MakeTab({
     Name = "Decal spam",
     Icon = "rbxassetid://4483345998",
@@ -584,9 +598,6 @@ local Tab = Window:MakeTab({
 
 local Section = Tab:AddSection({Name = "u need btools in inventory but dont hold in hands"})
 
-Tab:AddButton({
- Name = "c00lkid",
- Callback = function()
 local player = game.Players.LocalPlayer
 	local char = player.Character
 	local tool
@@ -600,13 +611,12 @@ local player = game.Players.LocalPlayer
 			tool = v.Parent
 		end
 	end
-	--craaa
-	remote = tool.SyncAPI.ServerEndpoint
-	function _(args)
-		remote:InvokeServer(unpack(args))
+
+local function _(args)
+		tool.SyncAPI.ServerEndpoint:InvokeServer(unpack(args))
 	end
 
-	function SetLocked(part,boolean)
+local function SetLocked(part,boolean)
 		local args = {
 			[1] = "SetLocked",
 			[2] = {
@@ -617,7 +627,7 @@ local player = game.Players.LocalPlayer
 		_(args)
 	end
 
-	function SpawnDecal(part,side)
+local function SpawnDecal(part,side)
 		local args = {
 			[1] = "CreateTextures",
 			[2] = {
@@ -628,7 +638,7 @@ local player = game.Players.LocalPlayer
 
 		_(args)
 	end
-	function AddDecal(part,asset,side)
+local function AddDecal(part,asset,side)
 		local args = {
 			[1] = "SyncTexture",
 			[2] = {
@@ -640,7 +650,7 @@ local player = game.Players.LocalPlayer
 		_(args)
 	end
 
-	function spam(id)
+local function spam(id)
 		for i,v in game.workspace:GetDescendants() do
 			if v:IsA("BasePart") then
 				spawn(function()
@@ -666,2387 +676,197 @@ local player = game.Players.LocalPlayer
 			end
 		end 
 	end
+
+Tab:AddButton({
+ Name = "c00lkid",
+ Callback = function()
 	spam("81249587601716")
 end})
 
 Tab:AddButton({
  Name = "Snoop dogg",
- Callback = function()
-local player = game.Players.LocalPlayer
-	local char = player.Character
-	local tool
-	for i,v in player:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	for i,v in game.ReplicatedStorage:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	--craaa
-	remote = tool.SyncAPI.ServerEndpoint
-	function _(args)
-		remote:InvokeServer(unpack(args))
-	end
-
-	function SetLocked(part,boolean)
-		local args = {
-			[1] = "SetLocked",
-			[2] = {
-				[1] = part
-			},
-			[3] = boolean
-		}
-		_(args)
-	end
-
-	function SpawnDecal(part,side)
-		local args = {
-			[1] = "CreateTextures",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal"}}}
-
-		_(args)
-	end
-	function AddDecal(part,asset,side)
-		local args = {
-			[1] = "SyncTexture",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal",
-					["Texture"] = "rbxassetid://".. asset}}}
-		_(args)
-	end
-
-	function spam(id)
-		for i,v in game.workspace:GetDescendants() do
-			if v:IsA("BasePart") then
-				spawn(function()
-					SetLocked(v,false)
-					SpawnDecal(v,Enum.NormalId.Front)
-					AddDecal(v,id,Enum.NormalId.Front)
-
-					SpawnDecal(v,Enum.NormalId.Back)
-					AddDecal(v,id,Enum.NormalId.Back)
-
-					SpawnDecal(v,Enum.NormalId.Right)
-					AddDecal(v,id,Enum.NormalId.Right)
-
-					SpawnDecal(v,Enum.NormalId.Left)
-					AddDecal(v,id,Enum.NormalId.Left)
-
-					SpawnDecal(v,Enum.NormalId.Bottom)
-					AddDecal(v,id,Enum.NormalId.Bottom)
-
-					SpawnDecal(v,Enum.NormalId.Top)
-					AddDecal(v,id,Enum.NormalId.Top)
-				end)
-			end
-		end 
-	end
+  Callback = function()
 	spam("880017279")
 end})
 
 Tab:AddButton({
  Name = "Giorno Giovanna",
  Callback = function()
-local player = game.Players.LocalPlayer
-	local char = player.Character
-	local tool
-	for i,v in player:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	for i,v in game.ReplicatedStorage:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	--craaa
-	remote = tool.SyncAPI.ServerEndpoint
-	function _(args)
-		remote:InvokeServer(unpack(args))
-	end
-
-	function SetLocked(part,boolean)
-		local args = {
-			[1] = "SetLocked",
-			[2] = {
-				[1] = part
-			},
-			[3] = boolean
-		}
-		_(args)
-	end
-
-	function SpawnDecal(part,side)
-		local args = {
-			[1] = "CreateTextures",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal"}}}
-
-		_(args)
-	end
-	function AddDecal(part,asset,side)
-		local args = {
-			[1] = "SyncTexture",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal",
-					["Texture"] = "rbxassetid://".. asset}}}
-		_(args)
-	end
-
-	function spam(id)
-		for i,v in game.workspace:GetDescendants() do
-			if v:IsA("BasePart") then
-				spawn(function()
-					SetLocked(v,false)
-					SpawnDecal(v,Enum.NormalId.Front)
-					AddDecal(v,id,Enum.NormalId.Front)
-
-					SpawnDecal(v,Enum.NormalId.Back)
-					AddDecal(v,id,Enum.NormalId.Back)
-
-					SpawnDecal(v,Enum.NormalId.Right)
-					AddDecal(v,id,Enum.NormalId.Right)
-
-					SpawnDecal(v,Enum.NormalId.Left)
-					AddDecal(v,id,Enum.NormalId.Left)
-
-					SpawnDecal(v,Enum.NormalId.Bottom)
-					AddDecal(v,id,Enum.NormalId.Bottom)
-
-					SpawnDecal(v,Enum.NormalId.Top)
-					AddDecal(v,id,Enum.NormalId.Top)
-				end)
-			end
-		end 
-	end
 	spam("134574472097973")
 end})
 
 Tab:AddButton({
  Name = "Nuke",
  Callback = function()
-local player = game.Players.LocalPlayer
-	local char = player.Character
-	local tool
-	for i,v in player:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	for i,v in game.ReplicatedStorage:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	--craaa
-	remote = tool.SyncAPI.ServerEndpoint
-	function _(args)
-		remote:InvokeServer(unpack(args))
-	end
-
-	function SetLocked(part,boolean)
-		local args = {
-			[1] = "SetLocked",
-			[2] = {
-				[1] = part
-			},
-			[3] = boolean
-		}
-		_(args)
-	end
-
-	function SpawnDecal(part,side)
-		local args = {
-			[1] = "CreateTextures",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal"}}}
-
-		_(args)
-	end
-	function AddDecal(part,asset,side)
-		local args = {
-			[1] = "SyncTexture",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal",
-					["Texture"] = "rbxassetid://".. asset}}}
-		_(args)
-	end
-
-	function spam(id)
-		for i,v in game.workspace:GetDescendants() do
-			if v:IsA("BasePart") then
-				spawn(function()
-					SetLocked(v,false)
-					SpawnDecal(v,Enum.NormalId.Front)
-					AddDecal(v,id,Enum.NormalId.Front)
-
-					SpawnDecal(v,Enum.NormalId.Back)
-					AddDecal(v,id,Enum.NormalId.Back)
-
-					SpawnDecal(v,Enum.NormalId.Right)
-					AddDecal(v,id,Enum.NormalId.Right)
-
-					SpawnDecal(v,Enum.NormalId.Left)
-					AddDecal(v,id,Enum.NormalId.Left)
-
-					SpawnDecal(v,Enum.NormalId.Bottom)
-					AddDecal(v,id,Enum.NormalId.Bottom)
-
-					SpawnDecal(v,Enum.NormalId.Top)
-					AddDecal(v,id,Enum.NormalId.Top)
-				end)
-			end
-		end 
-	end
 	spam("749988576")
 end})
 
 Tab:AddButton({
  Name = "Clear Decal",
  Callback = function()
-local player = game.Players.LocalPlayer
-	local char = player.Character
-	local tool
-	for i,v in player:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	for i,v in game.ReplicatedStorage:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	--craaa
-	remote = tool.SyncAPI.ServerEndpoint
-	function _(args)
-		remote:InvokeServer(unpack(args))
-	end
-
-	function SetLocked(part,boolean)
-		local args = {
-			[1] = "SetLocked",
-			[2] = {
-				[1] = part
-			},
-			[3] = boolean
-		}
-		_(args)
-	end
-
-	function SpawnDecal(part,side)
-		local args = {
-			[1] = "CreateTextures",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal"}}}
-
-		_(args)
-	end
-	function AddDecal(part,asset,side)
-		local args = {
-			[1] = "SyncTexture",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal",
-					["Texture"] = "rbxassetid://".. asset}}}
-		_(args)
-	end
-
-	function spam(id)
-		for i,v in game.workspace:GetDescendants() do
-			if v:IsA("BasePart") then
-				spawn(function()
-					SetLocked(v,false)
-					SpawnDecal(v,Enum.NormalId.Front)
-					AddDecal(v,id,Enum.NormalId.Front)
-
-					SpawnDecal(v,Enum.NormalId.Back)
-					AddDecal(v,id,Enum.NormalId.Back)
-
-					SpawnDecal(v,Enum.NormalId.Right)
-					AddDecal(v,id,Enum.NormalId.Right)
-
-					SpawnDecal(v,Enum.NormalId.Left)
-					AddDecal(v,id,Enum.NormalId.Left)
-
-					SpawnDecal(v,Enum.NormalId.Bottom)
-					AddDecal(v,id,Enum.NormalId.Bottom)
-
-					SpawnDecal(v,Enum.NormalId.Top)
-					AddDecal(v,id,Enum.NormalId.Top)
-				end)
-			end
-		end 
-	end
 	spam(1)
 end})
 
 Tab:AddButton({
  Name = "Nyancat",
  Callback = function()
-local player = game.Players.LocalPlayer
-	local char = player.Character
-	local tool
-	for i,v in player:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	for i,v in game.ReplicatedStorage:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	--craaa
-	remote = tool.SyncAPI.ServerEndpoint
-	function _(args)
-		remote:InvokeServer(unpack(args))
-	end
-
-	function SetLocked(part,boolean)
-		local args = {
-			[1] = "SetLocked",
-			[2] = {
-				[1] = part
-			},
-			[3] = boolean
-		}
-		_(args)
-	end
-
-	function SpawnDecal(part,side)
-		local args = {
-			[1] = "CreateTextures",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal"}}}
-
-		_(args)
-	end
-	function AddDecal(part,asset,side)
-		local args = {
-			[1] = "SyncTexture",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal",
-					["Texture"] = "rbxassetid://".. asset}}}
-		_(args)
-	end
-
-	function spam(id)
-		for i,v in game.workspace:GetDescendants() do
-			if v:IsA("BasePart") then
-				spawn(function()
-					SetLocked(v,false)
-					SpawnDecal(v,Enum.NormalId.Front)
-					AddDecal(v,id,Enum.NormalId.Front)
-
-					SpawnDecal(v,Enum.NormalId.Back)
-					AddDecal(v,id,Enum.NormalId.Back)
-
-					SpawnDecal(v,Enum.NormalId.Right)
-					AddDecal(v,id,Enum.NormalId.Right)
-
-					SpawnDecal(v,Enum.NormalId.Left)
-					AddDecal(v,id,Enum.NormalId.Left)
-
-					SpawnDecal(v,Enum.NormalId.Bottom)
-					AddDecal(v,id,Enum.NormalId.Bottom)
-
-					SpawnDecal(v,Enum.NormalId.Top)
-					AddDecal(v,id,Enum.NormalId.Top)
-				end)
-			end
-		end 
-	end
 	spam(10812247949)
 end})
 
 Tab:AddButton({
  Name = "Russia",
  Callback = function()
-local player = game.Players.LocalPlayer
-	local char = player.Character
-	local tool
-	for i,v in player:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	for i,v in game.ReplicatedStorage:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	--craaa
-	remote = tool.SyncAPI.ServerEndpoint
-	function _(args)
-		remote:InvokeServer(unpack(args))
-	end
-
-	function SetLocked(part,boolean)
-		local args = {
-			[1] = "SetLocked",
-			[2] = {
-				[1] = part
-			},
-			[3] = boolean
-		}
-		_(args)
-	end
-
-	function SpawnDecal(part,side)
-		local args = {
-			[1] = "CreateTextures",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal"}}}
-
-		_(args)
-	end
-	function AddDecal(part,asset,side)
-		local args = {
-			[1] = "SyncTexture",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal",
-					["Texture"] = "rbxassetid://".. asset}}}
-		_(args)
-	end
-
-	function spam(id)
-		for i,v in game.workspace:GetDescendants() do
-			if v:IsA("BasePart") then
-				spawn(function()
-					SetLocked(v,false)
-					SpawnDecal(v,Enum.NormalId.Front)
-					AddDecal(v,id,Enum.NormalId.Front)
-
-					SpawnDecal(v,Enum.NormalId.Back)
-					AddDecal(v,id,Enum.NormalId.Back)
-
-					SpawnDecal(v,Enum.NormalId.Right)
-					AddDecal(v,id,Enum.NormalId.Right)
-
-					SpawnDecal(v,Enum.NormalId.Left)
-					AddDecal(v,id,Enum.NormalId.Left)
-
-					SpawnDecal(v,Enum.NormalId.Bottom)
-					AddDecal(v,id,Enum.NormalId.Bottom)
-
-					SpawnDecal(v,Enum.NormalId.Top)
-					AddDecal(v,id,Enum.NormalId.Top)
-				end)
-			end
-		end 
-	end
 	spam("2306030162")
 end})
 
 Tab:AddButton({
  Name = "Teto",
  Callback = function()
-local player = game.Players.LocalPlayer
-	local char = player.Character
-	local tool
-	for i,v in player:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	for i,v in game.ReplicatedStorage:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	--craaa
-	remote = tool.SyncAPI.ServerEndpoint
-	function _(args)
-		remote:InvokeServer(unpack(args))
-	end
-
-	function SetLocked(part,boolean)
-		local args = {
-			[1] = "SetLocked",
-			[2] = {
-				[1] = part
-			},
-			[3] = boolean
-		}
-		_(args)
-	end
-
-	function SpawnDecal(part,side)
-		local args = {
-			[1] = "CreateTextures",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal"}}}
-
-		_(args)
-	end
-	function AddDecal(part,asset,side)
-		local args = {
-			[1] = "SyncTexture",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal",
-					["Texture"] = "rbxassetid://".. asset}}}
-		_(args)
-	end
-
-	function spam(id)
-		for i,v in game.workspace:GetDescendants() do
-			if v:IsA("BasePart") then
-				spawn(function()
-					SetLocked(v,false)
-					SpawnDecal(v,Enum.NormalId.Front)
-					AddDecal(v,id,Enum.NormalId.Front)
-
-					SpawnDecal(v,Enum.NormalId.Back)
-					AddDecal(v,id,Enum.NormalId.Back)
-
-					SpawnDecal(v,Enum.NormalId.Right)
-					AddDecal(v,id,Enum.NormalId.Right)
-
-					SpawnDecal(v,Enum.NormalId.Left)
-					AddDecal(v,id,Enum.NormalId.Left)
-
-					SpawnDecal(v,Enum.NormalId.Bottom)
-					AddDecal(v,id,Enum.NormalId.Bottom)
-
-					SpawnDecal(v,Enum.NormalId.Top)
-					AddDecal(v,id,Enum.NormalId.Top)
-				end)
-			end
-		end 
-	end
 	spam("81398250291567")
 end})
 
 Tab:AddButton({
  Name = "Jumpscare",
  Callback = function()
-local player = game.Players.LocalPlayer
-	local char = player.Character
-	local tool
-	for i,v in player:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	for i,v in game.ReplicatedStorage:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	--craaa
-	remote = tool.SyncAPI.ServerEndpoint
-	function _(args)
-		remote:InvokeServer(unpack(args))
-	end
-
-	function SetLocked(part,boolean)
-		local args = {
-			[1] = "SetLocked",
-			[2] = {
-				[1] = part
-			},
-			[3] = boolean
-		}
-		_(args)
-	end
-
-	function SpawnDecal(part,side)
-		local args = {
-			[1] = "CreateTextures",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal"}}}
-
-		_(args)
-	end
-	function AddDecal(part,asset,side)
-		local args = {
-			[1] = "SyncTexture",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal",
-					["Texture"] = "rbxassetid://".. asset}}}
-		_(args)
-	end
-
-	function spam(id)
-		for i,v in game.workspace:GetDescendants() do
-			if v:IsA("BasePart") then
-				spawn(function()
-					SetLocked(v,false)
-					SpawnDecal(v,Enum.NormalId.Front)
-					AddDecal(v,id,Enum.NormalId.Front)
-
-					SpawnDecal(v,Enum.NormalId.Back)
-					AddDecal(v,id,Enum.NormalId.Back)
-
-					SpawnDecal(v,Enum.NormalId.Right)
-					AddDecal(v,id,Enum.NormalId.Right)
-
-					SpawnDecal(v,Enum.NormalId.Left)
-					AddDecal(v,id,Enum.NormalId.Left)
-
-					SpawnDecal(v,Enum.NormalId.Bottom)
-					AddDecal(v,id,Enum.NormalId.Bottom)
-
-					SpawnDecal(v,Enum.NormalId.Top)
-					AddDecal(v,id,Enum.NormalId.Top)
-				end)
-			end
-		end 
-	end
 	spam("9565121852")
 end})
 
 Tab:AddButton({
  Name = "Night of nights",
  Callback = function()
-local player = game.Players.LocalPlayer
-	local char = player.Character
-	local tool
-	for i,v in player:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	for i,v in game.ReplicatedStorage:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	--craaa
-	remote = tool.SyncAPI.ServerEndpoint
-	function _(args)
-		remote:InvokeServer(unpack(args))
-	end
-
-	function SetLocked(part,boolean)
-		local args = {
-			[1] = "SetLocked",
-			[2] = {
-				[1] = part
-			},
-			[3] = boolean
-		}
-		_(args)
-	end
-
-	function SpawnDecal(part,side)
-		local args = {
-			[1] = "CreateTextures",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal"}}}
-
-		_(args)
-	end
-	function AddDecal(part,asset,side)
-		local args = {
-			[1] = "SyncTexture",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal",
-					["Texture"] = "rbxassetid://".. asset}}}
-		_(args)
-	end
-
-	function spam(id)
-		for i,v in game.workspace:GetDescendants() do
-			if v:IsA("BasePart") then
-				spawn(function()
-					SetLocked(v,false)
-					SpawnDecal(v,Enum.NormalId.Front)
-					AddDecal(v,id,Enum.NormalId.Front)
-
-					SpawnDecal(v,Enum.NormalId.Back)
-					AddDecal(v,id,Enum.NormalId.Back)
-
-					SpawnDecal(v,Enum.NormalId.Right)
-					AddDecal(v,id,Enum.NormalId.Right)
-
-					SpawnDecal(v,Enum.NormalId.Left)
-					AddDecal(v,id,Enum.NormalId.Left)
-
-					SpawnDecal(v,Enum.NormalId.Bottom)
-					AddDecal(v,id,Enum.NormalId.Bottom)
-
-					SpawnDecal(v,Enum.NormalId.Top)
-					AddDecal(v,id,Enum.NormalId.Top)
-				end)
-			end
-		end 
-	end
 	spam("7497933908")
 end})
 
 Tab:AddButton({
  Name = "Star rail sparxie",
  Callback = function()
-local player = game.Players.LocalPlayer
-	local char = player.Character
-	local tool
-	for i,v in player:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	for i,v in game.ReplicatedStorage:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	--craaa
-	remote = tool.SyncAPI.ServerEndpoint
-	function _(args)
-		remote:InvokeServer(unpack(args))
-	end
-
-	function SetLocked(part,boolean)
-		local args = {
-			[1] = "SetLocked",
-			[2] = {
-				[1] = part
-			},
-			[3] = boolean
-		}
-		_(args)
-	end
-
-	function SpawnDecal(part,side)
-		local args = {
-			[1] = "CreateTextures",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal"}}}
-
-		_(args)
-	end
-	function AddDecal(part,asset,side)
-		local args = {
-			[1] = "SyncTexture",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal",
-					["Texture"] = "rbxassetid://".. asset}}}
-		_(args)
-	end
-
-	function spam(id)
-		for i,v in game.workspace:GetDescendants() do
-			if v:IsA("BasePart") then
-				spawn(function()
-					SetLocked(v,false)
-					SpawnDecal(v,Enum.NormalId.Front)
-					AddDecal(v,id,Enum.NormalId.Front)
-
-					SpawnDecal(v,Enum.NormalId.Back)
-					AddDecal(v,id,Enum.NormalId.Back)
-
-					SpawnDecal(v,Enum.NormalId.Right)
-					AddDecal(v,id,Enum.NormalId.Right)
-
-					SpawnDecal(v,Enum.NormalId.Left)
-					AddDecal(v,id,Enum.NormalId.Left)
-
-					SpawnDecal(v,Enum.NormalId.Bottom)
-					AddDecal(v,id,Enum.NormalId.Bottom)
-
-					SpawnDecal(v,Enum.NormalId.Top)
-					AddDecal(v,id,Enum.NormalId.Top)
-				end)
-			end
-		end 
-	end
 	spam("120813702869341")
 end})
 
 Tab:AddButton({
  Name = "kanye west",
  Callback = function()
-local player = game.Players.LocalPlayer
-	local char = player.Character
-	local tool
-	for i,v in player:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	for i,v in game.ReplicatedStorage:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	--craaa
-	remote = tool.SyncAPI.ServerEndpoint
-	function _(args)
-		remote:InvokeServer(unpack(args))
-	end
-
-	function SetLocked(part,boolean)
-		local args = {
-			[1] = "SetLocked",
-			[2] = {
-				[1] = part
-			},
-			[3] = boolean
-		}
-		_(args)
-	end
-
-	function SpawnDecal(part,side)
-		local args = {
-			[1] = "CreateTextures",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal"}}}
-
-		_(args)
-	end
-	function AddDecal(part,asset,side)
-		local args = {
-			[1] = "SyncTexture",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal",
-					["Texture"] = "rbxassetid://".. asset}}}
-		_(args)
-	end
-
-	function spam(id)
-		for i,v in game.workspace:GetDescendants() do
-			if v:IsA("BasePart") then
-				spawn(function()
-					SetLocked(v,false)
-					SpawnDecal(v,Enum.NormalId.Front)
-					AddDecal(v,id,Enum.NormalId.Front)
-
-					SpawnDecal(v,Enum.NormalId.Back)
-					AddDecal(v,id,Enum.NormalId.Back)
-
-					SpawnDecal(v,Enum.NormalId.Right)
-					AddDecal(v,id,Enum.NormalId.Right)
-
-					SpawnDecal(v,Enum.NormalId.Left)
-					AddDecal(v,id,Enum.NormalId.Left)
-
-					SpawnDecal(v,Enum.NormalId.Bottom)
-					AddDecal(v,id,Enum.NormalId.Bottom)
-
-					SpawnDecal(v,Enum.NormalId.Top)
-					AddDecal(v,id,Enum.NormalId.Top)
-				end)
-			end
-		end 
-	end
 	spam("7371693428")
 end})
 
 Tab:AddButton({
  Name = "Infinite void",
  Callback = function()
-local player = game.Players.LocalPlayer
-	local char = player.Character
-	local tool
-	for i,v in player:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	for i,v in game.ReplicatedStorage:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	--craaa
-	remote = tool.SyncAPI.ServerEndpoint
-	function _(args)
-		remote:InvokeServer(unpack(args))
-	end
-
-	function SetLocked(part,boolean)
-		local args = {
-			[1] = "SetLocked",
-			[2] = {
-				[1] = part
-			},
-			[3] = boolean
-		}
-		_(args)
-	end
-
-	function SpawnDecal(part,side)
-		local args = {
-			[1] = "CreateTextures",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal"}}}
-
-		_(args)
-	end
-	function AddDecal(part,asset,side)
-		local args = {
-			[1] = "SyncTexture",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal",
-					["Texture"] = "rbxassetid://".. asset}}}
-		_(args)
-	end
-
-	function spam(id)
-		for i,v in game.workspace:GetDescendants() do
-			if v:IsA("BasePart") then
-				spawn(function()
-					SetLocked(v,false)
-					SpawnDecal(v,Enum.NormalId.Front)
-					AddDecal(v,id,Enum.NormalId.Front)
-
-					SpawnDecal(v,Enum.NormalId.Back)
-					AddDecal(v,id,Enum.NormalId.Back)
-
-					SpawnDecal(v,Enum.NormalId.Right)
-					AddDecal(v,id,Enum.NormalId.Right)
-
-					SpawnDecal(v,Enum.NormalId.Left)
-					AddDecal(v,id,Enum.NormalId.Left)
-
-					SpawnDecal(v,Enum.NormalId.Bottom)
-					AddDecal(v,id,Enum.NormalId.Bottom)
-
-					SpawnDecal(v,Enum.NormalId.Top)
-					AddDecal(v,id,Enum.NormalId.Top)
-				end)
-			end
-		end 
-	end
 	spam("6938945464")
 end})
 
 Tab:AddButton({
  Name = "JJK",
  Callback = function()
-local player = game.Players.LocalPlayer
-	local char = player.Character
-	local tool
-	for i,v in player:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	for i,v in game.ReplicatedStorage:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	--craaa
-	remote = tool.SyncAPI.ServerEndpoint
-	function _(args)
-		remote:InvokeServer(unpack(args))
-	end
-
-	function SetLocked(part,boolean)
-		local args = {
-			[1] = "SetLocked",
-			[2] = {
-				[1] = part
-			},
-			[3] = boolean
-		}
-		_(args)
-	end
-
-	function SpawnDecal(part,side)
-		local args = {
-			[1] = "CreateTextures",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal"}}}
-
-		_(args)
-	end
-	function AddDecal(part,asset,side)
-		local args = {
-			[1] = "SyncTexture",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal",
-					["Texture"] = "rbxassetid://".. asset}}}
-		_(args)
-	end
-
-	function spam(id)
-		for i,v in game.workspace:GetDescendants() do
-			if v:IsA("BasePart") then
-				spawn(function()
-					SetLocked(v,false)
-					SpawnDecal(v,Enum.NormalId.Front)
-					AddDecal(v,id,Enum.NormalId.Front)
-
-					SpawnDecal(v,Enum.NormalId.Back)
-					AddDecal(v,id,Enum.NormalId.Back)
-
-					SpawnDecal(v,Enum.NormalId.Right)
-					AddDecal(v,id,Enum.NormalId.Right)
-
-					SpawnDecal(v,Enum.NormalId.Left)
-					AddDecal(v,id,Enum.NormalId.Left)
-
-					SpawnDecal(v,Enum.NormalId.Bottom)
-					AddDecal(v,id,Enum.NormalId.Bottom)
-
-					SpawnDecal(v,Enum.NormalId.Top)
-					AddDecal(v,id,Enum.NormalId.Top)
-				end)
-			end
-		end 
-	end
 	spam("121395544903127")
 end})
 
 Tab:AddButton({
  Name = "JJK Todo",
  Callback = function()
-local player = game.Players.LocalPlayer
-	local char = player.Character
-	local tool
-	for i,v in player:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	for i,v in game.ReplicatedStorage:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	--craaa
-	remote = tool.SyncAPI.ServerEndpoint
-	function _(args)
-		remote:InvokeServer(unpack(args))
-	end
-
-	function SetLocked(part,boolean)
-		local args = {
-			[1] = "SetLocked",
-			[2] = {
-				[1] = part
-			},
-			[3] = boolean
-		}
-		_(args)
-	end
-
-	function SpawnDecal(part,side)
-		local args = {
-			[1] = "CreateTextures",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal"}}}
-
-		_(args)
-	end
-	function AddDecal(part,asset,side)
-		local args = {
-			[1] = "SyncTexture",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal",
-					["Texture"] = "rbxassetid://".. asset}}}
-		_(args)
-	end
-
-	function spam(id)
-		for i,v in game.workspace:GetDescendants() do
-			if v:IsA("BasePart") then
-				spawn(function()
-					SetLocked(v,false)
-					SpawnDecal(v,Enum.NormalId.Front)
-					AddDecal(v,id,Enum.NormalId.Front)
-
-					SpawnDecal(v,Enum.NormalId.Back)
-					AddDecal(v,id,Enum.NormalId.Back)
-
-					SpawnDecal(v,Enum.NormalId.Right)
-					AddDecal(v,id,Enum.NormalId.Right)
-
-					SpawnDecal(v,Enum.NormalId.Left)
-					AddDecal(v,id,Enum.NormalId.Left)
-
-					SpawnDecal(v,Enum.NormalId.Bottom)
-					AddDecal(v,id,Enum.NormalId.Bottom)
-
-					SpawnDecal(v,Enum.NormalId.Top)
-					AddDecal(v,id,Enum.NormalId.Top)
-				end)
-			end
-		end 
-	end
 	spam("91504556474159")
 end})
 
 Tab:AddButton({
  Name = "Obama",
  Callback = function()
-local player = game.Players.LocalPlayer
-	local char = player.Character
-	local tool
-	for i,v in player:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	for i,v in game.ReplicatedStorage:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	--craaa
-	remote = tool.SyncAPI.ServerEndpoint
-	function _(args)
-		remote:InvokeServer(unpack(args))
-	end
-
-	function SetLocked(part,boolean)
-		local args = {
-			[1] = "SetLocked",
-			[2] = {
-				[1] = part
-			},
-			[3] = boolean
-		}
-		_(args)
-	end
-
-	function SpawnDecal(part,side)
-		local args = {
-			[1] = "CreateTextures",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal"}}}
-
-		_(args)
-	end
-	function AddDecal(part,asset,side)
-		local args = {
-			[1] = "SyncTexture",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal",
-					["Texture"] = "rbxassetid://".. asset}}}
-		_(args)
-	end
-
-	function spam(id)
-		for i,v in game.workspace:GetDescendants() do
-			if v:IsA("BasePart") then
-				spawn(function()
-					SetLocked(v,false)
-					SpawnDecal(v,Enum.NormalId.Front)
-					AddDecal(v,id,Enum.NormalId.Front)
-
-					SpawnDecal(v,Enum.NormalId.Back)
-					AddDecal(v,id,Enum.NormalId.Back)
-
-					SpawnDecal(v,Enum.NormalId.Right)
-					AddDecal(v,id,Enum.NormalId.Right)
-
-					SpawnDecal(v,Enum.NormalId.Left)
-					AddDecal(v,id,Enum.NormalId.Left)
-
-					SpawnDecal(v,Enum.NormalId.Bottom)
-					AddDecal(v,id,Enum.NormalId.Bottom)
-
-					SpawnDecal(v,Enum.NormalId.Top)
-					AddDecal(v,id,Enum.NormalId.Top)
-				end)
-			end
-		end 
-	end
 	spam("3137451504")
 end})
 
 Tab:AddButton({
  Name = "Obunga",
  Callback = function()
-local player = game.Players.LocalPlayer
-	local char = player.Character
-	local tool
-	for i,v in player:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	for i,v in game.ReplicatedStorage:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	--craaa
-	remote = tool.SyncAPI.ServerEndpoint
-	function _(args)
-		remote:InvokeServer(unpack(args))
-	end
-
-	function SetLocked(part,boolean)
-		local args = {
-			[1] = "SetLocked",
-			[2] = {
-				[1] = part
-			},
-			[3] = boolean
-		}
-		_(args)
-	end
-
-	function SpawnDecal(part,side)
-		local args = {
-			[1] = "CreateTextures",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal"}}}
-
-		_(args)
-	end
-	function AddDecal(part,asset,side)
-		local args = {
-			[1] = "SyncTexture",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal",
-					["Texture"] = "rbxassetid://".. asset}}}
-		_(args)
-	end
-
-	function spam(id)
-		for i,v in game.workspace:GetDescendants() do
-			if v:IsA("BasePart") then
-				spawn(function()
-					SetLocked(v,false)
-					SpawnDecal(v,Enum.NormalId.Front)
-					AddDecal(v,id,Enum.NormalId.Front)
-
-					SpawnDecal(v,Enum.NormalId.Back)
-					AddDecal(v,id,Enum.NormalId.Back)
-
-					SpawnDecal(v,Enum.NormalId.Right)
-					AddDecal(v,id,Enum.NormalId.Right)
-
-					SpawnDecal(v,Enum.NormalId.Left)
-					AddDecal(v,id,Enum.NormalId.Left)
-
-					SpawnDecal(v,Enum.NormalId.Bottom)
-					AddDecal(v,id,Enum.NormalId.Bottom)
-
-					SpawnDecal(v,Enum.NormalId.Top)
-					AddDecal(v,id,Enum.NormalId.Top)
-				end)
-			end
-		end 
-	end
 	spam("10665646504")
 end})
 
 Tab:AddButton({
  Name = "steak with popcorn butter?",
  Callback = function()
-local player = game.Players.LocalPlayer
-	local char = player.Character
-	local tool
-	for i,v in player:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	for i,v in game.ReplicatedStorage:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	--craaa
-	remote = tool.SyncAPI.ServerEndpoint
-	function _(args)
-		remote:InvokeServer(unpack(args))
-	end
-
-	function SetLocked(part,boolean)
-		local args = {
-			[1] = "SetLocked",
-			[2] = {
-				[1] = part
-			},
-			[3] = boolean
-		}
-		_(args)
-	end
-
-	function SpawnDecal(part,side)
-		local args = {
-			[1] = "CreateTextures",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal"}}}
-
-		_(args)
-	end
-	function AddDecal(part,asset,side)
-		local args = {
-			[1] = "SyncTexture",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal",
-					["Texture"] = "rbxassetid://".. asset}}}
-		_(args)
-	end
-
-	function spam(id)
-		for i,v in game.workspace:GetDescendants() do
-			if v:IsA("BasePart") then
-				spawn(function()
-					SetLocked(v,false)
-					SpawnDecal(v,Enum.NormalId.Front)
-					AddDecal(v,id,Enum.NormalId.Front)
-
-					SpawnDecal(v,Enum.NormalId.Back)
-					AddDecal(v,id,Enum.NormalId.Back)
-
-					SpawnDecal(v,Enum.NormalId.Right)
-					AddDecal(v,id,Enum.NormalId.Right)
-
-					SpawnDecal(v,Enum.NormalId.Left)
-					AddDecal(v,id,Enum.NormalId.Left)
-
-					SpawnDecal(v,Enum.NormalId.Bottom)
-					AddDecal(v,id,Enum.NormalId.Bottom)
-
-					SpawnDecal(v,Enum.NormalId.Top)
-					AddDecal(v,id,Enum.NormalId.Top)
-				end)
-			end
-		end 
-	end
 	spam("86603351709863")
 end})
 
 Tab:AddButton({
  Name = "kj",
  Callback = function()
-local player = game.Players.LocalPlayer
-	local char = player.Character
-	local tool
-	for i,v in player:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	for i,v in game.ReplicatedStorage:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	--craaa
-	remote = tool.SyncAPI.ServerEndpoint
-	function _(args)
-		remote:InvokeServer(unpack(args))
-	end
-
-	function SetLocked(part,boolean)
-		local args = {
-			[1] = "SetLocked",
-			[2] = {
-				[1] = part
-			},
-			[3] = boolean
-		}
-		_(args)
-	end
-
-	function SpawnDecal(part,side)
-		local args = {
-			[1] = "CreateTextures",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal"}}}
-
-		_(args)
-	end
-	function AddDecal(part,asset,side)
-		local args = {
-			[1] = "SyncTexture",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal",
-					["Texture"] = "rbxassetid://".. asset}}}
-		_(args)
-	end
-
-	function spam(id)
-		for i,v in game.workspace:GetDescendants() do
-			if v:IsA("BasePart") then
-				spawn(function()
-					SetLocked(v,false)
-					SpawnDecal(v,Enum.NormalId.Front)
-					AddDecal(v,id,Enum.NormalId.Front)
-
-					SpawnDecal(v,Enum.NormalId.Back)
-					AddDecal(v,id,Enum.NormalId.Back)
-
-					SpawnDecal(v,Enum.NormalId.Right)
-					AddDecal(v,id,Enum.NormalId.Right)
-
-					SpawnDecal(v,Enum.NormalId.Left)
-					AddDecal(v,id,Enum.NormalId.Left)
-
-					SpawnDecal(v,Enum.NormalId.Bottom)
-					AddDecal(v,id,Enum.NormalId.Bottom)
-
-					SpawnDecal(v,Enum.NormalId.Top)
-					AddDecal(v,id,Enum.NormalId.Top)
-				end)
-			end
-		end 
-	end
 	spam("125476020386823")
 end})
 
 Tab:AddButton({
  Name = "Evernight",
  Callback = function()
-local player = game.Players.LocalPlayer
-	local char = player.Character
-	local tool
-	for i,v in player:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	for i,v in game.ReplicatedStorage:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	--craaa
-	remote = tool.SyncAPI.ServerEndpoint
-	function _(args)
-		remote:InvokeServer(unpack(args))
-	end
-
-	function SetLocked(part,boolean)
-		local args = {
-			[1] = "SetLocked",
-			[2] = {
-				[1] = part
-			},
-			[3] = boolean
-		}
-		_(args)
-	end
-
-	function SpawnDecal(part,side)
-		local args = {
-			[1] = "CreateTextures",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal"}}}
-
-		_(args)
-	end
-	function AddDecal(part,asset,side)
-		local args = {
-			[1] = "SyncTexture",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal",
-					["Texture"] = "rbxassetid://".. asset}}}
-		_(args)
-	end
-
-	function spam(id)
-		for i,v in game.workspace:GetDescendants() do
-			if v:IsA("BasePart") then
-				spawn(function()
-					SetLocked(v,false)
-					SpawnDecal(v,Enum.NormalId.Front)
-					AddDecal(v,id,Enum.NormalId.Front)
-
-					SpawnDecal(v,Enum.NormalId.Back)
-					AddDecal(v,id,Enum.NormalId.Back)
-
-					SpawnDecal(v,Enum.NormalId.Right)
-					AddDecal(v,id,Enum.NormalId.Right)
-
-					SpawnDecal(v,Enum.NormalId.Left)
-					AddDecal(v,id,Enum.NormalId.Left)
-
-					SpawnDecal(v,Enum.NormalId.Bottom)
-					AddDecal(v,id,Enum.NormalId.Bottom)
-
-					SpawnDecal(v,Enum.NormalId.Top)
-					AddDecal(v,id,Enum.NormalId.Top)
-				end)
-			end
-		end 
-	end
 	spam("108963831426567")
 end})
 
 Tab:AddButton({
  Name = "fake peppino",
  Callback = function()
-local player = game.Players.LocalPlayer
-	local char = player.Character
-	local tool
-	for i,v in player:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	for i,v in game.ReplicatedStorage:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	--craaa
-	remote = tool.SyncAPI.ServerEndpoint
-	function _(args)
-		remote:InvokeServer(unpack(args))
-	end
-
-	function SetLocked(part,boolean)
-		local args = {
-			[1] = "SetLocked",
-			[2] = {
-				[1] = part
-			},
-			[3] = boolean
-		}
-		_(args)
-	end
-
-	function SpawnDecal(part,side)
-		local args = {
-			[1] = "CreateTextures",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal"}}}
-
-		_(args)
-	end
-	function AddDecal(part,asset,side)
-		local args = {
-			[1] = "SyncTexture",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal",
-					["Texture"] = "rbxassetid://".. asset}}}
-		_(args)
-	end
-
-	function spam(id)
-		for i,v in game.workspace:GetDescendants() do
-			if v:IsA("BasePart") then
-				spawn(function()
-					SetLocked(v,false)
-					SpawnDecal(v,Enum.NormalId.Front)
-					AddDecal(v,id,Enum.NormalId.Front)
-
-					SpawnDecal(v,Enum.NormalId.Back)
-					AddDecal(v,id,Enum.NormalId.Back)
-
-					SpawnDecal(v,Enum.NormalId.Right)
-					AddDecal(v,id,Enum.NormalId.Right)
-
-					SpawnDecal(v,Enum.NormalId.Left)
-					AddDecal(v,id,Enum.NormalId.Left)
-
-					SpawnDecal(v,Enum.NormalId.Bottom)
-					AddDecal(v,id,Enum.NormalId.Bottom)
-
-					SpawnDecal(v,Enum.NormalId.Top)
-					AddDecal(v,id,Enum.NormalId.Top)
-				end)
-			end
-		end 
-	end
 	spam("79736862379383")
 end})
 
 Tab:AddButton({
  Name = "Michelle Jackson",
  Callback = function()
-local player = game.Players.LocalPlayer
-	local char = player.Character
-	local tool
-	for i,v in player:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	for i,v in game.ReplicatedStorage:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	--craaa
-	remote = tool.SyncAPI.ServerEndpoint
-	function _(args)
-		remote:InvokeServer(unpack(args))
-	end
-
-	function SetLocked(part,boolean)
-		local args = {
-			[1] = "SetLocked",
-			[2] = {
-				[1] = part
-			},
-			[3] = boolean
-		}
-		_(args)
-	end
-
-	function SpawnDecal(part,side)
-		local args = {
-			[1] = "CreateTextures",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal"}}}
-
-		_(args)
-	end
-	function AddDecal(part,asset,side)
-		local args = {
-			[1] = "SyncTexture",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal",
-					["Texture"] = "rbxassetid://".. asset}}}
-		_(args)
-	end
-
-	function spam(id)
-		for i,v in game.workspace:GetDescendants() do
-			if v:IsA("BasePart") then
-				spawn(function()
-					SetLocked(v,false)
-					SpawnDecal(v,Enum.NormalId.Front)
-					AddDecal(v,id,Enum.NormalId.Front)
-
-					SpawnDecal(v,Enum.NormalId.Back)
-					AddDecal(v,id,Enum.NormalId.Back)
-
-					SpawnDecal(v,Enum.NormalId.Right)
-					AddDecal(v,id,Enum.NormalId.Right)
-
-					SpawnDecal(v,Enum.NormalId.Left)
-					AddDecal(v,id,Enum.NormalId.Left)
-
-					SpawnDecal(v,Enum.NormalId.Bottom)
-					AddDecal(v,id,Enum.NormalId.Bottom)
-
-					SpawnDecal(v,Enum.NormalId.Top)
-					AddDecal(v,id,Enum.NormalId.Top)
-				end)
-			end
-		end 
-	end
 	spam("2458871868")
 end})
 
 Tab:AddButton({
  Name = "S tier Crasher",
  Callback = function()
-local player = game.Players.LocalPlayer
-	local char = player.Character
-	local tool
-	for i,v in player:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	for i,v in game.ReplicatedStorage:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	--craaa
-	remote = tool.SyncAPI.ServerEndpoint
-	function _(args)
-		remote:InvokeServer(unpack(args))
-	end
-
-	function SetLocked(part,boolean)
-		local args = {
-			[1] = "SetLocked",
-			[2] = {
-				[1] = part
-			},
-			[3] = boolean
-		}
-		_(args)
-	end
-
-	function SpawnDecal(part,side)
-		local args = {
-			[1] = "CreateTextures",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal"}}}
-
-		_(args)
-	end
-	function AddDecal(part,asset,side)
-		local args = {
-			[1] = "SyncTexture",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal",
-					["Texture"] = "rbxassetid://".. asset}}}
-		_(args)
-	end
-
-	function spam(id)
-		for i,v in game.workspace:GetDescendants() do
-			if v:IsA("BasePart") then
-				spawn(function()
-					SetLocked(v,false)
-					SpawnDecal(v,Enum.NormalId.Front)
-					AddDecal(v,id,Enum.NormalId.Front)
-
-					SpawnDecal(v,Enum.NormalId.Back)
-					AddDecal(v,id,Enum.NormalId.Back)
-
-					SpawnDecal(v,Enum.NormalId.Right)
-					AddDecal(v,id,Enum.NormalId.Right)
-
-					SpawnDecal(v,Enum.NormalId.Left)
-					AddDecal(v,id,Enum.NormalId.Left)
-
-					SpawnDecal(v,Enum.NormalId.Bottom)
-					AddDecal(v,id,Enum.NormalId.Bottom)
-
-					SpawnDecal(v,Enum.NormalId.Top)
-					AddDecal(v,id,Enum.NormalId.Top)
-				end)
-			end
-		end 
-	end
 	spam("75534856771408")
 end})
 
 Tab:AddButton({
  Name = "thomas",
  Callback = function()
-local player = game.Players.LocalPlayer
-	local char = player.Character
-	local tool
-	for i,v in player:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	for i,v in game.ReplicatedStorage:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	--craaa
-	remote = tool.SyncAPI.ServerEndpoint
-	function _(args)
-		remote:InvokeServer(unpack(args))
-	end
-
-	function SetLocked(part,boolean)
-		local args = {
-			[1] = "SetLocked",
-			[2] = {
-				[1] = part
-			},
-			[3] = boolean
-		}
-		_(args)
-	end
-
-	function SpawnDecal(part,side)
-		local args = {
-			[1] = "CreateTextures",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal"}}}
-
-		_(args)
-	end
-	function AddDecal(part,asset,side)
-		local args = {
-			[1] = "SyncTexture",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal",
-					["Texture"] = "rbxassetid://".. asset}}}
-		_(args)
-	end
-
-	function spam(id)
-		for i,v in game.workspace:GetDescendants() do
-			if v:IsA("BasePart") then
-				spawn(function()
-					SetLocked(v,false)
-					SpawnDecal(v,Enum.NormalId.Front)
-					AddDecal(v,id,Enum.NormalId.Front)
-
-					SpawnDecal(v,Enum.NormalId.Back)
-					AddDecal(v,id,Enum.NormalId.Back)
-
-					SpawnDecal(v,Enum.NormalId.Right)
-					AddDecal(v,id,Enum.NormalId.Right)
-
-					SpawnDecal(v,Enum.NormalId.Left)
-					AddDecal(v,id,Enum.NormalId.Left)
-
-					SpawnDecal(v,Enum.NormalId.Bottom)
-					AddDecal(v,id,Enum.NormalId.Bottom)
-
-					SpawnDecal(v,Enum.NormalId.Top)
-					AddDecal(v,id,Enum.NormalId.Top)
-				end)
-			end
-		end 
-	end
 	spam("180674842")
 end})
 
 Tab:AddButton({
  Name = "Miku",
  Callback = function()
-local player = game.Players.LocalPlayer
-	local char = player.Character
-	local tool
-	for i,v in player:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	for i,v in game.ReplicatedStorage:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	--craaa
-	remote = tool.SyncAPI.ServerEndpoint
-	function _(args)
-		remote:InvokeServer(unpack(args))
-	end
-
-	function SetLocked(part,boolean)
-		local args = {
-			[1] = "SetLocked",
-			[2] = {
-				[1] = part
-			},
-			[3] = boolean
-		}
-		_(args)
-	end
-
-	function SpawnDecal(part,side)
-		local args = {
-			[1] = "CreateTextures",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal"}}}
-
-		_(args)
-	end
-	function AddDecal(part,asset,side)
-		local args = {
-			[1] = "SyncTexture",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal",
-					["Texture"] = "rbxassetid://".. asset}}}
-		_(args)
-	end
-
-	function spam(id)
-		for i,v in game.workspace:GetDescendants() do
-			if v:IsA("BasePart") then
-				spawn(function()
-					SetLocked(v,false)
-					SpawnDecal(v,Enum.NormalId.Front)
-					AddDecal(v,id,Enum.NormalId.Front)
-
-					SpawnDecal(v,Enum.NormalId.Back)
-					AddDecal(v,id,Enum.NormalId.Back)
-
-					SpawnDecal(v,Enum.NormalId.Right)
-					AddDecal(v,id,Enum.NormalId.Right)
-
-					SpawnDecal(v,Enum.NormalId.Left)
-					AddDecal(v,id,Enum.NormalId.Left)
-
-					SpawnDecal(v,Enum.NormalId.Bottom)
-					AddDecal(v,id,Enum.NormalId.Bottom)
-
-					SpawnDecal(v,Enum.NormalId.Top)
-					AddDecal(v,id,Enum.NormalId.Top)
-				end)
-			end
-		end 
-	end
 	spam("6286207073")
 end})
 
 Tab:AddButton({
  Name = "Subway Surfers",
  Callback = function()
-local player = game.Players.LocalPlayer
-	local char = player.Character
-	local tool
-	for i,v in player:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	for i,v in game.ReplicatedStorage:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	--craaa
-	remote = tool.SyncAPI.ServerEndpoint
-	function _(args)
-		remote:InvokeServer(unpack(args))
-	end
-
-	function SetLocked(part,boolean)
-		local args = {
-			[1] = "SetLocked",
-			[2] = {
-				[1] = part
-			},
-			[3] = boolean
-		}
-		_(args)
-	end
-
-	function SpawnDecal(part,side)
-		local args = {
-			[1] = "CreateTextures",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal"}}}
-
-		_(args)
-	end
-	function AddDecal(part,asset,side)
-		local args = {
-			[1] = "SyncTexture",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal",
-					["Texture"] = "rbxassetid://".. asset}}}
-		_(args)
-	end
-
-	function spam(id)
-		for i,v in game.workspace:GetDescendants() do
-			if v:IsA("BasePart") then
-				spawn(function()
-					SetLocked(v,false)
-					SpawnDecal(v,Enum.NormalId.Front)
-					AddDecal(v,id,Enum.NormalId.Front)
-
-					SpawnDecal(v,Enum.NormalId.Back)
-					AddDecal(v,id,Enum.NormalId.Back)
-
-					SpawnDecal(v,Enum.NormalId.Right)
-					AddDecal(v,id,Enum.NormalId.Right)
-
-					SpawnDecal(v,Enum.NormalId.Left)
-					AddDecal(v,id,Enum.NormalId.Left)
-
-					SpawnDecal(v,Enum.NormalId.Bottom)
-					AddDecal(v,id,Enum.NormalId.Bottom)
-
-					SpawnDecal(v,Enum.NormalId.Top)
-					AddDecal(v,id,Enum.NormalId.Top)
-				end)
-			end
-		end 
-	end
 	spam("13963674056")
 end})
 
 Tab:AddButton({
  Name = "Re:Zero",
  Callback = function()
-local player = game.Players.LocalPlayer
-	local char = player.Character
-	local tool
-	for i,v in player:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	for i,v in game.ReplicatedStorage:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	--craaa
-	remote = tool.SyncAPI.ServerEndpoint
-	function _(args)
-		remote:InvokeServer(unpack(args))
-	end
-
-	function SetLocked(part,boolean)
-		local args = {
-			[1] = "SetLocked",
-			[2] = {
-				[1] = part
-			},
-			[3] = boolean
-		}
-		_(args)
-	end
-
-	function SpawnDecal(part,side)
-		local args = {
-			[1] = "CreateTextures",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal"}}}
-
-		_(args)
-	end
-	function AddDecal(part,asset,side)
-		local args = {
-			[1] = "SyncTexture",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal",
-					["Texture"] = "rbxassetid://".. asset}}}
-		_(args)
-	end
-
-	function spam(id)
-		for i,v in game.workspace:GetDescendants() do
-			if v:IsA("BasePart") then
-				spawn(function()
-					SetLocked(v,false)
-					SpawnDecal(v,Enum.NormalId.Front)
-					AddDecal(v,id,Enum.NormalId.Front)
-
-					SpawnDecal(v,Enum.NormalId.Back)
-					AddDecal(v,id,Enum.NormalId.Back)
-
-					SpawnDecal(v,Enum.NormalId.Right)
-					AddDecal(v,id,Enum.NormalId.Right)
-
-					SpawnDecal(v,Enum.NormalId.Left)
-					AddDecal(v,id,Enum.NormalId.Left)
-
-					SpawnDecal(v,Enum.NormalId.Bottom)
-					AddDecal(v,id,Enum.NormalId.Bottom)
-
-					SpawnDecal(v,Enum.NormalId.Top)
-					AddDecal(v,id,Enum.NormalId.Top)
-				end)
-			end
-		end 
-	end
 	spam("5560834894")
 end})
 
 Tab:AddButton({
  Name = "Ai horror",
  Callback = function()
-local player = game.Players.LocalPlayer
-	local char = player.Character
-	local tool
-	for i,v in player:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	for i,v in game.ReplicatedStorage:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	--craaa
-	remote = tool.SyncAPI.ServerEndpoint
-	function _(args)
-		remote:InvokeServer(unpack(args))
-	end
-
-	function SetLocked(part,boolean)
-		local args = {
-			[1] = "SetLocked",
-			[2] = {
-				[1] = part
-			},
-			[3] = boolean
-		}
-		_(args)
-	end
-
-	function SpawnDecal(part,side)
-		local args = {
-			[1] = "CreateTextures",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal"}}}
-
-		_(args)
-	end
-	function AddDecal(part,asset,side)
-		local args = {
-			[1] = "SyncTexture",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal",
-					["Texture"] = "rbxassetid://".. asset}}}
-		_(args)
-	end
-
-	function spam(id)
-		for i,v in game.workspace:GetDescendants() do
-			if v:IsA("BasePart") then
-				spawn(function()
-					SetLocked(v,false)
-					SpawnDecal(v,Enum.NormalId.Front)
-					AddDecal(v,id,Enum.NormalId.Front)
-
-					SpawnDecal(v,Enum.NormalId.Back)
-					AddDecal(v,id,Enum.NormalId.Back)
-
-					SpawnDecal(v,Enum.NormalId.Right)
-					AddDecal(v,id,Enum.NormalId.Right)
-
-					SpawnDecal(v,Enum.NormalId.Left)
-					AddDecal(v,id,Enum.NormalId.Left)
-
-					SpawnDecal(v,Enum.NormalId.Bottom)
-					AddDecal(v,id,Enum.NormalId.Bottom)
-
-					SpawnDecal(v,Enum.NormalId.Top)
-					AddDecal(v,id,Enum.NormalId.Top)
-				end)
-			end
-		end 
-	end
 	spam("12087309466")
 end})
 
 Tab:AddButton({
  Name = "Reze",
  Callback = function()
-local player = game.Players.LocalPlayer
-	local char = player.Character
-	local tool
-	for i,v in player:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	for i,v in game.ReplicatedStorage:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-	end
-	--craaa
-	remote = tool.SyncAPI.ServerEndpoint
-	function _(args)
-		remote:InvokeServer(unpack(args))
-	end
-
-	function SetLocked(part,boolean)
-		local args = {
-			[1] = "SetLocked",
-			[2] = {
-				[1] = part
-			},
-			[3] = boolean
-		}
-		_(args)
-	end
-
-	function SpawnDecal(part,side)
-		local args = {
-			[1] = "CreateTextures",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal"}}}
-
-		_(args)
-	end
-	function AddDecal(part,asset,side)
-		local args = {
-			[1] = "SyncTexture",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Face"] = side,
-					["TextureType"] = "Decal",
-					["Texture"] = "rbxassetid://".. asset}}}
-		_(args)
-	end
-
-	function spam(id)
-		for i,v in game.workspace:GetDescendants() do
-			if v:IsA("BasePart") then
-				spawn(function()
-					SetLocked(v,false)
-					SpawnDecal(v,Enum.NormalId.Front)
-					AddDecal(v,id,Enum.NormalId.Front)
-
-					SpawnDecal(v,Enum.NormalId.Back)
-					AddDecal(v,id,Enum.NormalId.Back)
-
-					SpawnDecal(v,Enum.NormalId.Right)
-					AddDecal(v,id,Enum.NormalId.Right)
-
-					SpawnDecal(v,Enum.NormalId.Left)
-					AddDecal(v,id,Enum.NormalId.Left)
-
-					SpawnDecal(v,Enum.NormalId.Bottom)
-					AddDecal(v,id,Enum.NormalId.Bottom)
-
-					SpawnDecal(v,Enum.NormalId.Top)
-					AddDecal(v,id,Enum.NormalId.Top)
-				end)
-			end
-		end 
-	end
 	spam("71720378084802")
+end})
+
+Tab:AddButton({
+ Name = "Chainsaw man - Denji",
+ Callback = function()
+	spam("11460669114")
+end})
+
+Tab:AddButton({
+ Name = "Mario",
+ Callback = function()
+	spam("2232731191")
+end})
+
+Tab:AddButton({
+ Name = "Mario tomato",
+ Callback = function()
+ 	spam("102295548513065")
 end})
 
 local Tab = Window:MakeTab({
@@ -3939,7 +1759,7 @@ Tab:AddDropdown({
 
 Tab:AddTextbox({
     Name = "Team Name",
-    Default = "Lazy",
+    Default = "❖",
     TextDisappear = false,
     Callback = function(Value)
         TeamName = Value
@@ -5816,107 +3636,76 @@ Tab:AddToggle({
 	end
 })
 
-local Players = game:GetService("Players")
-local LocalPlayer = Players.LocalPlayer
+Tab:AddButton({
+    Name = "Rotate all",
+    Callback = function()
+        local player = game.Players.LocalPlayer
+        local tool
 
-local ToolName = "super cool wrench"
-local Enabled = false
-
-local alreadyTeleported = {}
-
-local function teleportToPlayer(player)
-    local myCharacter = LocalPlayer.Character
-    local targetCharacter = player.Character
-
-    if not myCharacter or not targetCharacter then return end
-
-    local myHRP = myCharacter:FindFirstChild("Right Arm")
-    local targetHRP = targetCharacter:FindFirstChild("Right Arm")
-
-    if myHRP and targetHRP then
-        myHRP.CFrame = CFrame.lookAt(
-    targetHRP.Position + targetHRP.CFrame.LookVector * 3,
-    targetHRP.Position
-)
-    end
-end
-
-local function watchCharacter(player, character)
-
-    character.ChildAdded:Connect(function(child)
-
-        if not Enabled then return end
-        if alreadyTeleported[player] then return end
-
-        if child:IsA("Tool") and child.Name == ToolName then
-            alreadyTeleported[player] = true
-
-            teleportToPlayer(player)
-
-            print("Teleported to "..player.Name)
-               local targetChar = player.Character
-        if not targetChar then return end
-
-        local rightArm = targetChar:FindFirstChild("Right Arm")
-        if not rightArm then return end
-
-        local pos = rightArm.Position
-        local v = vector.create(pos.X, pos.Y, pos.Z)
-
-        local myChar = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
-        local myTool = myChar:FindFirstChild("Luger") or LocalPlayer.Backpack:FindFirstChild("Luger")
-
-        if not myTool then return end
-
-        local remote = myTool:FindFirstChild("Input")
-        if not remote then return end
-
-        local args = {
-            "Mouse1",
-            true,
-            v,
-            rightArm
-        }
-
-        remote:FireServer(unpack(args))
+        for _, v in ipairs(player:GetDescendants()) do
+            if v.Name == "SyncAPI" then
+                tool = v.Parent
+                break
+            end
         end
-    end)
 
-    character.ChildRemoved:Connect(function(child)
-        if child:IsA("Tool") and child.Name == ToolName then
-            alreadyTeleported[player] = false
+        if not tool then
+            for _, v in ipairs(game.ReplicatedStorage:GetDescendants()) do
+                if v.Name == "SyncAPI" then
+                    tool = v.Parent
+                    break
+                end
+            end
         end
-    end)
-end
 
-local function watchPlayer(player)
+        if not tool then
+            warn("SyncAPI not found!")
+            return
+        end
 
-    if player.Character then
-        watchCharacter(player, player.Character)
-    end
+        local remote = tool.SyncAPI.ServerEndpoint
 
-    player.CharacterAdded:Connect(function(character)
-        watchCharacter(player, character)
-    end)
-end
+        local function Invoke(args)
+            remote:InvokeServer(unpack(args))
+        end
 
-for _, player in pairs(Players:GetPlayers()) do
-    if player ~= LocalPlayer then
-        watchPlayer(player)
-    end
-end
+        local function MovePart(part, cf)
+            Invoke({
+                [1] = "SyncMove",
+                [2] = {
+                    {
+                        Part = part,
+                        CFrame = cf
+                    }
+                }
+            })
+        end
 
-Players.PlayerAdded:Connect(function(player)
-    if player ~= LocalPlayer then
-        watchPlayer(player)
-    end
-end)
+        local function SetLocked(part, locked)
+            Invoke({
+                [1] = "SetLocked",
+                [2] = {
+                    part
+                },
+                [3] = locked
+            })
+        end
 
-Tab:AddToggle({
-    Name = "Auto shoot Wtools - Beta useless",
-    Default = false,
-    Callback = function(Value)
-        Enabled = Value
+        for _, v in ipairs(workspace:GetDescendants()) do
+            if v:IsA("BasePart") then
+                task.spawn(function()
+                    SetLocked(v, false)
+                    MovePart(
+                        v,
+                        v.CFrame * CFrame.Angles(
+                            math.random(0, 1),
+                            math.random(0, 1),
+                            math.random(0, 1)
+                        )
+                    )
+                end)
+            end
+        end
     end
 })
 
