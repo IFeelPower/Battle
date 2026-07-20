@@ -421,7 +421,7 @@ Tab:AddButton({
 end})
 
 Tab:AddButton({
- Name = "Immortal",
+ Name = "INF DUP",
  Callback = function()
                 local args = {
             [1] = -1,
@@ -440,6 +440,23 @@ Tab:AddButton({
             moveitems:InvokeServer(unpack(args))
         end
    end    
+})
+
+local enabled = false
+
+Tab:AddToggle({
+    Name = "Dropitem",
+    Default = false,
+    Callback = function(Value)
+        enabled = Value
+
+        task.spawn(function()
+            while enabled do
+game:GetService("ReplicatedStorage").GameRemotes.DropItem:InvokeServer()
+                wait(0.001)
+            end
+        end)
+    end
 })
 
 Tab:AddButton({
@@ -513,15 +530,12 @@ Tab:AddToggle({
     end 
   })
 
-Tab:AddToggle({
-    Name = "Immortal",
-    Default = false,
-    Callback = function(Value)
-        game:GetService("ReplicatedStorage")
-            .GameRemotes.MoveItem
-            :InvokeServer(101, 9, Value)
+Tab:AddButton({
+ Name = "God mode",
+    Callback = function()
+game:GetService("ReplicatedStorage").GameRemotes.MoveItem:InvokeServer(101, 9, true)
     end
-})
+  })
 
   function FastBreak()
     while fb do
