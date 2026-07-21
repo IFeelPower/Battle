@@ -1,0 +1,3943 @@
+--[[
+ .____                  ________ ___.    _____                           __                
+ |    |    __ _______   \_____  \\_ |___/ ____\_ __  ______ ____ _____ _/  |_  ___________ 
+ |    |   |  |  \__  \   /   |   \| __ \   __\  |  \/  ___// ___\\__  \\   __\/  _ \_  __ \
+ |    |___|  |  // __ \_/    |    \ \_\ \  | |  |  /\___ \\  \___ / __ \|  | (  <_> )  | \/
+ |_______ \____/(____  /\_______  /___  /__| |____//____  >\___  >____  /__|  \____/|__|   
+         \/          \/         \/    \/                \/     \/     \/                   
+          \_Welcome to LuaObfuscator.com   (Alpha 0.10.9) ~  Much Love, Ferib 
+
+]]--
+
+local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/CeleryHub/Shlexware-s-Orion/main/source"))();
+local Window = OrionLib:MakeWindow({Name="Lazy Script V2 - Obby for Owner Admin",HidePremium=true,IntroEnabled=false,SaveConfig=false,ConfigFolder="OrionTest",IntroText="Are You Lazy?",IntroIcon="rbxassetid://16336200609"});
+local Tab = Window:MakeTab({Name="Main",Icon="rbxassetid://4483345998",PremiumOnly=false});
+Tab:AddLabel("script owner olya_9701 - 0djey old name - llllllllllRed");
+local Section = Tab:AddSection({Name="How to steal tool"});
+Tab:AddLabel("1. u need above mod rank first");
+Tab:AddLabel("2. ⇩Get Gear steal item⇩");
+Tab:AddLabel("3. shoot it to tool while they hold it");
+Tab:AddLabel("4. they will drop tool then u can pick up it");
+Tab:AddLabel("Tips: Aim it to their tool (don't aim body)");
+local Section = Tab:AddSection({Name="Auto Steal Tools"});
+Tab:AddButton({Name="Gear steal item - Mod+",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";gear me 95354288");
+end});
+Tab:AddToggle({Name="Wtools Steal",Default=false,Callback=function(Value)
+	local FlatIdent_2584C = 0;
+	while true do
+		if (FlatIdent_2584C == 0) then
+			lol = Value;
+			while lol do
+				local FlatIdent_378D0 = 0;
+				while true do
+					if (FlatIdent_378D0 == 0) then
+						wait(0.1);
+						if workspace:FindFirstChild("super cool wrench") then
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace["super cool wrench"].Handle.CFrame;
+						end
+						break;
+					end
+				end
+			end
+			break;
+		end
+	end
+end});
+Tab:AddToggle({Name="Btools Steal",Default=false,Callback=function(Value)
+	lol = Value;
+	while lol do
+		wait(0.1);
+		if workspace:FindFirstChild("Building Tools") then
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace["Building Tools"].Handle.CFrame;
+		end
+	end
+end});
+Tab:AddToggle({Name="Fork3x Steal",Default=false,Callback=function(Value)
+	local FlatIdent_2953F = 0;
+	while true do
+		if (FlatIdent_2953F == 0) then
+			lol = Value;
+			while lol do
+				wait(0.1);
+				if workspace:FindFirstChild("Fork3X") then
+					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Fork3X.Handle.CFrame;
+				end
+			end
+			break;
+		end
+	end
+end});
+local Players = game:GetService("Players");
+local LocalPlayer = Players.LocalPlayer;
+local ToolName = "super cool wrench";
+local Enabled = false;
+local alreadyTeleported = {};
+local function teleportToPlayer(player)
+	local FlatIdent_2FBEB = 0;
+	local myCharacter;
+	local targetCharacter;
+	local myHRP;
+	local targetHRP;
+	while true do
+		if (FlatIdent_2FBEB == 2) then
+			targetHRP = targetCharacter:FindFirstChild("HumanoidRootPart");
+			if (myHRP and targetHRP) then
+				myHRP.CFrame = targetHRP.CFrame + Vector3.new(3, 0, 0);
+			end
+			break;
+		end
+		if (FlatIdent_2FBEB == 0) then
+			myCharacter = LocalPlayer.Character;
+			targetCharacter = player.Character;
+			FlatIdent_2FBEB = 1;
+		end
+		if (FlatIdent_2FBEB == 1) then
+			if (not myCharacter or not targetCharacter) then
+				return;
+			end
+			myHRP = myCharacter:FindFirstChild("HumanoidRootPart");
+			FlatIdent_2FBEB = 2;
+		end
+	end
+end
+local function watchCharacter(player, character)
+	local FlatIdent_23BE8 = 0;
+	while true do
+		if (FlatIdent_23BE8 == 0) then
+			character.ChildAdded:Connect(function(child)
+				local FlatIdent_8199B = 0;
+				while true do
+					if (FlatIdent_8199B == 0) then
+						if not Enabled then
+							return;
+						end
+						if alreadyTeleported[player] then
+							return;
+						end
+						FlatIdent_8199B = 1;
+					end
+					if (1 == FlatIdent_8199B) then
+						if (child:IsA("Tool") and (child.Name == ToolName)) then
+							alreadyTeleported[player] = true;
+							teleportToPlayer(player);
+							print("Teleported to " .. player.Name);
+						end
+						break;
+					end
+				end
+			end);
+			character.ChildRemoved:Connect(function(child)
+				if (child:IsA("Tool") and (child.Name == ToolName)) then
+					alreadyTeleported[player] = false;
+				end
+			end);
+			break;
+		end
+	end
+end
+local function watchPlayer(player)
+	local FlatIdent_5ED46 = 0;
+	while true do
+		if (FlatIdent_5ED46 == 0) then
+			if player.Character then
+				watchCharacter(player, player.Character);
+			end
+			player.CharacterAdded:Connect(function(character)
+				watchCharacter(player, character);
+			end);
+			break;
+		end
+	end
+end
+for _, player in pairs(Players:GetPlayers()) do
+	if (player ~= LocalPlayer) then
+		watchPlayer(player);
+	end
+end
+Players.PlayerAdded:Connect(function(player)
+	if (player ~= LocalPlayer) then
+		watchPlayer(player);
+	end
+end);
+Tab:AddToggle({Name="Auto TP To Super Cool Wrench Holder",Default=false,Callback=function(Value)
+	Enabled = Value;
+end});
+local Players = game:GetService("Players");
+local LocalPlayer = Players.LocalPlayer;
+local Backpack = LocalPlayer:WaitForChild("Backpack");
+local enabled = false;
+local connections = {};
+local debounce = false;
+local function activate(tool)
+	local FlatIdent_61585 = 0;
+	local remote;
+	local character;
+	local hrp;
+	local pos;
+	while true do
+		if (FlatIdent_61585 == 1) then
+			remote = tool:FindFirstChild("Place");
+			if not remote then
+				return;
+			end
+			debounce = true;
+			FlatIdent_61585 = 2;
+		end
+		if (FlatIdent_61585 == 3) then
+			remote:FireServer("pad", pos, {color=true,rank="HeadAdmin"}, false);
+			task.wait(0.2);
+			debounce = false;
+			break;
+		end
+		if (FlatIdent_61585 == 2) then
+			character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait();
+			hrp = character:WaitForChild("HumanoidRootPart");
+			pos = hrp.Position + Vector3.new(0, 100, 0);
+			FlatIdent_61585 = 3;
+		end
+		if (FlatIdent_61585 == 0) then
+			if debounce then
+				return;
+			end
+			if not tool then
+				return;
+			end
+			if (tool.Name ~= "super cool wrench") then
+				return;
+			end
+			FlatIdent_61585 = 1;
+		end
+	end
+end
+local function connectSignals()
+	local function hook(container)
+		local FlatIdent_27957 = 0;
+		while true do
+			if (0 == FlatIdent_27957) then
+				table.insert(connections, container.ChildAdded:Connect(function(child)
+					activate(child);
+				end));
+				for _, child in ipairs(container:GetChildren()) do
+					activate(child);
+				end
+				break;
+			end
+		end
+	end
+	hook(Backpack);
+	local char = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait();
+	hook(char);
+	table.insert(connections, LocalPlayer.CharacterAdded:Connect(function(newChar)
+		hook(newChar);
+	end));
+end
+local function clear()
+	local FlatIdent_77C29 = 0;
+	while true do
+		if (FlatIdent_77C29 == 0) then
+			for _, c in ipairs(connections) do
+				c:Disconnect();
+			end
+			table.clear(connections);
+			break;
+		end
+	end
+end
+Tab:AddToggle({Name="Auto put Pad ur above - useful with steal gun",Default=false,Callback=function(Value)
+	local FlatIdent_703C8 = 0;
+	while true do
+		if (FlatIdent_703C8 == 0) then
+			enabled = Value;
+			clear();
+			FlatIdent_703C8 = 1;
+		end
+		if (FlatIdent_703C8 == 1) then
+			if not enabled then
+				return;
+			end
+			connectSignals();
+			break;
+		end
+	end
+end});
+local Section = Tab:AddSection({Name="auto touch admin pad"});
+local AutoCat = false;
+Tab:AddToggle({Name="Auto Touch Pad",Default=false,Callback=function(Value)
+	AutoCat = Value;
+	task.spawn(function()
+		while AutoCat do
+			local FlatIdent_1B51D = 0;
+			local hrp;
+			while true do
+				if (FlatIdent_1B51D == 1) then
+					task.wait(0.1);
+					break;
+				end
+				if (FlatIdent_1B51D == 0) then
+					hrp = game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart");
+					if hrp then
+						for _, v in ipairs(workspace:GetDescendants()) do
+							if ((v.Name == "admingiver") and v:IsA("BasePart")) then
+								local FlatIdent_25DF3 = 0;
+								while true do
+									if (FlatIdent_25DF3 == 0) then
+										firetouchinterest(hrp, v, 0);
+										firetouchinterest(hrp, v, 1);
+										break;
+									end
+								end
+							end
+						end
+					end
+					FlatIdent_1B51D = 1;
+				end
+			end
+		end
+	end);
+end});
+local Section = Tab:AddSection({Name="Misc"});
+Tab:AddButton({Name="jerk off - sus",Callback=function()
+	loadstring(game:HttpGet("https://pastefy.app/wa3v2Vgm/raw"))("Spider Script");
+end});
+Tab:AddButton({Name="Portacell - Mod+ - op disable inventory tool",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";gear me 82357101");
+end});
+local Section = Tab:AddSection({Name="Tips: use invisible command before jail player"});
+local Players = game:GetService("Players");
+local LocalPlayer = Players.LocalPlayer;
+local SelectedPlayer = nil;
+local function GetPlayerList()
+	local list = {};
+	for _, plr in ipairs(Players:GetPlayers()) do
+		if (plr ~= LocalPlayer) then
+			table.insert(list, plr.Name);
+		end
+	end
+	return list;
+end
+local Dropdown = Tab:AddDropdown({Name="Target Player",Default="",Options=GetPlayerList(),Callback=function(Value)
+	SelectedPlayer = Value;
+end});
+Players.PlayerAdded:Connect(function()
+	Dropdown:Refresh(GetPlayerList(), true);
+end);
+Players.PlayerRemoving:Connect(function()
+	Dropdown:Refresh(GetPlayerList(), true);
+end);
+Tab:AddButton({Name="Auto Portacell",Callback=function()
+	local FlatIdent_5BA5E = 0;
+	local Target;
+	while true do
+		if (FlatIdent_5BA5E == 1) then
+			if (Target and Target.Character and Target.Character:FindFirstChild("HumanoidRootPart")) then
+				local FlatIdent_981A3 = 0;
+				local MyCharacter;
+				local MyHRP;
+				while true do
+					if (FlatIdent_981A3 == 1) then
+						if MyHRP then
+							MyHRP.CFrame = Target.Character.HumanoidRootPart.CFrame + Vector3.new(2, 0, 0);
+							task.wait(0.3);
+							local args = {Target.Character};
+							LocalPlayer:WaitForChild("Backpack"):WaitForChild("PortableJustice"):WaitForChild("MouseClick"):FireServer(unpack(args));
+						end
+						break;
+					end
+					if (FlatIdent_981A3 == 0) then
+						MyCharacter = LocalPlayer.Character;
+						MyHRP = MyCharacter and MyCharacter:FindFirstChild("HumanoidRootPart");
+						FlatIdent_981A3 = 1;
+					end
+				end
+			end
+			break;
+		end
+		if (FlatIdent_5BA5E == 0) then
+			if not SelectedPlayer then
+				local FlatIdent_295EB = 0;
+				while true do
+					if (FlatIdent_295EB == 0) then
+						OrionLib:MakeNotification({Name="Error",Content="Select Player",Time=3});
+						return;
+					end
+				end
+			end
+			Target = Players:FindFirstChild(SelectedPlayer);
+			FlatIdent_5BA5E = 1;
+		end
+	end
+end});
+local StarterGui = game:GetService("StarterGui");
+Tab:AddButton({Name="fix inventory from portacell",Callback=function()
+	local FlatIdent_52551 = 0;
+	while true do
+		if (FlatIdent_52551 == 0) then
+			pcall(function()
+				StarterGui:SetCore("ResetButtonCallback", true);
+			end);
+			for _, guiType in ipairs(Enum.CoreGuiType:GetEnumItems()) do
+				pcall(function()
+					StarterGui:SetCoreGuiEnabled(guiType, true);
+				end);
+			end
+			break;
+		end
+	end
+end});
+Tab:AddButton({Name="infinite yield",Callback=function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))();
+end});
+local Tab = Window:MakeTab({Name="Music",Icon="rbxassetid://4483345998",PremiumOnly=false});
+local Section = Tab:AddSection({Name="u need Admin+"});
+local function Music(id)
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music " .. id .. " ;volume 10");
+end
+Tab:AddButton({Name="Spooky skeleton",Callback=function()
+	Music("104181508980428 ;pitch 0.2");
+end});
+Tab:AddButton({Name="Spooky skeleton 2",Callback=function()
+	Music("100828050594137");
+end});
+Tab:AddButton({Name="nig--",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 99993460719133 ;pitch 0.2 ;volume 10");
+end});
+Tab:AddButton({Name="Through Patches of Violet",Callback=function()
+	Music("77579718926500");
+end});
+Tab:AddButton({Name="Blend W",Callback=function()
+	Music("87824870129318");
+end});
+Tab:AddButton({Name="Golden hour",Callback=function()
+	Music("136409279011083");
+end});
+Tab:AddButton({Name="Jumpstyle",Callback=function()
+	Music("75522197868449");
+end});
+Tab:AddButton({Name="2004 bootleg",Callback=function()
+	Music("135881205397136");
+end});
+Tab:AddButton({Name="Crypt dust",Callback=function()
+	Music("138397903891342");
+end});
+Tab:AddButton({Name="laserstyle mix",Callback=function()
+	Music("72205284895340");
+end});
+Tab:AddButton({Name="Nyancat",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 78152030908975 ;volume 10");
+end});
+Tab:AddButton({Name="bang bang bang",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 90289127130880 ;volume 10");
+end});
+Tab:AddButton({Name="bubble",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 128961712071619 ;volume 10");
+end});
+Tab:AddButton({Name="Lamors tonjour",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 138421944471718 ;volume 10");
+end});
+Tab:AddButton({Name="Night of nights",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 93489304289517 ;volume 10");
+end});
+Tab:AddButton({Name="Infinite Void",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 131649240815291 ;volume 10");
+end});
+Tab:AddButton({Name="Jujutsu kaisen Todo",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 103838195310017 ;volume 10");
+end});
+Tab:AddButton({Name="Obunga",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 130351568910729 ;volume 10 ;pitch 0.1");
+end});
+Tab:AddButton({Name="Horror Movie",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 72504072770543 ;volume 10");
+end});
+Tab:AddButton({Name="Toma Toma",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 89180400948567 ;volume 10");
+end});
+Tab:AddButton({Name="KJ",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 96096795516863 ;volume 10");
+end});
+Tab:AddButton({Name="idk",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 9041745502 ;volume 10");
+end});
+Tab:AddButton({Name="smooth criminal - michelle jackson",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 101531774453154 ;volume 10");
+end});
+Tab:AddButton({Name="sWon't Stop Us C",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 1847661821 ;volume 10");
+end});
+Tab:AddButton({Name="Jumpstyle 2",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 1839246711 ;volume 10");
+end});
+Tab:AddButton({Name="thomas",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 89039427227856 ;volume 10 ;pitch 0.1");
+end});
+Tab:AddButton({Name="the abyss",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 92199602729478 ;volume 10");
+end});
+Tab:AddButton({Name="ni-- remix",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 116925459199971 ;volume 10 ;pitch 0.1");
+end});
+Tab:AddButton({Name="Miku",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 94546418776271 ;volume 10");
+end});
+Tab:AddButton({Name="Subway Surfers",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 103620006912519 ;volume 10");
+end});
+Tab:AddButton({Name="Re:zero English",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 88014054894895 ;volume 10");
+end});
+Tab:AddButton({Name="Ai song",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 94715018676012 ;volume 10");
+end});
+Tab:AddButton({Name="Chainsaw man - iris out",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 88116925875362 ;volume 10");
+end});
+Tab:AddButton({Name="Chainsaw man - Kick back",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 94110452996090 ;volume 10");
+end});
+Tab:AddButton({Name="Mario",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";music 124143766633529 ;volume 10");
+end});
+Tab:AddButton({Name="Mario tomato",Callback=function()
+	Music("118761863682498");
+end});
+Tab:AddButton({Name="Paradise - very loud",Callback=function()
+	Music("128048502331483");
+end});
+Tab:AddButton({Name="Verity",Callback=function()
+	Music("116704489332329");
+end});
+local Tab = Window:MakeTab({Name="Decal spam",Icon="rbxassetid://4483345998",PremiumOnly=false});
+local Section = Tab:AddSection({Name="u need btools in inventory but dont hold in hands"});
+local player = game.Players.LocalPlayer;
+local char = player.Character;
+local tool;
+for i, v in player:GetDescendants() do
+	if (v.Name == "SyncAPI") then
+		tool = v.Parent;
+	end
+end
+for i, v in game.ReplicatedStorage:GetDescendants() do
+	if (v.Name == "SyncAPI") then
+		tool = v.Parent;
+	end
+end
+local function _(args)
+	tool.SyncAPI.ServerEndpoint:InvokeServer(unpack(args));
+end
+local function SetLocked(part, boolean)
+	local FlatIdent_287B5 = 0;
+	local args;
+	while true do
+		if (FlatIdent_287B5 == 0) then
+			args = {[1]="SetLocked",[2]={[1]=part},[3]=boolean};
+			_(args);
+			break;
+		end
+	end
+end
+local function SpawnDecal(part, side)
+	local args = {[1]="CreateTextures",[2]={[1]={Part=part,Face=side,TextureType="Decal"}}};
+	_(args);
+end
+local function AddDecal(part, asset, side)
+	local FlatIdent_4CC24 = 0;
+	local args;
+	while true do
+		if (FlatIdent_4CC24 == 0) then
+			args = {[1]="SyncTexture",[2]={[1]={Part=part,Face=side,TextureType="Decal",Texture=("rbxassetid://" .. asset)}}};
+			_(args);
+			break;
+		end
+	end
+end
+local function spam(id)
+	for i, v in game.workspace:GetDescendants() do
+		if v:IsA("BasePart") then
+			spawn(function()
+				local FlatIdent_207CC = 0;
+				while true do
+					if (FlatIdent_207CC == 0) then
+						SetLocked(v, false);
+						SpawnDecal(v, Enum.NormalId.Front);
+						AddDecal(v, id, Enum.NormalId.Front);
+						SpawnDecal(v, Enum.NormalId.Back);
+						FlatIdent_207CC = 1;
+					end
+					if (FlatIdent_207CC == 1) then
+						AddDecal(v, id, Enum.NormalId.Back);
+						SpawnDecal(v, Enum.NormalId.Right);
+						AddDecal(v, id, Enum.NormalId.Right);
+						SpawnDecal(v, Enum.NormalId.Left);
+						FlatIdent_207CC = 2;
+					end
+					if (2 == FlatIdent_207CC) then
+						AddDecal(v, id, Enum.NormalId.Left);
+						SpawnDecal(v, Enum.NormalId.Bottom);
+						AddDecal(v, id, Enum.NormalId.Bottom);
+						SpawnDecal(v, Enum.NormalId.Top);
+						FlatIdent_207CC = 3;
+					end
+					if (FlatIdent_207CC == 3) then
+						AddDecal(v, id, Enum.NormalId.Top);
+						break;
+					end
+				end
+			end);
+		end
+	end
+end
+Tab:AddButton({Name="c00lkidd",Callback=function()
+	spam("81249587601716");
+end});
+Tab:AddButton({Name="Snoop dogg",Callback=function()
+	spam("880017279");
+end});
+Tab:AddButton({Name="Giorno Giovanna",Callback=function()
+	spam("134574472097973");
+end});
+Tab:AddButton({Name="Nuke",Callback=function()
+	spam("749988576");
+end});
+Tab:AddButton({Name="Clear Decal",Callback=function()
+	spam(1);
+end});
+Tab:AddButton({Name="Nyancat",Callback=function()
+	spam(10812247949);
+end});
+Tab:AddButton({Name="Russia",Callback=function()
+	spam("2306030162");
+end});
+Tab:AddButton({Name="Teto",Callback=function()
+	spam("81398250291567");
+end});
+Tab:AddButton({Name="Jumpscare",Callback=function()
+	spam("9565121852");
+end});
+Tab:AddButton({Name="Night of nights",Callback=function()
+	spam("7497933908");
+end});
+Tab:AddButton({Name="Star rail sparxie",Callback=function()
+	spam("120813702869341");
+end});
+Tab:AddButton({Name="kanye west",Callback=function()
+	spam("7371693428");
+end});
+Tab:AddButton({Name="Infinite void",Callback=function()
+	spam("6938945464");
+end});
+Tab:AddButton({Name="JJK",Callback=function()
+	spam("121395544903127");
+end});
+Tab:AddButton({Name="JJK Todo",Callback=function()
+	spam("91504556474159");
+end});
+Tab:AddButton({Name="Obama",Callback=function()
+	spam("3137451504");
+end});
+Tab:AddButton({Name="Obunga",Callback=function()
+	spam("10665646504");
+end});
+Tab:AddButton({Name="steak with popcorn butter?",Callback=function()
+	spam("86603351709863");
+end});
+Tab:AddButton({Name="kj",Callback=function()
+	spam("125476020386823");
+end});
+Tab:AddButton({Name="Evernight",Callback=function()
+	spam("108963831426567");
+end});
+Tab:AddButton({Name="fake peppino",Callback=function()
+	spam("79736862379383");
+end});
+Tab:AddButton({Name="Michelle Jackson",Callback=function()
+	spam("2458871868");
+end});
+Tab:AddButton({Name="S tier Crasher",Callback=function()
+	spam("75534856771408");
+end});
+Tab:AddButton({Name="thomas",Callback=function()
+	spam("180674842");
+end});
+Tab:AddButton({Name="Miku",Callback=function()
+	spam("6286207073");
+end});
+Tab:AddButton({Name="Subway Surfers",Callback=function()
+	spam("13963674056");
+end});
+Tab:AddButton({Name="Re:Zero",Callback=function()
+	spam("5560834894");
+end});
+Tab:AddButton({Name="Ai horror",Callback=function()
+	spam("12087309466");
+end});
+Tab:AddButton({Name="Reze",Callback=function()
+	spam("71720378084802");
+end});
+Tab:AddButton({Name="Chainsaw man - Denji",Callback=function()
+	spam("11460669114");
+end});
+Tab:AddButton({Name="Mario",Callback=function()
+	spam("2232731191");
+end});
+Tab:AddButton({Name="Mario tomato",Callback=function()
+	spam("102295548513065");
+end});
+Tab:AddButton({Name="explosion",Callback=function()
+	spam("366288920");
+end});
+local Tab = Window:MakeTab({Name="Skybox, Base",Icon="rbxassetid://4483345998",PremiumOnly=false});
+Tab:AddButton({Name="c00lkid skybox",Callback=function()
+	local player = game.Players.LocalPlayer;
+	local char = player.Character;
+	local tool;
+	for i, v in player:GetDescendants() do
+		if (v.Name == "SyncAPI") then
+			tool = v.Parent;
+		end
+	end
+	for i, v in game.ReplicatedStorage:GetDescendants() do
+		if (v.Name == "SyncAPI") then
+			tool = v.Parent;
+		end
+	end
+	remote = tool.SyncAPI.ServerEndpoint;
+	function _(args)
+		remote:InvokeServer(unpack(args));
+	end
+	function CreatePart(cf, parent)
+		local FlatIdent_28F3E = 0;
+		local args;
+		while true do
+			if (FlatIdent_28F3E == 0) then
+				args = {[1]="CreatePart",[2]="Normal",[3]=cf,[4]=parent};
+				_(args);
+				break;
+			end
+		end
+	end
+	function AddMesh(part)
+		local FlatIdent_2F37F = 0;
+		local args;
+		while true do
+			if (FlatIdent_2F37F == 0) then
+				args = {[1]="CreateMeshes",[2]={[1]={Part=part}}};
+				_(args);
+				break;
+			end
+		end
+	end
+	function SetMesh(part, meshid)
+		local FlatIdent_5998C = 0;
+		local args;
+		while true do
+			if (FlatIdent_5998C == 0) then
+				args = {[1]="SyncMesh",[2]={[1]={Part=part,MeshId=("rbxassetid://" .. meshid)}}};
+				_(args);
+				break;
+			end
+		end
+	end
+	function SetTexture(part, texid)
+		local FlatIdent_2388 = 0;
+		local args;
+		while true do
+			if (FlatIdent_2388 == 0) then
+				args = {[1]="SyncMesh",[2]={[1]={Part=part,TextureId=("rbxassetid://" .. texid)}}};
+				_(args);
+				break;
+			end
+		end
+	end
+	function SetName(part, stringg)
+		local FlatIdent_8BC55 = 0;
+		local args;
+		while true do
+			if (FlatIdent_8BC55 == 0) then
+				args = {[1]="SetName",[2]={[1]=part},[3]=stringg};
+				_(args);
+				break;
+			end
+		end
+	end
+	function MeshResize(part, size)
+		local FlatIdent_19F98 = 0;
+		local args;
+		while true do
+			if (FlatIdent_19F98 == 0) then
+				args = {[1]="SyncMesh",[2]={[1]={Part=part,Scale=size}}};
+				_(args);
+				break;
+			end
+		end
+	end
+	function SetLocked(part, boolean)
+		local args = {[1]="SetLocked",[2]={[1]=part},[3]=boolean};
+		_(args);
+	end
+	function Sky(id)
+		local FlatIdent_75224 = 0;
+		while true do
+			if (2 == FlatIdent_75224) then
+				for i, v in game.Workspace:GetDescendants() do
+					if (v:IsA("BasePart") and (v.CFrame.x == math.floor(e)) and (v.CFrame.z == math.floor(g))) then
+						local FlatIdent_3CF01 = 0;
+						while true do
+							if (FlatIdent_3CF01 == 1) then
+								SetMesh(v, "111891702759441");
+								SetTexture(v, id);
+								FlatIdent_3CF01 = 2;
+							end
+							if (FlatIdent_3CF01 == 2) then
+								MeshResize(v, Vector3.new(1000, 1000, 1000));
+								SetLocked(v, true);
+								break;
+							end
+							if (FlatIdent_3CF01 == 0) then
+								SetName(v, "Sky");
+								AddMesh(v);
+								FlatIdent_3CF01 = 1;
+							end
+						end
+					end
+				end
+				break;
+			end
+			if (FlatIdent_75224 == 0) then
+				e = char.HumanoidRootPart.CFrame.x;
+				f = char.HumanoidRootPart.CFrame.y;
+				FlatIdent_75224 = 1;
+			end
+			if (FlatIdent_75224 == 1) then
+				g = char.HumanoidRootPart.CFrame.z;
+				CreatePart(CFrame.new(math.floor(e), math.floor(f), math.floor(g)) + Vector3.new(0, 6, 0), workspace);
+				FlatIdent_75224 = 2;
+			end
+		end
+	end
+	Sky("108333661981754");
+end});
+Tab:AddButton({Name="Baseplate",Callback=function()
+	local FlatIdent_21449 = 0;
+	local player;
+	local char;
+	local tool;
+	while true do
+		if (FlatIdent_21449 == 5) then
+			SpawnBasePlate();
+			break;
+		end
+		if (FlatIdent_21449 == 2) then
+			function _(args)
+				remote:InvokeServer(unpack(args));
+			end
+			function CreatePart(cf, parent, types)
+				local FlatIdent_40070 = 0;
+				local args;
+				while true do
+					if (FlatIdent_40070 == 0) then
+						args = {[1]="CreatePart",[2]=types,[3]=cf,[4]=parent};
+						_(args);
+						break;
+					end
+				end
+			end
+			function Resize(part, size, cf)
+				local args = {[1]="SyncResize",[2]={[1]={Part=part,CFrame=cf,Size=size}}};
+				_(args);
+			end
+			FlatIdent_21449 = 3;
+		end
+		if (FlatIdent_21449 == 1) then
+			for i, v in player:GetDescendants() do
+				if (v.Name == "SyncAPI") then
+					tool = v.Parent;
+				end
+			end
+			for i, v in game.ReplicatedStorage:GetDescendants() do
+				if (v.Name == "SyncAPI") then
+					tool = v.Parent;
+				end
+			end
+			remote = tool.SyncAPI.ServerEndpoint;
+			FlatIdent_21449 = 2;
+		end
+		if (FlatIdent_21449 == 4) then
+			hrpz = math.floor(char.HumanoidRootPart.CFrame.z);
+			hrpy = math.floor(char.HumanoidRootPart.CFrame.y);
+			function SpawnBasePlate()
+				CreatePart(CFrame.new(hrpx, hrpy - 20, hrpz), workspace, "Spawn");
+				for i, v in game.Workspace:GetChildren() do
+					if (v:IsA("BasePart") and (v.CFrame.y == (hrpy - 20)) and (v.CFrame.x == hrpx)) then
+						spawn(function()
+							local FlatIdent_68856 = 0;
+							while true do
+								if (FlatIdent_68856 == 2) then
+									while wait(1) do
+										pcall(function()
+											SetLocked(v, true);
+										end);
+									end
+									break;
+								end
+								if (FlatIdent_68856 == 0) then
+									Resize(v, Vector3.new(100, 12, 100), CFrame.new(hrpx, hrpy - 20, hrpz));
+									Color(v, Color3.fromRGB(121, 125, 127));
+									FlatIdent_68856 = 1;
+								end
+								if (FlatIdent_68856 == 1) then
+									toptexturecreate(v);
+									toptextureadd(v);
+									FlatIdent_68856 = 2;
+								end
+							end
+						end);
+					end
+				end
+			end
+			FlatIdent_21449 = 5;
+		end
+		if (FlatIdent_21449 == 3) then
+			function Color(part, color)
+				local FlatIdent_86900 = 0;
+				local args;
+				while true do
+					if (FlatIdent_86900 == 0) then
+						args = {[1]="SyncColor",[2]={[1]={Part=part,Color=color,UnionColoring=false}}};
+						_(args);
+						break;
+					end
+				end
+			end
+			function toptexturecreate(part)
+				local FlatIdent_81225 = 0;
+				local args;
+				while true do
+					if (FlatIdent_81225 == 0) then
+						args = {[1]="CreateTextures",[2]={[1]={Part=part,Face=Enum.NormalId.Top,TextureType="Texture"}}};
+						_(args);
+						break;
+					end
+				end
+			end
+			hrpx = math.floor(char.HumanoidRootPart.CFrame.x);
+			FlatIdent_21449 = 4;
+		end
+		if (FlatIdent_21449 == 0) then
+			player = game.Players.LocalPlayer;
+			char = player.Character;
+			tool = nil;
+			FlatIdent_21449 = 1;
+		end
+	end
+end});
+local Tab = Window:MakeTab({Name="Move, TP",Icon="rbxassetid://4483345998",PremiumOnly=false});
+local UIS = game:GetService("UserInputService");
+local Players = game:GetService("Players");
+local InfiniteJumpEnabled = false;
+local JumpConnection;
+Tab:AddToggle({Name="Infinite Jump",CurrentValue=false,Flag="InfiniteJump",Callback=function(state)
+	local FlatIdent_2DA99 = 0;
+	while true do
+		if (FlatIdent_2DA99 == 0) then
+			InfiniteJumpEnabled = state;
+			if state then
+				local FlatIdent_31ECC = 0;
+				while true do
+					if (FlatIdent_31ECC == 0) then
+						if JumpConnection then
+							JumpConnection:Disconnect();
+						end
+						JumpConnection = UIS.JumpRequest:Connect(function()
+							if InfiniteJumpEnabled then
+								local char = Players.LocalPlayer.Character;
+								local hum = char and char:FindFirstChildOfClass("Humanoid");
+								if hum then
+									hum:ChangeState(Enum.HumanoidStateType.Jumping);
+								end
+							end
+						end);
+						break;
+					end
+				end
+			elseif JumpConnection then
+				local FlatIdent_2A644 = 0;
+				while true do
+					if (FlatIdent_2A644 == 0) then
+						JumpConnection:Disconnect();
+						JumpConnection = nil;
+						break;
+					end
+				end
+			end
+			break;
+		end
+	end
+end});
+local Players = game:GetService("Players");
+local Player = Players.LocalPlayer;
+local SpeedEnabled = false;
+local SpeedValue = 16;
+local function UpdateSpeed()
+	local FlatIdent_7F3C8 = 0;
+	local Character;
+	local Humanoid;
+	while true do
+		if (FlatIdent_7F3C8 == 0) then
+			Character = Player.Character;
+			Humanoid = Character and Character:FindFirstChildOfClass("Humanoid");
+			FlatIdent_7F3C8 = 1;
+		end
+		if (1 == FlatIdent_7F3C8) then
+			if Humanoid then
+				Humanoid.WalkSpeed = (SpeedEnabled and SpeedValue) or 16;
+			end
+			break;
+		end
+	end
+end
+Player.CharacterAdded:Connect(function(Character)
+	local FlatIdent_3F7F4 = 0;
+	local Humanoid;
+	while true do
+		if (0 == FlatIdent_3F7F4) then
+			Humanoid = Character:WaitForChild("Humanoid");
+			task.wait(0.1);
+			FlatIdent_3F7F4 = 1;
+		end
+		if (FlatIdent_3F7F4 == 1) then
+			if SpeedEnabled then
+				Humanoid.WalkSpeed = SpeedValue;
+			end
+			break;
+		end
+	end
+end);
+Tab:AddToggle({Name="Custom Speed",Default=false,Callback=function(Value)
+	local FlatIdent_8638E = 0;
+	while true do
+		if (FlatIdent_8638E == 0) then
+			SpeedEnabled = Value;
+			UpdateSpeed();
+			break;
+		end
+	end
+end});
+Tab:AddSlider({Name="Speed",Min=16,Max=250,Default=16,Color=Color3.fromRGB(0, 125, 245),Increment=1,ValueName="Speed Power",Callback=function(Value)
+	SpeedValue = Value;
+	UpdateSpeed();
+end});
+local Players = game:GetService("Players");
+local Player = Players.LocalPlayer;
+local JumpEnabled = false;
+local JumpValue = 60;
+local function UpdateJump()
+	local Character = Player.Character;
+	local Humanoid = Character and Character:FindFirstChildOfClass("Humanoid");
+	if Humanoid then
+		Humanoid.JumpPower = (JumpEnabled and JumpValue) or 50;
+	end
+end
+Player.CharacterAdded:Connect(function(Character)
+	local FlatIdent_8FBAE = 0;
+	local Humanoid;
+	while true do
+		if (FlatIdent_8FBAE == 0) then
+			Humanoid = Character:WaitForChild("Humanoid");
+			task.wait(0.1);
+			FlatIdent_8FBAE = 1;
+		end
+		if (FlatIdent_8FBAE == 1) then
+			if JumpEnabled then
+				Humanoid.JumpPower = JumpValue;
+			end
+			break;
+		end
+	end
+end);
+Tab:AddToggle({Name="Custom Jump",Default=false,Callback=function(Value)
+	local FlatIdent_71EE8 = 0;
+	while true do
+		if (FlatIdent_71EE8 == 0) then
+			JumpEnabled = Value;
+			UpdateJump();
+			break;
+		end
+	end
+end});
+Tab:AddSlider({Name="Jump",Min=30,Max=500,Default=50,Color=Color3.fromRGB(0, 199, 42),Increment=1,ValueName="Jump Power",Callback=function(Value)
+	local FlatIdent_89917 = 0;
+	while true do
+		if (FlatIdent_89917 == 0) then
+			JumpValue = Value;
+			UpdateJump();
+			break;
+		end
+	end
+end});
+local Player = game.Players.LocalPlayer;
+local Noclip = false;
+Tab:AddToggle({Name="Noclip",Default=false,Callback=function(Value)
+	Noclip = Value;
+end});
+game:GetService("RunService").Stepped:Connect(function()
+	if (Noclip and Player.Character) then
+		for _, part in pairs(Player.Character:GetDescendants()) do
+			if part:IsA("BasePart") then
+				part.CanCollide = false;
+			end
+		end
+	end
+end);
+local flying = false;
+local flySpeed = 50;
+local player = game.Players.LocalPlayer;
+local UIS = game:GetService("UserInputService");
+local RunService = game:GetService("RunService");
+local bodyVelocity;
+local bodyGyro;
+local function startFly()
+	local FlatIdent_985A2 = 0;
+	local character;
+	local hrp;
+	while true do
+		if (FlatIdent_985A2 == 2) then
+			bodyGyro = Instance.new("BodyGyro");
+			bodyGyro.MaxTorque = Vector3.new(8999999488, 8999999488, 8999999488);
+			bodyGyro.CFrame = hrp.CFrame;
+			FlatIdent_985A2 = 3;
+		end
+		if (3 == FlatIdent_985A2) then
+			bodyGyro.Parent = hrp;
+			RunService.RenderStepped:Connect(function()
+				if (flying and character and hrp) then
+					local cam = workspace.CurrentCamera;
+					local moveDir = Vector3.zero;
+					if UIS:IsKeyDown(Enum.KeyCode.W) then
+						moveDir += cam.CFrame.LookVector
+					end
+					if UIS:IsKeyDown(Enum.KeyCode.S) then
+						moveDir -= cam.CFrame.LookVector
+					end
+					if UIS:IsKeyDown(Enum.KeyCode.A) then
+						moveDir -= cam.CFrame.RightVector
+					end
+					if UIS:IsKeyDown(Enum.KeyCode.D) then
+						moveDir += cam.CFrame.RightVector
+					end
+					if UIS:IsKeyDown(Enum.KeyCode.Space) then
+						moveDir += Vector3.new(0, 1, 0)
+					end
+					if UIS:IsKeyDown(Enum.KeyCode.LeftControl) then
+						moveDir -= Vector3.new(0, 1, 0)
+					end
+					bodyVelocity.Velocity = moveDir.Unit * flySpeed;
+					if (moveDir.Magnitude == 0) then
+						bodyVelocity.Velocity = Vector3.zero;
+					end
+					bodyGyro.CFrame = cam.CFrame;
+				end
+			end);
+			break;
+		end
+		if (FlatIdent_985A2 == 0) then
+			character = player.Character or player.CharacterAdded:Wait();
+			hrp = character:WaitForChild("HumanoidRootPart");
+			bodyVelocity = Instance.new("BodyVelocity");
+			FlatIdent_985A2 = 1;
+		end
+		if (1 == FlatIdent_985A2) then
+			bodyVelocity.MaxForce = Vector3.new(8999999488, 8999999488, 8999999488);
+			bodyVelocity.Velocity = Vector3.zero;
+			bodyVelocity.Parent = hrp;
+			FlatIdent_985A2 = 2;
+		end
+	end
+end
+local function stopFly()
+	if bodyVelocity then
+		bodyVelocity:Destroy();
+		bodyVelocity = nil;
+	end
+	if bodyGyro then
+		local FlatIdent_31077 = 0;
+		while true do
+			if (FlatIdent_31077 == 0) then
+				bodyGyro:Destroy();
+				bodyGyro = nil;
+				break;
+			end
+		end
+	end
+end
+Tab:AddToggle({Name="Fly",Default=false,Callback=function(Value)
+	local FlatIdent_835BC = 0;
+	while true do
+		if (0 == FlatIdent_835BC) then
+			flying = Value;
+			if flying then
+				startFly();
+			else
+				stopFly();
+			end
+			break;
+		end
+	end
+end});
+Tab:AddSlider({Name="Fly Speed",Min=10,Max=500,Default=50,Color=Color3.fromRGB(255, 255, 255),Increment=1,ValueName="Speed",Callback=function(Value)
+	flySpeed = Value;
+end});
+local Players = game:GetService("Players");
+local Player = Players.LocalPlayer;
+local SpeedEnabled = false;
+local SpeedValue = 16;
+local function UpdateSpeed()
+	local FlatIdent_145D2 = 0;
+	local Character;
+	local Humanoid;
+	while true do
+		if (FlatIdent_145D2 == 0) then
+			Character = Player.Character;
+			Humanoid = Character and Character:FindFirstChildOfClass("Humanoid");
+			FlatIdent_145D2 = 1;
+		end
+		if (FlatIdent_145D2 == 1) then
+			if Humanoid then
+				Humanoid.WalkSpeed = (SpeedEnabled and SpeedValue) or 16;
+			end
+			break;
+		end
+	end
+end
+Player.CharacterAdded:Connect(function(Character)
+	local FlatIdent_8EA6E = 0;
+	local Humanoid;
+	while true do
+		if (FlatIdent_8EA6E == 0) then
+			Humanoid = Character:WaitForChild("Humanoid");
+			if SpeedEnabled then
+				Humanoid.WalkSpeed = SpeedValue;
+			end
+			break;
+		end
+	end
+end);
+local Section = Tab:AddSection({Name="For Mobile"});
+Tab:AddToggle({Name="Custom Speed",Default=false,Callback=function(Value)
+	local FlatIdent_33DE6 = 0;
+	while true do
+		if (0 == FlatIdent_33DE6) then
+			SpeedEnabled = Value;
+			UpdateSpeed();
+			break;
+		end
+	end
+end});
+Tab:AddTextbox({Name="Speed Value",Default="16",TextDisappear=false,Callback=function(Text)
+	local FlatIdent_3F15E = 0;
+	local Number;
+	while true do
+		if (FlatIdent_3F15E == 0) then
+			Number = tonumber(Text);
+			if Number then
+				local FlatIdent_56F59 = 0;
+				while true do
+					if (FlatIdent_56F59 == 0) then
+						SpeedValue = Number;
+						UpdateSpeed();
+						break;
+					end
+				end
+			end
+			break;
+		end
+	end
+end});
+Tab:AddToggle({Name="Custom Jump",Default=false,Callback=function(Value)
+	local FlatIdent_3121 = 0;
+	while true do
+		if (FlatIdent_3121 == 0) then
+			JumpEnabled = Value;
+			UpdateJump();
+			break;
+		end
+	end
+end});
+Tab:AddTextbox({Name="Jump Power",Default="50",TextDisappear=false,Callback=function(Text)
+	local FlatIdent_90A69 = 0;
+	local Number;
+	while true do
+		if (FlatIdent_90A69 == 0) then
+			Number = tonumber(Text);
+			if Number then
+				local FlatIdent_1BB5D = 0;
+				while true do
+					if (FlatIdent_1BB5D == 0) then
+						JumpValue = Number;
+						UpdateJump();
+						break;
+					end
+				end
+			end
+			break;
+		end
+	end
+end});
+local Players = game:GetService("Players");
+local UIS = game:GetService("UserInputService");
+local RunService = game:GetService("RunService");
+local Player = Players.LocalPlayer;
+local flying = false;
+local flySpeed = 50;
+local bodyVelocity;
+local bodyGyro;
+local flyConnection;
+local function stopFly()
+	local FlatIdent_40096 = 0;
+	while true do
+		if (FlatIdent_40096 == 1) then
+			if bodyGyro then
+				local FlatIdent_77529 = 0;
+				while true do
+					if (0 == FlatIdent_77529) then
+						bodyGyro:Destroy();
+						bodyGyro = nil;
+						break;
+					end
+				end
+			end
+			break;
+		end
+		if (FlatIdent_40096 == 0) then
+			if flyConnection then
+				local FlatIdent_94CF9 = 0;
+				while true do
+					if (FlatIdent_94CF9 == 0) then
+						flyConnection:Disconnect();
+						flyConnection = nil;
+						break;
+					end
+				end
+			end
+			if bodyVelocity then
+				local FlatIdent_98327 = 0;
+				while true do
+					if (FlatIdent_98327 == 0) then
+						bodyVelocity:Destroy();
+						bodyVelocity = nil;
+						break;
+					end
+				end
+			end
+			FlatIdent_40096 = 1;
+		end
+	end
+end
+local function startFly()
+	local FlatIdent_84B7E = 0;
+	local Character;
+	local HRP;
+	while true do
+		if (FlatIdent_84B7E == 0) then
+			stopFly();
+			Character = Player.Character or Player.CharacterAdded:Wait();
+			HRP = Character:WaitForChild("HumanoidRootPart");
+			bodyVelocity = Instance.new("BodyVelocity");
+			FlatIdent_84B7E = 1;
+		end
+		if (FlatIdent_84B7E == 1) then
+			bodyVelocity.MaxForce = Vector3.new(math.huge, math.huge, math.huge);
+			bodyVelocity.Velocity = Vector3.zero;
+			bodyVelocity.Parent = HRP;
+			bodyGyro = Instance.new("BodyGyro");
+			FlatIdent_84B7E = 2;
+		end
+		if (FlatIdent_84B7E == 2) then
+			bodyGyro.MaxTorque = Vector3.new(math.huge, math.huge, math.huge);
+			bodyGyro.P = 10000;
+			bodyGyro.Parent = HRP;
+			flyConnection = RunService.RenderStepped:Connect(function()
+				if (not flying or not Character or not HRP) then
+					return;
+				end
+				local Camera = workspace.CurrentCamera;
+				local MoveDir = Vector3.zero;
+				if UIS:IsKeyDown(Enum.KeyCode.W) then
+					MoveDir += Camera.CFrame.LookVector
+				end
+				if UIS:IsKeyDown(Enum.KeyCode.S) then
+					MoveDir -= Camera.CFrame.LookVector
+				end
+				if UIS:IsKeyDown(Enum.KeyCode.A) then
+					MoveDir -= Camera.CFrame.RightVector
+				end
+				if UIS:IsKeyDown(Enum.KeyCode.D) then
+					MoveDir += Camera.CFrame.RightVector
+				end
+				if UIS:IsKeyDown(Enum.KeyCode.Space) then
+					MoveDir += Vector3.new(0, 1, 0)
+				end
+				if UIS:IsKeyDown(Enum.KeyCode.LeftControl) then
+					MoveDir -= Vector3.new(0, 1, 0)
+				end
+				if (MoveDir.Magnitude > 0) then
+					bodyVelocity.Velocity = MoveDir.Unit * flySpeed;
+				else
+					bodyVelocity.Velocity = Vector3.zero;
+				end
+				bodyGyro.CFrame = Camera.CFrame;
+			end);
+			break;
+		end
+	end
+end
+Player.CharacterAdded:Connect(function()
+	if flying then
+		task.wait(0.5);
+		startFly();
+	end
+end);
+Tab:AddToggle({Name="Fly",Default=false,Callback=function(Value)
+	local FlatIdent_75331 = 0;
+	while true do
+		if (FlatIdent_75331 == 0) then
+			flying = Value;
+			if flying then
+				startFly();
+			else
+				stopFly();
+			end
+			break;
+		end
+	end
+end});
+Tab:AddTextbox({Name="Fly Speed",Default="50",TextDisappear=false,Callback=function(Text)
+	local FlatIdent_38BFA = 0;
+	local Number;
+	while true do
+		if (FlatIdent_38BFA == 0) then
+			Number = tonumber(Text);
+			if (Number and (Number > 0)) then
+				flySpeed = Number;
+			end
+			break;
+		end
+	end
+end});
+local Tab = Window:MakeTab({Name="Command",Icon="rbxassetid://4483345998",PremiumOnly=false});
+Tab:AddButton({Name="logs",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";logs");
+end});
+Tab:AddButton({Name="invisible - <font color='#FFFFFF'>Vip+</font>",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";invisible");
+end});
+Tab:AddButton({Name="visible - <font color='#FFFFFF'>Vip+</font>",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";visible");
+end});
+Tab:AddButton({Name="refresh - <font color='#FFFFFF'>Vip+</font>",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";re");
+end});
+Tab:AddButton({Name="unice - <font color='#FFFFFF'>Vip+</font>",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";unice");
+end});
+Tab:AddButton({Name="unfreeze - <font color='#FFFFFF'>Vip+</font>",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";unfreeze");
+end});
+Tab:AddButton({Name="fly - <font color='#00FFFF'>Mod+</font>",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";fly");
+end});
+Tab:AddButton({Name="inf hp - <font color='#00FFFF'>Mod+</font>",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";health me inf");
+end});
+Tab:AddButton({Name="chatlogs - <font color='#00FFFF'>Mod+</font>",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";chatlogs");
+end});
+Tab:AddButton({Name="uncmdbar2 others - <font color='#FFFF00'>Admin+</font>",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";uncmdbar2 others");
+end});
+Tab:AddButton({Name="unfly others - <font color='#FFFF00'>Admin+</font>",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";unfly others");
+end});
+Tab:AddButton({Name="btools - <font color='#FFFF00'>Admin+</font>",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";btools");
+end});
+Tab:AddButton({Name="Fork3x - <font color='#FFFF00'>Admin+</font>",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";Fork3x");
+end});
+Tab:AddButton({Name="disco - <font color='#FFFF00'>Admin+</font>",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";disco");
+end});
+Tab:AddButton({Name="Night - <font color='#FFFF00'>Admin+</font>",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";time 150");
+end});
+Tab:AddButton({Name="Night2 - <font color='#FFFF00'>Admin+</font>",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";time 1");
+end});
+Tab:AddButton({Name="unpunish - <font color='#FFFF00'>Admin+</font>",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";unpunish");
+end});
+Tab:AddButton({Name="bring all - <font color='#FFFF00'>Admin+</font>",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";bring all");
+end});
+Tab:AddButton({Name="savemap - <font color='#FF0000'>Head Admin</font>",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";savemap");
+end});
+Tab:AddButton({Name="loadmap - <font color='#FF0000'>Head Admin</font>",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";loadmap");
+end});
+Tab:AddButton({Name="wtools - <font color='#FF0000'>Head Admin</font>",Callback=function()
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";wtools");
+end});
+local Section = Tab:AddSection({Name="Special Command"});
+local ColorCodes = {Red="r",Orange="o",Yellow="y",Green="g",DarkGreen="dg",Blue="b",DarkBlue="db",Purple="p",Pink="pk",Black="bk",White="w"};
+local ColorList = {"r","o","y","g","dg","b","db","p","pk","bk","w"};
+local function randomText(length)
+	local FlatIdent_5BCFC = 0;
+	local chars;
+	local text;
+	while true do
+		if (FlatIdent_5BCFC == 1) then
+			for i = 1, length do
+				local FlatIdent_8BE54 = 0;
+				local index;
+				while true do
+					if (FlatIdent_8BE54 == 0) then
+						index = math.random(#chars);
+						text = text .. chars:sub(index, index);
+						break;
+					end
+				end
+			end
+			return text;
+		end
+		if (0 == FlatIdent_5BCFC) then
+			chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+			text = "";
+			FlatIdent_5BCFC = 1;
+		end
+	end
+end
+Tab:AddDropdown({Name="Team Color",Default="Rainbow",Options={"Red","Orange","Yellow","Green","DarkGreen","Blue","DarkBlue","Purple","Pink","Black","White","Rainbow"},Callback=function(Value)
+	TeamColor = Value;
+end});
+Tab:AddTextbox({Name="Team Name",Default="",TextDisappear=false,Callback=function(Value)
+	TeamName = Value;
+end});
+Tab:AddToggle({Name="Auto Create Team - <font color='#FF0000'>Head Admin</font>",Default=false,Callback=function(Value)
+	getgenv().AutoTeam = Value;
+	task.spawn(function()
+		while getgenv().AutoTeam do
+			local FlatIdent_6F99F = 0;
+			local color;
+			while true do
+				if (FlatIdent_6F99F == 0) then
+					color = nil;
+					if (TeamColor == "Rainbow") then
+						color = ColorList[math.random(#ColorList)];
+					else
+						color = ColorCodes[TeamColor];
+					end
+					FlatIdent_6F99F = 1;
+				end
+				if (FlatIdent_6F99F == 1) then
+					game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";createTeam " .. color .. " ❖" .. TeamName .. " " .. randomText(5));
+					wait(1);
+					break;
+				end
+			end
+		end
+	end);
+end});
+local Tab = Window:MakeTab({Name="Rain",Icon="rbxassetid://4483345998",PremiumOnly=false});
+Tab:AddButton({Name="Duck Rain",Callback=function()
+	local FlatIdent_8A8EC = 0;
+	local player;
+	local char;
+	local tool;
+	while true do
+		if (FlatIdent_8A8EC == 1) then
+			for i, v in player:GetDescendants() do
+				if (v.Name == "SyncAPI") then
+					tool = v.Parent;
+				end
+			end
+			for i, v in game.ReplicatedStorage:GetDescendants() do
+				if (v.Name == "SyncAPI") then
+					tool = v.Parent;
+				end
+			end
+			remote = tool.SyncAPI.ServerEndpoint;
+			FlatIdent_8A8EC = 2;
+		end
+		if (FlatIdent_8A8EC == 5) then
+			function MeshResize(part, size)
+				local FlatIdent_4BE81 = 0;
+				local args;
+				while true do
+					if (FlatIdent_4BE81 == 0) then
+						args = {[1]="SyncMesh",[2]={[1]={Part=part,Scale=size}}};
+						_(args);
+						break;
+					end
+				end
+			end
+			hrpcf = player.Character.HumanoidRootPart.CFrame;
+			while wait(0.5) do
+				x = hrpcf.x;
+				z = hrpcf.z;
+				randint = math.random(-650, 650);
+				randint2 = math.random(-650, 650);
+				xloc = randint + x;
+				zloc = randint2 + z;
+				cf = player.Character.HumanoidRootPart.CFrame.y + 400;
+				spawn(function()
+					CreatePart(CFrame.new(math.floor(xloc), math.random(cf, cf + 400), math.floor(zloc)));
+					for i, v in game.Workspace:GetDescendants() do
+						if ((v.Name == "Part") and (v.Parent == workspace) and (v.CFrame.x == math.floor(xloc)) and (v.CFrame.z == math.floor(zloc))) then
+							SetName(v, "b_1337");
+							SetAnchor(false, v);
+							AddMesh(v);
+							Resize(v, Vector3.new(100, 100, 100), v.CFrame);
+							MeshResize(v, Vector3.new(200, 200, 200));
+							SetMesh(v, "10749878672");
+							SetTexture(v, "10749878886");
+							SetCollision(v, true);
+						else
+						end
+					end
+				end);
+			end
+			break;
+		end
+		if (FlatIdent_8A8EC == 0) then
+			player = game.Players.LocalPlayer;
+			char = player.Character;
+			tool = nil;
+			FlatIdent_8A8EC = 1;
+		end
+		if (FlatIdent_8A8EC == 2) then
+			function _(args)
+				remote:InvokeServer(unpack(args));
+			end
+			function SetCollision(part, boolean)
+				local FlatIdent_74B46 = 0;
+				local args;
+				while true do
+					if (FlatIdent_74B46 == 0) then
+						args = {[1]="SyncCollision",[2]={[1]={Part=part,CanCollide=boolean}}};
+						_(args);
+						break;
+					end
+				end
+			end
+			function SetAnchor(boolean, part)
+				local FlatIdent_30B1F = 0;
+				local args;
+				while true do
+					if (FlatIdent_30B1F == 0) then
+						args = {[1]="SyncAnchor",[2]={[1]={Part=part,Anchored=boolean}}};
+						_(args);
+						break;
+					end
+				end
+			end
+			FlatIdent_8A8EC = 3;
+		end
+		if (FlatIdent_8A8EC == 3) then
+			function CreatePart(cf)
+				local FlatIdent_8CB90 = 0;
+				local args;
+				while true do
+					if (FlatIdent_8CB90 == 0) then
+						args = {[1]="CreatePart",[2]="Normal",[3]=cf,[4]=workspace};
+						_(args);
+						break;
+					end
+				end
+			end
+			function Resize(part, size, cf)
+				local FlatIdent_4058F = 0;
+				local args;
+				while true do
+					if (FlatIdent_4058F == 0) then
+						args = {[1]="SyncResize",[2]={[1]={Part=part,CFrame=cf,Size=size}}};
+						_(args);
+						break;
+					end
+				end
+			end
+			function AddMesh(part)
+				local args = {[1]="CreateMeshes",[2]={[1]={Part=part}}};
+				_(args);
+			end
+			FlatIdent_8A8EC = 4;
+		end
+		if (FlatIdent_8A8EC == 4) then
+			function SetMesh(part, meshid)
+				local args = {[1]="SyncMesh",[2]={[1]={Part=part,MeshId=("rbxassetid://" .. meshid)}}};
+				_(args);
+			end
+			function SetTexture(part, texid)
+				local FlatIdent_17AE1 = 0;
+				local args;
+				while true do
+					if (0 == FlatIdent_17AE1) then
+						args = {[1]="SyncMesh",[2]={[1]={Part=part,TextureId=("rbxassetid://" .. texid)}}};
+						_(args);
+						break;
+					end
+				end
+			end
+			function SetName(part, stringg)
+				local FlatIdent_340E5 = 0;
+				local args;
+				while true do
+					if (FlatIdent_340E5 == 0) then
+						args = {[1]="SetName",[2]={[1]=workspace.Part},[3]=stringg};
+						_(args);
+						break;
+					end
+				end
+			end
+			FlatIdent_8A8EC = 5;
+		end
+	end
+end});
+Tab:AddButton({Name="Nuke",Callback=function()
+	local FlatIdent_9525B = 0;
+	local player;
+	local char;
+	local tool;
+	while true do
+		if (4 == FlatIdent_9525B) then
+			function SetMesh(part, meshid)
+				local FlatIdent_6F3E4 = 0;
+				local args;
+				while true do
+					if (FlatIdent_6F3E4 == 0) then
+						args = {[1]="SyncMesh",[2]={[1]={Part=part,MeshId=("rbxassetid://" .. meshid)}}};
+						_(args);
+						break;
+					end
+				end
+			end
+			function SetTexture(part, texid)
+				local FlatIdent_95405 = 0;
+				local args;
+				while true do
+					if (FlatIdent_95405 == 0) then
+						args = {[1]="SyncMesh",[2]={[1]={Part=part,TextureId=("rbxassetid://" .. texid)}}};
+						_(args);
+						break;
+					end
+				end
+			end
+			function SetName(part, stringg)
+				local FlatIdent_8BF78 = 0;
+				local args;
+				while true do
+					if (0 == FlatIdent_8BF78) then
+						args = {[1]="SetName",[2]={[1]=workspace.Part},[3]=stringg};
+						_(args);
+						break;
+					end
+				end
+			end
+			FlatIdent_9525B = 5;
+		end
+		if (FlatIdent_9525B == 2) then
+			function _(args)
+				remote:InvokeServer(unpack(args));
+			end
+			function SetCollision(part, boolean)
+				local FlatIdent_1B5ED = 0;
+				local args;
+				while true do
+					if (FlatIdent_1B5ED == 0) then
+						args = {[1]="SyncCollision",[2]={[1]={Part=part,CanCollide=boolean}}};
+						_(args);
+						break;
+					end
+				end
+			end
+			function SetAnchor(boolean, part)
+				local FlatIdent_1B418 = 0;
+				local args;
+				while true do
+					if (FlatIdent_1B418 == 0) then
+						args = {[1]="SyncAnchor",[2]={[1]={Part=part,Anchored=boolean}}};
+						_(args);
+						break;
+					end
+				end
+			end
+			FlatIdent_9525B = 3;
+		end
+		if (FlatIdent_9525B == 5) then
+			function MeshResize(part, size)
+				local args = {[1]="SyncMesh",[2]={[1]={Part=part,Scale=size}}};
+				_(args);
+			end
+			hrpcf = player.Character.HumanoidRootPart.CFrame;
+			while wait(0.5) do
+				x = hrpcf.x;
+				z = hrpcf.z;
+				randint = math.random(-650, 650);
+				randint2 = math.random(-650, 650);
+				xloc = randint + x;
+				zloc = randint2 + z;
+				cf = player.Character.HumanoidRootPart.CFrame.y + 400;
+				spawn(function()
+					CreatePart(CFrame.new(math.floor(xloc), math.random(cf, cf + 400), math.floor(zloc)));
+					for i, v in game.Workspace:GetDescendants() do
+						if ((v.Name == "Part") and (v.Parent == workspace) and (v.CFrame.x == math.floor(xloc)) and (v.CFrame.z == math.floor(zloc))) then
+							local FlatIdent_1E844 = 0;
+							while true do
+								if (2 == FlatIdent_1E844) then
+									MeshResize(v, Vector3.new(100, 100, 100));
+									SetMesh(v, "130297981860341");
+									FlatIdent_1E844 = 3;
+								end
+								if (FlatIdent_1E844 == 3) then
+									SetTexture(v, "108568635640683");
+									SetCollision(v, true);
+									break;
+								end
+								if (FlatIdent_1E844 == 0) then
+									SetName(v, "b_1337");
+									SetAnchor(false, v);
+									FlatIdent_1E844 = 1;
+								end
+								if (FlatIdent_1E844 == 1) then
+									AddMesh(v);
+									Resize(v, Vector3.new(50, 50, 50), v.CFrame);
+									FlatIdent_1E844 = 2;
+								end
+							end
+						else
+						end
+					end
+				end);
+			end
+			break;
+		end
+		if (FlatIdent_9525B == 0) then
+			player = game.Players.LocalPlayer;
+			char = player.Character;
+			tool = nil;
+			FlatIdent_9525B = 1;
+		end
+		if (FlatIdent_9525B == 1) then
+			for i, v in player:GetDescendants() do
+				if (v.Name == "SyncAPI") then
+					tool = v.Parent;
+				end
+			end
+			for i, v in game.ReplicatedStorage:GetDescendants() do
+				if (v.Name == "SyncAPI") then
+					tool = v.Parent;
+				end
+			end
+			remote = tool.SyncAPI.ServerEndpoint;
+			FlatIdent_9525B = 2;
+		end
+		if (3 == FlatIdent_9525B) then
+			function CreatePart(cf)
+				local FlatIdent_2C195 = 0;
+				local args;
+				while true do
+					if (FlatIdent_2C195 == 0) then
+						args = {[1]="CreatePart",[2]="Normal",[3]=cf,[4]=workspace};
+						_(args);
+						break;
+					end
+				end
+			end
+			function Resize(part, size, cf)
+				local args = {[1]="SyncResize",[2]={[1]={Part=part,CFrame=cf,Size=size}}};
+				_(args);
+			end
+			function AddMesh(part)
+				local FlatIdent_8770C = 0;
+				local args;
+				while true do
+					if (FlatIdent_8770C == 0) then
+						args = {[1]="CreateMeshes",[2]={[1]={Part=part}}};
+						_(args);
+						break;
+					end
+				end
+			end
+			FlatIdent_9525B = 4;
+		end
+	end
+end});
+Tab:AddButton({Name="bacon",Callback=function()
+	local FlatIdent_82AB4 = 0;
+	local player;
+	local char;
+	local tool;
+	while true do
+		if (FlatIdent_82AB4 == 4) then
+			hrpcf = player.Character.HumanoidRootPart.CFrame;
+			while wait(0.5) do
+				local FlatIdent_904EC = 0;
+				while true do
+					if (FlatIdent_904EC == 1) then
+						randint = math.random(-650, 650);
+						randint2 = math.random(-650, 650);
+						FlatIdent_904EC = 2;
+					end
+					if (FlatIdent_904EC == 3) then
+						cf = player.Character.HumanoidRootPart.CFrame.y + 400;
+						spawn(function()
+							local FlatIdent_61F8A = 0;
+							while true do
+								if (FlatIdent_61F8A == 0) then
+									CreatePart(CFrame.new(math.floor(xloc), math.random(cf, cf + 400), math.floor(zloc)));
+									for i, v in game.Workspace:GetDescendants() do
+										if ((v.Name == "Part") and (v.Parent == workspace) and (v.CFrame.x == math.floor(xloc)) and (v.CFrame.z == math.floor(zloc))) then
+											local FlatIdent_5C19E = 0;
+											while true do
+												if (FlatIdent_5C19E == 0) then
+													SetName(v, "b_1337");
+													SetAnchor(false, v);
+													FlatIdent_5C19E = 1;
+												end
+												if (FlatIdent_5C19E == 1) then
+													AddMesh(v);
+													Resize(v, Vector3.new(50, 50, 50), v.CFrame);
+													FlatIdent_5C19E = 2;
+												end
+												if (FlatIdent_5C19E == 2) then
+													MeshResize(v, Vector3.new(100, 100, 100));
+													SetMesh(v, "5533603778");
+													FlatIdent_5C19E = 3;
+												end
+												if (FlatIdent_5C19E == 3) then
+													SetTexture(v, "5533603817");
+													SetCollision(v, true);
+													break;
+												end
+											end
+										else
+										end
+									end
+									break;
+								end
+							end
+						end);
+						break;
+					end
+					if (0 == FlatIdent_904EC) then
+						x = hrpcf.x;
+						z = hrpcf.z;
+						FlatIdent_904EC = 1;
+					end
+					if (FlatIdent_904EC == 2) then
+						xloc = randint + x;
+						zloc = randint2 + z;
+						FlatIdent_904EC = 3;
+					end
+				end
+			end
+			break;
+		end
+		if (2 == FlatIdent_82AB4) then
+			function SetAnchor(boolean, part)
+				local FlatIdent_7735C = 0;
+				local args;
+				while true do
+					if (FlatIdent_7735C == 0) then
+						args = {[1]="SyncAnchor",[2]={[1]={Part=part,Anchored=boolean}}};
+						_(args);
+						break;
+					end
+				end
+			end
+			function CreatePart(cf)
+				local FlatIdent_38BA4 = 0;
+				local args;
+				while true do
+					if (FlatIdent_38BA4 == 0) then
+						args = {[1]="CreatePart",[2]="Normal",[3]=cf,[4]=workspace};
+						_(args);
+						break;
+					end
+				end
+			end
+			function Resize(part, size, cf)
+				local FlatIdent_8EF6C = 0;
+				local args;
+				while true do
+					if (0 == FlatIdent_8EF6C) then
+						args = {[1]="SyncResize",[2]={[1]={Part=part,CFrame=cf,Size=size}}};
+						_(args);
+						break;
+					end
+				end
+			end
+			function AddMesh(part)
+				local FlatIdent_81DE9 = 0;
+				local args;
+				while true do
+					if (FlatIdent_81DE9 == 0) then
+						args = {[1]="CreateMeshes",[2]={[1]={Part=part}}};
+						_(args);
+						break;
+					end
+				end
+			end
+			FlatIdent_82AB4 = 3;
+		end
+		if (1 == FlatIdent_82AB4) then
+			for i, v in game.ReplicatedStorage:GetDescendants() do
+				if (v.Name == "SyncAPI") then
+					tool = v.Parent;
+				end
+			end
+			remote = tool.SyncAPI.ServerEndpoint;
+			function _(args)
+				remote:InvokeServer(unpack(args));
+			end
+			function SetCollision(part, boolean)
+				local FlatIdent_511F5 = 0;
+				local args;
+				while true do
+					if (0 == FlatIdent_511F5) then
+						args = {[1]="SyncCollision",[2]={[1]={Part=part,CanCollide=boolean}}};
+						_(args);
+						break;
+					end
+				end
+			end
+			FlatIdent_82AB4 = 2;
+		end
+		if (FlatIdent_82AB4 == 3) then
+			function SetMesh(part, meshid)
+				local FlatIdent_4D23E = 0;
+				local args;
+				while true do
+					if (FlatIdent_4D23E == 0) then
+						args = {[1]="SyncMesh",[2]={[1]={Part=part,MeshId=("rbxassetid://" .. meshid)}}};
+						_(args);
+						break;
+					end
+				end
+			end
+			function SetTexture(part, texid)
+				local FlatIdent_810FF = 0;
+				local args;
+				while true do
+					if (FlatIdent_810FF == 0) then
+						args = {[1]="SyncMesh",[2]={[1]={Part=part,TextureId=("rbxassetid://" .. texid)}}};
+						_(args);
+						break;
+					end
+				end
+			end
+			function SetName(part, stringg)
+				local FlatIdent_3ADCC = 0;
+				local args;
+				while true do
+					if (FlatIdent_3ADCC == 0) then
+						args = {[1]="SetName",[2]={[1]=workspace.Part},[3]=stringg};
+						_(args);
+						break;
+					end
+				end
+			end
+			function MeshResize(part, size)
+				local FlatIdent_32708 = 0;
+				local args;
+				while true do
+					if (FlatIdent_32708 == 0) then
+						args = {[1]="SyncMesh",[2]={[1]={Part=part,Scale=size}}};
+						_(args);
+						break;
+					end
+				end
+			end
+			FlatIdent_82AB4 = 4;
+		end
+		if (FlatIdent_82AB4 == 0) then
+			player = game.Players.LocalPlayer;
+			char = player.Character;
+			tool = nil;
+			for i, v in player:GetDescendants() do
+				if (v.Name == "SyncAPI") then
+					tool = v.Parent;
+				end
+			end
+			FlatIdent_82AB4 = 1;
+		end
+	end
+end});
+Tab:AddButton({Name="Snoop Dogg",Callback=function()
+	local player = game.Players.LocalPlayer;
+	local char = player.Character;
+	local tool;
+	for i, v in player:GetDescendants() do
+		if (v.Name == "SyncAPI") then
+			tool = v.Parent;
+		end
+	end
+	for i, v in game.ReplicatedStorage:GetDescendants() do
+		if (v.Name == "SyncAPI") then
+			tool = v.Parent;
+		end
+	end
+	remote = tool.SyncAPI.ServerEndpoint;
+	function _(args)
+		remote:InvokeServer(unpack(args));
+	end
+	function SetCollision(part, boolean)
+		local args = {[1]="SyncCollision",[2]={[1]={Part=part,CanCollide=boolean}}};
+		_(args);
+	end
+	function SetAnchor(boolean, part)
+		local FlatIdent_285D = 0;
+		local args;
+		while true do
+			if (FlatIdent_285D == 0) then
+				args = {[1]="SyncAnchor",[2]={[1]={Part=part,Anchored=boolean}}};
+				_(args);
+				break;
+			end
+		end
+	end
+	function CreatePart(cf)
+		local FlatIdent_354BC = 0;
+		local args;
+		while true do
+			if (0 == FlatIdent_354BC) then
+				args = {[1]="CreatePart",[2]="Normal",[3]=cf,[4]=workspace};
+				_(args);
+				break;
+			end
+		end
+	end
+	function Resize(part, size, cf)
+		local FlatIdent_6245F = 0;
+		local args;
+		while true do
+			if (FlatIdent_6245F == 0) then
+				args = {[1]="SyncResize",[2]={[1]={Part=part,CFrame=cf,Size=size}}};
+				_(args);
+				break;
+			end
+		end
+	end
+	function AddMesh(part)
+		local FlatIdent_14A42 = 0;
+		local args;
+		while true do
+			if (FlatIdent_14A42 == 0) then
+				args = {[1]="CreateMeshes",[2]={[1]={Part=part}}};
+				_(args);
+				break;
+			end
+		end
+	end
+	function SetMesh(part, meshid)
+		local FlatIdent_2C1E9 = 0;
+		local args;
+		while true do
+			if (FlatIdent_2C1E9 == 0) then
+				args = {[1]="SyncMesh",[2]={[1]={Part=part,MeshId=("rbxassetid://" .. meshid)}}};
+				_(args);
+				break;
+			end
+		end
+	end
+	function SetTexture(part, texid)
+		local FlatIdent_259C6 = 0;
+		local args;
+		while true do
+			if (FlatIdent_259C6 == 0) then
+				args = {[1]="SyncMesh",[2]={[1]={Part=part,TextureId=("rbxassetid://" .. texid)}}};
+				_(args);
+				break;
+			end
+		end
+	end
+	function SetName(part, stringg)
+		local FlatIdent_3E76B = 0;
+		local args;
+		while true do
+			if (0 == FlatIdent_3E76B) then
+				args = {[1]="SetName",[2]={[1]=workspace.Part},[3]=stringg};
+				_(args);
+				break;
+			end
+		end
+	end
+	function MeshResize(part, size)
+		local FlatIdent_7C89 = 0;
+		local args;
+		while true do
+			if (FlatIdent_7C89 == 0) then
+				args = {[1]="SyncMesh",[2]={[1]={Part=part,Scale=size}}};
+				_(args);
+				break;
+			end
+		end
+	end
+	hrpcf = player.Character.HumanoidRootPart.CFrame;
+	while wait(0.5) do
+		local FlatIdent_D895 = 0;
+		while true do
+			if (FlatIdent_D895 == 0) then
+				x = hrpcf.x;
+				z = hrpcf.z;
+				FlatIdent_D895 = 1;
+			end
+			if (FlatIdent_D895 == 1) then
+				randint = math.random(-650, 650);
+				randint2 = math.random(-650, 650);
+				FlatIdent_D895 = 2;
+			end
+			if (FlatIdent_D895 == 2) then
+				xloc = randint + x;
+				zloc = randint2 + z;
+				FlatIdent_D895 = 3;
+			end
+			if (FlatIdent_D895 == 3) then
+				cf = player.Character.HumanoidRootPart.CFrame.y + 400;
+				spawn(function()
+					local FlatIdent_401F9 = 0;
+					while true do
+						if (FlatIdent_401F9 == 0) then
+							CreatePart(CFrame.new(math.floor(xloc), math.random(cf, cf + 400), math.floor(zloc)));
+							for i, v in game.Workspace:GetDescendants() do
+								if ((v.Name == "Part") and (v.Parent == workspace) and (v.CFrame.x == math.floor(xloc)) and (v.CFrame.z == math.floor(zloc))) then
+									local FlatIdent_3BBAF = 0;
+									while true do
+										if (FlatIdent_3BBAF == 3) then
+											SetTexture(v, "118571687831161");
+											SetCollision(v, true);
+											break;
+										end
+										if (FlatIdent_3BBAF == 2) then
+											MeshResize(v, Vector3.new(60, 60, 60));
+											SetMesh(v, "128145018050291");
+											FlatIdent_3BBAF = 3;
+										end
+										if (FlatIdent_3BBAF == 1) then
+											AddMesh(v);
+											Resize(v, Vector3.new(50, 50, 50), v.CFrame);
+											FlatIdent_3BBAF = 2;
+										end
+										if (0 == FlatIdent_3BBAF) then
+											SetName(v, "b_1337");
+											SetAnchor(false, v);
+											FlatIdent_3BBAF = 1;
+										end
+									end
+								else
+								end
+							end
+							break;
+						end
+					end
+				end);
+				break;
+			end
+		end
+	end
+end});
+Tab:AddButton({Name="Nyancat",Callback=function()
+	local FlatIdent_91AD1 = 0;
+	local player;
+	local char;
+	local tool;
+	while true do
+		if (FlatIdent_91AD1 == 0) then
+			player = game.Players.LocalPlayer;
+			char = player.Character;
+			tool = nil;
+			FlatIdent_91AD1 = 1;
+		end
+		if (FlatIdent_91AD1 == 5) then
+			function MeshResize(part, size)
+				local FlatIdent_69531 = 0;
+				local args;
+				while true do
+					if (FlatIdent_69531 == 0) then
+						args = {[1]="SyncMesh",[2]={[1]={Part=part,Scale=size}}};
+						_(args);
+						break;
+					end
+				end
+			end
+			hrpcf = player.Character.HumanoidRootPart.CFrame;
+			while wait(0.5) do
+				local FlatIdent_6134A = 0;
+				while true do
+					if (FlatIdent_6134A == 1) then
+						randint = math.random(-650, 650);
+						randint2 = math.random(-650, 650);
+						FlatIdent_6134A = 2;
+					end
+					if (FlatIdent_6134A == 2) then
+						xloc = randint + x;
+						zloc = randint2 + z;
+						FlatIdent_6134A = 3;
+					end
+					if (3 == FlatIdent_6134A) then
+						cf = player.Character.HumanoidRootPart.CFrame.y + 400;
+						spawn(function()
+							local FlatIdent_1351F = 0;
+							while true do
+								if (0 == FlatIdent_1351F) then
+									CreatePart(CFrame.new(math.floor(xloc), math.random(cf, cf + 400), math.floor(zloc)));
+									for i, v in game.Workspace:GetDescendants() do
+										if ((v.Name == "Part") and (v.Parent == workspace) and (v.CFrame.x == math.floor(xloc)) and (v.CFrame.z == math.floor(zloc))) then
+											local FlatIdent_82BF = 0;
+											while true do
+												if (3 == FlatIdent_82BF) then
+													SetTexture(v, "18590936138");
+													SetCollision(v, true);
+													break;
+												end
+												if (FlatIdent_82BF == 1) then
+													AddMesh(v);
+													Resize(v, Vector3.new(100, 100, 100), v.CFrame);
+													FlatIdent_82BF = 2;
+												end
+												if (2 == FlatIdent_82BF) then
+													MeshResize(v, Vector3.new(140, 140, 140));
+													SetMesh(v, "18590936015");
+													FlatIdent_82BF = 3;
+												end
+												if (FlatIdent_82BF == 0) then
+													SetName(v, "b_1337");
+													SetAnchor(false, v);
+													FlatIdent_82BF = 1;
+												end
+											end
+										else
+										end
+									end
+									break;
+								end
+							end
+						end);
+						break;
+					end
+					if (FlatIdent_6134A == 0) then
+						x = hrpcf.x;
+						z = hrpcf.z;
+						FlatIdent_6134A = 1;
+					end
+				end
+			end
+			break;
+		end
+		if (2 == FlatIdent_91AD1) then
+			function _(args)
+				remote:InvokeServer(unpack(args));
+			end
+			function SetCollision(part, boolean)
+				local args = {[1]="SyncCollision",[2]={[1]={Part=part,CanCollide=boolean}}};
+				_(args);
+			end
+			function SetAnchor(boolean, part)
+				local FlatIdent_1D0A6 = 0;
+				local args;
+				while true do
+					if (FlatIdent_1D0A6 == 0) then
+						args = {[1]="SyncAnchor",[2]={[1]={Part=part,Anchored=boolean}}};
+						_(args);
+						break;
+					end
+				end
+			end
+			FlatIdent_91AD1 = 3;
+		end
+		if (FlatIdent_91AD1 == 3) then
+			function CreatePart(cf)
+				local FlatIdent_63284 = 0;
+				local args;
+				while true do
+					if (FlatIdent_63284 == 0) then
+						args = {[1]="CreatePart",[2]="Normal",[3]=cf,[4]=workspace};
+						_(args);
+						break;
+					end
+				end
+			end
+			function Resize(part, size, cf)
+				local FlatIdent_74EA4 = 0;
+				local args;
+				while true do
+					if (FlatIdent_74EA4 == 0) then
+						args = {[1]="SyncResize",[2]={[1]={Part=part,CFrame=cf,Size=size}}};
+						_(args);
+						break;
+					end
+				end
+			end
+			function AddMesh(part)
+				local FlatIdent_84C31 = 0;
+				local args;
+				while true do
+					if (0 == FlatIdent_84C31) then
+						args = {[1]="CreateMeshes",[2]={[1]={Part=part}}};
+						_(args);
+						break;
+					end
+				end
+			end
+			FlatIdent_91AD1 = 4;
+		end
+		if (FlatIdent_91AD1 == 1) then
+			for i, v in player:GetDescendants() do
+				if (v.Name == "SyncAPI") then
+					tool = v.Parent;
+				end
+			end
+			for i, v in game.ReplicatedStorage:GetDescendants() do
+				if (v.Name == "SyncAPI") then
+					tool = v.Parent;
+				end
+			end
+			remote = tool.SyncAPI.ServerEndpoint;
+			FlatIdent_91AD1 = 2;
+		end
+		if (FlatIdent_91AD1 == 4) then
+			function SetMesh(part, meshid)
+				local args = {[1]="SyncMesh",[2]={[1]={Part=part,MeshId=("rbxassetid://" .. meshid)}}};
+				_(args);
+			end
+			function SetTexture(part, texid)
+				local args = {[1]="SyncMesh",[2]={[1]={Part=part,TextureId=("rbxassetid://" .. texid)}}};
+				_(args);
+			end
+			function SetName(part, stringg)
+				local FlatIdent_2DD98 = 0;
+				local args;
+				while true do
+					if (0 == FlatIdent_2DD98) then
+						args = {[1]="SetName",[2]={[1]=workspace.Part},[3]=stringg};
+						_(args);
+						break;
+					end
+				end
+			end
+			FlatIdent_91AD1 = 5;
+		end
+	end
+end});
+Tab:AddButton({Name="Teto",Callback=function()
+	local FlatIdent_D076 = 0;
+	local player;
+	local char;
+	local tool;
+	while true do
+		if (FlatIdent_D076 == 0) then
+			player = game.Players.LocalPlayer;
+			char = player.Character;
+			tool = nil;
+			for i, v in player:GetDescendants() do
+				if (v.Name == "SyncAPI") then
+					tool = v.Parent;
+				end
+			end
+			FlatIdent_D076 = 1;
+		end
+		if (FlatIdent_D076 == 1) then
+			for i, v in game.ReplicatedStorage:GetDescendants() do
+				if (v.Name == "SyncAPI") then
+					tool = v.Parent;
+				end
+			end
+			remote = tool.SyncAPI.ServerEndpoint;
+			function _(args)
+				remote:InvokeServer(unpack(args));
+			end
+			function SetCollision(part, boolean)
+				local FlatIdent_1B878 = 0;
+				local args;
+				while true do
+					if (0 == FlatIdent_1B878) then
+						args = {[1]="SyncCollision",[2]={[1]={Part=part,CanCollide=boolean}}};
+						_(args);
+						break;
+					end
+				end
+			end
+			FlatIdent_D076 = 2;
+		end
+		if (FlatIdent_D076 == 4) then
+			hrpcf = player.Character.HumanoidRootPart.CFrame;
+			while wait(0.5) do
+				local FlatIdent_15914 = 0;
+				while true do
+					if (3 == FlatIdent_15914) then
+						cf = player.Character.HumanoidRootPart.CFrame.y + 400;
+						spawn(function()
+							local FlatIdent_3974D = 0;
+							while true do
+								if (FlatIdent_3974D == 0) then
+									CreatePart(CFrame.new(math.floor(xloc), math.random(cf, cf + 400), math.floor(zloc)));
+									for i, v in game.Workspace:GetDescendants() do
+										if ((v.Name == "Part") and (v.Parent == workspace) and (v.CFrame.x == math.floor(xloc)) and (v.CFrame.z == math.floor(zloc))) then
+											SetName(v, "b_1337");
+											SetAnchor(false, v);
+											AddMesh(v);
+											Resize(v, Vector3.new(100, 100, 100), v.CFrame);
+											MeshResize(v, Vector3.new(140, 140, 140));
+											SetMesh(v, "97894015322218");
+											SetTexture(v, "99135678491715");
+											SetCollision(v, true);
+										else
+										end
+									end
+									break;
+								end
+							end
+						end);
+						break;
+					end
+					if (0 == FlatIdent_15914) then
+						x = hrpcf.x;
+						z = hrpcf.z;
+						FlatIdent_15914 = 1;
+					end
+					if (FlatIdent_15914 == 1) then
+						randint = math.random(-650, 650);
+						randint2 = math.random(-650, 650);
+						FlatIdent_15914 = 2;
+					end
+					if (2 == FlatIdent_15914) then
+						xloc = randint + x;
+						zloc = randint2 + z;
+						FlatIdent_15914 = 3;
+					end
+				end
+			end
+			break;
+		end
+		if (FlatIdent_D076 == 3) then
+			function SetMesh(part, meshid)
+				local FlatIdent_674F6 = 0;
+				local args;
+				while true do
+					if (FlatIdent_674F6 == 0) then
+						args = {[1]="SyncMesh",[2]={[1]={Part=part,MeshId=("rbxassetid://" .. meshid)}}};
+						_(args);
+						break;
+					end
+				end
+			end
+			function SetTexture(part, texid)
+				local FlatIdent_927F1 = 0;
+				local args;
+				while true do
+					if (FlatIdent_927F1 == 0) then
+						args = {[1]="SyncMesh",[2]={[1]={Part=part,TextureId=("rbxassetid://" .. texid)}}};
+						_(args);
+						break;
+					end
+				end
+			end
+			function SetName(part, stringg)
+				local FlatIdent_FA0F = 0;
+				local args;
+				while true do
+					if (FlatIdent_FA0F == 0) then
+						args = {[1]="SetName",[2]={[1]=workspace.Part},[3]=stringg};
+						_(args);
+						break;
+					end
+				end
+			end
+			function MeshResize(part, size)
+				local FlatIdent_18D84 = 0;
+				local args;
+				while true do
+					if (FlatIdent_18D84 == 0) then
+						args = {[1]="SyncMesh",[2]={[1]={Part=part,Scale=size}}};
+						_(args);
+						break;
+					end
+				end
+			end
+			FlatIdent_D076 = 4;
+		end
+		if (2 == FlatIdent_D076) then
+			function SetAnchor(boolean, part)
+				local FlatIdent_62271 = 0;
+				local args;
+				while true do
+					if (FlatIdent_62271 == 0) then
+						args = {[1]="SyncAnchor",[2]={[1]={Part=part,Anchored=boolean}}};
+						_(args);
+						break;
+					end
+				end
+			end
+			function CreatePart(cf)
+				local args = {[1]="CreatePart",[2]="Normal",[3]=cf,[4]=workspace};
+				_(args);
+			end
+			function Resize(part, size, cf)
+				local args = {[1]="SyncResize",[2]={[1]={Part=part,CFrame=cf,Size=size}}};
+				_(args);
+			end
+			function AddMesh(part)
+				local FlatIdent_7F9F4 = 0;
+				local args;
+				while true do
+					if (FlatIdent_7F9F4 == 0) then
+						args = {[1]="CreateMeshes",[2]={[1]={Part=part}}};
+						_(args);
+						break;
+					end
+				end
+			end
+			FlatIdent_D076 = 3;
+		end
+	end
+end});
+Tab:AddButton({Name="Russia",Callback=function()
+	local player = game.Players.LocalPlayer;
+	local char = player.Character;
+	local tool;
+	for i, v in player:GetDescendants() do
+		if (v.Name == "SyncAPI") then
+			tool = v.Parent;
+		end
+	end
+	for i, v in game.ReplicatedStorage:GetDescendants() do
+		if (v.Name == "SyncAPI") then
+			tool = v.Parent;
+		end
+	end
+	remote = tool.SyncAPI.ServerEndpoint;
+	function _(args)
+		remote:InvokeServer(unpack(args));
+	end
+	function SetCollision(part, boolean)
+		local FlatIdent_44ED1 = 0;
+		local args;
+		while true do
+			if (FlatIdent_44ED1 == 0) then
+				args = {[1]="SyncCollision",[2]={[1]={Part=part,CanCollide=boolean}}};
+				_(args);
+				break;
+			end
+		end
+	end
+	function SetAnchor(boolean, part)
+		local FlatIdent_8DA9B = 0;
+		local args;
+		while true do
+			if (FlatIdent_8DA9B == 0) then
+				args = {[1]="SyncAnchor",[2]={[1]={Part=part,Anchored=boolean}}};
+				_(args);
+				break;
+			end
+		end
+	end
+	function CreatePart(cf)
+		local args = {[1]="CreatePart",[2]="Normal",[3]=cf,[4]=workspace};
+		_(args);
+	end
+	function Resize(part, size, cf)
+		local FlatIdent_38DAC = 0;
+		local args;
+		while true do
+			if (0 == FlatIdent_38DAC) then
+				args = {[1]="SyncResize",[2]={[1]={Part=part,CFrame=cf,Size=size}}};
+				_(args);
+				break;
+			end
+		end
+	end
+	function AddMesh(part)
+		local FlatIdent_6F428 = 0;
+		local args;
+		while true do
+			if (FlatIdent_6F428 == 0) then
+				args = {[1]="CreateMeshes",[2]={[1]={Part=part}}};
+				_(args);
+				break;
+			end
+		end
+	end
+	function SetMesh(part, meshid)
+		local FlatIdent_52E0C = 0;
+		local args;
+		while true do
+			if (FlatIdent_52E0C == 0) then
+				args = {[1]="SyncMesh",[2]={[1]={Part=part,MeshId=("rbxassetid://" .. meshid)}}};
+				_(args);
+				break;
+			end
+		end
+	end
+	function SetTexture(part, texid)
+		local FlatIdent_69E54 = 0;
+		local args;
+		while true do
+			if (FlatIdent_69E54 == 0) then
+				args = {[1]="SyncMesh",[2]={[1]={Part=part,TextureId=("rbxassetid://" .. texid)}}};
+				_(args);
+				break;
+			end
+		end
+	end
+	function SetName(part, stringg)
+		local args = {[1]="SetName",[2]={[1]=workspace.Part},[3]=stringg};
+		_(args);
+	end
+	function MeshResize(part, size)
+		local FlatIdent_8B6ED = 0;
+		local args;
+		while true do
+			if (FlatIdent_8B6ED == 0) then
+				args = {[1]="SyncMesh",[2]={[1]={Part=part,Scale=size}}};
+				_(args);
+				break;
+			end
+		end
+	end
+	hrpcf = player.Character.HumanoidRootPart.CFrame;
+	while wait(0.5) do
+		local FlatIdent_1C13F = 0;
+		while true do
+			if (FlatIdent_1C13F == 3) then
+				cf = player.Character.HumanoidRootPart.CFrame.y + 400;
+				spawn(function()
+					local FlatIdent_6E9BC = 0;
+					while true do
+						if (FlatIdent_6E9BC == 0) then
+							CreatePart(CFrame.new(math.floor(xloc), math.random(cf, cf + 400), math.floor(zloc)));
+							for i, v in game.Workspace:GetDescendants() do
+								if ((v.Name == "Part") and (v.Parent == workspace) and (v.CFrame.x == math.floor(xloc)) and (v.CFrame.z == math.floor(zloc))) then
+									local FlatIdent_D448 = 0;
+									while true do
+										if (FlatIdent_D448 == 0) then
+											SetName(v, "b_1337");
+											SetAnchor(false, v);
+											FlatIdent_D448 = 1;
+										end
+										if (2 == FlatIdent_D448) then
+											MeshResize(v, Vector3.new(70, 70, 70));
+											SetMesh(v, "73022445614569");
+											FlatIdent_D448 = 3;
+										end
+										if (FlatIdent_D448 == 3) then
+											SetTexture(v, "97436150160554");
+											SetCollision(v, true);
+											break;
+										end
+										if (FlatIdent_D448 == 1) then
+											AddMesh(v);
+											Resize(v, Vector3.new(50, 50, 50), v.CFrame);
+											FlatIdent_D448 = 2;
+										end
+									end
+								else
+								end
+							end
+							break;
+						end
+					end
+				end);
+				break;
+			end
+			if (FlatIdent_1C13F == 1) then
+				randint = math.random(-650, 650);
+				randint2 = math.random(-650, 650);
+				FlatIdent_1C13F = 2;
+			end
+			if (FlatIdent_1C13F == 0) then
+				x = hrpcf.x;
+				z = hrpcf.z;
+				FlatIdent_1C13F = 1;
+			end
+			if (FlatIdent_1C13F == 2) then
+				xloc = randint + x;
+				zloc = randint2 + z;
+				FlatIdent_1C13F = 3;
+			end
+		end
+	end
+end});
+Tab:AddButton({Name="Jackpot",Callback=function()
+	local FlatIdent_18172 = 0;
+	local player;
+	local char;
+	local tool;
+	while true do
+		if (FlatIdent_18172 == 1) then
+			for i, v in game.ReplicatedStorage:GetDescendants() do
+				if (v.Name == "SyncAPI") then
+					tool = v.Parent;
+				end
+			end
+			remote = tool.SyncAPI.ServerEndpoint;
+			function _(args)
+				remote:InvokeServer(unpack(args));
+			end
+			function SetCollision(part, boolean)
+				local args = {[1]="SyncCollision",[2]={[1]={Part=part,CanCollide=boolean}}};
+				_(args);
+			end
+			FlatIdent_18172 = 2;
+		end
+		if (FlatIdent_18172 == 4) then
+			hrpcf = player.Character.HumanoidRootPart.CFrame;
+			while wait(0.5) do
+				local FlatIdent_373F8 = 0;
+				while true do
+					if (FlatIdent_373F8 == 3) then
+						cf = player.Character.HumanoidRootPart.CFrame.y + 400;
+						spawn(function()
+							local FlatIdent_56EE2 = 0;
+							while true do
+								if (FlatIdent_56EE2 == 0) then
+									CreatePart(CFrame.new(math.floor(xloc), math.random(cf, cf + 400), math.floor(zloc)));
+									for i, v in game.Workspace:GetDescendants() do
+										if ((v.Name == "Part") and (v.Parent == workspace) and (v.CFrame.x == math.floor(xloc)) and (v.CFrame.z == math.floor(zloc))) then
+											local FlatIdent_8C93D = 0;
+											while true do
+												if (FlatIdent_8C93D == 2) then
+													MeshResize(v, Vector3.new(60, 60, 60));
+													SetMesh(v, "121954609542428");
+													FlatIdent_8C93D = 3;
+												end
+												if (FlatIdent_8C93D == 1) then
+													AddMesh(v);
+													Resize(v, Vector3.new(50, 50, 50), v.CFrame);
+													FlatIdent_8C93D = 2;
+												end
+												if (FlatIdent_8C93D == 3) then
+													SetTexture(v, "90582987896067");
+													SetCollision(v, true);
+													break;
+												end
+												if (0 == FlatIdent_8C93D) then
+													SetName(v, "b_1337");
+													SetAnchor(false, v);
+													FlatIdent_8C93D = 1;
+												end
+											end
+										else
+										end
+									end
+									break;
+								end
+							end
+						end);
+						break;
+					end
+					if (FlatIdent_373F8 == 2) then
+						xloc = randint + x;
+						zloc = randint2 + z;
+						FlatIdent_373F8 = 3;
+					end
+					if (FlatIdent_373F8 == 1) then
+						randint = math.random(-650, 650);
+						randint2 = math.random(-650, 650);
+						FlatIdent_373F8 = 2;
+					end
+					if (FlatIdent_373F8 == 0) then
+						x = hrpcf.x;
+						z = hrpcf.z;
+						FlatIdent_373F8 = 1;
+					end
+				end
+			end
+			break;
+		end
+		if (FlatIdent_18172 == 0) then
+			player = game.Players.LocalPlayer;
+			char = player.Character;
+			tool = nil;
+			for i, v in player:GetDescendants() do
+				if (v.Name == "SyncAPI") then
+					tool = v.Parent;
+				end
+			end
+			FlatIdent_18172 = 1;
+		end
+		if (FlatIdent_18172 == 3) then
+			function SetMesh(part, meshid)
+				local FlatIdent_4087C = 0;
+				local args;
+				while true do
+					if (FlatIdent_4087C == 0) then
+						args = {[1]="SyncMesh",[2]={[1]={Part=part,MeshId=("rbxassetid://" .. meshid)}}};
+						_(args);
+						break;
+					end
+				end
+			end
+			function SetTexture(part, texid)
+				local FlatIdent_30F3D = 0;
+				local args;
+				while true do
+					if (FlatIdent_30F3D == 0) then
+						args = {[1]="SyncMesh",[2]={[1]={Part=part,TextureId=("rbxassetid://" .. texid)}}};
+						_(args);
+						break;
+					end
+				end
+			end
+			function SetName(part, stringg)
+				local args = {[1]="SetName",[2]={[1]=workspace.Part},[3]=stringg};
+				_(args);
+			end
+			function MeshResize(part, size)
+				local FlatIdent_66362 = 0;
+				local args;
+				while true do
+					if (FlatIdent_66362 == 0) then
+						args = {[1]="SyncMesh",[2]={[1]={Part=part,Scale=size}}};
+						_(args);
+						break;
+					end
+				end
+			end
+			FlatIdent_18172 = 4;
+		end
+		if (FlatIdent_18172 == 2) then
+			function SetAnchor(boolean, part)
+				local FlatIdent_94E30 = 0;
+				local args;
+				while true do
+					if (FlatIdent_94E30 == 0) then
+						args = {[1]="SyncAnchor",[2]={[1]={Part=part,Anchored=boolean}}};
+						_(args);
+						break;
+					end
+				end
+			end
+			function CreatePart(cf)
+				local FlatIdent_7F2A4 = 0;
+				local args;
+				while true do
+					if (FlatIdent_7F2A4 == 0) then
+						args = {[1]="CreatePart",[2]="Normal",[3]=cf,[4]=workspace};
+						_(args);
+						break;
+					end
+				end
+			end
+			function Resize(part, size, cf)
+				local FlatIdent_47DDA = 0;
+				local args;
+				while true do
+					if (0 == FlatIdent_47DDA) then
+						args = {[1]="SyncResize",[2]={[1]={Part=part,CFrame=cf,Size=size}}};
+						_(args);
+						break;
+					end
+				end
+			end
+			function AddMesh(part)
+				local args = {[1]="CreateMeshes",[2]={[1]={Part=part}}};
+				_(args);
+			end
+			FlatIdent_18172 = 3;
+		end
+	end
+end});
+Tab:AddButton({Name="Sparxie",Callback=function()
+	local FlatIdent_8671A = 0;
+	local player;
+	local char;
+	local tool;
+	while true do
+		if (FlatIdent_8671A == 1) then
+			for i, v in player:GetDescendants() do
+				if (v.Name == "SyncAPI") then
+					tool = v.Parent;
+				end
+			end
+			for i, v in game.ReplicatedStorage:GetDescendants() do
+				if (v.Name == "SyncAPI") then
+					tool = v.Parent;
+				end
+			end
+			remote = tool.SyncAPI.ServerEndpoint;
+			FlatIdent_8671A = 2;
+		end
+		if (FlatIdent_8671A == 5) then
+			function MeshResize(part, size)
+				local FlatIdent_94DD1 = 0;
+				local args;
+				while true do
+					if (FlatIdent_94DD1 == 0) then
+						args = {[1]="SyncMesh",[2]={[1]={Part=part,Scale=size}}};
+						_(args);
+						break;
+					end
+				end
+			end
+			hrpcf = player.Character.HumanoidRootPart.CFrame;
+			while wait(0.5) do
+				local FlatIdent_35814 = 0;
+				while true do
+					if (FlatIdent_35814 == 2) then
+						xloc = randint + x;
+						zloc = randint2 + z;
+						FlatIdent_35814 = 3;
+					end
+					if (FlatIdent_35814 == 1) then
+						randint = math.random(-650, 650);
+						randint2 = math.random(-650, 650);
+						FlatIdent_35814 = 2;
+					end
+					if (FlatIdent_35814 == 0) then
+						x = hrpcf.x;
+						z = hrpcf.z;
+						FlatIdent_35814 = 1;
+					end
+					if (FlatIdent_35814 == 3) then
+						cf = player.Character.HumanoidRootPart.CFrame.y + 400;
+						spawn(function()
+							CreatePart(CFrame.new(math.floor(xloc), math.random(cf, cf + 400), math.floor(zloc)));
+							for i, v in game.Workspace:GetDescendants() do
+								if ((v.Name == "Part") and (v.Parent == workspace) and (v.CFrame.x == math.floor(xloc)) and (v.CFrame.z == math.floor(zloc))) then
+									local FlatIdent_773DC = 0;
+									while true do
+										if (FlatIdent_773DC == 0) then
+											SetName(v, "b_1337");
+											SetAnchor(false, v);
+											FlatIdent_773DC = 1;
+										end
+										if (FlatIdent_773DC == 2) then
+											MeshResize(v, Vector3.new(150, 150, 150));
+											SetMesh(v, "139544488333545");
+											FlatIdent_773DC = 3;
+										end
+										if (FlatIdent_773DC == 1) then
+											AddMesh(v);
+											Resize(v, Vector3.new(50, 50, 50), v.CFrame);
+											FlatIdent_773DC = 2;
+										end
+										if (FlatIdent_773DC == 3) then
+											SetTexture(v, "81656504385110");
+											SetCollision(v, true);
+											break;
+										end
+									end
+								else
+								end
+							end
+						end);
+						break;
+					end
+				end
+			end
+			break;
+		end
+		if (FlatIdent_8671A == 4) then
+			function SetMesh(part, meshid)
+				local FlatIdent_45054 = 0;
+				local args;
+				while true do
+					if (FlatIdent_45054 == 0) then
+						args = {[1]="SyncMesh",[2]={[1]={Part=part,MeshId=("rbxassetid://" .. meshid)}}};
+						_(args);
+						break;
+					end
+				end
+			end
+			function SetTexture(part, texid)
+				local args = {[1]="SyncMesh",[2]={[1]={Part=part,TextureId=("rbxassetid://" .. texid)}}};
+				_(args);
+			end
+			function SetName(part, stringg)
+				local args = {[1]="SetName",[2]={[1]=workspace.Part},[3]=stringg};
+				_(args);
+			end
+			FlatIdent_8671A = 5;
+		end
+		if (FlatIdent_8671A == 0) then
+			player = game.Players.LocalPlayer;
+			char = player.Character;
+			tool = nil;
+			FlatIdent_8671A = 1;
+		end
+		if (FlatIdent_8671A == 2) then
+			function _(args)
+				remote:InvokeServer(unpack(args));
+			end
+			function SetCollision(part, boolean)
+				local FlatIdent_79739 = 0;
+				local args;
+				while true do
+					if (FlatIdent_79739 == 0) then
+						args = {[1]="SyncCollision",[2]={[1]={Part=part,CanCollide=boolean}}};
+						_(args);
+						break;
+					end
+				end
+			end
+			function SetAnchor(boolean, part)
+				local args = {[1]="SyncAnchor",[2]={[1]={Part=part,Anchored=boolean}}};
+				_(args);
+			end
+			FlatIdent_8671A = 3;
+		end
+		if (FlatIdent_8671A == 3) then
+			function CreatePart(cf)
+				local FlatIdent_12479 = 0;
+				local args;
+				while true do
+					if (FlatIdent_12479 == 0) then
+						args = {[1]="CreatePart",[2]="Normal",[3]=cf,[4]=workspace};
+						_(args);
+						break;
+					end
+				end
+			end
+			function Resize(part, size, cf)
+				local args = {[1]="SyncResize",[2]={[1]={Part=part,CFrame=cf,Size=size}}};
+				_(args);
+			end
+			function AddMesh(part)
+				local args = {[1]="CreateMeshes",[2]={[1]={Part=part}}};
+				_(args);
+			end
+			FlatIdent_8671A = 4;
+		end
+	end
+end});
+Tab:AddButton({Name="Evernight",Callback=function()
+	local player = game.Players.LocalPlayer;
+	local char = player.Character;
+	local tool;
+	for i, v in player:GetDescendants() do
+		if (v.Name == "SyncAPI") then
+			tool = v.Parent;
+		end
+	end
+	for i, v in game.ReplicatedStorage:GetDescendants() do
+		if (v.Name == "SyncAPI") then
+			tool = v.Parent;
+		end
+	end
+	remote = tool.SyncAPI.ServerEndpoint;
+	function _(args)
+		remote:InvokeServer(unpack(args));
+	end
+	function SetCollision(part, boolean)
+		local FlatIdent_69785 = 0;
+		local args;
+		while true do
+			if (0 == FlatIdent_69785) then
+				args = {[1]="SyncCollision",[2]={[1]={Part=part,CanCollide=boolean}}};
+				_(args);
+				break;
+			end
+		end
+	end
+	function SetAnchor(boolean, part)
+		local args = {[1]="SyncAnchor",[2]={[1]={Part=part,Anchored=boolean}}};
+		_(args);
+	end
+	function CreatePart(cf)
+		local args = {[1]="CreatePart",[2]="Normal",[3]=cf,[4]=workspace};
+		_(args);
+	end
+	function Resize(part, size, cf)
+		local args = {[1]="SyncResize",[2]={[1]={Part=part,CFrame=cf,Size=size}}};
+		_(args);
+	end
+	function AddMesh(part)
+		local FlatIdent_2BB2A = 0;
+		local args;
+		while true do
+			if (FlatIdent_2BB2A == 0) then
+				args = {[1]="CreateMeshes",[2]={[1]={Part=part}}};
+				_(args);
+				break;
+			end
+		end
+	end
+	function SetMesh(part, meshid)
+		local FlatIdent_24439 = 0;
+		local args;
+		while true do
+			if (FlatIdent_24439 == 0) then
+				args = {[1]="SyncMesh",[2]={[1]={Part=part,MeshId=("rbxassetid://" .. meshid)}}};
+				_(args);
+				break;
+			end
+		end
+	end
+	function SetTexture(part, texid)
+		local FlatIdent_2D5DD = 0;
+		local args;
+		while true do
+			if (FlatIdent_2D5DD == 0) then
+				args = {[1]="SyncMesh",[2]={[1]={Part=part,TextureId=("rbxassetid://" .. texid)}}};
+				_(args);
+				break;
+			end
+		end
+	end
+	function SetName(part, stringg)
+		local FlatIdent_243D2 = 0;
+		local args;
+		while true do
+			if (FlatIdent_243D2 == 0) then
+				args = {[1]="SetName",[2]={[1]=workspace.Part},[3]=stringg};
+				_(args);
+				break;
+			end
+		end
+	end
+	function MeshResize(part, size)
+		local FlatIdent_3AA8C = 0;
+		local args;
+		while true do
+			if (FlatIdent_3AA8C == 0) then
+				args = {[1]="SyncMesh",[2]={[1]={Part=part,Scale=size}}};
+				_(args);
+				break;
+			end
+		end
+	end
+	hrpcf = player.Character.HumanoidRootPart.CFrame;
+	while wait(0.5) do
+		x = hrpcf.x;
+		z = hrpcf.z;
+		randint = math.random(-650, 650);
+		randint2 = math.random(-650, 650);
+		xloc = randint + x;
+		zloc = randint2 + z;
+		cf = player.Character.HumanoidRootPart.CFrame.y + 400;
+		spawn(function()
+			local FlatIdent_951F1 = 0;
+			while true do
+				if (FlatIdent_951F1 == 0) then
+					CreatePart(CFrame.new(math.floor(xloc), math.random(cf, cf + 400), math.floor(zloc)));
+					for i, v in game.Workspace:GetDescendants() do
+						if ((v.Name == "Part") and (v.Parent == workspace) and (v.CFrame.x == math.floor(xloc)) and (v.CFrame.z == math.floor(zloc))) then
+							local FlatIdent_57893 = 0;
+							while true do
+								if (FlatIdent_57893 == 0) then
+									SetName(v, "b_1337");
+									SetAnchor(false, v);
+									FlatIdent_57893 = 1;
+								end
+								if (FlatIdent_57893 == 2) then
+									MeshResize(v, Vector3.new(150, 150, 150));
+									SetMesh(v, "113641557833030");
+									FlatIdent_57893 = 3;
+								end
+								if (FlatIdent_57893 == 1) then
+									AddMesh(v);
+									Resize(v, Vector3.new(50, 50, 50), v.CFrame);
+									FlatIdent_57893 = 2;
+								end
+								if (FlatIdent_57893 == 3) then
+									SetTexture(v, "74316456894400");
+									SetCollision(v, true);
+									break;
+								end
+							end
+						else
+						end
+					end
+					break;
+				end
+			end
+		end);
+	end
+end});
+Tab:AddButton({Name="Obama",Callback=function()
+	local player = game.Players.LocalPlayer;
+	local char = player.Character;
+	local tool;
+	for i, v in player:GetDescendants() do
+		if (v.Name == "SyncAPI") then
+			tool = v.Parent;
+		end
+	end
+	for i, v in game.ReplicatedStorage:GetDescendants() do
+		if (v.Name == "SyncAPI") then
+			tool = v.Parent;
+		end
+	end
+	remote = tool.SyncAPI.ServerEndpoint;
+	function _(args)
+		remote:InvokeServer(unpack(args));
+	end
+	function SetCollision(part, boolean)
+		local FlatIdent_2D245 = 0;
+		local args;
+		while true do
+			if (0 == FlatIdent_2D245) then
+				args = {[1]="SyncCollision",[2]={[1]={Part=part,CanCollide=boolean}}};
+				_(args);
+				break;
+			end
+		end
+	end
+	function SetAnchor(boolean, part)
+		local args = {[1]="SyncAnchor",[2]={[1]={Part=part,Anchored=boolean}}};
+		_(args);
+	end
+	function CreatePart(cf)
+		local args = {[1]="CreatePart",[2]="Normal",[3]=cf,[4]=workspace};
+		_(args);
+	end
+	function Resize(part, size, cf)
+		local args = {[1]="SyncResize",[2]={[1]={Part=part,CFrame=cf,Size=size}}};
+		_(args);
+	end
+	function AddMesh(part)
+		local args = {[1]="CreateMeshes",[2]={[1]={Part=part}}};
+		_(args);
+	end
+	function SetMesh(part, meshid)
+		local FlatIdent_90135 = 0;
+		local args;
+		while true do
+			if (FlatIdent_90135 == 0) then
+				args = {[1]="SyncMesh",[2]={[1]={Part=part,MeshId=("rbxassetid://" .. meshid)}}};
+				_(args);
+				break;
+			end
+		end
+	end
+	function SetTexture(part, texid)
+		local FlatIdent_92C97 = 0;
+		local args;
+		while true do
+			if (FlatIdent_92C97 == 0) then
+				args = {[1]="SyncMesh",[2]={[1]={Part=part,TextureId=("rbxassetid://" .. texid)}}};
+				_(args);
+				break;
+			end
+		end
+	end
+	function SetName(part, stringg)
+		local FlatIdent_67777 = 0;
+		local args;
+		while true do
+			if (0 == FlatIdent_67777) then
+				args = {[1]="SetName",[2]={[1]=workspace.Part},[3]=stringg};
+				_(args);
+				break;
+			end
+		end
+	end
+	function MeshResize(part, size)
+		local args = {[1]="SyncMesh",[2]={[1]={Part=part,Scale=size}}};
+		_(args);
+	end
+	hrpcf = player.Character.HumanoidRootPart.CFrame;
+	while wait(0.5) do
+		local FlatIdent_20476 = 0;
+		while true do
+			if (FlatIdent_20476 == 0) then
+				x = hrpcf.x;
+				z = hrpcf.z;
+				FlatIdent_20476 = 1;
+			end
+			if (FlatIdent_20476 == 2) then
+				xloc = randint + x;
+				zloc = randint2 + z;
+				FlatIdent_20476 = 3;
+			end
+			if (FlatIdent_20476 == 3) then
+				cf = player.Character.HumanoidRootPart.CFrame.y + 400;
+				spawn(function()
+					local FlatIdent_1FD4 = 0;
+					while true do
+						if (FlatIdent_1FD4 == 0) then
+							CreatePart(CFrame.new(math.floor(xloc), math.random(cf, cf + 400), math.floor(zloc)));
+							for i, v in game.Workspace:GetDescendants() do
+								if ((v.Name == "Part") and (v.Parent == workspace) and (v.CFrame.x == math.floor(xloc)) and (v.CFrame.z == math.floor(zloc))) then
+									local FlatIdent_7B8B1 = 0;
+									while true do
+										if (FlatIdent_7B8B1 == 1) then
+											AddMesh(v);
+											Resize(v, Vector3.new(50, 50, 50), v.CFrame);
+											FlatIdent_7B8B1 = 2;
+										end
+										if (3 == FlatIdent_7B8B1) then
+											SetTexture(v, "138142518090299");
+											SetCollision(v, true);
+											break;
+										end
+										if (FlatIdent_7B8B1 == 0) then
+											SetName(v, "b_1337");
+											SetAnchor(false, v);
+											FlatIdent_7B8B1 = 1;
+										end
+										if (FlatIdent_7B8B1 == 2) then
+											MeshResize(v, Vector3.new(100, 100, 100));
+											SetMesh(v, "77127821501929");
+											FlatIdent_7B8B1 = 3;
+										end
+									end
+								else
+								end
+							end
+							break;
+						end
+					end
+				end);
+				break;
+			end
+			if (FlatIdent_20476 == 1) then
+				randint = math.random(-650, 650);
+				randint2 = math.random(-650, 650);
+				FlatIdent_20476 = 2;
+			end
+		end
+	end
+end});
+local Tab = Window:MakeTab({Name="Grief",Icon="rbxassetid://4483345998",PremiumOnly=false});
+Tab:AddButton({Name="Unchor all",Callback=function()
+	local player = game.Players.LocalPlayer;
+	local char = player.Character;
+	local tool;
+	for i, v in player:GetDescendants() do
+		if (v.Name == "SyncAPI") then
+			tool = v.Parent;
+		end
+	end
+	for i, v in game.ReplicatedStorage:GetDescendants() do
+		if (v.Name == "SyncAPI") then
+			tool = v.Parent;
+		end
+	end
+	remote = tool.SyncAPI.ServerEndpoint;
+	function _(args)
+		remote:InvokeServer(unpack(args));
+	end
+	function SetAnchor(boolean, part)
+		local FlatIdent_97786 = 0;
+		local args;
+		while true do
+			if (FlatIdent_97786 == 0) then
+				args = {[1]="SyncAnchor",[2]={[1]={Part=part,Anchored=boolean}}};
+				_(args);
+				break;
+			end
+		end
+	end
+	function SetLocked(part, boolean)
+		local FlatIdent_2876F = 0;
+		local args;
+		while true do
+			if (FlatIdent_2876F == 0) then
+				args = {[1]="SetLocked",[2]={[1]=part},[3]=boolean};
+				_(args);
+				break;
+			end
+		end
+	end
+	function Unanchor()
+		for i, v in game.Workspace:GetDescendants() do
+			spawn(function()
+				local FlatIdent_48EC5 = 0;
+				while true do
+					if (FlatIdent_48EC5 == 0) then
+						SetLocked(v, false);
+						SetAnchor(false, v);
+						break;
+					end
+				end
+			end);
+		end
+	end
+	Unanchor();
+end});
+Tab:AddButton({Name="Atomic mesh all",Callback=function()
+	local FlatIdent_4BBF = 0;
+	local player;
+	local char;
+	local character;
+	local tool;
+	while true do
+		if (FlatIdent_4BBF == 1) then
+			for i, v in player:GetDescendants() do
+				if (v.Name == "SyncAPI") then
+					tool = v.Parent;
+				end
+			end
+			for i, v in game.ReplicatedStorage:GetDescendants() do
+				if (v.Name == "SyncAPI") then
+					tool = v.Parent;
+				end
+			end
+			remote = tool.SyncAPI.ServerEndpoint;
+			function _(args)
+				remote:InvokeServer(unpack(args));
+			end
+			FlatIdent_4BBF = 2;
+		end
+		if (FlatIdent_4BBF == 0) then
+			player = game.Players.LocalPlayer;
+			char = player.Character;
+			character = workspace:FindFirstChild(player.Name);
+			tool = nil;
+			FlatIdent_4BBF = 1;
+		end
+		if (3 == FlatIdent_4BBF) then
+			crash();
+			break;
+		end
+		if (FlatIdent_4BBF == 2) then
+			function AddMesh(part)
+				local args = {[1]="CreateMeshes",[2]={[1]={Part=part}}};
+				_(args);
+			end
+			function SetMesh(part, meshid)
+				local FlatIdent_49492 = 0;
+				local args;
+				while true do
+					if (FlatIdent_49492 == 0) then
+						args = {[1]="SyncMesh",[2]={[1]={Part=part,MeshId=("rbxassetid://" .. meshid)}}};
+						_(args);
+						break;
+					end
+				end
+			end
+			function MeshResize(part, size)
+				local FlatIdent_41403 = 0;
+				local args;
+				while true do
+					if (FlatIdent_41403 == 0) then
+						args = {[1]="SyncMesh",[2]={[1]={Part=part,Scale=size}}};
+						_(args);
+						break;
+					end
+				end
+			end
+			function crash()
+				for i, v in game.workspace:GetDescendants() do
+					if v:IsA("BasePart") then
+						spawn(function()
+							local FlatIdent_437F5 = 0;
+							local player;
+							local character;
+							local humanoid;
+							while true do
+								if (FlatIdent_437F5 == 1) then
+									MeshResize(v, Vector3.new(5, 5, 5));
+									task.wait(0.1);
+									FlatIdent_437F5 = 2;
+								end
+								if (FlatIdent_437F5 == 2) then
+									player = game.Players.LocalPlayer;
+									character = player.Character or player.CharacterAdded:Wait();
+									FlatIdent_437F5 = 3;
+								end
+								if (FlatIdent_437F5 == 0) then
+									AddMesh(v);
+									SetMesh(v, 12902786354);
+									FlatIdent_437F5 = 1;
+								end
+								if (FlatIdent_437F5 == 3) then
+									humanoid = character:WaitForChild("Humanoid");
+									SetMesh(humanoid, 1);
+									break;
+								end
+							end
+						end);
+					end
+				end
+			end
+			FlatIdent_4BBF = 3;
+		end
+	end
+end});
+Tab:AddButton({Name="Restore All Meshes",Callback=function()
+	local FlatIdent_4FF01 = 0;
+	local player;
+	local tool;
+	local remote;
+	local Invoke;
+	local RemoveMesh;
+	local count;
+	while true do
+		if (FlatIdent_4FF01 == 3) then
+			OrionLib:MakeNotification({Name="F3X",Content=("Meshes Restored : " .. count),Time=5});
+			break;
+		end
+		if (FlatIdent_4FF01 == 1) then
+			if not tool then
+				local FlatIdent_77E28 = 0;
+				while true do
+					if (FlatIdent_77E28 == 0) then
+						OrionLib:MakeNotification({Name="Error",Content="you need btools bro",Time=3});
+						return;
+					end
+				end
+			end
+			remote = tool.SyncAPI.ServerEndpoint;
+			Invoke = nil;
+			function Invoke(args)
+				remote:InvokeServer(unpack(args));
+			end
+			FlatIdent_4FF01 = 2;
+		end
+		if (0 == FlatIdent_4FF01) then
+			player = game.Players.LocalPlayer;
+			tool = nil;
+			for _, v in pairs(player:GetDescendants()) do
+				if (v.Name == "SyncAPI") then
+					tool = v.Parent;
+				end
+			end
+			for _, v in pairs(game.ReplicatedStorage:GetDescendants()) do
+				if (v.Name == "SyncAPI") then
+					tool = v.Parent;
+				end
+			end
+			FlatIdent_4FF01 = 1;
+		end
+		if (FlatIdent_4FF01 == 2) then
+			RemoveMesh = nil;
+			function RemoveMesh(part)
+				for _, mesh in pairs(part:GetChildren()) do
+					if mesh:IsA("SpecialMesh") then
+						local FlatIdent_6E2DE = 0;
+						local args;
+						while true do
+							if (FlatIdent_6E2DE == 0) then
+								args = {[1]="Remove",[2]={[1]=mesh}};
+								Invoke(args);
+								break;
+							end
+						end
+					end
+				end
+				if part:IsA("MeshPart") then
+					local args = {[1]="SyncMesh",[2]={[1]={Part=part,MeshId=""}}};
+					Invoke(args);
+				end
+			end
+			count = 0;
+			for _, v in pairs(workspace:GetDescendants()) do
+				if v:IsA("BasePart") then
+					local FlatIdent_17A1A = 0;
+					while true do
+						if (FlatIdent_17A1A == 0) then
+							spawn(function()
+								pcall(function()
+									RemoveMesh(v);
+								end);
+							end);
+							count += 1
+							break;
+						end
+					end
+				end
+			end
+			FlatIdent_4FF01 = 3;
+		end
+	end
+end});
+local TARGET_MESH_ID = "12902786354";
+local Enabled = false;
+local DescendantConnection;
+local ChangedConnections = {};
+local function DisconnectMeshConnection(obj)
+	if ChangedConnections[obj] then
+		local FlatIdent_2B679 = 0;
+		while true do
+			if (FlatIdent_2B679 == 0) then
+				ChangedConnections[obj]:Disconnect();
+				ChangedConnections[obj] = nil;
+				break;
+			end
+		end
+	end
+end
+local function RemoveMesh(obj)
+	local FlatIdent_8417D = 0;
+	while true do
+		if (FlatIdent_8417D == 0) then
+			if not Enabled then
+				return;
+			end
+			if obj:IsA("MeshPart") then
+				local FlatIdent_92F29 = 0;
+				local ok;
+				local meshId;
+				while true do
+					if (FlatIdent_92F29 == 0) then
+						ok, meshId = pcall(function()
+							return tostring(obj.MeshId);
+						end);
+						if (ok and meshId:find(TARGET_MESH_ID, 1, true)) then
+							local FlatIdent_74B31 = 0;
+							while true do
+								if (FlatIdent_74B31 == 0) then
+									DisconnectMeshConnection(obj);
+									obj:Destroy();
+									break;
+								end
+							end
+						end
+						break;
+					end
+				end
+			elseif obj:IsA("SpecialMesh") then
+				local FlatIdent_318CD = 0;
+				local meshId;
+				while true do
+					if (FlatIdent_318CD == 0) then
+						meshId = tostring(obj.MeshId);
+						if meshId:find(TARGET_MESH_ID, 1, true) then
+							local FlatIdent_3B32 = 0;
+							while true do
+								if (0 == FlatIdent_3B32) then
+									DisconnectMeshConnection(obj);
+									if obj.Parent then
+										obj.Parent:Destroy();
+									else
+										obj:Destroy();
+									end
+									break;
+								end
+							end
+						end
+						break;
+					end
+				end
+			end
+			break;
+		end
+	end
+end
+local function WatchObject(obj)
+	local FlatIdent_382D5 = 0;
+	while true do
+		if (FlatIdent_382D5 == 1) then
+			if (obj:IsA("MeshPart") or obj:IsA("SpecialMesh")) then
+				DisconnectMeshConnection(obj);
+				ChangedConnections[obj] = obj:GetPropertyChangedSignal("MeshId"):Connect(function()
+					RemoveMesh(obj);
+				end);
+				obj.Destroying:Connect(function()
+					DisconnectMeshConnection(obj);
+				end);
+			end
+			break;
+		end
+		if (FlatIdent_382D5 == 0) then
+			if not Enabled then
+				return;
+			end
+			RemoveMesh(obj);
+			FlatIdent_382D5 = 1;
+		end
+	end
+end
+Tab:AddToggle({Name="Anti Atomic Mesh V2",Default=false,Callback=function(Value)
+	local FlatIdent_74083 = 0;
+	while true do
+		if (FlatIdent_74083 == 0) then
+			Enabled = Value;
+			if Value then
+				for _, obj in ipairs(workspace:GetDescendants()) do
+					WatchObject(obj);
+				end
+				if DescendantConnection then
+					DescendantConnection:Disconnect();
+				end
+				DescendantConnection = workspace.DescendantAdded:Connect(WatchObject);
+			else
+				local FlatIdent_4ED6B = 0;
+				while true do
+					if (FlatIdent_4ED6B == 1) then
+						table.clear(ChangedConnections);
+						break;
+					end
+					if (FlatIdent_4ED6B == 0) then
+						if DescendantConnection then
+							local FlatIdent_17BD = 0;
+							while true do
+								if (FlatIdent_17BD == 0) then
+									DescendantConnection:Disconnect();
+									DescendantConnection = nil;
+									break;
+								end
+							end
+						end
+						for obj, conn in pairs(ChangedConnections) do
+							if conn then
+								conn:Disconnect();
+							end
+						end
+						FlatIdent_4ED6B = 1;
+					end
+				end
+			end
+			break;
+		end
+	end
+end});
+getgenv().AutoDeletePads = false;
+Tab:AddToggle({Name="Auto Delete Admin Pads",Default=false,Callback=function(Value)
+	getgenv().AutoDeletePads = Value;
+	if Value then
+		task.spawn(function()
+			local player = game.Players.LocalPlayer;
+			local tool;
+			for _, v in ipairs(player:GetDescendants()) do
+				if (v.Name == "SyncAPI") then
+					tool = v.Parent;
+					break;
+				end
+			end
+			if not tool then
+				for _, v in ipairs(game.ReplicatedStorage:GetDescendants()) do
+					if (v.Name == "SyncAPI") then
+						tool = v.Parent;
+						break;
+					end
+				end
+			end
+			if not tool then
+				local FlatIdent_4E395 = 0;
+				while true do
+					if (FlatIdent_4E395 == 1) then
+						return;
+					end
+					if (0 == FlatIdent_4E395) then
+						OrionLib:MakeNotification({Name="Error",Content="u need btools",Time=3});
+						getgenv().AutoDeletePads = false;
+						FlatIdent_4E395 = 1;
+					end
+				end
+			end
+			local remote = tool.SyncAPI.ServerEndpoint;
+			local function Invoke(args)
+				return remote:InvokeServer(unpack(args));
+			end
+			local function DestroyPart(part)
+				if part then
+					Invoke({[1]="Remove",[2]={part}});
+				end
+			end
+			while getgenv().AutoDeletePads do
+				local adminPad = workspace:FindFirstChild("adminobby") and workspace.adminobby:FindFirstChild("pad");
+				if adminPad then
+					DestroyPart(adminPad);
+				end
+				for _, obj in ipairs(workspace:GetDescendants()) do
+					if (obj.Name == "WrenchObjs") then
+						for _, v in ipairs(obj:GetChildren()) do
+							if (v.Name == "pad") then
+								DestroyPart(v);
+							end
+						end
+					end
+				end
+				task.wait(1);
+			end
+		end);
+	end
+end});
+Tab:AddButton({Name="Rotate all",Callback=function()
+	local FlatIdent_73680 = 0;
+	local player;
+	local tool;
+	local remote;
+	local Invoke;
+	local MovePart;
+	local SetLocked;
+	while true do
+		if (3 == FlatIdent_73680) then
+			for _, v in ipairs(workspace:GetDescendants()) do
+				if v:IsA("BasePart") then
+					task.spawn(function()
+						local FlatIdent_1A02A = 0;
+						while true do
+							if (FlatIdent_1A02A == 0) then
+								SetLocked(v, false);
+								MovePart(v, v.CFrame * CFrame.Angles(math.random(0, 1), math.random(0, 1), math.random(0, 1)));
+								break;
+							end
+						end
+					end);
+				end
+			end
+			break;
+		end
+		if (FlatIdent_73680 == 2) then
+			MovePart = nil;
+			function MovePart(part, cf)
+				Invoke({[1]="SyncMove",[2]={{Part=part,CFrame=cf}}});
+			end
+			SetLocked = nil;
+			function SetLocked(part, locked)
+				Invoke({[1]="SetLocked",[2]={part},[3]=locked});
+			end
+			FlatIdent_73680 = 3;
+		end
+		if (0 == FlatIdent_73680) then
+			player = game.Players.LocalPlayer;
+			tool = nil;
+			for _, v in ipairs(player:GetDescendants()) do
+				if (v.Name == "SyncAPI") then
+					tool = v.Parent;
+					break;
+				end
+			end
+			if not tool then
+				for _, v in ipairs(game.ReplicatedStorage:GetDescendants()) do
+					if (v.Name == "SyncAPI") then
+						tool = v.Parent;
+						break;
+					end
+				end
+			end
+			FlatIdent_73680 = 1;
+		end
+		if (FlatIdent_73680 == 1) then
+			if not tool then
+				local FlatIdent_71818 = 0;
+				while true do
+					if (FlatIdent_71818 == 0) then
+						warn("SyncAPI not found!");
+						return;
+					end
+				end
+			end
+			remote = tool.SyncAPI.ServerEndpoint;
+			Invoke = nil;
+			function Invoke(args)
+				remote:InvokeServer(unpack(args));
+			end
+			FlatIdent_73680 = 2;
+		end
+	end
+end});
+local Tab = Window:MakeTab({Name="Gear",Icon="rbxassetid://4483345998",PremiumOnly=false});
+Tab:AddToggle({Name="Get Boombox - <font color='#00FFFF'>Mod+</font>",Default=false,Callback=function(Value)
+	local FlatIdent_84FA = 0;
+	while true do
+		if (0 == FlatIdent_84FA) then
+			lol = Value;
+			while lol do
+				local FlatIdent_8DFD2 = 0;
+				while true do
+					if (FlatIdent_8DFD2 == 0) then
+						wait(1);
+						game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(";gear me 212641536");
+						break;
+					end
+				end
+			end
+			break;
+		end
+	end
+end});
